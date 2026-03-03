@@ -12,7 +12,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = Student::all();
+        return view('admin.student', compact('students'));
     }
 
     /**
@@ -28,7 +29,8 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Student::create($request->all());
+        return back();
     }
 
     /**
@@ -44,7 +46,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('admin.edit', compact('student'));
     }
 
     /**
@@ -52,7 +54,8 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $student->update($request->all());
+        return redirect('/student');
     }
 
     /**
@@ -60,6 +63,7 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $student->delete();
+        return back();
     }
 }
