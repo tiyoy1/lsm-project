@@ -12,7 +12,8 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        //
+        $registration = Registration::all();
+        return view('registration.registration', compact('registration'));
     }
 
     /**
@@ -28,7 +29,8 @@ class RegistrationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Registration::create($request->all());
+        return back();
     }
 
     /**

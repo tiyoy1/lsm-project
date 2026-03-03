@@ -13,7 +13,7 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::all();
-        return view('admin.student', compact('students'));
+        return view('admin.student.student', compact('students'));
     }
 
     /**
@@ -46,7 +46,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        return view('admin.edit', compact('student'));
+        return view('admin.student.edit', compact('student'));
     }
 
     /**
@@ -55,7 +55,7 @@ class StudentController extends Controller
     public function update(Request $request, Student $student)
     {
         $student->update($request->all());
-        return redirect('/student');
+        return redirect()->route('student.index');
     }
 
     /**

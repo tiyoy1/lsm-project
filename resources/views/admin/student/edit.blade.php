@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Edit Student Page</h1>
-    <form action="/student/{{ $student->id }}" method="POST">
+    <form action="/admin/student/{{ $student->id }}" method="POST">
         @csrf
         @method('PUT')
         <label for="">Full Name</label>
