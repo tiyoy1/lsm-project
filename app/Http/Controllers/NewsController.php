@@ -5,10 +5,69 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
 use App\Models\News;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
+    private function visibleNewsQuery(): Builder
+    {
+        $published = News::query()
+            ->whereNotNull('published_at')
+            ->where('published_at', '<=', now());
+
+        if ($published->exists()) {
+            return News::with('author')
+                ->whereNotNull('published_at')
+                ->where('published_at', '<=', now());
+        }
+
+        return News::with('author');
+    }
+
+    public function publicIndex(Request $request)
+    {
+        $search = trim((string) $request->query('q', ''));
+        $newsQuery = $this->visibleNewsQuery();
+
+        if ($search !== '') {
+            $newsQuery->where(function (Builder $query) use ($search) {
+                $query->where('title', 'like', '%' . $search . '%')
+                    ->orWhere('content', 'like', '%' . $search . '%');
+            });
+        }
+
+        $news = $newsQuery
+            ->orderByDesc('published_at')
+            ->orderByDesc('id')
+            ->paginate(9)
+            ->withQueryString();
+
+        return view('news.index', compact('news', 'search'));
+    }
+
+    public function publicShow(News $news)
+    {
+        $isPublished = !is_null($news->published_at) && $news->published_at->lte(now());
+        $hasPublishedNews = News::query()
+            ->whereNotNull('published_at')
+            ->where('published_at', '<=', now())
+            ->exists();
+
+        if ($hasPublishedNews && !$isPublished) {
+            abort(404);
+        }
+
+        $sidebarNews = $this->visibleNewsQuery()
+            ->orderByDesc('published_at')
+            ->orderByDesc('id')
+            ->take(6)
+            ->get();
+
+        return view('news.show', compact('news', 'sidebarNews'));
+    }
+
     /**
      * Display a listing of the resource.
      */

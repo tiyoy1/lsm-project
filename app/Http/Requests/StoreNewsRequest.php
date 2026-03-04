@@ -22,10 +22,12 @@ class StoreNewsRequest extends FormRequest
     public function rules(): array
     {
         return [
-        'title' => 'required|string|max:255',
-        'content' => 'required|string',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // 2MB max
-        'published_at' => 'nullable|date',
-    ];
+            'title' => 'required|string|max:255',
+            'title_en' => 'nullable|string|max:255',
+            'content' => 'required|string',
+            'content_en' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'published_at' => 'nullable|date',
+        ];
     }
 }

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,14 +24,14 @@
             <img src="{{ asset("img/logo.webp") }}" alt="" class="logo-img">SMK     METLAND
         </div>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#about-smk">School Profile</a></li>
-            <li><a href="#majors-smk">Majors</a></li>
-            <li><a href="#organization-section">Organization</a></li>
-            <li><a href="#">Alumni</a></li>
-            <li><a href="#news-section">News</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Student Work</a></li>
+            <li><a href="#">{{ __('ui.nav.home') }}</a></li>
+            <li><a href="#about-smk">{{ __('ui.nav.school_profile') }}</a></li>
+            <li><a href="#majors-smk">{{ __('ui.nav.majors') }}</a></li>
+            <li><a href="#organization-section">{{ __('ui.nav.organization') }}</a></li>
+            <li><a href="#partnership-section">{{ __('ui.nav.alumni') }}</a></li>
+            <li><a href="{{ route('news.index') }}">{{ __('ui.nav.news') }}</a></li>
+            <li><a href="#school-footer">{{ __('ui.nav.contact') }}</a></li>
+            <li><a href="#partnership-section">{{ __('ui.nav.partnership') }}</a></li>
         </ul>
         <div class="sosmed-icon">
   <a href="https://youtube.com/@metlandschool?si=H326T8TIsX0qFjtO" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
@@ -51,40 +51,44 @@
 </div>
 
         <div class="ppdb-btn">
-            <button type="button">PPDB</button>
+            <button type="button">{{ __('ui.nav.ppdb') }}</button>
+        </div>
+        <div class="lang-switch" aria-label="{{ __('ui.lang.switcher_aria') }}">
+            <a href="{{ route('language.switch', 'id') }}" class="{{ app()->getLocale() === 'id' ? 'is-active' : '' }}">{{ __('ui.lang.id') }}</a>
+            <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">{{ __('ui.lang.en') }}</a>
         </div>
     </nav>
     <div class="slider-container">
         <div class="slider-items">
             <img src="{{ asset("img/hero.png") }}" alt="">
             <div class="slider-content">
-                <p class="slider-subtitle">welcome to</p>
+                <p class="slider-subtitle">{{ __('ui.home.slider_subtitle') }}</p>
                 <h2 class="slider-title">SMK METLAND</h2>
-                <p class="slider-description">Mencetak Generasi Siap Kerja, Siap Berkarya.</p>
-                <a href="#" class="slider-action">READ MORE!</a>
+                <p class="slider-description">{{ __('ui.home.slider_desc_1') }}</p>
+                <a href="#" class="slider-action">{{ __('ui.home.slider_cta_1') }}</a>
             </div>
         </div>
         <div class="slider-items">
             <img src="{{ asset("img/hero2.JPG") }}" alt="">
             <div class="slider-content">
-                <p class="slider-subtitle">welcome to</p>
+                <p class="slider-subtitle">{{ __('ui.home.slider_subtitle') }}</p>
                 <h2 class="slider-title">SMK METLAND</h2>
-                <p class="slider-description">Sekolah seribu event! cek berita terkini kami.</p>
-                <a href="#" class="slider-action">CHECK THIS OUT!</a>
+                <p class="slider-description">{{ __('ui.home.slider_desc_2') }}</p>
+                <a href="#" class="slider-action">{{ __('ui.home.slider_cta_2') }}</a>
             </div>
         </div>
         <div class="slider-items">
             <img src="{{ asset("img/hero3.png") }}" alt="">
             <div class="slider-content">
-                <p class="slider-subtitle">welcome to</p>
+                <p class="slider-subtitle">{{ __('ui.home.slider_subtitle') }}</p>
                 <h2 class="slider-title">SMK METLAND</h2>
-                <p class="slider-description">Langkah Awal Menuju Karier Gemilang!</p>
-                <a href="#" class="slider-action">JOIN US!!</a>
+                <p class="slider-description">{{ __('ui.home.slider_desc_3') }}</p>
+                <a href="#" class="slider-action">{{ __('ui.home.slider_cta_3') }}</a>
             </div>
         </div>
-        <button class="slider-nav slider-prev" type="button" aria-label="Previous slide">‹</button>
-        <button class="slider-nav slider-next" type="button" aria-label="Next slide">›</button>
-        <div class="slider-dots" aria-label="Slider pagination"></div>
+        <button class="slider-nav slider-prev" type="button" aria-label="{{ __('ui.home.slider_prev_aria') }}">&#8249;</button>
+        <button class="slider-nav slider-next" type="button" aria-label="{{ __('ui.home.slider_next_aria') }}">&#8250;</button>
+        <div class="slider-dots" aria-label="{{ __('ui.home.slider_pagination_aria') }}"></div>
     </div>
     <section id="about-smk" class="about-smk-section">
         <div class="about-smk-wrap">
@@ -93,14 +97,14 @@
                     <div class="about-head">
                         <i class="bi bi-mortarboard about-icon" aria-hidden="true"></i>
                         <div>
-                            <h3>Why SMK?</h3>
-                            <span class="about-head-cta">Selengkapnya</span>
+                            <h3>{{ __('ui.home.about_title_1') }}</h3>
+                            <span class="about-head-cta">{{ __('ui.home.about_cta') }}</span>
                         </div>
                     </div>
                 </a>
                 <img src="{{ asset("img/hero.png") }}" alt="Area sekolah" class="about-image">
                 <div class="about-body">
-                    <p>SMK Metland menghadirkan pembelajaran berbasis praktik, kolaborasi, dan proyek nyata yang relevan dengan kebutuhan dunia kerja saat ini.</p>
+                    <p>{{ __('ui.home.about_desc_1') }}</p>
                 </div>
             </div>
             <div class="about-card">
@@ -108,14 +112,14 @@
                     <div class="about-head">
                         <i class="bi bi-buildings about-icon" aria-hidden="true"></i>
                         <div>
-                            <h3>Program Keahlian</h3>
-                            <span class="about-head-cta">Selengkapnya</span>
+                            <h3>{{ __('ui.home.about_title_2') }}</h3>
+                            <span class="about-head-cta">{{ __('ui.home.about_cta') }}</span>
                         </div>
                     </div>
                 </a>
                 <img src="{{ asset("img/about.png") }}" alt="Program keahlian" class="about-image">
                 <div class="about-body">
-                    <p>Berbagai jurusan dirancang untuk membentuk lulusan yang kompeten, kreatif, dan siap berkembang di lingkungan industri modern.</p>
+                    <p>{{ __('ui.home.about_desc_2') }}</p>
                 </div>
             </div>
             <div class="about-card">
@@ -123,22 +127,22 @@
                     <div class="about-head">
                         <i class="bi bi-people about-icon" aria-hidden="true"></i>
                         <div>
-                            <h3>School Life</h3>
-                            <span class="about-head-cta">Selengkapnya</span>
+                            <h3>{{ __('ui.home.about_title_3') }}</h3>
+                            <span class="about-head-cta">{{ __('ui.home.about_cta') }}</span>
                         </div>
                     </div>
                 </a>
                 <img src="{{ asset("img/about2.png") }}" alt="Kegiatan siswa" class="about-image">
                 <div class="about-body">
-                    <p>Lingkungan sekolah aktif dan suportif, mendorong siswa tumbuh lewat organisasi, kegiatan sosial, olahraga, dan komunitas kreatif.</p>
+                    <p>{{ __('ui.home.about_desc_3') }}</p>
                 </div>
             </div>
         </div>
     </section>
-    <section class="feature-carousel-section" aria-label="Keunggulan SMK Metland" id="majors-smk">
+    <section class="feature-carousel-section" aria-label="{{ __('ui.home.majors_section_aria') }}" id="majors-smk">
         <h2 class="feature-carousel-title">
-            Majors</h2>
-        <p>lihat jurusan yang kami sediakan</p>
+            {{ __('ui.home.majors_title') }}</h2>
+        <p>{{ __('ui.home.majors_subtitle') }}</p>
         <div class="feature-carousel">
             <article class="feature-card is-active">
                 <div class="feature-media">
@@ -147,9 +151,8 @@
                 <div class="feature-content">
                     <i class="ph ph-desktop-tower"></i>
                     <h3>PPLG/IT</h3>
-                    <p>fokus pada pengembangan software, website, aplikasi mobile, dan game.
-Siswa belajar coding, UI/UX, database, hingga project berbasis industri.</p>
-                    <a href="#" class="feature-btn">More</a>
+                    <p>{{ __('ui.home.major_pplg_desc') }}</p>
+                    <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
                 </div>
             </article>
             <article class="feature-card">
@@ -159,9 +162,8 @@ Siswa belajar coding, UI/UX, database, hingga project berbasis industri.</p>
                 <div class="feature-content">
                     <i class="ph ph-pen-nib-straight"></i>
                     <h3>DKV</h3>
-                    <p>mempelajari desain kreatif untuk kebutuhan media digital maupun cetak.
-Cocok untuk yang suka visual, branding, dan konten kreatif.</p>
-                    <a href="#" class="feature-btn">More</a>
+                    <p>{{ __('ui.home.major_dkv_desc') }}</p>
+                    <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
                 </div>
             </article>
             <article class="feature-card">
@@ -171,8 +173,8 @@ Cocok untuk yang suka visual, branding, dan konten kreatif.</p>
                 <div class="feature-content">
                     <i class="ph ph-currency-dollar"></i>
                     <h3>Akuntansi</h3>
-                    <p>membekali siswa dengan kemampuan mengelola keuangan dan administrasi bisnis secara profesional.</p>
-                    <a href="#" class="feature-btn">More</a>
+                    <p>{{ __('ui.home.major_akuntansi_desc') }}</p>
+                    <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
                 </div>
             </article>
             <article class="feature-card">
@@ -182,8 +184,8 @@ Cocok untuk yang suka visual, branding, dan konten kreatif.</p>
                 <div class="feature-content">
                     <i class="ph ph-bank"></i>
                     <h3>Perhotelan</h3>
-                    <p>mempersiapkan siswa untuk bekerja di industri hospitality dan layanan profesional.</p>
-                    <a href="#" class="feature-btn">More</a>
+                    <p>{{ __('ui.home.major_hotel_desc') }}</p>
+                    <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
                 </div>
             </article>
             <article class="feature-card">
@@ -193,69 +195,298 @@ Cocok untuk yang suka visual, branding, dan konten kreatif.</p>
                 <div class="feature-content">
                     <i class="ph ph-chef-hat"></i>
                     <h3>Kuliner/Tata boga</h3>
-                    <p>fokus pada keterampilan memasak profesional dan manajemen usaha makanan.</p>
-                    <a href="#" class="feature-btn">More</a>
+                    <p>{{ __('ui.home.major_kuliner_desc') }}</p>
+                    <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
                 </div>
             </article>
             <div class="feature-controls">
-                <button type="button" class="feature-nav feature-prev" aria-label="Previous feature">&lt;</button>
-                <div class="feature-dots" aria-label="Feature dots"></div>
-                <button type="button" class="feature-nav feature-next" aria-label="Next feature">&gt;</button>
+                <button type="button" class="feature-nav feature-prev" aria-label="{{ __('ui.home.feature_prev_aria') }}">&lt;</button>
+                <div class="feature-dots" aria-label="{{ __('ui.home.feature_dots_aria') }}"></div>
+                <button type="button" class="feature-nav feature-next" aria-label="{{ __('ui.home.feature_next_aria') }}">&gt;</button>
             </div>
         </div>
     </section>
-    <section class="news-section" id="news-section" aria-label="Berita terkini SMK Metland">
+    <section class="news-section" id="news-section" aria-label="{{ __('ui.home.news_section_aria') }}">
+        @php
+            $latestNewsCollection = $latestNews ?? collect();
+            $featuredNews = $latestNewsCollection->first();
+            $sideNews = $latestNewsCollection->slice(1, 3);
+        @endphp
         <div class="news-shell">
             <div class="news-head">
-                <span class="news-badge">LATEST NEWS</span>
-                <h2>Kabar Terkini SMK Metland</h2>
-                <a href="#" class="news-all-link">Lihat Semua <i class="fa-solid fa-arrow-right"></i></a>
+                <span class="news-badge">{{ __('ui.news.latest_badge') }}</span>
+                <a href="{{ route('news.index') }}" class="news-all-link">{{ __('ui.news.see_all') }} <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
             <div class="news-layout">
-                <article class="news-featured-card">
-                    <div class="news-featured-media">
-                        <img src="{{ asset("img/hero2.JPG") }}" alt="Kegiatan terbaru siswa">
-                        <span class="news-tag">Sekolah</span>
+                @if($featuredNews)
+                    <article class="news-featured-card">
+                        <div class="news-featured-media">
+                            <img src="{{ $featuredNews->image ? asset('storage/' . $featuredNews->image) : asset('img/hero2.JPG') }}" alt="{{ $featuredNews->localized_title }}">
+                            <span class="news-tag">{{ __('ui.news.tag') }}</span>
+                        </div>
+                        <div class="news-featured-body">
+                            <p class="news-meta"><i class="fa-regular fa-calendar"></i> {{ ($featuredNews->published_at ?? $featuredNews->created_at)->translatedFormat('d M Y') }}</p>
+                            <h3>{{ $featuredNews->localized_title }}</h3>
+                            <p>{{ \Illuminate\Support\Str::limit(strip_tags($featuredNews->localized_content), 180) }}</p>
+                            <a href="{{ route('news.show', $featuredNews->slug) }}" class="news-read-more">{{ __('ui.news.read_more') }}</a>
+                        </div>
+                    </article>
+
+                    <div class="news-side-list">
+                        @foreach($sideNews as $item)
+                            <article class="news-mini-card">
+                                <a href="{{ route('news.show', $item->slug) }}" class="news-mini-thumb-link">
+                                    <img src="{{ $item->image ? asset('storage/' . $item->image) : asset('img/hero2.JPG') }}" alt="{{ $item->localized_title }}">
+                                </a>
+                                <div>
+                                    <p class="news-mini-meta">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>
+                                    <h4><a href="{{ route('news.show', $item->slug) }}" class="news-mini-link">{{ \Illuminate\Support\Str::limit($item->localized_title, 68) }}</a></h4>
+                                </div>
+                            </article>
+                        @endforeach
                     </div>
-                    <div class="news-featured-body">
-                        <p class="news-meta"><i class="fa-regular fa-calendar"></i> 12 Oktober 2026</p>
-                        <h3>SMK Metland Gelar Expo Karya Siswa Berbasis Industri</h3>
-                        <p>Siswa dari berbagai jurusan menampilkan produk inovatif, mulai dari aplikasi digital, desain branding, hingga karya kuliner kreatif.</p>
-                        <a href="#" class="news-read-more">Baca Selengkapnya</a>
-                    </div>
-                </article>
-
-                <div class="news-side-list">
-                    <article class="news-mini-card">
-                        <img src="{{ asset("img/pplg/pplg2.png") }}" alt="Kompetisi coding siswa">
-                        <div>
-                            <p class="news-mini-meta">10 Oktober 2026</p>
-                            <h4>Tim PPLG Raih Juara Kompetisi Coding Tingkat Kota</h4>
+                @else
+                    <article class="news-featured-card">
+                        <div class="news-featured-media">
+                            <img src="{{ asset('img/hero2.JPG') }}" alt="{{ __('ui.home.news_default_alt') }}">
+                            <span class="news-tag">{{ __('ui.news.tag') }}</span>
+                        </div>
+                        <div class="news-featured-body">
+                            <p class="news-meta"><i class="fa-regular fa-calendar"></i> {{ __('ui.news.no_data_date') }}</p>
+                            <h3>{{ __('ui.news.none_title') }}</h3>
+                            <p>{{ __('ui.news.none_desc') }}</p>
+                            <a href="{{ route('news.index') }}" class="news-read-more">{{ __('ui.news.view_news_page') }}</a>
                         </div>
                     </article>
-
-                    <article class="news-mini-card">
-                        <img src="{{ asset("img/dkv/dkv2.png") }}" alt="Pameran desain kreatif">
-                        <div>
-                            <p class="news-mini-meta">7 Oktober 2026</p>
-                            <h4>DKV Tampilkan Pameran Visual Branding Bertema Lokal</h4>
-                        </div>
-                    </article>
-
-                    <article class="news-mini-card">
-                        <img src="{{ asset("img/kuliner/kuliner1.png") }}" alt="Program praktik kuliner">
-                        <div>
-                            <p class="news-mini-meta">3 Oktober 2026</p>
-                            <h4>Program Kuliner Luncurkan Menu Inovatif untuk Teaching Factory</h4>
-                        </div>
-                    </article>
-                </div>
+                @endif
             </div>
         </div>
     </section>
-    
+    <section class="school-partnership" id="partnership-section" aria-label="{{ __('ui.home.partnership_section_aria') }}">
+        <div class="partnership-shell">
+            <div class="partnership-head">
+                <span class="partnership-badge">{{ __('ui.home.partnership_badge') }}</span>
+                <h2>{{ __('ui.home.partnership_title') }}</h2>
+                <p>{{ __('ui.home.partnership_desc') }}</p>
+            </div>
 
+            <div class="partner-group">
+                <h3>{{ __('ui.home.partner_group_industry') }}</h3>
+                <div class="partner-logo-grid">
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/virtalus-150x150.png') }}" alt="Logo Virtalus">
+                        <p>Virtalus</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/Grand_Metropolitan-removebg-preview-150x150.png') }}" alt="Logo Grand Metropolitan">
+                        <p>Grand Metropolitan</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/Kaliana_Apartment-removebg-preview-150x150.png') }}" alt="Logo Kaliana Apartment">
+                        <p>Kaliana Apartment</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/Indesso-removebg-preview-150x150.png') }}" alt="Logo Indesso">
+                        <p>Indesso</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/Metropolitan_Mall_Cibubur-removebg-preview-150x150.png') }}" alt="Logo Metropolitan Mall Cibubur">
+                        <p>Metropolitan Mall Cibubur</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/PT_Metland-removebg-preview-e1704943421395-150x150.png') }}" alt="Logo PT Metropolitan Land">
+                        <p>PT Metropolitan Land</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/Sila_Tea-removebg-preview-150x150.png') }}" alt="Logo Sila Tea">
+                        <p>Sila Tea</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="partner-group">
+                <h3>{{ __('ui.home.partner_group_hospitality') }}</h3>
+                <div class="partner-logo-grid">
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/Metland-Hotels-Group-150x150.png') }}" alt="Logo Metland Hotels Group">
+                        <p>Metland Hotels Group</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/Ayana-removebg-preview-1-150x150.png') }}" alt="Logo Ayana Midplaza Jakarta">
+                        <p>Ayana Midplaza Jakarta</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/Harris_Hotel-removebg-preview-150x150.png') }}" alt="Logo Harris Hotels">
+                        <p>Harris Hotels</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/accor-e1705022947913-150x150.png') }}" alt="Logo Accor">
+                        <p>Accor</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/ritz-calton-150x150.png') }}" alt="Logo The Ritz-Carlton">
+                        <p>The Ritz-Carlton</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/shangri-150x150.png') }}" alt="Logo Shangri-La">
+                        <p>Shangri-La</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/Kempinski-removebg-preview-150x150.png') }}" alt="Logo Kempinski">
+                        <p>Kempinski</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/Horison_Hotels_Group__1_-removebg-preview-150x150.png') }}" alt="Logo Horison Hotels Group">
+                        <p>Horison Hotels Group</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/Ra_Suites-removebg-preview-150x150.png') }}" alt="Logo RA Suites">
+                        <p>RA Suites</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/Hotel_Ciputra_Cibubur-removebg-preview-150x150.png') }}" alt="Logo Hotel Ciputra Cibubur">
+                        <p>Hotel Ciputra Cibubur</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/Pullman-removebg-preview-150x150.png') }}" alt="Logo Pullman">
+                        <p>Pullman</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="partner-group">
+                <h3>{{ __('ui.home.partner_group_college') }}</h3>
+                <div class="partner-logo-grid">
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/biru-150x150.png') }}" alt="Logo STIE Pariwisata YAPARI-AKTRIPA">
+                        <p>STIE Pariwisata YAPARI-AKTRIPA</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/Phitsanulok_Logo-1-150x150.jpg') }}" alt="Logo Petchruniversity">
+                        <p>Petchruniversity</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/dt_153037286-150x90.png') }}" alt="Logo Anabuki">
+                        <p>Anabuki</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/long-beach-150x150.png') }}" alt="Logo Longbeach">
+                        <p>Longbeach</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/philipin-university-150x150.png') }}" alt="Logo Philippine University">
+                        <p>Philippine University</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/puket-1-150x150.png') }}" alt="Logo Phuket Partner">
+                        <p>Phuket Partner</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/teii-e1705024305638-150x150.png') }}" alt="Logo TEII Program">
+                        <p>TEII Program</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/trskt-150x150.png') }}" alt="Logo TRSKT Partner">
+                        <p>TRSKT Partner</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/unesco-150x150.png') }}" alt="Logo UNESCO Partner">
+                        <p>UNESCO Partner</p>
+                    </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/IMG-20230612-WA0015-1-150x150.jpg') }}" alt="Logo International Campus Partner">
+                        <p>International Campus Partner</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="partnership-source">
+                <a href="https://smkmetland.net/ppdb/" target="_blank" rel="noopener noreferrer">{{ __('ui.home.partner_source') }}</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="school-footer" id="school-footer">
+        <div class="footer-shell">
+            <div class="footer-brand">
+                <div class="footer-brand-head">
+                    <img src="{{ asset("img/logo.webp") }}" alt="Logo SMK Metland" class="footer-logo">
+                    <h3>METLAND SCHOOL</h3>
+                </div>
+                <p>{{ __('ui.home.footer_tagline') }}</p>
+            </div>
+
+            <div class="footer-posts">
+                <h4>{{ __('ui.footer.recent_posts') }}</h4>
+                <div class="footer-post-list">
+                    @php
+                        $footerNews = ($latestNews ?? collect())->take(2);
+                    @endphp
+                    @forelse($footerNews as $item)
+                        <article class="footer-post-item">
+                            <img src="{{ $item->image ? asset('storage/' . $item->image) : asset('img/hero2.JPG') }}" alt="{{ $item->localized_title }}" class="footer-post-thumb">
+                            <div class="footer-post-content">
+                                <a href="{{ route('news.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->localized_title, 76) }}</a>
+                                <p class="footer-post-date">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>
+                            </div>
+                        </article>
+                    @empty
+                        <article class="footer-post-item">
+                            <img src="{{ asset('img/hero2.JPG') }}" alt="{{ __('ui.footer.no_news_alt') }}" class="footer-post-thumb">
+                            <div class="footer-post-content">
+                                <a href="{{ route('news.index') }}">{{ __('ui.footer.no_published_news') }}</a>
+                                <p class="footer-post-date">{{ __('ui.footer.check_again_later') }}</p>
+                            </div>
+                        </article>
+                    @endforelse
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>{{ __('ui.footer.quick_access') }}</h4>
+                <a href="#about-smk">{{ __('ui.footer.profile') }}</a>
+                <a href="#majors-smk">{{ __('ui.footer.majors') }}</a>
+                <a href="#partnership-section">{{ __('ui.footer.industry_partnership') }}</a>
+                <a href="#partnership-section">{{ __('ui.footer.college_partnership') }}</a>
+                <a href="{{ route('news.index') }}">{{ __('ui.footer.school_news') }}</a>
+                <a href="#school-footer">{{ __('ui.footer.school_contact') }}</a>
+            </div>
+
+            <div class="footer-contact-map">
+                <h4>{{ __('ui.footer.contact_us') }}</h4>
+                <p><strong>{{ __('ui.footer.location') }}:</strong><br>{{ __('ui.footer.address') }}</p>
+                <p><strong>{{ __('ui.footer.phone') }}:</strong> (021) 82496976</p>
+                <p><strong>{{ __('ui.footer.whatsapp') }}:</strong> +6281293395500</p>
+                <p><strong>{{ __('ui.footer.website') }}:</strong> <a href="https://www.smkmetland.net" target="_blank" rel="noopener noreferrer">www.smkmetland.net</a></p>
+                <div class="footer-socials">
+                    <a href="https://youtube.com/@metlandschool?si=H326T8TIsX0qFjtO" target="_blank" rel="noopener noreferrer" aria-label="YouTube SMK Metland">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@smkmetland" target="_blank" rel="noopener noreferrer" aria-label="TikTok SMK Metland">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+                    <a href="https://www.facebook.com/smkmetland" target="_blank" rel="noopener noreferrer" aria-label="Facebook SMK Metland">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/smkmetland?igsh=M2Q5aHJuMzB4MWNp" target="_blank" rel="noopener noreferrer" aria-label="Instagram SMK Metland">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                </div>
+                <iframe
+                    class="footer-map-frame"
+                    title="{{ __('ui.footer.map_title') }}"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?cid=4362342788863844499&hl=id&gl=ID&output=embed">
+                </iframe>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; {{ date('Y') }} {{ __('ui.footer.copyright') }}</p>
+        </div>
+    </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
