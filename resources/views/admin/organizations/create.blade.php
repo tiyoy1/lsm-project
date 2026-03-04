@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{{ route('organizations.store') }}" 
+    <form action="{{ route('admin.organizations.store') }}" 
       method="POST" 
       enctype="multipart/form-data">
     @csrf

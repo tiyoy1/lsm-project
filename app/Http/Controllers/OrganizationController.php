@@ -61,7 +61,7 @@ class OrganizationController extends Controller
      */
     public function edit(Organization $organization)
     {
-        return view('admin.organizations.edit', compact('organizations'));
+        return view('admin.organizations.edit', compact('organization'));
     }
 
     /**

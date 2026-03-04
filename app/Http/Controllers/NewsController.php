@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreNewsRequest;
+use App\Http\Requests\UpdateNewsRequest;
 use App\Models\News;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
@@ -33,18 +33,18 @@ class NewsController extends Controller
     {
         $validated = $request->validated();
 
-    // Handle image upload
-    if ($request->hasFile('image')) {
-        $path = $request->file('image')->store('news', 'public');
-        $validated['image'] = $path;
-    }
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('news', 'public');
+            $validated['image'] = $path;
+        }
 
+        $validated['author_id'] = auth()->id();
 
-    
-    // Create news
-    News::create($validated);
+        // Create news
+        News::create($validated);
 
-    return redirect()->route('admin.news.index')->with('success', 'News created successfully.');
+        return redirect()->route('admin.news.index')->with('success', 'News created successfully.');
     }
 
     /**
@@ -66,23 +66,23 @@ class NewsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, News $news)
+    public function update(UpdateNewsRequest $request, News $news)
     {
         $validated = $request->validated();
 
-    // Handle image upload
-    if ($request->hasFile('image')) {
-        // Delete old image if exists
-        if ($news->image) {
-            Storage::disk('public')->delete($news->image);
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($news->image) {
+                Storage::disk('public')->delete($news->image);
+            }
+            $path = $request->file('image')->store('news', 'public');
+            $validated['image'] = $path;
         }
-        $path = $request->file('image')->store('news', 'public');
-        $validated['image'] = $path;
-    }
 
-    $news->update($validated);
+        $news->update($validated);
 
-    return redirect()->route('admin.news.index')->with('success', 'News updated successfully.');
+        return redirect()->route('admin.news.index')->with('success', 'News updated successfully.');
     }
 
     /**
@@ -91,10 +91,12 @@ class NewsController extends Controller
     public function destroy(News $news)
     {
         // Delete associated image
-    if ($news->image) {
-        Storage::disk('public')->delete($news->image);
-    }
-    $news->delete();
-    return redirect()->route('admin.news.index')->with('success', 'News deleted successfully.');
+        if ($news->image) {
+            Storage::disk('public')->delete($news->image);
+        }
+
+        $news->delete();
+
+        return redirect()->route('admin.news.index')->with('success', 'News deleted successfully.');
     }
 }

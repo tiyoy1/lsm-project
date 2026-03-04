@@ -1,0 +1,42 @@
+@php
+    $published_at = old('published_at', $news->published_at ?? '');
+@endphp
+
+<div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $news->title ?? '') }}">
+    @error('title')
+        <span class="invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
+
+<div class="form-group">
+    <label for="content">Content</label>
+    <textarea name="content" id="content" rows="5" class="form-control @error('content') is-invalid @enderror">{{ old('content', $news->content ?? '') }}</textarea>
+    @error('content')
+        <span class="invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
+
+<div class="form-group">
+    <label for="image">Image</label>
+    <input type="file" name="image" id="image" class="form-control-file @error('image') is-invalid @enderror">
+    @if(isset($news) && $news->image)
+        <div class="mt-2">
+            <img src="{{ asset('storage/' . $news->image) }}" alt="Current image" style="max-width: 200px;">
+        </div>
+    @endif
+    @error('image')
+        <span class="invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
+
+<div class="form-group">
+    <label for="published_at">Published At</label>
+    <input type="datetime-local" name="published_at" id="published_at" class="form-control @error('published_at') is-invalid @enderror" value="{{ old('published_at', isset($news) && $news->published_at ? $news->published_at->format('Y-m-d\TH:i') : '') }}">
+    @error('published_at')
+        <span class="invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
+
+@csrf
