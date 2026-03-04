@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\StudentController;
@@ -21,6 +23,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('admin/student', StudentController::class);
+});
+
+Route::prefix('admin')->group(function() {
+    Route::resource('organizations', OrganizationController::class);
+    Route::resource('news', NewsController::class);
 });
 
 require __DIR__.'/auth.php';

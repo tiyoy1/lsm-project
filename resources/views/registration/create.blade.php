@@ -10,7 +10,7 @@
     <form action="/register_student" method="POST">
         @csrf
         <label for="">Full Name</label>
-        <input type="text" name="full_name" placeholder="masukkan nama"> <br>
+        <input type="text" name="full_name" plac    eholder="masukkan nama"> <br>
         <label for="">Birth Date</label>
         <input type="text" name="birth_date" placeholder="masukkan tanggal lahir"> <br>
         <label for="">Gender</label>

@@ -13,8 +13,7 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        $registers = Registration::all();
-        return view('registration.registration');
+        //
     }
 
     /**
@@ -30,8 +29,7 @@ class RegistrationController extends Controller
      */
     public function store(Request $request)
     {
-      Registration::create($request->all());
-      return back();
+      //
     }
 
     /**
