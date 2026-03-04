@@ -22,7 +22,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.student.create');
     }
 
     /**
@@ -30,7 +30,18 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'full_name' => 'required|string|max:255',
+            'birth_date' => 'required|date',
+            'gender' => 'required|string|max:20',
+            'address' => 'required|string|max:255',
+            'phone' => 'required|string|max:25',
+            'email' => 'required|email|max:255|unique:students,email',
+        ]);
+
+        Student::create($validated);
+
+        return redirect()->route('admin.student.index')->with('success', 'Student created successfully.');
     }
 
     /**
@@ -46,7 +57,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('admin.student.edit', compact('student'));
     }
 
     /**
@@ -54,7 +65,18 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $validated = $request->validate([
+            'full_name' => 'required|string|max:255',
+            'birth_date' => 'required|date',
+            'gender' => 'required|string|max:20',
+            'address' => 'required|string|max:255',
+            'phone' => 'required|string|max:25',
+            'email' => 'required|email|max:255|unique:students,email,' . $student->id,
+        ]);
+
+        $student->update($validated);
+
+        return redirect()->route('admin.student.index')->with('success', 'Student updated successfully.');
     }
 
     /**
@@ -62,6 +84,8 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $student->delete();
+
+        return redirect()->route('admin.student.index')->with('success', 'Student deleted successfully.');
     }
 }

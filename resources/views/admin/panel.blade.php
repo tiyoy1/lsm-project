@@ -26,6 +26,26 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Karya Siswa Panel</h5>
+                    <p class="card-text text-muted">Kelola data karya siswa: foto, detail karya, pembuat, dan tanggal dibuat.</p>
+                    <a href="{{ route('admin.student-works.index') }}" class="btn btn-primary">Open Karya Siswa</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">News Panel</h5>
+                    <p class="card-text text-muted">Kelola berita sekolah: judul, isi, gambar, dan status publikasi.</p>
+                    <a href="{{ route('admin.news.index') }}" class="btn btn-primary">Open News</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

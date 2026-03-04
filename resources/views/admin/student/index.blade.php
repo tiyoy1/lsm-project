@@ -1,41 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-        
-    <table border="1" cellspacing="0" cellpadding="10">
-        <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Birth Date</th>
-            <th>Gender</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>Email</th>
-        </tr>
-        @foreach ($students as $student)
-        <tr>
-            <td>{{ $loop->iteration }}</td>
-            <td>{{ $student->full_name }}</td>
-            <td>{{ $student->birth_date }}</td>
-            <td>{{ $student->gender }}</td>
-            <td>{{ $student->address }}</td>
-            <td>{{ $student->phone }}</td>
-            <td>{{ $student->email }}</td>
-            <td>
-                <a href="/admin/student/{{ $student->id }}/edit">Edit</a>
-                <form action="/admin/student/{{ $student->id }}" method="POST">
-                    @csrf 
-                    @method('DELETE')
-                    <button type="submit">Delete</button> 
-                </form>
-            </td>
-        </tr>
-        @endforeach
+@extends('layouts.admin')
+
+@section('title', 'Students')
+
+@section('content')
+<div class="container">
+    <h1>Students</h1>
+
+    <a href="{{ route('admin.student.create') }}" class="btn btn-primary mb-3">Add Student</a>
+
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+
+    <table class="table table-bordered align-middle">
+        <thead>
+            <tr>
+                <th style="width: 60px;">No</th>
+                <th>Name</th>
+                <th>Birth Date</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th style="width: 180px;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse($students as $student)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $student->full_name }}</td>
+                    <td>{{ $student->birth_date }}</td>
+                    <td>{{ $student->gender }}</td>
+                    <td>{{ $student->address }}</td>
+                    <td>{{ $student->phone }}</td>
+                    <td>{{ $student->email }}</td>
+                    <td>
+                        <a href="{{ route('admin.student.edit', $student) }}" class="btn btn-sm btn-warning">Edit</a>
+
+                        <form action="{{ route('admin.student.destroy', $student) }}" method="POST" style="display:inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this student?')">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="8" class="text-center text-muted">No students yet.</td>
+                </tr>
+            @endforelse
+        </tbody>
     </table>
-</body>
-</html>
+</div>
+@endsection

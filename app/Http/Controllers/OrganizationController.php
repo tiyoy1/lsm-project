@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Organization;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class OrganizationController extends Controller
 {
@@ -12,7 +13,8 @@ class OrganizationController extends Controller
      */
     public function index()
     {
-        $organizations = Organization::all();
+        $organizations = Organization::latest()->get();
+
         return view('admin.organizations.index', compact('organizations'));
     }
 
@@ -30,9 +32,9 @@ class OrganizationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|255',
+            'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'logo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048'
+            'logo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
         $data = $request->only(['name', 'description']);
@@ -44,7 +46,7 @@ class OrganizationController extends Controller
 
         Organization::create($data);
 
-        return redirect('/admin/organizations')
+        return redirect()->route('admin.organizations.index')
         ->with('success', 'Organization created!');
     }
 
@@ -70,13 +72,23 @@ class OrganizationController extends Controller
     public function update(Request $request, Organization $organization)
     {
         $request->validate([
-            'name' => 'required|string|255',
+            'name' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'logo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
-        $organization->update($request->all());
+        $data = $request->only(['name', 'description']);
 
-        return redirect('/admin/organizations')
+        if ($request->hasFile('logo')) {
+            if ($organization->logo) {
+                Storage::disk('public')->delete($organization->logo);
+            }
+            $data['logo'] = $request->file('logo')->store('organizations', 'public');
+        }
+
+        $organization->update($data);
+
+        return redirect()->route('admin.organizations.index')
         ->with('success', 'Organization updated!');
     }
 
@@ -85,8 +97,13 @@ class OrganizationController extends Controller
      */
     public function destroy(Organization $organization)
     {
+        if ($organization->logo) {
+            Storage::disk('public')->delete($organization->logo);
+        }
+
         $organization->delete();
-        return redirect('/admin/organizations')
+
+        return redirect()->route('admin.organizations.index')
         ->with('success', 'Organization deleted.');
-    }   
+    }
 }

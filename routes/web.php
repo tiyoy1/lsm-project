@@ -5,6 +5,7 @@ use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentWorkController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,6 +27,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::view('panel', 'admin.panel')->name('panel');
     Route::resource('student', StudentController::class);
+    Route::resource('student-works', StudentWorkController::class);
     Route::resource('organizations', OrganizationController::class);
     Route::resource('news', NewsController::class);
 });

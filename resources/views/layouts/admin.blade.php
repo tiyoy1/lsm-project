@@ -31,6 +31,9 @@
                     <a class="nav-link text-white" href="{{ route('admin.organizations.index') }}">
                         <i class="fas fa-building me-2"></i> Organizations
                     </a>
+                    <a class="nav-link text-white" href="{{ route('admin.student-works.index') }}">
+                        <i class="fas fa-images me-2"></i> Karya Siswa
+                    </a>
                     <a class="nav-link text-white" href="{{ route('admin.news.index') }}">
                         <i class="fas fa-newspaper me-2"></i> News
                     </a>

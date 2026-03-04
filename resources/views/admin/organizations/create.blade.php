@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="{{ route('admin.organizations.store') }}" 
-      method="POST" 
-      enctype="multipart/form-data">
-    @csrf
+@extends('layouts.admin')
 
-    <input type="text" name="name" placeholder="Name">
-    <textarea name="description"></textarea>
+@section('title', 'Create Organization')
 
-    <input type="file" name="logo">
+@section('content')
+<div class="container">
+    <h1 class="mb-4">Create Organization</h1>
 
-    <button type="submit">Save</button>
-</form>
-</body>
-</html>
+    <form action="{{ route('admin.organizations.store') }}" method="POST" enctype="multipart/form-data">
+        @include('admin.organizations._form')
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="{{ route('admin.organizations.index') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+@endsection
