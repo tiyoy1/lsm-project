@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Student Page</h1>
-    <form action="/admin/student" method="POST">
+    <form action="/register_student" method="POST">
         @csrf
         <label for="">Full Name</label>
         <input type="text" name="full_name" placeholder="masukkan nama"> <br>

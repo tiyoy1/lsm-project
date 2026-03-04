@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Registration;
 use Illuminate\Http\Request;
+use Monolog\Registry;
 
 class RegistrationController extends Controller
 {
@@ -12,8 +13,8 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        $registration = Registration::all();
-        return view('registration.registration', compact('registration'));
+        $registers = Registration::all();
+        return view('registration.registration');
     }
 
     /**
@@ -29,8 +30,8 @@ class RegistrationController extends Controller
      */
     public function store(Request $request)
     {
-        Registration::create($request->all());
-        return back();
+      Registration::create($request->all());
+      return back();
     }
 
     /**
