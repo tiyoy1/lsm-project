@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\AdminPanelController;
 use App\Http\Controllers\EkskulController;
 use App\Http\Controllers\MajorController;
 use App\Http\Controllers\NewsController;
@@ -48,6 +49,8 @@ Route::get('/language/{locale}', function (string $locale) {
 
 Route::get('/news', [NewsController::class, 'publicIndex'])->name('news.index');
 Route::get('/news/{news:slug}', [NewsController::class, 'publicShow'])->name('news.show');
+Route::get('/student-works', [StudentWorkController::class, 'publicIndex'])->name('student-works.index');
+Route::get('/student-works/{studentWork:slug}', [StudentWorkController::class, 'publicShow'])->name('student-works.show');
 
 Route::get('/dashboard', function () {
     return redirect()->route('admin.panel');
@@ -63,7 +66,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::view('panel', 'admin.panel')->name('panel');
+    Route::get('panel', [AdminPanelController::class, 'index'])->name('panel');
     Route::resource('student', StudentController::class);
     Route::resource('pending-students', PendingStudentController::class)->only(['index', 'show', 'destroy']);
     Route::patch('pending-students/{pendingStudent}/status', [PendingStudentController::class, 'updateStatus'])

@@ -1,84 +1,64 @@
-@csrf
+@php
+    $published_at = old('published_at', $studentWork->published_at ?? '');
+@endphp
 
-<div class="mb-3">
-    <label for="work_name" class="form-label">Nama Karya</label>
-    <input
-        type="text"
-        id="work_name"
-        name="work_name"
-        class="form-control @error('work_name') is-invalid @enderror"
-        value="{{ old('work_name', $studentWork->work_name ?? '') }}"
-        required
-    >
-    @error('work_name')
-        <div class="invalid-feedback">{{ $message }}</div>
+<style>
+    input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+    }
+</style>
+
+<div class="form-group">
+    <label for="title">Title (Indonesia)</label>
+    <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $studentWork->title ?? $studentWork->work_name ?? '') }}">
+    @error('title')
+        <span class="invalid-feedback">{{ $message }}</span>
     @enderror
 </div>
 
-<div class="mb-3">
-    <label for="description" class="form-label">Deskripsi Karya</label>
-    <textarea
-        id="description"
-        name="description"
-        rows="4"
-        class="form-control @error('description') is-invalid @enderror"
-    >{{ old('description', $studentWork->description ?? '') }}</textarea>
-    @error('description')
-        <div class="invalid-feedback">{{ $message }}</div>
+<div class="form-group">
+    <label for="title_en">Title (English)</label>
+    <input type="text" name="title_en" id="title_en" class="form-control @error('title_en') is-invalid @enderror" value="{{ old('title_en', $studentWork->title_en ?? '') }}">
+    @error('title_en')
+        <span class="invalid-feedback">{{ $message }}</span>
     @enderror
 </div>
 
-<div class="mb-3">
-    <label for="creator_name" class="form-label">Nama Pembuat</label>
-    <input
-        type="text"
-        id="creator_name"
-        name="creator_name"
-        class="form-control @error('creator_name') is-invalid @enderror"
-        value="{{ old('creator_name', $studentWork->creator_name ?? '') }}"
-        required
-    >
-    @error('creator_name')
-        <div class="invalid-feedback">{{ $message }}</div>
+<div class="form-group">
+    <label for="content">Content (Indonesia)</label>
+    <textarea name="content" id="content" rows="5" class="form-control @error('content') is-invalid @enderror">{{ old('content', $studentWork->content ?? $studentWork->description ?? '') }}</textarea>
+    @error('content')
+        <span class="invalid-feedback">{{ $message }}</span>
     @enderror
 </div>
 
-<div class="mb-3">
-    <label for="created_date" class="form-label">Tanggal Dibuat</label>
-    <input
-        type="date"
-        id="created_date"
-        name="created_date"
-        class="form-control @error('created_date') is-invalid @enderror"
-        value="{{ old('created_date', isset($studentWork) && $studentWork->created_date ? $studentWork->created_date->format('Y-m-d') : '') }}"
-        required
-    >
-    @error('created_date')
-        <div class="invalid-feedback">{{ $message }}</div>
+<div class="form-group">
+    <label for="content_en">Content (English)</label>
+    <textarea name="content_en" id="content_en" rows="5" class="form-control @error('content_en') is-invalid @enderror">{{ old('content_en', $studentWork->content_en ?? '') }}</textarea>
+    @error('content_en')
+        <span class="invalid-feedback">{{ $message }}</span>
     @enderror
 </div>
 
-<div class="mb-3">
-    <label for="photo" class="form-label">Foto Karya</label>
-    <input
-        type="file"
-        id="photo"
-        name="photo"
-        class="form-control @error('photo') is-invalid @enderror"
-        accept=".jpg,.jpeg,.png,.webp"
-    >
-    @error('photo')
-        <div class="invalid-feedback">{{ $message }}</div>
-    @enderror
-
-    @if(isset($studentWork) && $studentWork->photo)
-        <div class="mt-3">
-            <p class="mb-1 text-muted">Foto saat ini:</p>
-            <img
-                src="{{ asset('storage/' . $studentWork->photo) }}"
-                alt="{{ $studentWork->work_name }}"
-                style="max-width: 180px; height: auto;"
-            >
+<div class="form-group">
+    <label for="image">Image</label>
+    <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror" accept=".jpg,.jpeg,.png,.gif">
+    @if(isset($studentWork) && ($studentWork->image || $studentWork->photo))
+        <div class="mt-2">
+            <img src="{{ $studentWork->image_url }}" alt="Current image" style="max-width: 200px;">
         </div>
     @endif
+    @error('image')
+        <span class="invalid-feedback">{{ $message }}</span>
+    @enderror
 </div>
+
+<div class="form-group">
+    <label for="published_at">Published At</label>
+    <input type="datetime-local" name="published_at" id="published_at" class="form-control @error('published_at') is-invalid @enderror" value="{{ old('published_at', isset($studentWork) && $studentWork->published_at ? $studentWork->published_at->format('Y-m-d\TH:i') : '') }}">
+    @error('published_at')
+        <span class="invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
+
+@csrf

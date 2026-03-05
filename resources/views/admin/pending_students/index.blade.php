@@ -6,6 +6,11 @@
 <div class="container">
     <h1>Pending Students</h1>
 
+    <form action="{{ route('admin.pending-students.index') }}" method="GET" class="d-flex gap-2 mb-3">
+        <input type="text" name="q" class="form-control" placeholder="Search pending students..." value="{{ $search ?? '' }}">
+        <button type="submit" class="btn btn-secondary">Search</button>
+    </form>
+
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
@@ -25,7 +30,7 @@
         <tbody>
             @forelse($pendingStudents as $student)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $pendingStudents->firstItem() + $loop->index }}</td>
                     <td>{{ $student->full_name }}</td>
                     <td>{{ $student->birth_date }}</td>
                     <td>{{ $student->gender }}</td>
@@ -62,5 +67,7 @@
             @endforelse
         </tbody>
     </table>
+
+    {{ $pendingStudents->links() }}
 </div>
 @endsection

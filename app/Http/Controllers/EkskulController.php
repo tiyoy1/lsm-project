@@ -10,11 +10,23 @@ class EkskulController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $ekskuls = Ekskul::latest()->get();
+        $search = trim((string) $request->query('q', ''));
+        $ekskuls = Ekskul::query()
+            ->when($search !== '', function ($query) use ($search) {
+                $query->where(function ($subQuery) use ($search) {
+                    $subQuery->where('nama_ekskul', 'like', '%' . $search . '%')
+                        ->orWhere('pembina', 'like', '%' . $search . '%')
+                        ->orWhere('jadwal', 'like', '%' . $search . '%')
+                        ->orWhere('deskripsi', 'like', '%' . $search . '%');
+                });
+            })
+            ->latest()
+            ->paginate(15)
+            ->withQueryString();
 
-        return view('admin.ekskuls.index', compact('ekskuls'));
+        return view('admin.ekskuls.index', compact('ekskuls', 'search'));
     }
 
     /**

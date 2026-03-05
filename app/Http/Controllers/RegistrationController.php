@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Registration;
 use Illuminate\Http\Request;
-use Monolog\Registry;
 
 class RegistrationController extends Controller
 {
@@ -21,7 +20,7 @@ class RegistrationController extends Controller
      */
     public function create()
     {
-        //
+        return view('registration.create');
     }
 
     /**
@@ -29,7 +28,23 @@ class RegistrationController extends Controller
      */
     public function store(Request $request)
     {
-      //
+        $validated = $request->validate([
+            'full_name' => 'required|string|max:255',
+            'birth_date' => 'required|date',
+            'gender' => 'required|in:Male,Female',
+            'address' => 'required|string|max:255',
+            'phone' => 'required|string|max:25',
+            'email' => 'required|email|max:255|unique:registrations,email|unique:students,email',
+        ]);
+
+        Registration::create([
+            ...$validated,
+            'status' => 'pending',
+        ]);
+
+        return redirect()
+            ->route('ppdb.create')
+            ->with('success', 'Pendaftaran berhasil dikirim. Data Anda akan ditinjau admin.');
     }
 
     /**

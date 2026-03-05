@@ -6,7 +6,13 @@
 <div class="container">
     <h1>Ekskul</h1>
 
-    <a href="{{ route('admin.ekskuls.create') }}" class="btn btn-primary mb-3">Tambah Ekskul</a>
+    <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
+        <a href="{{ route('admin.ekskuls.create') }}" class="btn btn-primary">Tambah Ekskul</a>
+        <form action="{{ route('admin.ekskuls.index') }}" method="GET" class="d-flex gap-2">
+            <input type="text" name="q" class="form-control" placeholder="Search ekskul..." value="{{ $search ?? '' }}">
+            <button type="submit" class="btn btn-secondary">Search</button>
+        </form>
+    </div>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -26,7 +32,7 @@
         <tbody>
             @forelse($ekskuls as $ekskul)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $ekskuls->firstItem() + $loop->index }}</td>
                     <td>{{ $ekskul->nama_ekskul }}</td>
                     <td>{{ $ekskul->pembina ?: '-' }}</td>
                     <td>{{ $ekskul->jadwal ?: '-' }}</td>
@@ -48,5 +54,7 @@
             @endforelse
         </tbody>
     </table>
+
+    {{ $ekskuls->links() }}
 </div>
 @endsection

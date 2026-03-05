@@ -6,7 +6,13 @@
 <div class="container">
     <h1>Organizations</h1>
 
-    <a href="{{ route('admin.organizations.create') }}" class="btn btn-primary mb-3">Add Organization</a>
+    <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
+        <a href="{{ route('admin.organizations.create') }}" class="btn btn-primary">Add Organization</a>
+        <form action="{{ route('admin.organizations.index') }}" method="GET" class="d-flex gap-2">
+            <input type="text" name="q" class="form-control" placeholder="Search organizations..." value="{{ $search ?? '' }}">
+            <button type="submit" class="btn btn-secondary">Search</button>
+        </form>
+    </div>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -50,5 +56,7 @@
             @endforelse
         </tbody>
     </table>
+
+    {{ $organizations->links() }}
 </div>
 @endsection

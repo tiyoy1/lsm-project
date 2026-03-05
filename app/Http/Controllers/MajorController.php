@@ -10,11 +10,22 @@ class MajorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $majors = Major::latest()->get();
+        $search = trim((string) $request->query('q', ''));
+        $majors = Major::query()
+            ->when($search !== '', function ($query) use ($search) {
+                $query->where(function ($subQuery) use ($search) {
+                    $subQuery->where('nama_jurusan', 'like', '%' . $search . '%')
+                        ->orWhere('kode_jurusan', 'like', '%' . $search . '%')
+                        ->orWhere('deskripsi', 'like', '%' . $search . '%');
+                });
+            })
+            ->latest()
+            ->paginate(15)
+            ->withQueryString();
 
-        return view('admin.majors.index', compact('majors'));
+        return view('admin.majors.index', compact('majors', 'search'));
     }
 
     /**

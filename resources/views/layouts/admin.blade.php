@@ -361,6 +361,32 @@
             border-color: var(--line);
         }
 
+        .pagination {
+            --bs-pagination-bg: rgba(9, 16, 27, 0.9);
+            --bs-pagination-border-color: var(--line);
+            --bs-pagination-color: var(--text);
+            --bs-pagination-hover-bg: rgba(57, 209, 255, 0.12);
+            --bs-pagination-hover-border-color: rgba(57, 209, 255, 0.38);
+            --bs-pagination-hover-color: var(--text);
+            --bs-pagination-active-bg: linear-gradient(135deg, var(--accent-2), var(--accent));
+            --bs-pagination-active-border-color: transparent;
+            --bs-pagination-active-color: #011019;
+            --bs-pagination-disabled-bg: rgba(9, 16, 27, 0.55);
+            --bs-pagination-disabled-color: #6f869a;
+            --bs-pagination-disabled-border-color: rgba(115, 213, 255, 0.14);
+        }
+
+        .page-link {
+            backdrop-filter: blur(2px);
+        }
+
+        .page-item.active .page-link {
+            background: linear-gradient(135deg, var(--accent-2), var(--accent));
+            color: #011019;
+            border-color: transparent;
+            font-weight: 700;
+        }
+
         body.is-resizing,
         body.is-resizing * {
             user-select: none !important;
@@ -407,8 +433,8 @@
             <div class="p-3">
                 <div class="sidebar-header mb-1">
                     <div>
-                        <div class="brand-title">SMK Command</div>
-                        <div class="brand-sub">Administration Core</div>
+                        <div class="brand-title">Metschoo Admin</div>
+                        <div class="brand-sub">Center of Data SMK Metland</div>
                     </div>
                     <button class="sidebar-compact-btn" id="toggleSidebarBtn" type="button" title="Compact sidebar">
                         <i class="fas fa-angles-left"></i>
@@ -459,7 +485,7 @@
             <!-- Top Navbar -->
             <nav class="navbar navbar-expand admin-topbar">
                 <div class="container-fluid">
-                    <span class="topbar-title">Futuristic Admin Control</span>
+                    <span class="topbar-title"> </span>
                     <button class="btn btn-outline-secondary d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
                         <i class="fas fa-bars"></i>
                     </button>

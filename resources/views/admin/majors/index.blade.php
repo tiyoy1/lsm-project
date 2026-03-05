@@ -6,7 +6,13 @@
 <div class="container">
     <h1>Jurusan</h1>
 
-    <a href="{{ route('admin.majors.create') }}" class="btn btn-primary mb-3">Tambah Jurusan</a>
+    <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
+        <a href="{{ route('admin.majors.create') }}" class="btn btn-primary">Tambah Jurusan</a>
+        <form action="{{ route('admin.majors.index') }}" method="GET" class="d-flex gap-2">
+            <input type="text" name="q" class="form-control" placeholder="Search jurusan..." value="{{ $search ?? '' }}">
+            <button type="submit" class="btn btn-secondary">Search</button>
+        </form>
+    </div>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -25,7 +31,7 @@
         <tbody>
             @forelse($majors as $major)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $majors->firstItem() + $loop->index }}</td>
                     <td>{{ $major->nama_jurusan }}</td>
                     <td>{{ $major->kode_jurusan }}</td>
                     <td>{{ $major->deskripsi ?: '-' }}</td>
@@ -46,5 +52,7 @@
             @endforelse
         </tbody>
     </table>
+
+    {{ $majors->links() }}
 </div>
 @endsection

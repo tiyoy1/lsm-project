@@ -398,10 +398,6 @@ window.addEventListener("load", () => {
         return `<button type="button" class="${className}" aria-label="Go to alumni slide ${slideNumber}">${slideNumber}</button>`;
       },
     },
-    navigation: {
-      nextEl: ".alumni-section .swiper-button-next",
-      prevEl: ".alumni-section .swiper-button-prev",
-    },
     breakpoints: {
       640: {
         slidesPerView: 1.35,
