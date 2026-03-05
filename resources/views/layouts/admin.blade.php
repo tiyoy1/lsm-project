@@ -407,7 +407,7 @@
             <div class="p-3">
                 <div class="sidebar-header mb-1">
                     <div>
-                        <div class="brand-title">JARVIS METLAND CENTER</div>
+                        <div class="brand-title">Metschoo Admin</div>
                         <div class="brand-sub">Center of Data SMK Metland</div>
                     </div>
                     <button class="sidebar-compact-btn" id="toggleSidebarBtn" type="button" title="Compact sidebar">
