@@ -19,6 +19,321 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
+<style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            scroll-behavior: smooth;
+        }
+
+        .kuliner-profile {
+            padding: 68px 0 64px;
+        }
+
+        .kuliner-profile-shell {
+            width: min(980px, 92vw);
+            margin: 0 auto;
+        }
+
+        .kuliner-profile-top {
+            display: grid;
+            grid-template-columns: minmax(250px, 390px) minmax(280px, 1fr);
+            align-items: center;
+            gap: 100px;
+            margin-bottom: 52px;
+        }
+
+        .kuliner-profile-title {
+            margin: 0;
+            font-family: "Sora", sans-serif;
+            font-size: clamp(1.55rem, 3vw, 3rem);
+            font-weight: 700;
+            color: #101010;
+            line-height: 1.1;
+        }
+
+        span {
+            color: #1f8f8b;
+            font-weight: 600;
+        }
+
+        .kuliner-title-line {
+            width: min(170px, 36vw);
+            height: 4px;
+            margin: 10px 0 20px;
+            border-radius: 999px;
+            background: #1f8f8b;
+        }
+
+        .kuliner-gallery {
+            width: 100%;
+            border: 2px solid rgba(20, 20, 20, 0.18);
+            border-radius: 6px;
+            background: #fff;
+            overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+
+        .kuliner-gallery:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 36px rgba(11, 78, 88, 0.18);
+            border-color: rgba(21, 135, 142, 0.45);
+        }
+
+        .kuliner-gallery img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.45s ease, filter 0.45s ease;
+        }
+
+        .kuliner-gallery:hover img {
+            transform: scale(1.035);
+            filter: saturate(1.05);
+        }
+
+        .kuliner-profile-copy {
+            margin: 0;
+            color: #0e7881;
+            font-size: clamp(1rem, 1.05vw, 1.7rem);
+            line-height: 1.48;
+            font-weight: 500;
+            max-width: 36ch;
+        }
+
+        .kuliner-skill-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .kuliner-skill-card {
+            background: #0f8e94;
+            border-radius: 14px;
+            min-height: 122px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 8px 10px;
+            color: #f4ffff;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: none;
+        }
+
+        .kuliner-skill-card i {
+            font-size: 1.7rem;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .kuliner-skill-card strong {
+            display: block;
+            font-size: 1.5rem;
+            line-height: 1.05;
+            letter-spacing: 0.01em;
+        }
+
+        .kuliner-skill-card small {
+            display: block;
+            margin-top: 2px;
+            font-size: 1rem;
+            line-height: 1.15;
+            font-weight: 600;
+        }
+
+        .kuliner-partnership {
+            padding: 56px 0 64px;
+        }
+
+        .kuliner-partnership-shell {
+            margin: 0 auto;
+        }
+
+        .kuliner-partnership-head {
+            text-align: center;
+            margin-bottom: 26px;
+        }
+
+        .kuliner-partnership-head h3 {
+            margin: 0;
+            font-family: "Sora", sans-serif;
+            font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+            color: #11444b;
+        }
+
+        .kuliner-partnership-head p {
+            margin: 10px auto 0;
+            max-width: 64ch;
+            color: #2b666f;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .kuliner-partnership-slider {
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.82);
+            padding: 20px 0;
+        }
+
+        .kuliner-partnership-slider::before,
+        .kuliner-partnership-slider::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 88px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .kuliner-partnership-slider::before {
+            left: 0;
+            background: linear-gradient(90deg, rgba(235, 246, 250, 1), rgba(235, 246, 250, 0));
+        }
+
+        .kuliner-partnership-slider::after {
+            right: 0;
+            background: linear-gradient(270deg, rgba(235, 246, 250, 1), rgba(235, 246, 250, 0));
+        }
+
+        .kuliner-partnership-track {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: max-content;
+            animation: kuliner-partner-scroll 28s linear infinite;
+        }
+
+        .kuliner-partnership-slider:hover .kuliner-partnership-track {
+            animation-play-state: paused;
+        }
+
+        .kuliner-partner-card {
+            width: 190px;
+            min-height: 128px;
+            border-radius: 14px;
+            border: 1px solid rgba(65, 164, 175, 0.2);
+            background: #ffffff;
+            padding: 14px 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex: 0 0 auto;
+        }
+
+        .kuliner-partner-card img {
+            width: 110px;
+            height: 62px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .kuliner-partner-card span {
+            margin-top: 8px;
+            color: #2b5960;
+            font-size: 0.82rem;
+            line-height: 1.35;
+            font-weight: 600;
+        }
+
+        @keyframes kuliner-partner-scroll {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(calc(-50% - 8px));
+            }
+        }
+
+        @media (max-width: 900px) {
+            .kuliner-profile {
+                padding: 54px 0 48px;
+            }
+
+            .kuliner-profile-top {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                margin-bottom: 34px;
+            }
+
+            .kuliner-profile-copy {
+                max-width: none;
+            }
+
+            .kuliner-skill-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .kuliner-partnership {
+                padding: 46px 0 52px;
+            }
+
+            .kuliner-partnership-slider::before,
+            .kuliner-partnership-slider::after {
+                width: 42px;
+            }
+
+            .kuliner-partner-card {
+                width: 156px;
+                min-height: 112px;
+            }
+
+            .kuliner-partner-card img {
+                width: 94px;
+                height: 52px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .kuliner-profile-copy {
+                font-size: 1rem;
+                line-height: 1.72;
+            }
+
+            .kuliner-skill-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 16px;
+            }
+
+            .kuliner-skill-card {
+                min-height: 122px;
+                padding: 10px 8px;
+            }
+
+            .kuliner-skill-card i {
+                font-size: 1.7rem;
+            }
+
+            .kuliner-skill-card strong {
+                font-size: 1.55rem;
+            }
+
+            .kuliner-skill-card small {
+                font-size: 0.86rem;
+            }
+
+            .kuliner-partnership-head p {
+                font-size: 0.92rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .kuliner-partnership-track {
+                animation: none;
+            }
+        }
+    </style>
 </head>
 <body>
         <nav>
@@ -97,27 +412,95 @@
     </nav>
     <div class="slider-container">
         <div class="slider-items">
-            <img src="{{ asset("img/hero.png") }}" alt="">
+            <img src="{{ asset("img/kuliner/kuliner1.png") }}" alt="">
             <div class="slider-content">
                 <p class="slider-subtitle">{{ __('ui.home.slider_subtitle') }}</p>
-                <h2 class="slider-title">SEJARAH</h2>
-                <p class="slider-description">Semua bermula pada tahun 2014-sekarang..</p>
-                <a href="#" class="slider-action">SEE MORE!</a>
+                <h2 class="slider-title">Kuliner</h2>
+                <p class="slider-description">Hadir sebagai penuntun siswa-siswi untuk menciptakan keindahan dan keunikan rasa dalam Kuliner Nusantara.</p>
+                <a href="#kulinerProfile" class="slider-action">SEE MORE!</a>
             </div>
         </div>
         <div class="slider-items">
-            <img src="{{ asset("img/hero3.png") }}" alt="">
+            <img src="{{ asset("img/kuliner/kuliner2.png") }}" alt="">
             <div class="slider-content">
                 <p class="slider-subtitle">{{ __('ui.home.slider_subtitle') }}</p>
-                <h2 class="slider-title">SEJARAH</h2>
-                <p class="slider-description">Semua bermula pada tahun 2014-sekarang..</p>
-                <a href="#" class="slider-action">SEE MORE!</a>
+                <h2 class="slider-title">Kuliner</h2>
+                <p class="slider-description">Hadir sebagai penuntun siswa-siswi untuk menciptakan keindahan dan keunikan rasa dalam Kuliner Nusantara.</p>
+                <a href="#kulinerProfile" class="slider-action">SEE MORE!</a>
             </div>
         </div>
         <button class="slider-nav slider-prev" type="button" aria-label="{{ __('ui.home.slider_prev_aria') }}">&#8249;</button>
         <button class="slider-nav slider-next" type="button" aria-label="{{ __('ui.home.slider_next_aria') }}">&#8250;</button>
         <div class="slider-dots" aria-label="{{ __('ui.home.slider_pagination_aria') }}"></div>
 </div>
+
+    <section class="kuliner-profile" id="kulinerProfile">
+        <div class="kuliner-profile-shell">
+            <div class="kuliner-profile-top">
+                <figure class="kuliner-gallery m-0">
+                    <img src="{{ asset('img/kuliner/kuliner3.png') }}" alt="Aktivitas siswa PPLG SMK Metland">
+                </figure>
+
+                <div>
+                    <h2 class="kuliner-profile-title">apa itu <span>Kuliner?</span></h2>
+                    <div class="kuliner-title-line" aria-hidden="true"></div>
+                    <p class="kuliner-profile-copy">
+                        Kompetensi keahlian Kuliner adalah kompetensi keahlian yang menyiapkan peserta didik untuk bekerja pada bidang pekerjaan yang dikelola oleh badan atau instansi pariwisata, hotel, restoran, catering serta rumah sakit, serta menyiapkan peserta didik untuk menjadi entrepreneur di bidang usaha penyediaan makanan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="kuliner-skill-grid" aria-label="Kompetensi utama PPLG">
+                <article class="kuliner-skill-card">
+                    <i class="bi bi-basket2"></i>
+                    <strong>Catering</strong>
+                </article>
+                <article class="kuliner-skill-card">
+                    <i class="bi bi-egg-fried"></i>
+                    <strong>Food</strong>
+                    <small>Stylist</small>
+                </article>
+                <article class="kuliner-skill-card">
+                    <i class="bi bi-person-workspace"></i>
+                    <strong>Waiter</strong>
+                </article>
+                <article class="kuliner-skill-card">
+                    <i class="bi bi-cup-hot"></i>
+                    <strong>Barista</strong>
+                </article>
+                <article class="kuliner-skill-card">
+                    <i class="bi bi-award"></i>
+                    <strong>Chef</strong>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="kuliner-partnership" id="partnership-section">
+        <div class="kuliner-partnership-shell">
+            <div class="kuliner-partnership-head">
+                <h3>Partnership <span>Kuliner</span></h3>
+                <p>Kolaborasi Program Kuliner SMK Metland dengan industri makanan, minuman, dan hospitality untuk penguatan praktik produksi, service, dan standar kerja profesional.</p>
+            </div>
+
+            <div class="kuliner-partnership-slider" aria-label="Slider partnership kuliner berjalan otomatis">
+                <div class="kuliner-partnership-track">
+                    <article class="kuliner-partner-card"><img src="{{ asset('img/partners/Sila_Tea-removebg-preview-150x150.png') }}" alt="Logo Sila Tea"><span>Sila Tea</span></article>
+                    <article class="kuliner-partner-card"><img src="{{ asset('img/partners/Indesso-removebg-preview-150x150.png') }}" alt="Logo Indesso"><span>Indesso</span></article>
+                    <article class="kuliner-partner-card"><img src="{{ asset('img/partners/Metland-Hotels-Group-150x150.png') }}" alt="Logo Metland Hotels Group"><span>Metland Hotels Group</span></article>
+                    <article class="kuliner-partner-card"><img src="{{ asset('img/partners/Harris_Hotel-removebg-preview-150x150.png') }}" alt="Logo Harris Hotels"><span>Harris Hotels</span></article>
+                    <article class="kuliner-partner-card"><img src="{{ asset('img/partners/Pullman-removebg-preview-150x150.png') }}" alt="Logo Pullman"><span>Pullman</span></article>
+                    <article class="kuliner-partner-card"><img src="{{ asset('img/partners/Hotel_Ciputra_Cibubur-removebg-preview-150x150.png') }}" alt="Logo Hotel Ciputra Cibubur"><span>Hotel Ciputra Cibubur</span></article>
+                    <article class="kuliner-partner-card"><img src="{{ asset('img/partners/Sila_Tea-removebg-preview-150x150.png') }}" alt="Logo Sila Tea"><span>Sila Tea</span></article>
+                    <article class="kuliner-partner-card"><img src="{{ asset('img/partners/Indesso-removebg-preview-150x150.png') }}" alt="Logo Indesso"><span>Indesso</span></article>
+                    <article class="kuliner-partner-card"><img src="{{ asset('img/partners/Metland-Hotels-Group-150x150.png') }}" alt="Logo Metland Hotels Group"><span>Metland Hotels Group</span></article>
+                    <article class="kuliner-partner-card"><img src="{{ asset('img/partners/Harris_Hotel-removebg-preview-150x150.png') }}" alt="Logo Harris Hotels"><span>Harris Hotels</span></article>
+                    <article class="kuliner-partner-card"><img src="{{ asset('img/partners/Pullman-removebg-preview-150x150.png') }}" alt="Logo Pullman"><span>Pullman</span></article>
+                    <article class="kuliner-partner-card"><img src="{{ asset('img/partners/Hotel_Ciputra_Cibubur-removebg-preview-150x150.png') }}" alt="Logo Hotel Ciputra Cibubur"><span>Hotel Ciputra Cibubur</span></article>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
@@ -233,3 +616,4 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 </body>
 </html>
+

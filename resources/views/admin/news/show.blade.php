@@ -9,7 +9,14 @@
 
     <p class="text-muted">
         Author: {{ $news->author?->name ?? 'Unknown' }} |
-        Published: {{ $news->published_at ? $news->published_at->format('Y-m-d H:i') : 'Draft' }}
+        Status:
+        @if($news->published_at && $news->published_at->isFuture())
+            Upcoming ({{ $news->published_at->format('Y-m-d H:i') }})
+        @elseif($news->published_at)
+            Published ({{ $news->published_at->format('Y-m-d H:i') }})
+        @else
+            Draft
+        @endif
     </p>
 
     @if($news->image)

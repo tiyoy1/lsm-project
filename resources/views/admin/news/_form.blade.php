@@ -56,9 +56,14 @@
 <div class="form-group">
     <label for="published_at">Published At</label>
     <input type="datetime-local" name="published_at" id="published_at" class="form-control @error('published_at') is-invalid @enderror" value="{{ old('published_at', isset($news) && $news->published_at ? $news->published_at->format('Y-m-d\TH:i') : '') }}">
+    <small class="form-text text-muted">Leave empty and click Publish to publish now. Use Save as Draft to keep it hidden from frontend.</small>
     @error('published_at')
         <span class="invalid-feedback">{{ $message }}</span>
     @enderror
 </div>
+
+@error('save_action')
+    <div class="text-danger mt-2">{{ $message }}</div>
+@enderror
 
 @csrf

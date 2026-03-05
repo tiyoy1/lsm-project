@@ -20,79 +20,133 @@
     href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
     <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            scroll-behavior: smooth;
+        }
+
         .pplg-profile {
-            background: #e6e6e6;
-            padding: 56px 0 48px;
+            padding: 68px 0 64px;
         }
 
         .pplg-profile-shell {
-            width: min(1100px, 92vw);
+            width: min(980px, 92vw);
             margin: 0 auto;
-            text-align: center;
+        }
+
+        .pplg-profile-top {
+            display: grid;
+            grid-template-columns: minmax(250px, 390px) minmax(280px, 1fr);
+            align-items: center;
+            gap: 100px;
+            margin-bottom: 52px;
         }
 
         .pplg-profile-title {
             margin: 0;
             font-family: "Sora", sans-serif;
-            font-size: clamp(2rem, 3.8vw, 3rem);
+            font-size: clamp(1.55rem, 3vw, 3rem);
             font-weight: 700;
             color: #101010;
             line-height: 1.1;
         }
 
-        .pplg-profile-title span {
+        span {
             color: #1f8f8b;
+            font-weight: 600;
         }
 
         .pplg-title-line {
-            width: min(220px, 36vw);
-            height: 5px;
-            margin: 8px auto 28px;
+            width: min(170px, 36vw);
+            height: 4px;
+            margin: 10px 0 20px;
             border-radius: 999px;
             background: #1f8f8b;
         }
 
         .pplg-gallery {
-            width: min(700px, 100%);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
+            width: 100%;
             border: 2px solid rgba(20, 20, 20, 0.18);
-            overflow: hidden;
+            border-radius: 6px;
             background: #fff;
+            overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
         }
 
-        .pplg-gallery-main img,
-        .pplg-gallery-stack img {
+        .pplg-gallery:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 36px rgba(11, 78, 88, 0.18);
+            border-color: rgba(21, 135, 142, 0.45);
+        }
+
+        .pplg-gallery img {
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: cover;
             display: block;
+            transition: transform 0.45s ease, filter 0.45s ease;
         }
 
-        .pplg-gallery-main {
-            min-height: 430px;
-            border-right: 2px solid rgba(20, 20, 20, 0.18);
-        }
-
-        .pplg-gallery-stack {
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-        }
-
-        .pplg-gallery-stack img:first-child {
-            border-bottom: 2px solid rgba(20, 20, 20, 0.18);
+        .pplg-gallery:hover img {
+            transform: scale(1.035);
+            filter: saturate(1.05);
         }
 
         .pplg-profile-copy {
-            width: min(100%, 96vw);
-            margin: 34px auto 0;
-            color: #161616;
-            font-size: 20px;
-            line-height: 1.55;
+            margin: 0;
+            color: #0e7881;
+            font-size: clamp(1rem, 1.05vw, 1.7rem);
+            line-height: 1.48;
             font-weight: 500;
+            max-width: 36ch;
+        }
+
+        .pplg-skill-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .pplg-skill-card {
+            background: #0f8e94;
+            border-radius: 14px;
+            min-height: 122px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 8px 10px;
+            color: #f4ffff;
             text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: none;
+        }
+
+        .pplg-skill-card i {
+            font-size: 1.7rem;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .pplg-skill-card strong {
+            display: block;
+            font-size: 1.5rem;
+            line-height: 1.05;
+            letter-spacing: 0.01em;
+        }
+
+        .pplg-skill-card small {
+            display: block;
+            margin-top: 2px;
+            font-size: 1rem;
+            line-height: 1.15;
+            font-weight: 600;
         }
 
         .pplg-partnership {
@@ -204,31 +258,21 @@
 
         @media (max-width: 900px) {
             .pplg-profile {
-                padding: 46px 0 40px;
+                padding: 54px 0 48px;
             }
 
-            .pplg-gallery {
+            .pplg-profile-top {
                 grid-template-columns: 1fr;
-                width: min(560px, 100%);
+                gap: 24px;
+                margin-bottom: 34px;
             }
 
-            .pplg-gallery-main {
-                min-height: 360px;
-                border-right: 0;
-                border-bottom: 2px solid rgba(20, 20, 20, 0.18);
+            .pplg-profile-copy {
+                max-width: none;
             }
 
-            .pplg-gallery-stack {
-                grid-template-rows: none;
-                grid-template-columns: 1fr;
-            }
-
-            .pplg-gallery-stack img:first-child {
-                border-bottom: 2px solid rgba(20, 20, 20, 0.18);
-            }
-
-            .pplg-gallery-stack img:last-child {
-                min-height: 220px;
+            .pplg-skill-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
             }
 
             .pplg-partnership {
@@ -255,8 +299,28 @@
             .pplg-profile-copy {
                 font-size: 1rem;
                 line-height: 1.72;
-                text-align: left;
-                width: min(94vw, 580px);
+            }
+
+            .pplg-skill-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 16px;
+            }
+
+            .pplg-skill-card {
+                min-height: 122px;
+                padding: 10px 8px;
+            }
+
+            .pplg-skill-card i {
+                font-size: 1.7rem;
+            }
+
+            .pplg-skill-card strong {
+                font-size: 1.55rem;
+            }
+
+            .pplg-skill-card small {
+                font-size: 0.86rem;
             }
 
             .pplg-partnership-head p {
@@ -353,7 +417,7 @@
                 <p class="slider-subtitle">{{ __('ui.home.slider_subtitle') }}</p>
                 <h2 class="slider-title">PPLG</h2>
                 <p class="slider-description">Pengembang Perangkat Lunak & Gim</p>
-                <a href="#" class="slider-action">SEE MORE!</a>
+                <a href="#pplgProfile" class="slider-action">SEE MORE!</a>
             </div>
         </div>
         <div class="slider-items">
@@ -362,7 +426,7 @@
                 <p class="slider-subtitle">{{ __('ui.home.slider_subtitle') }}</p>
                 <h2 class="slider-title">PPLG</h2>
                 <p class="slider-description">Pengembang Perangkat Lunak & Gim</p>
-                <a href="#" class="slider-action">SEE MORE!</a>
+                <a href="#pplgProfile" class="slider-action">SEE MORE!</a>
             </div>
         </div>
         <button class="slider-nav slider-prev" type="button" aria-label="{{ __('ui.home.slider_prev_aria') }}">&#8249;</button>
@@ -370,31 +434,53 @@
         <div class="slider-dots" aria-label="{{ __('ui.home.slider_pagination_aria') }}"></div>
 </div>
 
-    <section class="pplg-profile">
+    <section class="pplg-profile" id="pplgProfile">
         <div class="pplg-profile-shell">
-            <h2 class="pplg-profile-title">apa itu <span>PPLG?</span></h2>
-            <div class="pplg-title-line" aria-hidden="true"></div>
-
-            <div class="pplg-gallery">
-                <figure class="pplg-gallery-main m-0">
-                    <img src="{{ asset('img/pplg/pplg2.png') }}" alt="Siswa PPLG Metland School">
+            <div class="pplg-profile-top">
+                <figure class="pplg-gallery m-0">
+                    <img src="{{ asset('img/pplg/pplg3.png') }}" alt="Aktivitas siswa PPLG SMK Metland">
                 </figure>
-                <div class="pplg-gallery-stack">
-                    <img src="{{ asset('img/pplg/pplg1.png') }}" alt="Prestasi siswa PPLG">
-                    <img src="{{ asset('img/pplg/pplg3.png') }}" alt="Suasana kampus mitra PPLG">
+
+                <div>
+                    <h2 class="pplg-profile-title">apa itu <span>PPLG?</span></h2>
+                    <div class="pplg-title-line" aria-hidden="true"></div>
+                    <p class="pplg-profile-copy">
+                        Kurikulum Operasional Program Keahlian Pengembangan Perangkat Lunak dan Gim (PPLG) di SMK Pariwisata Metland School dirancang untuk meningkatkan kualitas pembelajaran serta menjawab kebutuhan industri di bidang teknologi digital yang terus berkembang.
+                    </p>
                 </div>
             </div>
 
-            <p class="pplg-profile-copy">
-                Kurikulum Operasional Program Keahlian Pengembangan Perangkat Lunak dan Gim (PPLG) di SMK Pariwisata Metland School dirancang untuk meningkatkan kualitas pembelajaran serta menjawab kebutuhan industri di bidang teknologi digital yang terus berkembang. Kurikulum ini mempersiapkan siswa dalam berbagai kompetensi seperti UI/UX Design, pengembangan website (Frontend dan Backend), aplikasi mobile, hingga teknologi berbasis Internet of Things (IoT), dengan dukungan mata pelajaran tambahan seperti Platform Komputasi Awan, IoT, dan Pengembangan Gim. Proses pembelajaran menerapkan Hybrid Model Learning System yang menggabungkan pembelajaran daring dan tatap muka, serta disusun dengan melibatkan dunia industri, termasuk dukungan dari PT Metropolitan Land, Tbk., dan kerja sama dengan perguruan tinggi vokasi. Melalui kurikulum ini, lulusan diharapkan memiliki kompetensi untuk bekerja, melanjutkan pendidikan, maupun berwirausaha (BMW) sesuai dengan program Direktorat Jenderal Vokasi.
-            </p>
+            <div class="pplg-skill-grid" aria-label="Kompetensi utama PPLG">
+                <article class="pplg-skill-card">
+                    <i class="bi bi-vector-pen"></i>
+                    <strong>UI/UX</strong>
+                </article>
+                <article class="pplg-skill-card">
+                    <i class="bi bi-window-stack"></i>
+                    <strong>Fullstack</strong>
+                    <small>developer</small>
+                </article>
+                <article class="pplg-skill-card">
+                    <i class="bi bi-phone"></i>
+                    <strong>Mobile</strong>
+                    <small>Apps</small>
+                </article>
+                <article class="pplg-skill-card">
+                    <i class="bi bi-cpu"></i>
+                    <strong>IoT</strong>
+                </article>
+                <article class="pplg-skill-card">
+                    <i class="bi bi-controller"></i>
+                    <strong>Game</strong>
+                </article>
+            </div>
         </div>
     </section>
 
     <section class="pplg-partnership" id="partnership-section">
         <div class="pplg-partnership-shell">
             <div class="pplg-partnership-head">
-                <h3>Partnership PPLG</h3>
+                <h3>Partnership <span>PPLG</span></h3>
                 <p>Kolaborasi PPLG SMK Metland dengan partner industri dan teknologi untuk project-based learning, magang, dan penguatan kompetensi digital siswa.</p>
             </div>
 

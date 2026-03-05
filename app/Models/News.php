@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -54,6 +55,35 @@ class News extends Model
         }
 
         return asset('img/hero2.JPG');
+    }
+
+    public function scopePublished(Builder $query): Builder
+    {
+        return $query->whereNotNull('published_at')
+            ->where('published_at', '<=', now());
+    }
+
+    public function scopeDraftOrScheduled(Builder $query): Builder
+    {
+        return $query->where(function (Builder $subQuery) {
+            $subQuery->whereNull('published_at')
+                ->orWhere('published_at', '>', now());
+        });
+    }
+
+    public function isPublished(): bool
+    {
+        return !is_null($this->published_at) && $this->published_at->lte(now());
+    }
+
+    public function isDraft(): bool
+    {
+        return is_null($this->published_at);
+    }
+
+    public function isScheduled(): bool
+    {
+        return !is_null($this->published_at) && $this->published_at->gt(now());
     }
 
     // Automatically generate slug from title

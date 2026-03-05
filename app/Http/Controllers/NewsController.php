@@ -13,17 +13,7 @@ class NewsController extends Controller
 {
     private function visibleNewsQuery(): Builder
     {
-        $published = News::query()
-            ->whereNotNull('published_at')
-            ->where('published_at', '<=', now());
-
-        if ($published->exists()) {
-            return News::with('author')
-                ->whereNotNull('published_at')
-                ->where('published_at', '<=', now());
-        }
-
-        return News::with('author');
+        return News::with('author')->published();
     }
 
     public function publicIndex(Request $request)
@@ -59,13 +49,7 @@ class NewsController extends Controller
 
     public function publicShow(News $news)
     {
-        $isPublished = !is_null($news->published_at) && $news->published_at->lte(now());
-        $hasPublishedNews = News::query()
-            ->whereNotNull('published_at')
-            ->where('published_at', '<=', now())
-            ->exists();
-
-        if ($hasPublishedNews && !$isPublished) {
+        if (!$news->isPublished()) {
             abort(404);
         }
 
@@ -84,6 +68,11 @@ class NewsController extends Controller
     public function index(Request $request)
     {
         $search = trim((string) $request->query('q', ''));
+        $status = (string) $request->query('status', 'published');
+        if (!in_array($status, ['published', 'draft', 'all'], true)) {
+            $status = 'published';
+        }
+
         $news = News::with('author')
             ->when($search !== '', function ($query) use ($search) {
                 $query->where(function ($subQuery) use ($search) {
@@ -93,11 +82,27 @@ class NewsController extends Controller
                         ->orWhere('content_en', 'like', '%' . $search . '%');
                 });
             })
-            ->latest()
+            ->when($status === 'published', function (Builder $query) {
+                $query->published();
+            })
+            ->when($status === 'draft', function (Builder $query) {
+                $query->draftOrScheduled();
+            })
+            ->orderByRaw('CASE WHEN published_at IS NULL THEN 1 ELSE 0 END')
+            ->orderByDesc('published_at')
+            ->orderByDesc('id')
             ->paginate(10)
             ->withQueryString();
 
-        return view('admin.news.index', compact('news', 'search'));
+        return view('admin.news.index', [
+            'news' => $news,
+            'search' => $search,
+            'status' => $status,
+            'publishedCount' => News::query()->published()->count(),
+            'draftCount' => News::query()
+                ->draftOrScheduled()
+                ->count(),
+        ]);
     }
 
     /**
@@ -114,6 +119,8 @@ class NewsController extends Controller
     public function store(StoreNewsRequest $request)
     {
         $validated = $request->validated();
+        $saveAction = $validated['save_action'];
+        unset($validated['save_action']);
 
         // Handle image upload
         if ($request->hasFile('image')) {
@@ -122,11 +129,20 @@ class NewsController extends Controller
         }
 
         $validated['author_id'] = auth()->id();
+        if ($saveAction === 'draft') {
+            $validated['published_at'] = null;
+        } elseif (empty($validated['published_at'])) {
+            $validated['published_at'] = now();
+        }
 
         // Create news
         News::create($validated);
 
-        return redirect()->route('admin.news.index')->with('success', 'News created successfully.');
+        $message = $saveAction === 'draft'
+            ? 'News saved to draft successfully.'
+            : 'News published successfully.';
+
+        return redirect()->route('admin.news.index')->with('success', $message);
     }
 
     /**
@@ -151,6 +167,8 @@ class NewsController extends Controller
     public function update(UpdateNewsRequest $request, News $news)
     {
         $validated = $request->validated();
+        $saveAction = $validated['save_action'];
+        unset($validated['save_action']);
 
         // Handle image upload
         if ($request->hasFile('image')) {
@@ -162,9 +180,19 @@ class NewsController extends Controller
             $validated['image'] = $path;
         }
 
+        if ($saveAction === 'draft') {
+            $validated['published_at'] = null;
+        } elseif (empty($validated['published_at'])) {
+            $validated['published_at'] = now();
+        }
+
         $news->update($validated);
 
-        return redirect()->route('admin.news.index')->with('success', 'News updated successfully.');
+        $message = $saveAction === 'draft'
+            ? 'Draft updated successfully.'
+            : 'News updated successfully.';
+
+        return redirect()->route('admin.news.index')->with('success', $message);
     }
 
     /**

@@ -26,7 +26,7 @@
             <img src="{{ asset("img/logo.webp") }}" alt="Logo SMK Metland" class="logo-img">SMK METLAND
         </div>
         <ul id="primary-nav">
-            <li><a href="{{ url('/') }}">{{ __('ui.nav.home') }}</a></li>
+            <li><a href="#">{{ __('ui.nav.home') }}</a></li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
                     {{ __('ui.nav.school_profile') }} <i class="bi bi-chevron-down" aria-hidden="true"></i>
