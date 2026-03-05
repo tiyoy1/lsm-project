@@ -1,58 +1,42 @@
 @extends('layouts.admin')
 
-@section('title', 'Karya Siswa')
-
 @section('content')
 <div class="container">
-    <h1>Karya Siswa</h1>
-
-    <a href="{{ route('admin.student-works.create') }}" class="btn btn-primary mb-3">Tambah Karya</a>
+    <h1>Student Works</h1>
+    <a href="{{ route('admin.student-works.create') }}" class="btn btn-primary mb-3">Add Student Work</a>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
-    <table class="table table-bordered align-middle">
+    <table class="table table-bordered">
         <thead>
             <tr>
-                <th style="width: 80px;">Foto</th>
-                <th>Nama Karya</th>
-                <th>Deskripsi</th>
-                <th>Nama Pembuat</th>
-                <th>Tanggal Dibuat</th>
-                <th style="width: 180px;">Actions</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Published</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            @forelse($studentWorks as $work)
+            @foreach($studentWorks as $item)
                 <tr>
+                    <td>{{ $item->title ?? $item->work_name }}</td>
+                    <td>{{ $item->author?->name ?? 'Unknown' }}</td>
+                    <td>{{ $item->published_at ? $item->published_at->format('Y-m-d') : 'Draft' }}</td>
                     <td>
-                        @if($work->photo)
-                            <img src="{{ asset('storage/' . $work->photo) }}" alt="{{ $work->work_name }}" style="max-width: 60px; height: auto;">
-                        @else
-                            <span class="text-muted">-</span>
-                        @endif
-                    </td>
-                    <td>{{ $work->work_name }}</td>
-                    <td>{{ $work->description ?: '-' }}</td>
-                    <td>{{ $work->creator_name }}</td>
-                    <td>{{ $work->created_date ? $work->created_date->format('Y-m-d') : '-' }}</td>
-                    <td>
-                        <a href="{{ route('admin.student-works.edit', $work) }}" class="btn btn-sm btn-warning">Edit</a>
-
-                        <form action="{{ route('admin.student-works.destroy', $work) }}" method="POST" style="display:inline-block;">
+                        <a href="{{ route('admin.student-works.edit', $item) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <form action="{{ route('admin.student-works.destroy', $item) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this student work?')">Delete</button>
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                         </form>
                     </td>
                 </tr>
-            @empty
-                <tr>
-                    <td colspan="6" class="text-center text-muted">Belum ada karya siswa.</td>
-                </tr>
-            @endforelse
+            @endforeach
         </tbody>
     </table>
+
+    {{ $studentWorks->links() }}
 </div>
 @endsection

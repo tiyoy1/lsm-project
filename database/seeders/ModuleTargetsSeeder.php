@@ -79,10 +79,15 @@ class ModuleTargetsSeeder extends Seeder
         for ($i = 1; $i <= $need; $i++) {
             $num = $current + $i;
             StudentWork::create([
+                'title' => 'Karya Siswa ' . $num,
+                'title_en' => 'Student Work ' . $num,
+                'content' => 'Deskripsi karya siswa ' . $num,
+                'content_en' => 'Student work description ' . $num,
+                'published_at' => $now->copy()->subDays($num),
                 'work_name' => 'Karya Siswa ' . $num,
                 'description' => 'Deskripsi karya siswa ' . $num,
-                'creator_name' => 'Siswa ' . $num,
-                'created_date' => $now->copy()->subDays($num),
+                'creator_name' => 'Administrator',
+                'created_date' => $now->copy()->subDays($num)->toDateString(),
                 'created_at' => $now,
                 'updated_at' => $now,
             ]);

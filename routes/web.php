@@ -43,6 +43,8 @@ Route::get('/language/{locale}', function (string $locale) {
 
 Route::get('/news', [NewsController::class, 'publicIndex'])->name('news.index');
 Route::get('/news/{news:slug}', [NewsController::class, 'publicShow'])->name('news.show');
+Route::get('/student-works', [StudentWorkController::class, 'publicIndex'])->name('student-works.index');
+Route::get('/student-works/{studentWork:slug}', [StudentWorkController::class, 'publicShow'])->name('student-works.show');
 
 Route::get('/dashboard', function () {
     return redirect()->route('admin.panel');

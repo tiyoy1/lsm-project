@@ -48,11 +48,19 @@
                     <li><a href="#">{{ __('ui.nav.major_hotel') }}</a></li>
                 </ul>
             </li>
-            <li><a href="#alumni-section">{{ __('ui.nav.alumni') }}</a></li>
-            <li><a href="#majors-smk">{{ __('ui.nav.organization') }}</a></li>
+            <li><a href="#partnership-section">{{ __('ui.nav.partnership') }}</a></li>
             <li><a href="{{ route('news.index') }}">{{ __('ui.nav.news') }}</a></li>
             <li><a href="#contact">{{ __('ui.nav.contact') }}</a></li>
-            <li><a href="#partnership-section">{{ __('ui.nav.partnership') }}</a></li>
+            <li class="nav-has-dropdown">
+                <button type="button" class="nav-dropdown-toggle">
+                    {{ __('ui.nav.more') }} <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                </button>
+                <ul class="nav-dropdown">
+                    <li><a href="{{ route('student-works.index') }}">{{ __('ui.nav.student_works') }}</a></li>
+                    <li><a href="#alumni-section">{{ __('ui.nav.alumni') }}</a></li>
+                    <li><a href="#majors-smk">{{ __('ui.nav.organization') }}</a></li>
+                </ul>
+            </li>
         </ul>
         <div class="sosmed-icon">
   <a href="https://youtube.com/@metlandschool?si=H326T8TIsX0qFjtO" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
@@ -420,9 +428,7 @@
                 </ul>
 
                 <div class="alumni-controls">
-                    <button type="button" class="swiper-button-prev" aria-label="Previous alumni slide"></button>
                     <div class="swiper-pagination" aria-label="Alumni slide pagination"></div>
-                    <button type="button" class="swiper-button-next" aria-label="Next alumni slide"></button>
                 </div>
             </div>
         </div>

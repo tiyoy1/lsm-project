@@ -945,7 +945,7 @@ nav .nav-mobile-actions {
 
 .alumni-slide-container {
     position: relative;
-    padding-bottom: 92px;
+    padding-bottom: 8px;
 }
 
 .alumni-card-list {
@@ -1029,41 +1029,20 @@ nav .nav-mobile-actions {
 }
 
 .alumni-controls {
-    position: absolute;
-    left: 50%;
-    bottom: 4px;
-    transform: translateX(-50%);
+    position: static;
+    width: fit-content;
+    margin: 20px auto 0;
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(20, 118, 123, 0.12);
+    box-shadow: 0 8px 18px rgba(16, 93, 97, 0.1);
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
     z-index: 1;
-}
-
-.alumni-section .swiper-button-prev,
-.alumni-section .swiper-button-next {
-    position: static;
-    width: 42px;
-    height: 42px;
-    margin: 0;
-    border-radius: 50%;
-    border: 1px solid rgba(27, 125, 131, 0.3);
-    background: #ffffff;
-    color: #196f75;
-    box-shadow: 0 8px 18px rgba(18, 100, 103, 0.15);
-    transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-
-.alumni-section .swiper-button-prev:hover,
-.alumni-section .swiper-button-next:hover {
-    transform: translateY(-2px);
-    border-color: rgba(14, 131, 137, 0.55);
-    color: #0f6b71;
-}
-
-.alumni-section .swiper-button-prev::after,
-.alumni-section .swiper-button-next::after {
-    font-size: 0.95rem;
-    font-weight: 700;
 }
 
 .alumni-section .swiper-pagination {
@@ -1071,30 +1050,36 @@ nav .nav-mobile-actions {
     width: auto;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+    justify-content: center;
 }
 
 .alumni-section .swiper-pagination-bullet {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
     border-radius: 999px;
-    border: 1px solid rgba(20, 118, 123, 0.22);
+    border: 1px solid rgba(20, 118, 123, 0.2);
     background: #fff;
     opacity: 1;
-    color: #3b7b80;
-    font-size: 0.73rem;
+    color: #3a7277;
+    font-size: 0.69rem;
     font-weight: 700;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.alumni-section .swiper-pagination-bullet:hover {
+    border-color: rgba(14, 131, 137, 0.42);
+    box-shadow: 0 3px 8px rgba(14, 131, 137, 0.16);
 }
 
 .alumni-section .swiper-pagination-bullet-active {
     background: #0d8086;
     border-color: #0d8086;
     color: #fff;
-    transform: translateY(-1px);
+    transform: translateY(-1px) scale(1.03);
 }
 
 .alumni-slide-container .swiper-slide {
@@ -2439,13 +2424,7 @@ nav .nav-mobile-actions {
     }
 
     .alumni-slide-container {
-        padding-bottom: 84px;
-    }
-
-    .alumni-section .swiper-button-next,
-    .alumni-section .swiper-button-prev {
-        width: 38px;
-        height: 38px;
+        padding-bottom: 12px;
     }
 
     .alumni-section .swiper-pagination-bullet {
@@ -2996,7 +2975,7 @@ nav .nav-mobile-actions {
     }
 
     .alumni-slide-container {
-        padding-bottom: 76px;
+        padding-bottom: 10px;
     }
 
     .alumni-card-link {
@@ -3020,13 +2999,7 @@ nav .nav-mobile-actions {
 
     .alumni-controls {
         gap: 8px;
-        bottom: 2px;
-    }
-
-    .alumni-section .swiper-button-prev,
-    .alumni-section .swiper-button-next {
-        width: 34px;
-        height: 34px;
+        padding: 8px 12px;
     }
 
     .alumni-section .swiper-pagination-bullet {
