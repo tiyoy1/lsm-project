@@ -40,6 +40,22 @@ class News extends Model
         return $this->content;
     }
 
+    public function getImageUrlAttribute(): string
+    {
+        if (blank($this->image)) {
+            return asset('img/hero2.JPG');
+        }
+
+        $relativeImagePath = ltrim($this->image, '/');
+        $publicImagePath = public_path('storage/' . $relativeImagePath);
+
+        if (is_file($publicImagePath)) {
+            return asset('storage/' . $relativeImagePath);
+        }
+
+        return asset('img/hero2.JPG');
+    }
+
     // Automatically generate slug from title
     protected static function booted()
     {

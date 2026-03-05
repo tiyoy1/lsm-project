@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $news->localized_title }} - {{ __('ui.news.title') }} SMK Metland</title>
+    <link rel="icon" type="image/webp" href="{{ asset('img/logo.webp') }}?v=20260305">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/scrollbar.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +31,7 @@
             <div class="news-detail-layout">
                 <article class="news-article-card">
                     <div class="news-article-media">
-                        <img src="{{ $news->image ? asset('storage/' . $news->image) : asset('img/hero2.JPG') }}" alt="{{ $news->localized_title }}">
+                        <img src="{{ $news->image_url }}" alt="{{ $news->localized_title }}">
                         <a
                             href="https://wa.me/?text={{ urlencode($news->localized_title . ' - ' . route('news.show', $news->slug)) }}"
                             target="_blank"
@@ -70,7 +71,7 @@
                         <div class="news-sidebar-list">
                             @forelse($sidebarNews as $item)
                                 <a href="{{ route('news.show', $item->slug) }}" class="news-sidebar-item {{ $item->id === $news->id ? 'is-active' : '' }}">
-                                    <img src="{{ $item->image ? asset('storage/' . $item->image) : asset('img/hero2.JPG') }}" alt="{{ $item->localized_title }}">
+                                    <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}">
                                     <div>
                                         <p class="news-sidebar-item-title">{{ \Illuminate\Support\Str::limit($item->localized_title, 68) }}</p>
                                         <p class="news-sidebar-item-date">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>

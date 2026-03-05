@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title', 'Admin Panel') - School Admin</title>
-    <link rel="icon" type="image/webp" href="{{ asset('img/logo.webp') }}">
+    <link rel="icon" type="image/webp" href="{{ asset('img/logo.webp') }}?v=20260305">
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -265,6 +265,29 @@
             color: var(--text);
             border-color: var(--accent);
             box-shadow: 0 0 0 0.2rem rgba(57, 209, 255, 0.2);
+        }
+
+        .form-control[type="file"] {
+            padding: 0.35rem 0.5rem;
+            color: var(--muted);
+            cursor: pointer;
+        }
+
+        .form-control[type="file"]::file-selector-button {
+            border: 0;
+            margin: -0.35rem 0.85rem -0.35rem -0.5rem;
+            padding: 0.55rem 0.95rem;
+            border-right: 1px solid rgba(5, 14, 26, 0.6);
+            border-radius: 10px 0 0 10px;
+            background: linear-gradient(135deg, var(--accent-2), var(--accent));
+            color: #011019;
+            font-weight: 700;
+            transition: filter 0.2s ease;
+        }
+
+        .form-control[type="file"]:hover::file-selector-button,
+        .form-control[type="file"]:focus::file-selector-button {
+            filter: brightness(1.08);
         }
 
         .form-label {

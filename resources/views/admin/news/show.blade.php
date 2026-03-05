@@ -14,7 +14,7 @@
 
     @if($news->image)
         <div class="mb-3">
-            <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}" style="max-width: 400px;">
+            <img src="{{ $news->image_url }}" alt="{{ $news->title }}" style="max-width: 400px;">
         </div>
     @endif
 

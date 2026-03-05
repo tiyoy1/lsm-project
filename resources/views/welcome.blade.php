@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMK METLAND</title>
+    <link rel="icon" type="image/webp" href="{{ asset('img/logo.webp') }}?v=20260305">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -325,7 +326,7 @@
                 @if($featuredNews)
                     <article class="news-featured-card">
                         <div class="news-featured-media">
-                            <img src="{{ $featuredNews->image ? asset('storage/' . $featuredNews->image) : asset('img/hero2.JPG') }}" alt="{{ $featuredNews->localized_title }}">
+                            <img src="{{ $featuredNews->image_url }}" alt="{{ $featuredNews->localized_title }}">
                             <span class="news-tag">{{ __('ui.news.tag') }}</span>
                         </div>
                         <div class="news-featured-body">
@@ -340,7 +341,7 @@
                         @foreach($sideNews as $item)
                             <article class="news-mini-card">
                                 <a href="{{ route('news.show', $item->slug) }}" class="news-mini-thumb-link">
-                                    <img src="{{ $item->image ? asset('storage/' . $item->image) : asset('img/hero2.JPG') }}" alt="{{ $item->localized_title }}">
+                                    <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}">
                                 </a>
                                 <div>
                                     <p class="news-mini-meta">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>
@@ -623,7 +624,7 @@
                     @endphp
                     @forelse($footerNews as $item)
                         <article class="footer-post-item">
-                            <img src="{{ $item->image ? asset('storage/' . $item->image) : asset('img/hero2.JPG') }}" alt="{{ $item->localized_title }}" class="footer-post-thumb">
+                            <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" class="footer-post-thumb">
                             <div class="footer-post-content">
                                 <a href="{{ route('news.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->localized_title, 76) }}</a>
                                 <p class="footer-post-date">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>

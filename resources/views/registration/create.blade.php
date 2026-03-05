@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" type="image/webp" href="{{ asset('img/logo.webp') }}?v=20260305">
 </head>
 <body>
     <h1>Student Page</h1>

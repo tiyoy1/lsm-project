@@ -36,7 +36,7 @@
 
 <div class="form-group">
     <label for="image">Image</label>
-    <input type="file" name="image" id="image" class="form-control-file @error('image') is-invalid @enderror">
+    <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror" accept=".jpg,.jpeg,.png,.gif">
     @if(isset($news) && $news->image)
         <div class="mt-2">
             <img src="{{ asset('storage/' . $news->image) }}" alt="Current image" style="max-width: 200px;">

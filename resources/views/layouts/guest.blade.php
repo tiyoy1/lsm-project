@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'SMK Metland') }}</title>
-        <link rel="icon" type="image/webp" href="{{ asset('img/logo.webp') }}">
+        <link rel="icon" type="image/webp" href="{{ asset('img/logo.webp') }}?v=20260305">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

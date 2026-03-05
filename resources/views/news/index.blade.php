@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ __('ui.news.title') }} - SMK Metland</title>
+    <link rel="icon" type="image/webp" href="{{ asset('img/logo.webp') }}?v=20260305">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/scrollbar.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +39,7 @@
                 @foreach($news as $item)
                     <article class="news-page-card">
                         <div class="news-page-media">
-                            <img src="{{ $item->image ? asset('storage/' . $item->image) : asset('img/hero2.JPG') }}" alt="{{ $item->localized_title }}">
+                            <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}">
                             <span class="news-page-tag">{{ __('ui.news.tag') }}</span>
                         </div>
                         <div class="news-page-content">
@@ -87,6 +88,4 @@
     </main>
 </body>
 </html>
-
-
 

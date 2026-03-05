@@ -32,9 +32,19 @@ class NewsController extends Controller
         $newsQuery = $this->visibleNewsQuery();
 
         if ($search !== '') {
-            $newsQuery->where(function (Builder $query) use ($search) {
-                $query->where('title', 'like', '%' . $search . '%')
-                    ->orWhere('content', 'like', '%' . $search . '%');
+            $keywords = preg_split('/\s+/', $search, -1, PREG_SPLIT_NO_EMPTY);
+
+            $newsQuery->where(function (Builder $query) use ($keywords) {
+                foreach ($keywords as $keyword) {
+                    $likeKeyword = '%' . $keyword . '%';
+
+                    $query->where(function (Builder $subQuery) use ($likeKeyword) {
+                        $subQuery->where('title', 'like', $likeKeyword)
+                            ->orWhere('title_en', 'like', $likeKeyword)
+                            ->orWhere('content', 'like', $likeKeyword)
+                            ->orWhere('content_en', 'like', $likeKeyword);
+                    });
+                }
             });
         }
 
