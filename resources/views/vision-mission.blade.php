@@ -122,13 +122,7 @@
                 @endphp
 
 <div class="row g-4">
-    <div class="col-lg-5">
-        <article class="vm-card">
-            <h2>Visi</h2>
-            <p>{{ $visionMission->vision }}</p>
-        </article>
-    </div>
-    <div class="col-lg-7">
+    <div class="col-lg-12">
         <article class="vm-card">
             <h2>Misi</h2>
             @if(count($missionLines) > 1)
