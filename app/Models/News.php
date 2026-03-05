@@ -11,7 +11,7 @@ class News extends Model
 {
      use HasFactory;
 
-    protected $fillable = ['title', 'slug', 'content', 'image', 'published_at', 'author_id'];
+    protected $fillable = ['title', 'title_en', 'slug', 'content', 'content_en', 'image', 'published_at', 'author_id'];
 
     protected $casts = [
         'published_at' => 'datetime',
@@ -20,6 +20,24 @@ class News extends Model
     public function author()
     {
         return $this->belongsTo(User::class, 'author_id');
+    }
+
+    public function getLocalizedTitleAttribute(): string
+    {
+        if (app()->getLocale() === 'en' && filled($this->title_en)) {
+            return $this->title_en;
+        }
+
+        return $this->title;
+    }
+
+    public function getLocalizedContentAttribute(): string
+    {
+        if (app()->getLocale() === 'en' && filled($this->content_en)) {
+            return $this->content_en;
+        }
+
+        return $this->content;
     }
 
     // Automatically generate slug from title

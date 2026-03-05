@@ -12,12 +12,36 @@ use App\Http\Controllers\SchoolProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentWorkController;
 use App\Http\Controllers\VisionMissionController;
+use App\Models\News;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    $publishedNews = News::with('author')
+        ->whereNotNull('published_at')
+        ->where('published_at', '<=', now());
+
+    $latestNews = ($publishedNews->exists() ? $publishedNews : News::with('author'))
+        ->orderByDesc('published_at')
+        ->orderByDesc('id')
+        ->take(4)
+        ->get();
+
+    return view('welcome', compact('latestNews'));
 });
 Route::get('/visi-misi', [VisionMissionController::class, 'publicIndex'])->name('vision-mission');
+
+Route::get('/language/{locale}', function (string $locale) {
+    if (!in_array($locale, ['en', 'id'], true)) {
+        abort(404);
+    }
+
+    session(['locale' => $locale]);
+
+    return redirect()->back();
+})->name('language.switch');
+
+Route::get('/news', [NewsController::class, 'publicIndex'])->name('news.index');
+Route::get('/news/{news:slug}', [NewsController::class, 'publicShow'])->name('news.show');
 
 Route::get('/dashboard', function () {
     return redirect()->route('admin.panel');

@@ -3,7 +3,7 @@
 @endphp
 
 <div class="form-group">
-    <label for="title">Title</label>
+    <label for="title">Title (Indonesia)</label>
     <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $news->title ?? '') }}">
     @error('title')
         <span class="invalid-feedback">{{ $message }}</span>
@@ -11,9 +11,25 @@
 </div>
 
 <div class="form-group">
-    <label for="content">Content</label>
+    <label for="title_en">Title (English)</label>
+    <input type="text" name="title_en" id="title_en" class="form-control @error('title_en') is-invalid @enderror" value="{{ old('title_en', $news->title_en ?? '') }}">
+    @error('title_en')
+        <span class="invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
+
+<div class="form-group">
+    <label for="content">Content (Indonesia)</label>
     <textarea name="content" id="content" rows="5" class="form-control @error('content') is-invalid @enderror">{{ old('content', $news->content ?? '') }}</textarea>
     @error('content')
+        <span class="invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
+
+<div class="form-group">
+    <label for="content_en">Content (English)</label>
+    <textarea name="content_en" id="content_en" rows="5" class="form-control @error('content_en') is-invalid @enderror">{{ old('content_en', $news->content_en ?? '') }}</textarea>
+    @error('content_en')
         <span class="invalid-feedback">{{ $message }}</span>
     @enderror
 </div>
