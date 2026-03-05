@@ -1,5 +1,11 @@
 @csrf
 
+<style>
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+    }
+</style>
+
 <div class="mb-3">
     <label for="work_name" class="form-label">Nama Karya</label>
     <input

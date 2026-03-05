@@ -2,6 +2,12 @@
     $published_at = old('published_at', $news->published_at ?? '');
 @endphp
 
+<style>
+    input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+    }
+</style>
+
 <div class="form-group">
     <label for="title">Title (Indonesia)</label>
     <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $news->title ?? '') }}">

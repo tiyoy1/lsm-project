@@ -407,8 +407,8 @@
             <div class="p-3">
                 <div class="sidebar-header mb-1">
                     <div>
-                        <div class="brand-title">SMK Command</div>
-                        <div class="brand-sub">Administration Core</div>
+                        <div class="brand-title">JARVIS METLAND CENTER</div>
+                        <div class="brand-sub">Center of Data SMK Metland</div>
                     </div>
                     <button class="sidebar-compact-btn" id="toggleSidebarBtn" type="button" title="Compact sidebar">
                         <i class="fas fa-angles-left"></i>
@@ -459,7 +459,7 @@
             <!-- Top Navbar -->
             <nav class="navbar navbar-expand admin-topbar">
                 <div class="container-fluid">
-                    <span class="topbar-title">Futuristic Admin Control</span>
+                    <span class="topbar-title"> </span>
                     <button class="btn btn-outline-secondary d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
                         <i class="fas fa-bars"></i>
                     </button>
