@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visi & Misi Sekolah</title>
+    <title>Jurusan Kuliner - SMK Metland</title>
     <link rel="icon" type="image/webp" href="{{ asset('img/logo.webp') }}?v=20260305">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -91,75 +91,53 @@
             <img src="{{ asset("img/hero.png") }}" alt="">
             <div class="slider-content">
                 <p class="slider-subtitle">{{ __('ui.home.slider_subtitle') }}</p>
-                <h2 class="slider-title">VISI</h2>
-                <p class="slider-description">“Menjadi SMK Yang Lulusannya Memiliki Performa Karakter Unggul Dan Berkompetensi Berstandar Internasional”</p>
+                <h2 class="slider-title">SEJARAH</h2>
+                <p class="slider-description">Semua bermula pada tahun 2014-sekarang..</p>
+                <a href="#" class="slider-action">SEE MORE!</a>
             </div>
         </div>
         <div class="slider-items">
-            <img src="{{ asset("img/hero2.JPG") }}" alt="">
+            <img src="{{ asset("img/hero3.png") }}" alt="">
             <div class="slider-content">
                 <p class="slider-subtitle">{{ __('ui.home.slider_subtitle') }}</p>
-                <h2 class="slider-title">MISI</h2>
-                <a href="#mission" class="slider-action">SEE HERE!</a>
+                <h2 class="slider-title">SEJARAH</h2>
+                <p class="slider-description">Semua bermula pada tahun 2014-sekarang..</p>
+                <a href="#" class="slider-action">SEE MORE!</a>
             </div>
         </div>
         <button class="slider-nav slider-prev" type="button" aria-label="{{ __('ui.home.slider_prev_aria') }}">&#8249;</button>
         <button class="slider-nav slider-next" type="button" aria-label="{{ __('ui.home.slider_next_aria') }}">&#8250;</button>
         <div class="slider-dots" aria-label="{{ __('ui.home.slider_pagination_aria') }}"></div>
 </div>
-    <section class="vision-mission-section" id="mission">
-        <div class="container">
-            <div class="hero-badge">Misi Kami</div>
-            <h4>Membangun<span>GENERASI CINTA PRESTASI</span></h4>
-        </div>
-        
-        <main class="section-wrap">
-            <div class="container">
-                @if($visionMission)
-                @php
-                    $missionLines = preg_split('/\r\n|\r|\n/', (string) $visionMission->mission);
-                    $missionLines = array_values(array_filter(array_map('trim', $missionLines)));
-                @endphp
 
-<div class="row g-4">
-    <div class="col-lg-5">
-        <article class="vm-card">
-            <h2>Visi</h2>
-            <p>{{ $visionMission->vision }}</p>
-        </article>
-    </div>
-    <div class="col-lg-7">
-        <article class="vm-card">
-            <h2>Misi</h2>
-            @if(count($missionLines) > 1)
-            <ol class="mission-list">
-                @foreach($missionLines as $line)
-                <li>{{ ltrim($line, "-• \t") }}</li>
-                @endforeach
-            </ol>
-            @else
-            <p>{{ $visionMission->mission }}</p>
-            @endif
-        </article>
-    </div>
-</div>
-@else
-<div class="panel empty-state">
-                    Data visi misi belum tersedia.
-                </div>
-                @endif
-                
-                <div class="panel mt-4">
-                    <h3 class="panel-title">Akses Cepat</h3>
-                    <div class="quick-actions">
-                        <a href="{{ url('/') }}" class="btn btn-school btn-outline-school">Kembali ke Beranda</a>
-                        <a href="{{ route('ppdb.create') }}" class="btn btn-school btn-primary-school">Pendaftaran PPDB</a>
-                        <a href="{{ url('/news') }}" class="btn btn-school btn-outline-school">Lihat Berita Sekolah</a>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <footer class="school-footer" id="school-footer">
         <div class="footer-shell">
             <div class="footer-brand">

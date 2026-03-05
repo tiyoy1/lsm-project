@@ -29,6 +29,12 @@ Route::get('/', function () {
     return view('welcome', compact('latestNews'));
 });
 Route::get('/visi-misi', [VisionMissionController::class, 'publicIndex'])->name('vision-mission');
+Route::view('/sejarah', 'sejarah')->name('sejarah');
+Route::view('/jurusan/akuntansi', 'majors.Akuntansi')->name('majors.akuntansi');
+Route::view('/jurusan/pplg', 'majors.PPLG')->name('majors.pplg');
+Route::view('/jurusan/dkv', 'majors.DKV')->name('majors.dkv');
+Route::view('/jurusan/kuliner', 'majors.Kuliner')->name('majors.kuliner');
+Route::view('/jurusan/hotel', 'majors.Hotel')->name('majors.hotel');
 
 Route::get('/language/{locale}', function (string $locale) {
     if (!in_array($locale, ['en', 'id'], true)) {

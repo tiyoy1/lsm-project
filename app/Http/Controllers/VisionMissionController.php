@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\VisionMission;
+use App\Models\SchoolProfile;
 use Illuminate\Http\Request;
 
 class VisionMissionController extends Controller
@@ -13,8 +14,9 @@ class VisionMissionController extends Controller
     public function publicIndex()
     {
         $visionMission = VisionMission::latest()->first();
+        $schoolProfile = SchoolProfile::latest()->first();
 
-        return view('vision-mission', compact('visionMission'));
+        return view('vision-mission', compact('visionMission', 'schoolProfile'));
     }
 
     /**

@@ -1042,27 +1042,29 @@ nav .nav-mobile-actions {
 .alumni-section .swiper-button-prev,
 .alumni-section .swiper-button-next {
     position: static;
-    width: 42px;
-    height: 42px;
+    width: 46px;
+    height: 30px;
     margin: 0;
     border-radius: 50%;
-    border: 1px solid rgba(27, 125, 131, 0.3);
-    background: #ffffff;
-    color: #196f75;
-    box-shadow: 0 8px 18px rgba(18, 100, 103, 0.15);
-    transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    border: 1px solid rgba(179, 236, 241, 0.45);
+    color: #ecfbfd;
+    background: linear-gradient(145deg, rgba(7, 27, 35, 0.75), rgba(11, 40, 51, 0.52));
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, color 0.22s ease;
 }
 
 .alumni-section .swiper-button-prev:hover,
 .alumni-section .swiper-button-next:hover {
-    transform: translateY(-2px);
-    border-color: rgba(14, 131, 137, 0.55);
-    color: #0f6b71;
+    transform: scale(1.06);
+    border-color: rgba(188, 245, 247, 0.75);
+    color: #ffffff;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.42);
 }
 
 .alumni-section .swiper-button-prev::after,
 .alumni-section .swiper-button-next::after {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: 700;
 }
 
