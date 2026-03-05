@@ -600,6 +600,9 @@ nav .nav-mobile-actions {
 
 .vm-card {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 1px solid rgba(71, 194, 201, 0.26);
     border-radius: 20px;
     padding: 26px;
@@ -616,21 +619,26 @@ nav .nav-mobile-actions {
     color: #0f5f65;
     position: relative;
     padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
 }
 
 .vm-card h2::after {
     content: "";
     position: absolute;
-    left: 0;
+    left: 50%;
     bottom: 0;
     width: 56px;
     height: 3px;
     border-radius: 999px;
     background: linear-gradient(120deg, #50d6d6, #2fa1a8);
+    transform: translateX(-50%);
 }
 
 .vm-card p {
     margin: 0;
+    width: min(100%, 760px);
+    text-align: left;
     color: #2f666b;
     line-height: 1.82;
     font-size: 0.98rem;
@@ -638,16 +646,18 @@ nav .nav-mobile-actions {
 
 .mission-list {
     margin: 0;
-    padding-left: 1.2rem;
+    width: min(100%, 760px);
+    padding-left: 1.3rem;
     display: grid;
-    gap: 10px;
+    gap: 12px;
+    text-align: left;
 }
 
 .mission-list li {
     color: #2f666b;
     line-height: 1.78;
     font-size: 0.98rem;
-    padding-left: 2px;
+    padding-left: 4px;
 }
 
 .panel {

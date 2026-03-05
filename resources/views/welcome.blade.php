@@ -51,6 +51,7 @@
             <li><a href="#alumni-section">{{ __('ui.nav.alumni') }}</a></li>
             <li><a href="#majors-smk">{{ __('ui.nav.organization') }}</a></li>
             <li><a href="{{ route('news.index') }}">{{ __('ui.nav.news') }}</a></li>
+            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">{{ __('ui.nav.ppdb') }}</a></li>
             <li><a href="#contact">{{ __('ui.nav.contact') }}</a></li>
             <li><a href="#partnership-section">{{ __('ui.nav.partnership') }}</a></li>
         </ul>

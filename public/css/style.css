@@ -284,6 +284,10 @@ nav .nav-mobile-actions {
     display: none;
 }
 
+body > nav ul li.nav-mobile-only {
+    display: none;
+}
+
 .slider-container {
     background-color: #000000;
     width: 100vw;
@@ -3218,6 +3222,10 @@ nav .nav-mobile-actions {
         padding: 8px 10px;
         font-size: 0.76rem;
         border-radius: 8px;
+    }
+
+    body > nav ul li.nav-mobile-only {
+        display: block;
     }
 
     body > nav ul li .nav-dropdown-toggle {
