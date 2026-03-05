@@ -1050,6 +1050,11 @@ body > nav ul li.nav-mobile-only {
     z-index: 1;
 }
 
+.alumni-controls .swiper-button-prev,
+.alumni-controls .swiper-button-next {
+    display: none !important;
+}
+
 .alumni-section .swiper-pagination {
     position: static;
     width: auto;
