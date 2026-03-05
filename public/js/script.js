@@ -90,24 +90,106 @@ if (navbar) {
   window.addEventListener("scroll", toggleNavbarBlur, { passive: true });
 }
 
-const featureCards = document.querySelectorAll(".feature-card");
+const mobileMenuButton = document.querySelector(".nav-mobile-menu");
+const mobileNavList = document.querySelector("#primary-nav");
+
+if (navbar && mobileMenuButton && mobileNavList) {
+  const mobileMenuIcon = mobileMenuButton.querySelector("i");
+  const navDropdownParents = Array.from(mobileNavList.querySelectorAll(".nav-has-dropdown"));
+  const navDropdownToggles = Array.from(mobileNavList.querySelectorAll(".nav-dropdown-toggle"));
+
+  const closeNavDropdowns = () => {
+    navDropdownParents.forEach((item) => item.classList.remove("is-open"));
+  };
+
+  const setMobileNavState = (isOpen) => {
+    navbar.classList.toggle("nav-mobile-open", isOpen);
+    mobileMenuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+    if (mobileMenuIcon) {
+      mobileMenuIcon.classList.toggle("bi-list", !isOpen);
+      mobileMenuIcon.classList.toggle("bi-x-lg", isOpen);
+    }
+
+    if (!isOpen) {
+      closeNavDropdowns();
+    }
+  };
+
+  mobileMenuButton.addEventListener("click", () => {
+    const isOpen = navbar.classList.contains("nav-mobile-open");
+    setMobileNavState(!isOpen);
+  });
+
+  mobileNavList.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      setMobileNavState(false);
+    });
+  });
+
+  navDropdownToggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const parent = toggle.closest(".nav-has-dropdown");
+      if (!parent) {
+        return;
+      }
+
+      const nextState = !parent.classList.contains("is-open");
+      closeNavDropdowns();
+      parent.classList.toggle("is-open", nextState);
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      setMobileNavState(false);
+      closeNavDropdowns();
+    }
+  });
+}
+
+const featureCards = Array.from(document.querySelectorAll(".feature-card"));
 const featurePrev = document.querySelector(".feature-prev");
 const featureNext = document.querySelector(".feature-next");
 const featureDots = document.querySelector(".feature-dots");
+const featureTabs = Array.from(document.querySelectorAll(".feature-tab"));
+const featureDescription = document.querySelector(".feature-carousel-description");
 
 if (featureCards.length > 0 && featureDots) {
+  let activeGroup = featureTabs.find((tab) => tab.classList.contains("is-active"))?.dataset.featureGroup
+    || featureCards[0].dataset.featureGroup;
   let activeFeature = 0;
   let featureTimer = null;
-  const dots = [];
+  let dots = [];
+
+  const cardsByGroup = (group) => featureCards.filter((card) => card.dataset.featureGroup === group);
+  const getActiveCards = () => cardsByGroup(activeGroup);
+
+  const stopFeatureAutoPlay = () => {
+    clearInterval(featureTimer);
+    featureTimer = null;
+  };
 
   const applyFeatureClasses = (activeIndex) => {
-    const lastIndex = featureCards.length - 1;
+    const activeCards = getActiveCards();
+    if (activeCards.length === 0) {
+      return;
+    }
+
+    const lastIndex = activeCards.length - 1;
     const prevIndex = activeIndex === 0 ? lastIndex : activeIndex - 1;
     const nextIndex = activeIndex === lastIndex ? 0 : activeIndex + 1;
 
-    featureCards.forEach((card, index) => {
+    featureCards.forEach((card) => {
       card.classList.remove("is-active", "is-prev", "is-next", "is-hidden");
+      card.classList.remove("is-filtered-out");
 
+      if (card.dataset.featureGroup !== activeGroup) {
+        card.classList.add("is-filtered-out");
+      }
+    });
+
+    activeCards.forEach((card, index) => {
       if (index === activeIndex) {
         card.classList.add("is-active");
       } else if (index === prevIndex) {
@@ -126,45 +208,106 @@ if (featureCards.length > 0 && featureDots) {
   };
 
   const goToFeature = (index) => {
-    activeFeature = index;
+    const activeCards = getActiveCards();
+    if (activeCards.length === 0) {
+      return;
+    }
+
+    const safeIndex = ((index % activeCards.length) + activeCards.length) % activeCards.length;
+    activeFeature = safeIndex;
+    applyFeatureClasses(activeFeature);
+  };
+
+  const renderDots = () => {
+    const activeCards = getActiveCards();
+    featureDots.innerHTML = "";
+    dots = [];
+
+    activeCards.forEach((_, index) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "feature-dot";
+      dot.setAttribute("aria-label", `Go to feature ${index + 1}`);
+      dot.addEventListener("click", () => {
+        goToFeature(index);
+        restartFeatureAutoPlay();
+      });
+
+      featureDots.appendChild(dot);
+      dots.push(dot);
+    });
+  };
+
+  const setActiveGroup = (group) => {
+    const targetCards = cardsByGroup(group);
+    if (targetCards.length === 0) {
+      return;
+    }
+
+    activeGroup = group;
+    activeFeature = 0;
+    featureTabs.forEach((tab) => {
+      const isActive = tab.dataset.featureGroup === group;
+      tab.classList.toggle("is-active", isActive);
+      tab.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+    const activeTab = featureTabs.find((tab) => tab.dataset.featureGroup === group);
+    if (featureDescription && activeTab?.dataset.featureDesc) {
+      featureDescription.textContent = activeTab.dataset.featureDesc;
+    }
+
+    renderDots();
     applyFeatureClasses(activeFeature);
   };
 
   const nextFeature = () => {
-    const targetIndex = (activeFeature + 1) % featureCards.length;
+    const activeCards = getActiveCards();
+    if (activeCards.length < 2) {
+      return;
+    }
+
+    const targetIndex = (activeFeature + 1) % activeCards.length;
     goToFeature(targetIndex);
   };
 
   const prevFeature = () => {
-    const targetIndex = (activeFeature - 1 + featureCards.length) % featureCards.length;
+    const activeCards = getActiveCards();
+    if (activeCards.length < 2) {
+      return;
+    }
+
+    const targetIndex = (activeFeature - 1 + activeCards.length) % activeCards.length;
     goToFeature(targetIndex);
   };
 
   const startFeatureAutoPlay = () => {
+    const activeCards = getActiveCards();
+    if (activeCards.length < 2) {
+      return;
+    }
+
     featureTimer = setInterval(nextFeature, 5500);
   };
 
   const restartFeatureAutoPlay = () => {
-    clearInterval(featureTimer);
+    stopFeatureAutoPlay();
     startFeatureAutoPlay();
   };
 
-  featureCards.forEach((_, index) => {
-    const dot = document.createElement("button");
-    dot.type = "button";
-    dot.className = "feature-dot";
-    dot.setAttribute("aria-label", `Go to feature ${index + 1}`);
+  featureTabs.forEach((tab) => {
+    tab.setAttribute("aria-pressed", tab.classList.contains("is-active") ? "true" : "false");
+    tab.addEventListener("click", () => {
+      const targetGroup = tab.dataset.featureGroup;
+      if (!targetGroup || targetGroup === activeGroup) {
+        return;
+      }
 
-    dot.addEventListener("click", () => {
-      goToFeature(index);
+      setActiveGroup(targetGroup);
       restartFeatureAutoPlay();
     });
-
-    featureDots.appendChild(dot);
-    dots.push(dot);
   });
 
-  applyFeatureClasses(activeFeature);
+  setActiveGroup(activeGroup);
   startFeatureAutoPlay();
 
   if (featureNext) {
@@ -183,36 +326,48 @@ if (featureCards.length > 0 && featureDots) {
 }
 
 window.addEventListener("load", () => {
-  const organizationRoot = document.querySelector(".organization-slide-container.swiper");
-  if (!organizationRoot || typeof window.Swiper === "undefined") {
+  const alumniRoot = document.querySelector(".alumni-slide-container.swiper");
+  if (!alumniRoot || typeof window.Swiper === "undefined") {
     return;
   }
 
   // eslint-disable-next-line no-new
-  new window.Swiper(organizationRoot, {
-    slidesPerView: 1,
-    spaceBetween: 24,
+  new window.Swiper(alumniRoot, {
+    slidesPerView: 1.1,
+    centeredSlides: true,
+    spaceBetween: 16,
     loop: true,
-    speed: 600,
+    speed: 750,
     grabCursor: true,
+    parallax: true,
     autoplay: {
-      delay: 3800,
+      delay: 4200,
       disableOnInteraction: false,
     },
     pagination: {
-      el: ".organization .swiper-pagination",
+      el: ".alumni-section .swiper-pagination",
       clickable: true,
+      renderBullet(index, className) {
+        const slideNumber = `${index + 1}`.padStart(2, "0");
+        return `<button type="button" class="${className}" aria-label="Go to alumni slide ${slideNumber}">${slideNumber}</button>`;
+      },
     },
     navigation: {
-      nextEl: ".organization .swiper-button-next",
-      prevEl: ".organization .swiper-button-prev",
+      nextEl: ".alumni-section .swiper-button-next",
+      prevEl: ".alumni-section .swiper-button-prev",
     },
     breakpoints: {
+      640: {
+        slidesPerView: 1.35,
+        spaceBetween: 18,
+      },
       768: {
-        slidesPerView: 2,
+        slidesPerView: 1.8,
+        spaceBetween: 20,
       },
       1100: {
-        slidesPerView: 3,
+        slidesPerView: 2.45,
+        spaceBetween: 24,
       },
     },
   });

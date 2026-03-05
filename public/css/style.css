@@ -53,7 +53,12 @@ nav ul {
     flex: 1;
 }
 
-nav ul li a {
+nav ul li {
+    position: relative;
+}
+
+nav ul li a,
+nav ul li .nav-dropdown-toggle {
     position: relative;
     text-decoration: none;
     color: rgba(235, 247, 249, 0.96);
@@ -64,7 +69,18 @@ nav ul li a {
     transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
-nav ul li a::after {
+nav ul li .nav-dropdown-toggle {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+nav ul li a::after,
+nav ul li .nav-dropdown-toggle::after {
     content: "";
     position: absolute;
     left: 0;
@@ -78,13 +94,84 @@ nav ul li a::after {
     transition: transform 0.25s ease;
 }
 
-nav ul li a:hover {
+ nav ul li a:hover,
+ nav ul li .nav-dropdown-toggle:hover {
     color: #b4f6f6;
     text-shadow: none;
 }
 
-nav ul li a:hover::after {
+nav ul li a:hover::after,
+nav ul li .nav-dropdown-toggle:hover::after {
     transform: scaleX(1);
+}
+
+nav .nav-dropdown-toggle .bi {
+    font-size: 0.72rem;
+    transition: transform 0.2s ease;
+}
+
+nav .nav-has-dropdown.is-open > .nav-dropdown-toggle .bi,
+nav .nav-has-dropdown:hover > .nav-dropdown-toggle .bi,
+nav .nav-has-dropdown:focus-within > .nav-dropdown-toggle .bi {
+    transform: rotate(180deg);
+}
+
+nav .nav-dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    min-width: 190px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 0;
+    padding: 8px;
+    list-style: none;
+    border-radius: 12px;
+    border: 1px solid rgba(151, 236, 240, 0.25);
+    background: linear-gradient(170deg, rgba(6, 34, 44, 0.96), rgba(8, 62, 76, 0.94));
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.28);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 6;
+}
+
+nav .nav-dropdown li {
+    width: 100%;
+}
+
+nav .nav-dropdown a {
+    width: 100%;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 8px;
+    color: #e7fbfd;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 0.83rem;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+}
+
+nav .nav-dropdown a::after {
+    display: none;
+}
+
+nav .nav-dropdown a:hover {
+    color: #dffbff;
+    background: rgba(98, 213, 217, 0.18);
+}
+
+nav .nav-has-dropdown:hover > .nav-dropdown,
+nav .nav-has-dropdown:focus-within > .nav-dropdown,
+nav .nav-has-dropdown.is-open > .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
 }
 
 nav .sosmed-icon {
@@ -190,6 +277,10 @@ nav .lang-switch a.is-active {
     color: #083239;
     border-color: transparent;
     background: linear-gradient(120deg, #7ee5e5, #44b8bf);
+}
+
+nav .nav-mobile-actions {
+    display: none;
 }
 
 .slider-container {
@@ -344,6 +435,10 @@ nav .lang-switch a.is-active {
     text-shadow:
         0 8px 24px rgba(0, 0, 0, 0.55),
         0 0 18px rgba(66, 176, 176, 0.2);
+    font-family: "Sora", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .slider-content .slider-description {
@@ -476,6 +571,35 @@ nav .lang-switch a.is-active {
     width: 100%;
     height: 320px;
     object-fit: cover;
+    display: block;
+    transform: scale(1);
+    transition: transform 0.55s ease, filter 0.55s ease;
+}
+
+.about-image-frame {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-image-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transform: translateX(-22%);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    pointer-events: none;
+}
+
+.about-card:hover .about-image {
+    transform: scale(1.08);
+    filter: saturate(1.08);
+}
+
+.about-card:hover .about-image-frame::after {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .about-body {
@@ -492,9 +616,19 @@ nav .lang-switch a.is-active {
     padding: 80px 0 76px;
 }
 
-.feature-carousel-title {
+.feature-carousel-badges {
     width: fit-content;
     margin: 0 auto 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.feature-carousel-title {
+    width: fit-content;
+    margin: 0;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -508,6 +642,32 @@ nav .lang-switch a.is-active {
     letter-spacing: 0.01em;
     color: #4fb3b0;
     box-shadow: 0 8px 18px rgba(72, 141, 139, 0.18);
+}
+
+.feature-tab {
+    appearance: none;
+    cursor: pointer;
+    transition: transform 0.22s ease, filter 0.22s ease, opacity 0.22s ease, box-shadow 0.22s ease;
+}
+
+.feature-tab:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.03);
+}
+
+.feature-tab:not(.is-active) {
+    opacity: 0.72;
+}
+
+.feature-tab.is-active {
+    opacity: 1;
+    box-shadow: 0 10px 22px rgba(59, 127, 132, 0.28);
+}
+
+.feature-carousel-title.is-alt {
+    border-color: rgba(50, 155, 162, 0.5);
+    background: linear-gradient(180deg, #cce9ea, #badfe0);
+    color: #2e8f96;
 }
 
 .feature-carousel-title i {
@@ -585,6 +745,13 @@ nav .lang-switch a.is-active {
     transform: translateX(-50%) scale(0.84);
 }
 
+.feature-card.is-filtered-out {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: -2;
+}
+
 .feature-media {
     position: relative;
     border-radius: 24px;
@@ -604,6 +771,20 @@ nav .lang-switch a.is-active {
     height: 460px;
     object-fit: cover;
     display: block;
+}
+
+.feature-card[data-feature-group="organization"] .feature-media {
+    background: linear-gradient(160deg, rgba(8, 58, 72, 0.9), rgba(10, 109, 123, 0.82));
+}
+
+.feature-card[data-feature-group="organization"] .feature-media::after {
+    background: linear-gradient(180deg, rgba(4, 24, 32, 0.08) 0%, rgba(5, 139, 133, 0.38) 100%);
+}
+
+.feature-card[data-feature-group="organization"] .feature-media img {
+    object-fit: contain;
+    object-position: center;
+    padding: 18px;
 }
 
 .feature-media img {
@@ -665,7 +846,7 @@ nav .lang-switch a.is-active {
     display: flex;
     align-items: center;
     gap: 14px;
-    z-index: 5;
+    z-index: 1;
 }
 
 .feature-nav {
@@ -708,11 +889,245 @@ nav .lang-switch a.is-active {
     background: rgb(5, 139, 133);
 }
 
-.news-section {
-    padding: 82px 0 86px;
+.alumni-section {
+    padding: 86px 0 94px;
     background:
         radial-gradient(circle at 12% 18%, rgba(80, 214, 214, 0.18), transparent 34%),
         radial-gradient(circle at 88% 72%, rgba(47, 161, 168, 0.14), transparent 34%),
+        #f2fbfb;
+}
+
+.alumni-shell {
+    width: min(1180px, 92vw);
+    margin: 0 auto;
+}
+
+.alumni-head {
+    margin-bottom: 24px;
+}
+
+.alumni-head h2 {
+    margin: 10px 0 8px;
+    color: #13676d;
+    font-size: clamp(1.55rem, 2.8vw, 2.55rem);
+    font-family: "Sora", sans-serif;
+}
+
+.alumni-head p {
+    margin: 0;
+    color: #3b6d72;
+    max-width: 68ch;
+    line-height: 1.72;
+}
+
+.alumni-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    letter-spacing: 0.11em;
+    font-weight: 700;
+    background: linear-gradient(120deg, rgba(53, 189, 196, 0.34), rgba(140, 230, 233, 0.22));
+    border: 1px solid rgba(105, 206, 210, 0.42);
+}
+
+.alumni-badge span {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: linear-gradient(120deg, #0f8b92, #38b9bf);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.alumni-slide-container {
+    position: relative;
+    padding-bottom: 92px;
+}
+
+.alumni-card-list {
+    list-style: none;
+    margin: 0;
+    padding: 6px 0;
+}
+
+.alumni-card-item {
+    height: auto;
+}
+
+.alumni-card-link {
+    display: block;
+    height: 100%;
+    min-height: 392px;
+    text-decoration: none;
+    padding: 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(26, 127, 133, 0.2);
+    background: #fff;
+    box-shadow: 0 14px 30px rgba(23, 114, 118, 0.12);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.alumni-card-link:hover {
+    transform: translateY(-6px);
+    border-color: rgba(14, 130, 137, 0.42);
+    box-shadow: 0 20px 36px rgba(23, 114, 118, 0.2);
+}
+
+.alumni-card-image {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    object-position: center top;
+    padding: 0 14px 8px;
+    background: linear-gradient(160deg, #f7fbfc, #edf7f8);
+    border: 1px solid rgba(26, 127, 133, 0.12);
+    border-radius: 12px;
+    transform: translateY(-18px);
+}
+
+.alumni-card-badge {
+    color: #0b7177;
+    background: #d8f3f4;
+    margin: 16px 0 14px;
+    padding: 8px 12px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    width: fit-content;
+    border-radius: 999px;
+}
+
+.alumni-card-title {
+    color: #164f54;
+    font-size: 1.04rem;
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.alumni-card-button {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid #0e8389;
+    color: #0e8389;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.alumni-card-link:hover .alumni-card-button {
+    background: #0e8389;
+    color: #fff;
+    transform: translateX(3px);
+}
+
+.alumni-controls {
+    position: absolute;
+    left: 50%;
+    bottom: 4px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1;
+}
+
+.alumni-section .swiper-button-prev,
+.alumni-section .swiper-button-next {
+    position: static;
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(27, 125, 131, 0.3);
+    background: #ffffff;
+    color: #196f75;
+    box-shadow: 0 8px 18px rgba(18, 100, 103, 0.15);
+    transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.alumni-section .swiper-button-prev:hover,
+.alumni-section .swiper-button-next:hover {
+    transform: translateY(-2px);
+    border-color: rgba(14, 131, 137, 0.55);
+    color: #0f6b71;
+}
+
+.alumni-section .swiper-button-prev::after,
+.alumni-section .swiper-button-next::after {
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.alumni-section .swiper-pagination {
+    position: static;
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.alumni-section .swiper-pagination-bullet {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    border: 1px solid rgba(20, 118, 123, 0.22);
+    background: #fff;
+    opacity: 1;
+    color: #3b7b80;
+    font-size: 0.73rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.alumni-section .swiper-pagination-bullet-active {
+    background: #0d8086;
+    border-color: #0d8086;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.alumni-slide-container .swiper-slide {
+    opacity: 0.62;
+    transform: scale(0.9);
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.alumni-slide-container .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.alumni-slide-container .swiper-slide-next,
+.alumni-slide-container .swiper-slide-prev {
+    opacity: 0.85;
+}
+
+
+
+
+
+
+
+
+
+
+
+.news-section {
+    padding: 82px 0 86px;
+    background:
+    radial-gradient(circle at 88% 72%, rgba(80, 214, 214, 0.18), transparent 34%),
+    radial-gradient(circle at 12% 18%, rgba(47, 161, 168, 0.14), transparent 34%),
         #f2fbfb;
 }
 
@@ -1818,33 +2233,37 @@ nav .lang-switch a.is-active {
         line-height: 1.6;
     }
 
-    .organization {
+    .alumni-section {
         padding: 52px 0 70px;
         min-height: auto;
     }
 
-    .organization-slide-content {
-        margin: 0 34px;
-        padding-bottom: 20px;
+    .alumni-slide-container {
+        padding-bottom: 84px;
     }
 
-    .organization .swiper-button-next,
-    .organization .swiper-button-prev {
+    .alumni-section .swiper-button-next,
+    .alumni-section .swiper-button-prev {
         width: 38px;
         height: 38px;
     }
 
-    .organization-card-image {
-        width: 130px;
-        height: 130px;
+    .alumni-section .swiper-pagination-bullet {
+        width: 30px;
+        height: 30px;
+        font-size: 0.68rem;
     }
 
-    .name {
-        font-size: 1rem;
+    .alumni-card-link {
+        min-height: 358px;
     }
 
-    .description {
-        font-size: 0.88rem;
+    .alumni-card-image {
+        height: 176px;
+    }
+
+    .alumni-card-title {
+        font-size: 0.98rem;
     }
 
     .about-smk-section {
@@ -1887,9 +2306,13 @@ nav .lang-switch a.is-active {
     }
 
     .feature-carousel-title {
-        margin-bottom: 14px;
         padding: 8px 20px;
         font-size: 1rem;
+    }
+
+    .feature-carousel-badges {
+        margin-bottom: 14px;
+        gap: 8px;
     }
 
     .feature-carousel {
@@ -2355,6 +2778,63 @@ nav .lang-switch a.is-active {
         min-height: 480px;
     }
 
+    .alumni-section {
+        padding: 54px 0 64px;
+    }
+
+    .alumni-head {
+        margin-bottom: 16px;
+    }
+
+    .alumni-head h2 {
+        font-size: 1.5rem;
+    }
+
+    .alumni-head p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .alumni-slide-container {
+        padding-bottom: 76px;
+    }
+
+    .alumni-card-link {
+        min-height: 332px;
+        padding: 14px;
+    }
+
+    .alumni-card-image {
+        height: 154px;
+    }
+
+    .alumni-card-badge {
+        margin: 12px 0 10px;
+        font-size: 0.75rem;
+    }
+
+    .alumni-card-title {
+        font-size: 0.9rem;
+        margin-bottom: 14px;
+    }
+
+    .alumni-controls {
+        gap: 8px;
+        bottom: 2px;
+    }
+
+    .alumni-section .swiper-button-prev,
+    .alumni-section .swiper-button-next {
+        width: 34px;
+        height: 34px;
+    }
+
+    .alumni-section .swiper-pagination-bullet {
+        width: 28px;
+        height: 28px;
+        font-size: 0.64rem;
+    }
+
     .about-smk-section {
         margin-top: 0;
         padding: 32px 0 42px;
@@ -2456,5 +2936,183 @@ nav .lang-switch a.is-active {
 
     .news-detail-breadcrumb {
         font-size: 0.76rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body > nav {
+        padding: 0.72rem 0.82rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        gap: 0.4rem;
+        background: linear-gradient(145deg, rgba(5, 26, 34, 0.96), rgba(8, 43, 54, 0.96));
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        z-index: 20;
+    }
+
+    body > nav.is-scrolled {
+        background: linear-gradient(145deg, rgba(5, 26, 34, 0.96), rgba(8, 43, 54, 0.96));
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    body > nav .logo {
+        font-size: 0.9rem;
+        gap: 8px;
+        color: #eafcff;
+        margin-right: auto;
+    }
+
+    body > nav .logo-img {
+        width: 32px;
+    }
+
+    body > nav .sosmed-icon,
+    body > nav .ppdb-btn,
+    body > nav .lang-switch {
+        display: none;
+    }
+
+    body > nav .nav-mobile-actions {
+        margin-left: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+
+    body > nav .nav-mobile-search,
+    body > nav .nav-mobile-menu {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid rgba(133, 229, 233, 0.45);
+        background: rgba(7, 46, 58, 0.82);
+        color: #eafcff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 1.12rem;
+        transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    body > nav .nav-mobile-menu {
+        cursor: pointer;
+    }
+
+    body > nav .nav-mobile-search:hover,
+    body > nav .nav-mobile-menu:hover {
+        transform: translateY(-1px);
+        border-color: rgba(184, 247, 249, 0.8);
+        background: rgba(16, 71, 88, 0.9);
+    }
+
+    body > nav ul {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 12px;
+        right: 12px;
+        margin: 0;
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid rgba(130, 224, 228, 0.35);
+        background: linear-gradient(165deg, rgba(7, 30, 39, 0.98), rgba(6, 52, 64, 0.96));
+        box-shadow: 0 16px 28px rgba(0, 0, 0, 0.36);
+        display: grid;
+        gap: 4px;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: max-height 0.28s ease, opacity 0.22s ease, transform 0.22s ease;
+    }
+
+    body > nav ul li {
+        width: 100%;
+    }
+
+    body > nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 8px 10px;
+        font-size: 0.76rem;
+        border-radius: 8px;
+    }
+
+    body > nav ul li .nav-dropdown-toggle {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 10px;
+        font-size: 0.76rem;
+        border-radius: 8px;
+    }
+
+    body > nav ul li a::after {
+        display: none;
+    }
+
+    body > nav ul li .nav-dropdown-toggle::after {
+        display: none;
+    }
+
+    body > nav ul li a:hover {
+        background: rgba(102, 214, 218, 0.18);
+        color: #dffbff;
+    }
+
+    body > nav ul li .nav-dropdown-toggle:hover {
+        background: rgba(102, 214, 218, 0.18);
+        color: #dffbff;
+    }
+
+    body > nav .nav-dropdown {
+        position: static;
+        top: auto;
+        left: auto;
+        min-width: 0;
+        width: 100%;
+        margin-top: 0;
+        padding: 0 6px;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        pointer-events: auto;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.24s ease, padding 0.24s ease, margin-top 0.24s ease;
+    }
+
+    body > nav .nav-has-dropdown.is-open > .nav-dropdown {
+        max-height: 260px;
+        margin-top: 4px;
+        padding: 4px 6px 2px;
+    }
+
+    body > nav .nav-dropdown a {
+        font-size: 0.74rem;
+        padding: 7px 8px;
+        border-radius: 7px;
+        background: rgba(80, 205, 212, 0.08);
+    }
+
+    body > nav.nav-mobile-open ul {
+        max-height: 70vh;
+        opacity: 1;
+        pointer-events: auto;
+        overflow-y: auto;
+        transform: translateY(0);
     }
 }
