@@ -80,7 +80,7 @@
   </a>
 </div>
         <div class="ppdb-btn">
-            <button type="button">{{ __('ui.nav.ppdb') }}</button>
+            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'">{{ __('ui.nav.ppdb') }}</button>
         </div>
         <div class="lang-switch" aria-label="{{ __('ui.lang.switcher_aria') }}">
             <a href="{{ route('language.switch', 'id') }}" class="{{ app()->getLocale() === 'id' ? 'is-active' : '' }}">{{ __('ui.lang.id') }}</a>
