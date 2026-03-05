@@ -17,11 +17,9 @@ use App\Models\News;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    $publishedNews = News::with('author')
+    $latestNews = News::with('author')
         ->whereNotNull('published_at')
-        ->where('published_at', '<=', now());
-
-    $latestNews = ($publishedNews->exists() ? $publishedNews : News::with('author'))
+        ->where('published_at', '<=', now())
         ->orderByDesc('published_at')
         ->orderByDesc('id')
         ->take(4)
