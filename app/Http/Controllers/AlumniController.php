@@ -10,11 +10,23 @@ class AlumniController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $alumni = Alumni::latest()->get();
+        $search = trim((string) $request->query('q', ''));
+        $alumni = Alumni::query()
+            ->when($search !== '', function ($query) use ($search) {
+                $query->where(function ($subQuery) use ($search) {
+                    $subQuery->where('nama_alumni', 'like', '%' . $search . '%')
+                        ->orWhere('jurusan', 'like', '%' . $search . '%')
+                        ->orWhere('pekerjaan', 'like', '%' . $search . '%')
+                        ->orWhere('kontak', 'like', '%' . $search . '%');
+                });
+            })
+            ->latest()
+            ->paginate(15)
+            ->withQueryString();
 
-        return view('admin.alumni.index', compact('alumni'));
+        return view('admin.alumni.index', compact('alumni', 'search'));
     }
 
     /**

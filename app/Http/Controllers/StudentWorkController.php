@@ -11,11 +11,22 @@ class StudentWorkController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $studentWorks = StudentWork::latest()->get();
+        $search = trim((string) $request->query('q', ''));
+        $studentWorks = StudentWork::query()
+            ->when($search !== '', function ($query) use ($search) {
+                $query->where(function ($subQuery) use ($search) {
+                    $subQuery->where('work_name', 'like', '%' . $search . '%')
+                        ->orWhere('creator_name', 'like', '%' . $search . '%')
+                        ->orWhere('description', 'like', '%' . $search . '%');
+                });
+            })
+            ->latest()
+            ->paginate(15)
+            ->withQueryString();
 
-        return view('admin.student_works.index', compact('studentWorks'));
+        return view('admin.student_works.index', compact('studentWorks', 'search'));
     }
 
     /**

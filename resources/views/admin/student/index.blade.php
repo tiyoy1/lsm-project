@@ -6,7 +6,13 @@
 <div class="container">
     <h1>Students</h1>
 
-    <a href="{{ route('admin.student.create') }}" class="btn btn-primary mb-3">Add Student</a>
+    <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
+        <a href="{{ route('admin.student.create') }}" class="btn btn-primary">Add Student</a>
+        <form action="{{ route('admin.student.index') }}" method="GET" class="d-flex gap-2">
+            <input type="text" name="q" class="form-control" placeholder="Search students..." value="{{ $search ?? '' }}">
+            <button type="submit" class="btn btn-secondary">Search</button>
+        </form>
+    </div>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -28,7 +34,7 @@
         <tbody>
             @forelse($students as $student)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $students->firstItem() + $loop->index }}</td>
                     <td>{{ $student->full_name }}</td>
                     <td>{{ $student->birth_date }}</td>
                     <td>{{ $student->gender }}</td>
@@ -52,5 +58,7 @@
             @endforelse
         </tbody>
     </table>
+
+    {{ $students->links() }}
 </div>
 @endsection

@@ -11,11 +11,23 @@ class PendingStudentController extends Controller
     /**
      * Display pending students.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $pendingStudents = Registration::where('status', 'pending')->latest()->get();
+        $search = trim((string) $request->query('q', ''));
+        $pendingStudents = Registration::query()
+            ->where('status', 'pending')
+            ->when($search !== '', function ($query) use ($search) {
+                $query->where(function ($subQuery) use ($search) {
+                    $subQuery->where('full_name', 'like', '%' . $search . '%')
+                        ->orWhere('email', 'like', '%' . $search . '%')
+                        ->orWhere('phone', 'like', '%' . $search . '%');
+                });
+            })
+            ->latest()
+            ->paginate(15)
+            ->withQueryString();
 
-        return view('admin.pending_students.index', compact('pendingStudents'));
+        return view('admin.pending_students.index', compact('pendingStudents', 'search'));
     }
 
     /**

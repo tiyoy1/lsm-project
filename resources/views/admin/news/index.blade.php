@@ -3,7 +3,13 @@
 @section('content')
 <div class="container">
     <h1>News</h1>
-    <a href="{{ route('admin.news.create') }}" class="btn btn-primary mb-3">Add News</a>
+    <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
+        <a href="{{ route('admin.news.create') }}" class="btn btn-primary">Add News</a>
+        <form action="{{ route('admin.news.index') }}" method="GET" class="d-flex gap-2">
+            <input type="text" name="q" class="form-control" placeholder="Search news..." value="{{ $search ?? '' }}">
+            <button type="submit" class="btn btn-secondary">Search</button>
+        </form>
+    </div>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
