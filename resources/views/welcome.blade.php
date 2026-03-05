@@ -31,8 +31,8 @@
                     {{ __('ui.nav.school_profile') }} <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
-                    <li><a href="#">Vision</a></li>
-                    <li><a href="#">History</a></li>
+                    <li><a href="#">{{ __('ui.nav.profile_vision') }}</a></li>
+                    <li><a href="#">{{ __('ui.nav.profile_history') }}</a></li>
                 </ul>
             </li>
             <li class="nav-has-dropdown">
@@ -40,17 +40,17 @@
                     {{ __('ui.nav.majors') }} <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
-                    <li><a href="#">Akuntansi</a></li>
-                    <li><a href="#">PPLG</a></li>
-                    <li><a href="#">DKV</a></li>
-                    <li><a href="#">Kuliner</a></li>
-                    <li><a href="#">Perhotelan</a></li>
+                    <li><a href="#">{{ __('ui.nav.major_accounting') }}</a></li>
+                    <li><a href="#">{{ __('ui.nav.major_pplg') }}</a></li>
+                    <li><a href="#">{{ __('ui.nav.major_dkv') }}</a></li>
+                    <li><a href="#">{{ __('ui.nav.major_culinary') }}</a></li>
+                    <li><a href="#">{{ __('ui.nav.major_hotel') }}</a></li>
                 </ul>
             </li>
             <li><a href="#alumni-section">{{ __('ui.nav.alumni') }}</a></li>
-            <li><a href="#organization-section">{{ __('ui.nav.organization') }}</a></li>
+            <li><a href="#majors-smk">{{ __('ui.nav.organization') }}</a></li>
             <li><a href="{{ route('news.index') }}">{{ __('ui.nav.news') }}</a></li>
-            <li><a href="#school-footer">{{ __('ui.nav.contact') }}</a></li>
+            <li><a href="#contact">{{ __('ui.nav.contact') }}</a></li>
             <li><a href="#partnership-section">{{ __('ui.nav.partnership') }}</a></li>
         </ul>
         <div class="sosmed-icon">
@@ -275,8 +275,8 @@
                 </div>
                 <div class="feature-content">
                     <i class="ph ph-users-three"></i>
-                    <h3>Maheswara Maheswari</h3>
-                    <p>Organisasi duta sekolah yang menampung dan memberi wadah kepada remaja SMK Metland untuk mengembangkan kemampuan soft skill maupun hard skill.</p>
+                    <h3>{{ __('ui.home.organization_card_1_title') }}</h3>
+                    <p>{{ __('ui.home.organization_card_1_desc') }}</p>
                     <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
                 </div>
             </article>
@@ -286,8 +286,8 @@
                 </div>
                 <div class="feature-content">
                     <i class="ph ph-heartbeat"></i>
-                    <h3>OSIS</h3>
-                    <p>Organisasi inti siswa untuk merancang program sekolah, event, dan kegiatan sosial yang berdampak.</p>
+                    <h3>{{ __('ui.home.organization_card_2_title') }}</h3>
+                    <p>{{ __('ui.home.organization_card_2_desc') }}</p>
                     <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
                 </div>
             </article>
@@ -297,8 +297,8 @@
                 </div>
                 <div class="feature-content">
                     <i class="ph ph-flag-banner"></i>
-                    <h3>MPK</h3>
-                    <p>Organisasi sekolah yang berperan sebagai pengawas dan penyalur aspirasi siswa. MPK menjadi jembatan antara siswa dan OSIS serta membantu memastikan setiap program berjalan sesuai aturan dan kebutuhan sekolah.</p>
+                    <h3>{{ __('ui.home.organization_card_3_title') }}</h3>
+                    <p>{{ __('ui.home.organization_card_3_desc') }}</p>
                     <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
                 </div>
             </article>
@@ -369,9 +369,9 @@
     <section class="alumni-section" id="alumni-section">
         <div class="alumni-shell">
             <div class="alumni-head">
-                <span class="alumni-badge"><span>Alumni</span></span>
-                <h2>Kata <span>Mereka</span></h2>
-                <p>ulasan-ulasan alumni terkait SMK Metland</p>
+                <span class="alumni-badge"><span>{{ __('ui.nav.alumni') }}</span></span>
+                <h2>{{ __('ui.home.alumni_heading_prefix') }} <span>{{ __('ui.home.alumni_heading_highlight') }}</span></h2>
+                <p>{{ __('ui.home.alumni_heading_desc') }}</p>
             </div>
 
             <div class="alumni-slide-container swiper">
@@ -379,40 +379,40 @@
                     <li class="alumni-card-item swiper-slide">
                         <a href="#" class="alumni-card-link">
                             <img src="{{ asset('img/logo.webp') }}" alt="Logo MPK SMK Metland" class="alumni-card-image" data-swiper-parallax="-80">
-                            <p class="alumni-card-badge" data-swiper-parallax="-40">Rafi Pratama</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">“Belajar di SMK Metland bikin saya lebih siap kerja karena terbiasa dengan project dan deadline.”</h2>
+                            <p class="alumni-card-badge" data-swiper-parallax="-40">{{ __('ui.home.alumni_person_1_name') }}</p>
+                            <h2 class="alumni-card-title" data-swiper-parallax="-20">{{ __('ui.home.alumni_person_1_quote') }}</h2>
                             <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
                         </a>
                     </li>
                     <li class="alumni-card-item swiper-slide">
                         <a href="#" class="alumni-card-link">
                             <img src="{{ asset('img/logo.webp') }}" alt="Logo Rohis SMK Metland" class="alumni-card-image" data-swiper-parallax="-80">
-                            <p class="alumni-card-badge" data-swiper-parallax="-40">Dimas Mahendra</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">“Materi praktiknya relevan sama industri, jadi pas lulus saya nggak kaget pas masuk dunia kerja.”</h2>
+                            <p class="alumni-card-badge" data-swiper-parallax="-40">{{ __('ui.home.alumni_person_2_name') }}</p>
+                            <h2 class="alumni-card-title" data-swiper-parallax="-20">{{ __('ui.home.alumni_person_2_quote') }}</h2>
                             <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
                         </a>
                     </li>
                     <li class="alumni-card-item swiper-slide">
                         <a href="#" class="alumni-card-link">
                             <img src="{{ asset('img/logo.webp') }}" alt="Logo Rohis SMK Metland" class="alumni-card-image" data-swiper-parallax="-80">
-                            <p class="alumni-card-badge" data-swiper-parallax="-40">Rifki Pratama</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">“Guru-gurunya supportif lingkungan sekolahnya ngebantu saya berani tampil serta berkembang”</h2>
+                            <p class="alumni-card-badge" data-swiper-parallax="-40">{{ __('ui.home.alumni_person_3_name') }}</p>
+                            <h2 class="alumni-card-title" data-swiper-parallax="-20">{{ __('ui.home.alumni_person_3_quote') }}</h2>
                             <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
                         </a>
                     </li>
                     <li class="alumni-card-item swiper-slide">
                         <a href="#" class="alumni-card-link">
                             <img src="{{ asset('img/logo.webp') }}" alt="Logo PMR SMK Metland" class="alumni-card-image" data-swiper-parallax="-80">
-                            <p class="alumni-card-badge" data-swiper-parallax="-40">Alya Ramadhani</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">“Kegiatan organisasi dan ekskulnya bikin saya belajar teamwork, komunikasi, dan leadership.”</h2>
+                            <p class="alumni-card-badge" data-swiper-parallax="-40">{{ __('ui.home.alumni_person_4_name') }}</p>
+                            <h2 class="alumni-card-title" data-swiper-parallax="-20">{{ __('ui.home.alumni_person_4_quote') }}</h2>
                             <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
                         </a>
                     </li>
                     <li class="alumni-card-item swiper-slide">
                         <a href="#" class="alumni-card-link">
                             <img src="{{ asset('img/logo.webp') }}" alt="Logo Paskibra SMK Metland" class="alumni-card-image" data-swiper-parallax="-80">
-                            <p class="alumni-card-badge" data-swiper-parallax="-40">Fikri Saputra</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">“SMK Metland ngasih pengalaman belajar yang seimbang antara teori, praktik, dan karakter.”</h2>
+                            <p class="alumni-card-badge" data-swiper-parallax="-40">{{ __('ui.home.alumni_person_5_name') }}</p>
+                            <h2 class="alumni-card-title" data-swiper-parallax="-20">{{ __('ui.home.alumni_person_5_quote') }}</h2>
                             <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
                         </a>
                     </li>
@@ -426,52 +426,40 @@
             </div>
         </div>
     </section>
+    <section class="contact" id="contact">
+      <div class="contact-header">
+        <span class="contact-label">{{ __('ui.contact.badge') }}</span>
+        <h2>{{ __('ui.contact.title') }}</h2>
+        <p>{{ __('ui.contact.subtitle') }}</p>
+      </div>
 
+      <div class="row">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.9227473878086!2d106.97256397475222!3d-6.4039541935867605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e699445f0d1c541%3A0x3c8a27a75eb76093!2sSMK%20Metland%20School!5e0!3m2!1sid!2sid!4v1771736307836!5m2!1sid!2sid"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="map"
+        ></iframe>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <form action="" id="contact-form" novalidate>
+          <div class="input-group">
+            <i data-feather="user"></i>
+            <input type="text" name="name" placeholder="{{ __('ui.contact.name_placeholder') }}" required minlength="2" />
+          </div>
+          <div class="input-group">
+            <i data-feather="mail"></i>
+            <input type="email" name="email" placeholder="{{ __('ui.contact.email_placeholder') }}" required />
+          </div>
+          <div class="input-group">
+            <i data-feather="phone"></i>
+            <input type="tel" name="phone" placeholder="{{ __('ui.contact.phone_placeholder') }}" required />
+          </div>
+          <p class="contact-feedback" id="contact-feedback" role="status" aria-live="polite"></p>
+          <button type="submit" class="btn contact-btn">{{ __('ui.contact.send') }}</button>
+        </form>
+      </div>
+    </section>
 
     <section class="school-partnership" id="partnership-section" aria-label="{{ __('ui.home.partnership_section_aria') }}">
         <div class="partnership-shell">

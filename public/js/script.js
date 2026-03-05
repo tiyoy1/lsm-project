@@ -325,6 +325,52 @@ if (featureCards.length > 0 && featureDots) {
   }
 }
 
+const revealSelectors = [
+  "section",
+  ".slider-content",
+  ".about-card",
+  ".news-featured-card",
+  ".news-mini-card",
+  ".feature-carousel-badges",
+  ".alumni-card-item",
+  ".contact-header",
+  ".contact .row",
+  ".partner-group",
+  ".partner-logo-card",
+  ".footer-brand",
+  ".footer-posts",
+  ".footer-links",
+  ".footer-contact-map",
+];
+
+const revealTargets = Array.from(
+  new Set(revealSelectors.flatMap((selector) => Array.from(document.querySelectorAll(selector)))),
+).filter((element) => !element.classList.contains("slider-items"));
+
+if (revealTargets.length > 0 && "IntersectionObserver" in window) {
+  revealTargets.forEach((element, index) => {
+    element.classList.add("reveal");
+    element.style.setProperty("--reveal-delay", `${(index % 8) * 45}ms`);
+  });
+
+  const revealObserver = new window.IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.14,
+      rootMargin: "0px 0px -8% 0px",
+    },
+  );
+
+  revealTargets.forEach((element) => revealObserver.observe(element));
+}
+
 window.addEventListener("load", () => {
   const alumniRoot = document.querySelector(".alumni-slide-container.swiper");
   if (!alumniRoot || typeof window.Swiper === "undefined") {
