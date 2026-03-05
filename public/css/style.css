@@ -2406,8 +2406,8 @@ body > nav ul li.nav-mobile-only {
     }
 
     .slider-items .slider-content {
-        padding: 1.35rem 1.15rem;
-        width: min(94vw, 560px);
+        padding: 1.35rem 1.8rem;
+        width: min(92vw, 560px);
         border-radius: 14px;
         gap: 0.8rem;
     }
@@ -3093,9 +3093,23 @@ body > nav ul li.nav-mobile-only {
         font-size: 0.68rem;
     }
 
+    .slider-container .slider-nav {
+        width: 34px;
+        height: 34px;
+        font-size: 1.25rem;
+    }
+
+    .slider-container .slider-prev {
+        left: 6px;
+    }
+
+    .slider-container .slider-next {
+        right: 6px;
+    }
+
     .slider-items .slider-content {
-        width: min(94vw, 520px);
-        padding: 1.15rem 0.92rem;
+        width: min(90vw, 520px);
+        padding: 1.15rem 2.1rem;
     }
 
     .slider-content .slider-title {
@@ -3292,6 +3306,188 @@ body > nav ul li.nav-mobile-only {
     body > nav.nav-mobile-open ul {
         max-height: 70vh;
         opacity: 1;
+        pointer-events: auto;
+        overflow-y: auto;
+        transform: translateY(0);
+    }
+}
+
+/* Unified mobile navbar look */
+@media (max-width: 768px) {
+    body > nav {
+        min-height: 60px;
+        padding: 0.52rem 0.58rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.5rem;
+        background: linear-gradient(145deg, rgba(5, 26, 34, 0.97), rgba(6, 66, 82, 0.95));
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        z-index: 20;
+    }
+
+    body > nav.is-scrolled {
+        background: linear-gradient(145deg, rgba(5, 26, 34, 0.97), rgba(6, 66, 82, 0.95));
+    }
+
+    body > nav .logo {
+        order: 2;
+        margin-right: 0;
+        font-size: 0.9rem;
+        gap: 8px;
+        color: #eafcff;
+    }
+
+    body > nav .logo-img {
+        width: 33px;
+    }
+
+    body > nav .sosmed-icon,
+    body > nav .ppdb-btn,
+    body > nav .lang-switch {
+        display: none;
+    }
+
+    body > nav .nav-mobile-actions {
+        order: 1;
+        margin-left: 0;
+        margin-right: 2px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+
+    body > nav .nav-mobile-search,
+    body > nav .nav-mobile-menu {
+        width: 40px;
+        height: 40px;
+        border-radius: 11px;
+        border: 1px solid rgba(133, 229, 233, 0.45);
+        background: rgba(7, 46, 58, 0.82);
+        color: #eafcff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 1.12rem;
+        transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    body > nav .nav-mobile-menu {
+        cursor: pointer;
+    }
+
+    body > nav .nav-mobile-search:hover,
+    body > nav .nav-mobile-menu:hover {
+        transform: translateY(-1px);
+        border-color: rgba(184, 247, 249, 0.8);
+        background: rgba(16, 71, 88, 0.9);
+    }
+
+    body > nav ul {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 14px 12px 26px;
+        border-radius: 0 0 14px 14px;
+        border-top: 1px solid rgba(130, 224, 228, 0.24);
+        border-left: 1px solid rgba(130, 224, 228, 0.18);
+        border-right: 1px solid rgba(130, 224, 228, 0.18);
+        border-bottom: 1px solid rgba(130, 224, 228, 0.2);
+        background: linear-gradient(165deg, rgba(7, 30, 39, 0.98), rgba(6, 60, 72, 0.97));
+        box-shadow: 0 16px 28px rgba(0, 0, 0, 0.36);
+        display: grid;
+        gap: 7px;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+        z-index: 19;
+    }
+
+    body > nav ul li {
+        width: 100%;
+    }
+
+    body > nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 9px 10px;
+        font-size: 0.76rem;
+        border-radius: 8px;
+    }
+
+    body > nav ul li.nav-mobile-only {
+        display: block;
+    }
+
+    body > nav ul li .nav-dropdown-toggle {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 9px 10px;
+        font-size: 0.76rem;
+        border-radius: 8px;
+    }
+
+    body > nav ul li a::after,
+    body > nav ul li .nav-dropdown-toggle::after {
+        display: none;
+    }
+
+    body > nav ul li a:hover,
+    body > nav ul li .nav-dropdown-toggle:hover {
+        background: rgba(102, 214, 218, 0.18);
+        color: #dffbff;
+    }
+
+    body > nav .nav-dropdown {
+        position: static;
+        top: auto;
+        left: auto;
+        min-width: 0;
+        width: 100%;
+        margin-top: 0;
+        padding: 0 0 0 8px;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        pointer-events: auto;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.24s ease, padding 0.24s ease, margin-top 0.24s ease;
+    }
+
+    body > nav .nav-has-dropdown.is-open > .nav-dropdown {
+        max-height: 340px;
+        margin-top: 3px;
+        padding: 4px 0 2px 8px;
+    }
+
+    body > nav .nav-dropdown a {
+        font-size: 0.74rem;
+        padding: 8px 10px;
+        border-radius: 8px;
+        background: rgba(80, 205, 212, 0.11);
+        border: 1px solid rgba(100, 217, 224, 0.15);
+    }
+
+    body > nav.nav-mobile-open ul {
+        opacity: 1;
+        visibility: visible;
         pointer-events: auto;
         overflow-y: auto;
         transform: translateY(0);
