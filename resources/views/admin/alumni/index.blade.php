@@ -6,7 +6,13 @@
 <div class="container">
     <h1>Alumni</h1>
 
-    <a href="{{ route('admin.alumni.create') }}" class="btn btn-primary mb-3">Tambah Alumni</a>
+    <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
+        <a href="{{ route('admin.alumni.create') }}" class="btn btn-primary">Tambah Alumni</a>
+        <form action="{{ route('admin.alumni.index') }}" method="GET" class="d-flex gap-2">
+            <input type="text" name="q" class="form-control" placeholder="Search alumni..." value="{{ $search ?? '' }}">
+            <button type="submit" class="btn btn-secondary">Search</button>
+        </form>
+    </div>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -27,7 +33,7 @@
         <tbody>
             @forelse($alumni as $item)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $alumni->firstItem() + $loop->index }}</td>
                     <td>{{ $item->nama_alumni }}</td>
                     <td>{{ $item->tahun_lulus }}</td>
                     <td>{{ $item->jurusan }}</td>
@@ -50,5 +56,7 @@
             @endforelse
         </tbody>
     </table>
+
+    {{ $alumni->links() }}
 </div>
 @endsection

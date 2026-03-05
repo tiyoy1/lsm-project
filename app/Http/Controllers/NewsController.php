@@ -81,10 +81,23 @@ class NewsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $news = News::with('author')->latest()->paginate(10);
-        return view('admin.news.index', compact('news'));
+        $search = trim((string) $request->query('q', ''));
+        $news = News::with('author')
+            ->when($search !== '', function ($query) use ($search) {
+                $query->where(function ($subQuery) use ($search) {
+                    $subQuery->where('title', 'like', '%' . $search . '%')
+                        ->orWhere('title_en', 'like', '%' . $search . '%')
+                        ->orWhere('content', 'like', '%' . $search . '%')
+                        ->orWhere('content_en', 'like', '%' . $search . '%');
+                });
+            })
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
+
+        return view('admin.news.index', compact('news', 'search'));
     }
 
     /**

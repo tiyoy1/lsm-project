@@ -11,11 +11,21 @@ class OrganizationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $organizations = Organization::latest()->get();
+        $search = trim((string) $request->query('q', ''));
+        $organizations = Organization::query()
+            ->when($search !== '', function ($query) use ($search) {
+                $query->where(function ($subQuery) use ($search) {
+                    $subQuery->where('name', 'like', '%' . $search . '%')
+                        ->orWhere('description', 'like', '%' . $search . '%');
+                });
+            })
+            ->latest()
+            ->paginate(15)
+            ->withQueryString();
 
-        return view('admin.organizations.index', compact('organizations'));
+        return view('admin.organizations.index', compact('organizations', 'search'));
     }
 
     /**

@@ -43,7 +43,10 @@ class StudentWorkController extends Controller
                         $subQuery->where('title', 'like', $likeKeyword)
                             ->orWhere('title_en', 'like', $likeKeyword)
                             ->orWhere('content', 'like', $likeKeyword)
-                            ->orWhere('content_en', 'like', $likeKeyword);
+                            ->orWhere('content_en', 'like', $likeKeyword)
+                            ->orWhere('work_name', 'like', $likeKeyword)
+                            ->orWhere('description', 'like', $likeKeyword)
+                            ->orWhere('creator_name', 'like', $likeKeyword);
                     });
                 }
             });
@@ -79,11 +82,34 @@ class StudentWorkController extends Controller
         return view('student_works.show', compact('studentWork', 'sidebarStudentWorks'));
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $studentWorks = StudentWork::with('author')->latest()->paginate(10);
+        $search = trim((string) $request->query('q', ''));
 
-        return view('admin.student_works.index', compact('studentWorks'));
+        $studentWorks = StudentWork::with('author')
+            ->when($search !== '', function (Builder $query) use ($search) {
+                $keywords = preg_split('/\s+/', $search, -1, PREG_SPLIT_NO_EMPTY);
+
+                $query->where(function (Builder $q) use ($keywords) {
+                    foreach ($keywords as $keyword) {
+                        $likeKeyword = '%' . $keyword . '%';
+                        $q->where(function (Builder $subQuery) use ($likeKeyword) {
+                            $subQuery->where('title', 'like', $likeKeyword)
+                                ->orWhere('title_en', 'like', $likeKeyword)
+                                ->orWhere('content', 'like', $likeKeyword)
+                                ->orWhere('content_en', 'like', $likeKeyword)
+                                ->orWhere('work_name', 'like', $likeKeyword)
+                                ->orWhere('description', 'like', $likeKeyword)
+                                ->orWhere('creator_name', 'like', $likeKeyword);
+                        });
+                    }
+                });
+            })
+            ->latest()
+            ->paginate(15)
+            ->withQueryString();
+
+        return view('admin.student_works.index', compact('studentWorks', 'search'));
     }
 
     public function create()
