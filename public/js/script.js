@@ -108,7 +108,7 @@ if (navbar && mobileMenuButton && mobileNavList) {
 
     if (mobileMenuIcon) {
       mobileMenuIcon.classList.toggle("bi-list", !isOpen);
-      mobileMenuIcon.classList.toggle("bi-x-lg", isOpen);
+      mobileMenuIcon.classList.toggle("bi-x", isOpen);
     }
 
     if (!isOpen) {

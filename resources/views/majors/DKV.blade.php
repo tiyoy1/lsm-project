@@ -337,7 +337,7 @@
     </style>
 </head>
 <body>
-        <nav>
+            <nav>
         <div class="logo">
             <img src="{{ asset("img/logo.webp") }}" alt="Logo SMK Metland" class="logo-img">SMK METLAND
         </div>
@@ -364,18 +364,18 @@
                     <li><a href="{{ route('majors.hotel') }}">{{ __('ui.nav.major_hotel') }}</a></li>
                 </ul>
             </li>
-            <li><a href="#partnership-section">{{ __('ui.nav.partnership') }}</a></li>
+            <li><a href="{{ url('/#partnership-section') }}">{{ __('ui.nav.partnership') }}</a></li>
             <li><a href="{{ route('news.index') }}">{{ __('ui.nav.news') }}</a></li>
             <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">{{ __('ui.nav.ppdb') }}</a></li>
-            <li><a href="#contact">{{ __('ui.nav.contact') }}</a></li>
+            <li><a href="{{ url('/#contact') }}">{{ __('ui.nav.contact') }}</a></li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
                     {{ __('ui.nav.more') }} <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
                     <li><a href="{{ route('student-works.index') }}">{{ __('ui.nav.student_works') }}</a></li>
-                    <li><a href="#alumni-section">{{ __('ui.nav.alumni') }}</a></li>
-                    <li><a href="#majors-smk">{{ __('ui.nav.organization') }}</a></li>
+                    <li><a href="{{ url('/#alumni-section') }}">{{ __('ui.nav.alumni') }}</a></li>
+                    <li><a href="{{ url('/#majors-smk') }}">{{ __('ui.nav.organization') }}</a></li>
                 </ul>
             </li>
         </ul>
