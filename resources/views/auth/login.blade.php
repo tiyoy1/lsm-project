@@ -1,4 +1,26 @@
 <x-guest-layout>
+    <div id="login-splash" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 transition-opacity duration-500">
+        <p class="text-white text-3xl sm:text-4xl font-extrabold tracking-wide">LAU SIAPE MPRUYY?</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const splash = document.getElementById('login-splash');
+
+            if (!splash) {
+                return;
+            }
+
+            setTimeout(function () {
+                splash.classList.add('opacity-0');
+
+                setTimeout(function () {
+                    splash.remove();
+                }, 500);
+            }, 1200);
+        });
+    </script>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
