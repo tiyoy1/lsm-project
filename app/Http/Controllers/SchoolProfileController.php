@@ -38,7 +38,7 @@ class SchoolProfileController extends Controller
 
         SchoolProfile::create($validated);
 
-        return redirect()->route('admin.school-profile.index')->with('success', 'Profil sekolah berhasil ditambahkan.');
+        return redirect()->route('legacy-admin.school-profile.index')->with('success', 'Profil sekolah berhasil ditambahkan.');
     }
 
     /**
@@ -70,7 +70,7 @@ class SchoolProfileController extends Controller
 
         $schoolProfile->update($validated);
 
-        return redirect()->route('admin.school-profile.index')->with('success', 'Profil sekolah berhasil diperbarui.');
+        return redirect()->route('legacy-admin.school-profile.index')->with('success', 'Profil sekolah berhasil diperbarui.');
     }
 
     /**
@@ -80,6 +80,6 @@ class SchoolProfileController extends Controller
     {
         $schoolProfile->delete();
 
-        return redirect()->route('admin.school-profile.index')->with('success', 'Profil sekolah berhasil dihapus.');
+        return redirect()->route('legacy-admin.school-profile.index')->with('success', 'Profil sekolah berhasil dihapus.');
     }
 }

@@ -6,7 +6,7 @@
 <div class="container">
     <h1>Pending Students</h1>
 
-    <form action="{{ route('admin.pending-students.index') }}" method="GET" class="d-flex gap-2 mb-3">
+    <form action="{{ route('legacy-admin.pending-students.index') }}" method="GET" class="d-flex gap-2 mb-3">
         <input type="text" name="q" class="form-control" placeholder="Search pending students..." value="{{ $search ?? '' }}">
         <button type="submit" class="btn btn-secondary">Search</button>
     </form>
@@ -37,23 +37,23 @@
                     <td>{{ $student->phone }}</td>
                     <td>{{ $student->email }}</td>
                     <td>
-                        <a href="{{ route('admin.pending-students.show', $student) }}" class="btn btn-sm btn-info text-white">Detail</a>
+                        <a href="{{ route('legacy-admin.pending-students.show', $student) }}" class="btn btn-sm btn-info text-white">Detail</a>
 
-                        <form action="{{ route('admin.pending-students.update-status', $student) }}" method="POST" style="display:inline-block;">
+                        <form action="{{ route('legacy-admin.pending-students.update-status', $student) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('PATCH')
                             <input type="hidden" name="status" value="accepted">
                             <button type="submit" class="btn btn-sm btn-success">Accept</button>
                         </form>
 
-                        <form action="{{ route('admin.pending-students.update-status', $student) }}" method="POST" style="display:inline-block;">
+                        <form action="{{ route('legacy-admin.pending-students.update-status', $student) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('PATCH')
                             <input type="hidden" name="status" value="rejected">
                             <button type="submit" class="btn btn-sm btn-warning">Reject</button>
                         </form>
 
-                        <form action="{{ route('admin.pending-students.destroy', $student) }}" method="POST" style="display:inline-block;">
+                        <form action="{{ route('legacy-admin.pending-students.destroy', $student) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Hapus data pendaftar ini?')">Delete</button>

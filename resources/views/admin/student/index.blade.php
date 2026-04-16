@@ -7,8 +7,8 @@
     <h1>Students</h1>
 
     <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
-        <a href="{{ route('admin.student.create') }}" class="btn btn-primary">Add Student</a>
-        <form action="{{ route('admin.student.index') }}" method="GET" class="d-flex gap-2">
+        <a href="{{ route('legacy-admin.student.create') }}" class="btn btn-primary">Add Student</a>
+        <form action="{{ route('legacy-admin.student.index') }}" method="GET" class="d-flex gap-2">
             <input type="text" name="q" class="form-control" placeholder="Search students..." value="{{ $search ?? '' }}">
             <button type="submit" class="btn btn-secondary">Search</button>
         </form>
@@ -42,9 +42,9 @@
                     <td>{{ $student->phone }}</td>
                     <td>{{ $student->email }}</td>
                     <td>
-                        <a href="{{ route('admin.student.edit', $student) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="{{ route('legacy-admin.student.edit', $student) }}" class="btn btn-sm btn-warning">Edit</a>
 
-                        <form action="{{ route('admin.student.destroy', $student) }}" method="POST" style="display:inline-block;">
+                        <form action="{{ route('legacy-admin.student.destroy', $student) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this student?')">Delete</button>

@@ -137,7 +137,7 @@ class StudentWorkController extends Controller
 
         StudentWork::create($validated);
 
-        return redirect()->route('admin.student-works.index')->with('success', 'Student work created successfully.');
+        return redirect()->route('legacy-admin.student-works.index')->with('success', 'Student work created successfully.');
     }
 
     public function show(StudentWork $studentWork)
@@ -173,7 +173,7 @@ class StudentWorkController extends Controller
 
         $studentWork->update($validated);
 
-        return redirect()->route('admin.student-works.index')->with('success', 'Student work updated successfully.');
+        return redirect()->route('legacy-admin.student-works.index')->with('success', 'Student work updated successfully.');
     }
 
     public function destroy(StudentWork $studentWork)
@@ -185,6 +185,6 @@ class StudentWorkController extends Controller
 
         $studentWork->delete();
 
-        return redirect()->route('admin.student-works.index')->with('success', 'Student work deleted successfully.');
+        return redirect()->route('legacy-admin.student-works.index')->with('success', 'Student work deleted successfully.');
     }
 }

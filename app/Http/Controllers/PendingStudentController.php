@@ -62,7 +62,7 @@ class PendingStudentController extends Controller
             );
         }
 
-        return redirect()->route('admin.pending-students.index')->with('success', 'Status pendaftar berhasil diperbarui.');
+        return redirect()->route('legacy-admin.pending-students.index')->with('success', 'Status pendaftar berhasil diperbarui.');
     }
 
     /**
@@ -72,6 +72,6 @@ class PendingStudentController extends Controller
     {
         $pendingStudent->delete();
 
-        return redirect()->route('admin.pending-students.index')->with('success', 'Data pendaftar berhasil dihapus.');
+        return redirect()->route('legacy-admin.pending-students.index')->with('success', 'Data pendaftar berhasil dihapus.');
     }
 }

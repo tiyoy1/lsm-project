@@ -142,7 +142,7 @@ class NewsController extends Controller
             ? 'News saved to draft successfully.'
             : 'News published successfully.';
 
-        return redirect()->route('admin.news.index')->with('success', $message);
+        return redirect()->route('legacy-admin.news.index')->with('success', $message);
     }
 
     /**
@@ -192,7 +192,7 @@ class NewsController extends Controller
             ? 'Draft updated successfully.'
             : 'News updated successfully.';
 
-        return redirect()->route('admin.news.index')->with('success', $message);
+        return redirect()->route('legacy-admin.news.index')->with('success', $message);
     }
 
     /**
@@ -207,6 +207,6 @@ class NewsController extends Controller
 
         $news->delete();
 
-        return redirect()->route('admin.news.index')->with('success', 'News deleted successfully.');
+        return redirect()->route('legacy-admin.news.index')->with('success', 'News deleted successfully.');
     }
 }

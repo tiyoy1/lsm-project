@@ -6,7 +6,7 @@
 <div class="container">
     <h1>Profil Sekolah</h1>
 
-    <a href="{{ route('admin.school-profile.create') }}" class="btn btn-primary mb-3">Tambah Profil Sekolah</a>
+    <a href="{{ route('legacy-admin.school-profile.create') }}" class="btn btn-primary mb-3">Tambah Profil Sekolah</a>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -30,9 +30,9 @@
                     <td>{{ $item->poin_value }}</td>
                     <td>{{ $item->rules }}</td>
                     <td>
-                        <a href="{{ route('admin.school-profile.edit', $item) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="{{ route('legacy-admin.school-profile.edit', $item) }}" class="btn btn-sm btn-warning">Edit</a>
 
-                        <form action="{{ route('admin.school-profile.destroy', $item) }}" method="POST" style="display:inline-block;">
+                        <form action="{{ route('legacy-admin.school-profile.destroy', $item) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Hapus profil sekolah ini?')">Delete</button>

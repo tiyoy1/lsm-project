@@ -49,7 +49,7 @@ class MajorController extends Controller
 
         Major::create($validated);
 
-        return redirect()->route('admin.majors.index')->with('success', 'Jurusan berhasil ditambahkan.');
+        return redirect()->route('legacy-admin.majors.index')->with('success', 'Jurusan berhasil ditambahkan.');
     }
 
     /**
@@ -81,7 +81,7 @@ class MajorController extends Controller
 
         $major->update($validated);
 
-        return redirect()->route('admin.majors.index')->with('success', 'Jurusan berhasil diperbarui.');
+        return redirect()->route('legacy-admin.majors.index')->with('success', 'Jurusan berhasil diperbarui.');
     }
 
     /**
@@ -91,6 +91,6 @@ class MajorController extends Controller
     {
         $major->delete();
 
-        return redirect()->route('admin.majors.index')->with('success', 'Jurusan berhasil dihapus.');
+        return redirect()->route('legacy-admin.majors.index')->with('success', 'Jurusan berhasil dihapus.');
     }
 }

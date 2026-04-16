@@ -36,7 +36,7 @@
         </div>
     @endif
 
-    <a href="{{ route('admin.news.index') }}" class="btn btn-secondary">Back</a>
-    <a href="{{ route('admin.news.edit', $news) }}" class="btn btn-primary">Edit</a>
+    <a href="{{ route('legacy-admin.news.index') }}" class="btn btn-secondary">Back</a>
+    <a href="{{ route('legacy-admin.news.edit', $news) }}" class="btn btn-primary">Edit</a>
 </div>
 @endsection

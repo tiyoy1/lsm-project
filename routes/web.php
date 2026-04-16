@@ -51,7 +51,7 @@ Route::get('/student-works', [StudentWorkController::class, 'publicIndex'])->nam
 Route::get('/student-works/{studentWork:slug}', [StudentWorkController::class, 'publicShow'])->name('student-works.show');
 
 Route::get('/dashboard', function () {
-    return redirect()->route('admin.panel');
+    return redirect()->to('/admin');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/ppdb', [RegistrationController::class, 'create'])->name('ppdb.create');
@@ -63,19 +63,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+// Legacy admin routes (kept temporarily while migrating fully to Filament).
+Route::middleware(['auth', 'admin'])->prefix('legacy-admin')->name('legacy-admin.')->group(function () {
     Route::get('panel', [AdminPanelController::class, 'index'])->name('panel');
     Route::resource('student', StudentController::class);
     Route::resource('pending-students', PendingStudentController::class)->only(['index', 'show', 'destroy']);
     Route::patch('pending-students/{pendingStudent}/status', [PendingStudentController::class, 'updateStatus'])
         ->name('pending-students.update-status');
     Route::resource('alumni', AlumniController::class);
-    Route::resource('ekskuls', EkskulController::class);
     Route::resource('student-works', StudentWorkController::class);
-    Route::resource('majors', MajorController::class);
     Route::resource('school-profile', SchoolProfileController::class)->except(['show']);
     Route::resource('vision-mission', VisionMissionController::class)->except(['show']);
-    Route::resource('organizations', OrganizationController::class);
     Route::resource('news', NewsController::class);
 });
 

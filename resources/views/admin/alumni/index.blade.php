@@ -7,8 +7,8 @@
     <h1>Alumni</h1>
 
     <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-3">
-        <a href="{{ route('admin.alumni.create') }}" class="btn btn-primary">Tambah Alumni</a>
-        <form action="{{ route('admin.alumni.index') }}" method="GET" class="d-flex gap-2">
+        <a href="{{ route('legacy-admin.alumni.create') }}" class="btn btn-primary">Tambah Alumni</a>
+        <form action="{{ route('legacy-admin.alumni.index') }}" method="GET" class="d-flex gap-2">
             <input type="text" name="q" class="form-control" placeholder="Search alumni..." value="{{ $search ?? '' }}">
             <button type="submit" class="btn btn-secondary">Search</button>
         </form>
@@ -40,9 +40,9 @@
                     <td>{{ $item->pekerjaan ?: '-' }}</td>
                     <td>{{ $item->kontak ?: '-' }}</td>
                     <td>
-                        <a href="{{ route('admin.alumni.edit', $item) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="{{ route('legacy-admin.alumni.edit', $item) }}" class="btn btn-sm btn-warning">Edit</a>
 
-                        <form action="{{ route('admin.alumni.destroy', $item) }}" method="POST" style="display:inline-block;">
+                        <form action="{{ route('legacy-admin.alumni.destroy', $item) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Hapus data alumni ini?')">Delete</button>

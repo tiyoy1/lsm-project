@@ -6,11 +6,11 @@
 <div class="container">
     <h1 class="mb-4">Tambah Profil Sekolah</h1>
 
-    <form action="{{ route('admin.school-profile.store') }}" method="POST">
-        @include('admin.school_profile._form')
+    <form action="{{ route('legacy-admin.school-profile.store') }}" method="POST">
+        @include('legacy-admin.school_profile._form')
 
         <button type="submit" class="btn btn-primary">Save</button>
-        <a href="{{ route('admin.school-profile.index') }}" class="btn btn-secondary">Cancel</a>
+        <a href="{{ route('legacy-admin.school-profile.index') }}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 @endsection

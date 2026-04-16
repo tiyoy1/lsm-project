@@ -56,7 +56,7 @@ class OrganizationController extends Controller
 
         Organization::create($data);
 
-        return redirect()->route('admin.organizations.index')
+        return redirect()->route('legacy-admin.organizations.index')
         ->with('success', 'Organization created!');
     }
 
@@ -98,7 +98,7 @@ class OrganizationController extends Controller
 
         $organization->update($data);
 
-        return redirect()->route('admin.organizations.index')
+        return redirect()->route('legacy-admin.organizations.index')
         ->with('success', 'Organization updated!');
     }
 
@@ -113,7 +113,7 @@ class OrganizationController extends Controller
 
         $organization->delete();
 
-        return redirect()->route('admin.organizations.index')
+        return redirect()->route('legacy-admin.organizations.index')
         ->with('success', 'Organization deleted.');
     }
 }

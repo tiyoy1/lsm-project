@@ -9,15 +9,28 @@ use Illuminate\Support\Facades\Hash;
 class AdminUserSeeder extends Seeder
 {
     /**
-     * Seed a fixed admin user for local development.
+     * Seed an admin user (typically for local development).
      */
     public function run(): void
     {
+        $email = (string) env('ADMIN_EMAIL', '');
+        $password = (string) env('ADMIN_PASSWORD', '');
+        $name = (string) env('ADMIN_NAME', 'Admin');
+
+        if (($email === '' || $password === '') && app()->environment('local')) {
+            $email = $email !== '' ? $email : 'admin@example.com';
+            $password = $password !== '' ? $password : 'Admin12345!';
+        }
+
+        if ($email === '' || $password === '') {
+            return;
+        }
+
         User::updateOrCreate(
-            ['email' => 'admin@example.com'],
+            ['email' => $email],
             [
-                'name' => 'Admin',
-                'password' => Hash::make('Admin12345!'),
+                'name' => $name,
+                'password' => Hash::make($password),
                 'is_admin' => true,
             ]
         );
