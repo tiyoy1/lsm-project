@@ -21,6 +21,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class CareerResource extends Resource
 {
@@ -65,6 +66,15 @@ class CareerResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn (Builder $query) => $query->select([
+                'id',
+                'track',
+                'title',
+                'sort_order',
+                'is_published',
+                'published_at',
+                'updated_at',
+            ]))
             ->columns([
                 TextColumn::make('title')->searchable()->sortable(),
                 TextColumn::make('track')
@@ -80,7 +90,10 @@ class CareerResource extends Resource
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->fillForm(fn (Career $record): array => Career::query()
+                        ->find($record->getKey())
+                        ?->attributesToArray() ?? []),
                 DeleteAction::make(),
             ])
             ->toolbarActions([

@@ -16,6 +16,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class CampusHistoryResource extends Resource
 {
@@ -51,6 +52,10 @@ class CampusHistoryResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn (Builder $query) => $query->select([
+                'id',
+                'updated_at',
+            ]))
             ->columns([
                 TextColumn::make('id')->sortable(),
                 TextColumn::make('updated_at')->dateTime()->sortable(),
@@ -59,7 +64,10 @@ class CampusHistoryResource extends Resource
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->fillForm(fn (CampusHistory $record): array => CampusHistory::query()
+                        ->find($record->getKey())
+                        ?->attributesToArray() ?? []),
                 DeleteAction::make(),
             ])
             ->toolbarActions([

@@ -15,6 +15,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class VisionMissionResource extends Resource
 {
@@ -42,6 +43,11 @@ class VisionMissionResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn (Builder $query) => $query->select([
+                'id',
+                'created_at',
+                'updated_at',
+            ]))
             ->columns([
                 TextColumn::make('id')->sortable(),
                 TextColumn::make('created_at')->dateTime()->sortable(),
@@ -51,7 +57,10 @@ class VisionMissionResource extends Resource
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->fillForm(fn (VisionMission $record): array => VisionMission::query()
+                        ->find($record->getKey())
+                        ?->attributesToArray() ?? []),
                 DeleteAction::make(),
             ])
             ->toolbarActions([

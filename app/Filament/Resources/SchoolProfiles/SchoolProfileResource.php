@@ -15,6 +15,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class SchoolProfileResource extends Resource
 {
@@ -37,6 +38,11 @@ class SchoolProfileResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn (Builder $query) => $query->select([
+                'id',
+                'created_at',
+                'updated_at',
+            ]))
             ->columns([
                 TextColumn::make('id')->sortable(),
                 TextColumn::make('created_at')->dateTime()->sortable(),
@@ -46,7 +52,10 @@ class SchoolProfileResource extends Resource
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->fillForm(fn (SchoolProfile $record): array => SchoolProfile::query()
+                        ->find($record->getKey())
+                        ?->attributesToArray() ?? []),
                 DeleteAction::make(),
             ])
             ->toolbarActions([

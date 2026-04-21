@@ -20,6 +20,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class RegistrationResource extends Resource
 {
@@ -58,6 +59,14 @@ class RegistrationResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn (Builder $query) => $query->select([
+                'id',
+                'full_name',
+                'phone',
+                'email',
+                'status',
+                'created_at',
+            ]))
             ->columns([
                 TextColumn::make('full_name')->searchable()->sortable(),
                 TextColumn::make('email')->searchable(),
@@ -83,6 +92,7 @@ class RegistrationResource extends Resource
                     ->requiresConfirmation()
                     ->visible(fn (Registration $record): bool => $record->status === 'pending')
                     ->action(function (Registration $record): void {
+                        $record->refresh();
                         $record->update(['status' => 'accepted']);
 
                         Student::updateOrCreate(
@@ -104,7 +114,10 @@ class RegistrationResource extends Resource
                     ->requiresConfirmation()
                     ->visible(fn (Registration $record): bool => $record->status === 'pending')
                     ->action(fn (Registration $record) => $record->update(['status' => 'rejected'])),
-                EditAction::make(),
+                EditAction::make()
+                    ->fillForm(fn (Registration $record): array => Registration::query()
+                        ->find($record->getKey())
+                        ?->attributesToArray() ?? []),
                 DeleteAction::make(),
             ])
             ->toolbarActions([

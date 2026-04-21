@@ -18,6 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class StudentResource extends Resource
 {
@@ -48,6 +49,14 @@ class StudentResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn (Builder $query) => $query->select([
+                'id',
+                'full_name',
+                'gender',
+                'phone',
+                'email',
+                'created_at',
+            ]))
             ->columns([
                 TextColumn::make('full_name')->searchable()->sortable(),
                 TextColumn::make('gender')->badge()->sortable(),
@@ -59,7 +68,10 @@ class StudentResource extends Resource
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->fillForm(fn (Student $record): array => Student::query()
+                        ->find($record->getKey())
+                        ?->attributesToArray() ?? []),
                 DeleteAction::make(),
             ])
             ->toolbarActions([

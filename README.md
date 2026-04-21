@@ -7,6 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Performance checklist (production)
+
+- Set `APP_ENV=production` and `APP_DEBUG=false` in `.env`.
+- Install dependencies optimized for prod: `composer install --no-dev --optimize-autoloader`.
+- Cache framework + Filament metadata:
+  - `php artisan optimize`
+  - `php artisan filament:optimize`
+- Ensure PHP OPcache is enabled (and sufficiently sized) on the server.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

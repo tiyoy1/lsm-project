@@ -20,6 +20,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class TestimonialResource extends Resource
 {
@@ -66,6 +67,15 @@ class TestimonialResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn (Builder $query) => $query->select([
+                'id',
+                'name',
+                'role',
+                'rating',
+                'is_published',
+                'sort_order',
+                'updated_at',
+            ]))
             ->columns([
                 TextColumn::make('name')->searchable()->sortable(),
                 TextColumn::make('role')->toggleable(isToggledHiddenByDefault: true),
@@ -78,7 +88,10 @@ class TestimonialResource extends Resource
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->fillForm(fn (Testimonial $record): array => Testimonial::query()
+                        ->find($record->getKey())
+                        ?->attributesToArray() ?? []),
                 DeleteAction::make(),
             ])
             ->toolbarActions([

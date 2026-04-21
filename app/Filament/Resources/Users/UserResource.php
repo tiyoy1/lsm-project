@@ -17,6 +17,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Hash;
 
 class UserResource extends Resource
@@ -42,6 +43,7 @@ class UserResource extends Resource
                 TextInput::make('password')
                     ->password()
                     ->revealable()
+                    ->afterStateHydrated(fn (TextInput $component) => $component->state(null))
                     ->dehydrateStateUsing(fn (?string $state) => filled($state) ? Hash::make($state) : null)
                     ->dehydrated(fn (?string $state) => filled($state))
                     ->required(fn (?User $record) => $record === null),
@@ -54,6 +56,13 @@ class UserResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn (Builder $query) => $query->select([
+                'id',
+                'name',
+                'email',
+                'is_admin',
+                'created_at',
+            ]))
             ->columns([
                 TextColumn::make('name')->searchable()->sortable(),
                 TextColumn::make('email')->searchable()->sortable(),
@@ -64,7 +73,10 @@ class UserResource extends Resource
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->fillForm(fn (User $record): array => User::query()
+                        ->find($record->getKey())
+                        ?->attributesToArray() ?? []),
                 DeleteAction::make(),
             ])
             ->toolbarActions([

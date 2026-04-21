@@ -15,7 +15,7 @@ class ManageContactSettings extends ManageRecords
     {
         return [
             CreateAction::make()
-                ->visible(fn (): bool => ContactSetting::query()->count() === 0),
+                ->visible(fn (): bool => ContactSetting::query()->doesntExist()),
         ];
     }
 }

@@ -15,7 +15,7 @@ class ManageCampusHistories extends ManageRecords
     {
         return [
             CreateAction::make()
-                ->visible(fn (): bool => CampusHistory::query()->count() === 0),
+                ->visible(fn (): bool => CampusHistory::query()->doesntExist()),
         ];
     }
 }

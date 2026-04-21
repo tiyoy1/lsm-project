@@ -21,6 +21,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class StudentWorkResource extends Resource
 {
@@ -61,6 +62,14 @@ class StudentWorkResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn (Builder $query) => $query->select([
+                'id',
+                'title',
+                'image',
+                'creator_name',
+                'published_at',
+                'updated_at',
+            ]))
             ->columns([
                 ImageColumn::make('image')->disk('public')->square()->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('title')->searchable()->sortable(),
@@ -72,7 +81,10 @@ class StudentWorkResource extends Resource
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->fillForm(fn (StudentWork $record): array => StudentWork::query()
+                        ->find($record->getKey())
+                        ?->attributesToArray() ?? []),
                 DeleteAction::make(),
             ])
             ->toolbarActions([

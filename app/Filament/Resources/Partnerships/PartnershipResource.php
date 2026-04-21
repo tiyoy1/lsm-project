@@ -20,6 +20,7 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class PartnershipResource extends Resource
 {
@@ -57,6 +58,14 @@ class PartnershipResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn (Builder $query) => $query->select([
+                'id',
+                'name',
+                'logo',
+                'is_active',
+                'sort_order',
+                'updated_at',
+            ]))
             ->columns([
                 ImageColumn::make('logo')->disk('public')->square()->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('name')->searchable()->sortable(),
@@ -68,7 +77,10 @@ class PartnershipResource extends Resource
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->fillForm(fn (Partnership $record): array => Partnership::query()
+                        ->find($record->getKey())
+                        ?->attributesToArray() ?? []),
                 DeleteAction::make(),
             ])
             ->toolbarActions([

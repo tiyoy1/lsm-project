@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class StudentWork extends Model
@@ -63,13 +65,14 @@ class StudentWork extends Model
         }
 
         $relativeImagePath = ltrim($path, '/');
-        $publicImagePath = public_path('storage/' . $relativeImagePath);
+        $cacheKey = 'public_disk_exists:' . md5($relativeImagePath);
 
-        if (is_file($publicImagePath)) {
-            return asset('storage/' . $relativeImagePath);
-        }
+        $exists = Cache::remember($cacheKey, now()->addHours(6), fn (): bool => Storage::disk('public')->exists($relativeImagePath));
 
-        return asset('img/hero2.JPG');
+        return $exists
+            ? Storage::disk('public')->url($relativeImagePath)
+            : asset('img/hero2.JPG');
+
     }
 
     protected static function booted()

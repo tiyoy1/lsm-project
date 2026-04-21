@@ -16,6 +16,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class ContactSettingResource extends Resource
 {
@@ -49,6 +50,12 @@ class ContactSettingResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn (Builder $query) => $query->select([
+                'id',
+                'phone',
+                'email',
+                'updated_at',
+            ]))
             ->columns([
                 TextColumn::make('id')->sortable(),
                 TextColumn::make('phone')->label('Telepon')->searchable(),
@@ -59,7 +66,10 @@ class ContactSettingResource extends Resource
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->fillForm(fn (ContactSetting $record): array => ContactSetting::query()
+                        ->find($record->getKey())
+                        ?->attributesToArray() ?? []),
                 DeleteAction::make(),
             ])
             ->toolbarActions([

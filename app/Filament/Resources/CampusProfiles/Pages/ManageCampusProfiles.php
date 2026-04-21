@@ -15,7 +15,7 @@ class ManageCampusProfiles extends ManageRecords
     {
         return [
             CreateAction::make()
-                ->visible(fn (): bool => CampusProfile::query()->count() === 0),
+                ->visible(fn (): bool => CampusProfile::query()->doesntExist()),
         ];
     }
 }

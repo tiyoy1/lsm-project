@@ -20,6 +20,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class NewsResource extends Resource
 {
@@ -63,6 +64,16 @@ class NewsResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn (Builder $query) => $query
+                ->select([
+                    'news.id',
+                    'news.title',
+                    'news.image',
+                    'news.published_at',
+                    'news.updated_at',
+                    'news.author_id',
+                ])
+                ->with(['author:id,name']))
             ->columns([
                 ImageColumn::make('image')->disk('public')->square()->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('title')->searchable()->sortable(),
@@ -74,7 +85,10 @@ class NewsResource extends Resource
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->fillForm(fn (News $record): array => News::query()
+                        ->find($record->getKey())
+                        ?->attributesToArray() ?? []),
                 DeleteAction::make(),
             ])
             ->toolbarActions([
