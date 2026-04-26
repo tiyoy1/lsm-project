@@ -22,7 +22,7 @@
     <style>
         .registration-info {
             padding: 80px 0;
-            background: #f8fafc;
+            background: #f2fbfb;
         }
         .info-shell {
             width: min(1200px, 92vw);
@@ -102,7 +102,7 @@
         /* Form Styling */
         .form-section {
             padding: 80px 0;
-            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            background: #f2fbfb;
         }
         .form-container {
             max-width: 800px;
