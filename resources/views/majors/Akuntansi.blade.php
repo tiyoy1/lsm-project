@@ -341,40 +341,40 @@
             <img src="{{ asset("img/logo.webp") }}" alt="Logo SMK Metland" class="logo-img">SMK METLAND
         </div>
         <ul id="primary-nav">
-            <li><a href="{{ url('/') }}">{{ __('ui.nav.home') }}</a></li>
+            <li><a href="{{ url('/') }}">Beranda</a></li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    {{ __('ui.nav.school_profile') }} <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    Profil Sekolah <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
-                    <li><a href="{{ route('vision-mission') }}">{{ __('ui.nav.profile_vision') }}</a></li>
-                    <li><a href="{{ route('sejarah') }}">{{ __('ui.nav.profile_history') }}</a></li>
+                    <li><a href="{{ route('vision-mission') }}">Visi</a></li>
+                    <li><a href="{{ route('sejarah') }}">Sejarah</a></li>
                 </ul>
             </li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    {{ __('ui.nav.majors') }} <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    Jurusan <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
-                    <li><a href="{{ route('majors.akuntansi') }}">{{ __('ui.nav.major_accounting') }}</a></li>
-                    <li><a href="{{ route('majors.pplg') }}">{{ __('ui.nav.major_pplg') }}</a></li>
-                    <li><a href="{{ route('majors.dkv') }}">{{ __('ui.nav.major_dkv') }}</a></li>
-                    <li><a href="{{ route('majors.kuliner') }}">{{ __('ui.nav.major_culinary') }}</a></li>
-                    <li><a href="{{ route('majors.hotel') }}">{{ __('ui.nav.major_hotel') }}</a></li>
+                    <li><a href="{{ route('majors.akuntansi') }}">Akuntansi</a></li>
+                    <li><a href="{{ route('majors.pplg') }}">PPLG</a></li>
+                    <li><a href="{{ route('majors.dkv') }}">DKV</a></li>
+                    <li><a href="{{ route('majors.kuliner') }}">Kuliner</a></li>
+                    <li><a href="{{ route('majors.hotel') }}">Perhotelan</a></li>
                 </ul>
             </li>
-            <li><a href="{{ url('/#partnership-section') }}">{{ __('ui.nav.partnership') }}</a></li>
-            <li><a href="{{ route('news.index') }}">{{ __('ui.nav.news') }}</a></li>
-            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">{{ __('ui.nav.ppdb') }}</a></li>
-            <li><a href="{{ url('/#contact') }}">{{ __('ui.nav.contact') }}</a></li>
+            <li><a href="{{ url('/') }}#partnership">Kerjasama</a></li>
+            <li><a href="{{ route('news.index') }}">Berita</a></li>
+            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">PPDB</a></li>
+            <li><a href="{{ url('/') }}#contact">Kontak</a></li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    {{ __('ui.nav.more') }} <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    More <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
-                    <li><a href="{{ route('student-works.index') }}">{{ __('ui.nav.student_works') }}</a></li>
-                    <li><a href="{{ url('/#alumni-section') }}">{{ __('ui.nav.alumni') }}</a></li>
-                    <li><a href="{{ url('/#majors-smk') }}">{{ __('ui.nav.organization') }}</a></li>
+                    <li><a href="{{ route('student-works.index') }}">Karya Siswa</a></li>
+                    <li><a href="{{ url('/#alumni-section') }}">Alumni</a></li>
+                    <li><a href="{{ url('/#majors-smk') }}">Organisasi</a></li>
                 </ul>
             </li>
         </ul>
@@ -395,11 +395,11 @@
   </a>
 </div>
         <div class="ppdb-btn">
-            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'">{{ __('ui.nav.ppdb') }}</button>
+            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'">PPDB</button>
         </div>
-        <div class="lang-switch" aria-label="{{ __('ui.lang.switcher_aria') }}">
-            <a href="{{ route('language.switch', 'id') }}" class="{{ app()->getLocale() === 'id' ? 'is-active' : '' }}">{{ __('ui.lang.id') }}</a>
-            <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">{{ __('ui.lang.en') }}</a>
+        <div class="lang-switch" aria-label="Pengalih bahasa">
+            <a href="{{ route('language.switch', 'id') }}" class="{{ app()->getLocale() === 'id' ? 'is-active' : '' }}">ID</a>
+            <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">EN</a>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
@@ -414,7 +414,7 @@
         <div class="slider-items">
             <img src="{{ asset("img/akuntansi/akuntansi1.png") }}" alt="">
             <div class="slider-content">
-                <p class="slider-subtitle">{{ __('ui.home.slider_subtitle') }}</p>
+                <p class="slider-subtitle">selamat datang di</p>
                 <h2 class="slider-title">Akuntansi Bisnis</h2>
                 <p class="slider-description">hadir sebagai jawaban atas kebutuhan dunia usaha dan industri yang semakin dinamis, transparan, dan berbasis data.</p>
                 <a href="#akuntansiProfile" class="slider-action">SEE MORE!</a>
@@ -423,15 +423,15 @@
         <div class="slider-items">
             <img src="{{ asset("img/akuntansi/akuntansi2.png") }}" alt="">
             <div class="slider-content">
-                <p class="slider-subtitle">{{ __('ui.home.slider_subtitle') }}</p>
+                <p class="slider-subtitle">selamat datang di</p>
                 <h2 class="slider-title">Akuntansi Bisnis</h2>
                 <p class="slider-description">hadir sebagai jawaban atas kebutuhan dunia usaha dan industri yang semakin dinamis, transparan, dan berbasis data.</p>
                 <a href="#akuntansiProfile" class="slider-action">SEE MORE!</a>
             </div>
         </div>
-        <button class="slider-nav slider-prev" type="button" aria-label="{{ __('ui.home.slider_prev_aria') }}">&#8249;</button>
-        <button class="slider-nav slider-next" type="button" aria-label="{{ __('ui.home.slider_next_aria') }}">&#8250;</button>
-        <div class="slider-dots" aria-label="{{ __('ui.home.slider_pagination_aria') }}"></div>
+        <button class="slider-nav slider-prev" type="button" aria-label="Slide sebelumnya">&#8249;</button>
+        <button class="slider-nav slider-next" type="button" aria-label="Slide berikutnya">&#8250;</button>
+        <div class="slider-dots" aria-label="Paginasi slider"></div>
 </div>
 
     <section class="akuntansi-profile" id="akuntansiProfile">
@@ -511,11 +511,11 @@
                     <img src="{{ asset("img/logo.webp") }}" alt="Logo SMK Metland" class="footer-logo">
                     <h3>METLAND SCHOOL</h3>
                 </div>
-                <p>{{ __('ui.home.footer_tagline') }}</p>
+                <p>Langkah awal menuju karier gemilang. Belajar praktik, berkembang kreatif, dan siap terjun ke dunia industri.</p>
             </div>
 
             <div class="footer-posts">
-                <h4>{{ __('ui.footer.recent_posts') }}</h4>
+                <h4>Posting Terbaru</h4>
                 <div class="footer-post-list">
                     @php
                         $footerNews = ($latestNews ?? collect())->take(2);
@@ -530,10 +530,10 @@
                         </article>
                     @empty
                         <article class="footer-post-item">
-                            <img src="{{ asset('img/hero2.JPG') }}" alt="{{ __('ui.footer.no_news_alt') }}" class="footer-post-thumb">
+                            <img src="{{ asset('img/hero2.JPG') }}" alt="Belum ada berita" class="footer-post-thumb">
                             <div class="footer-post-content">
-                                <a href="{{ route('news.index') }}">{{ __('ui.footer.no_published_news') }}</a>
-                                <p class="footer-post-date">{{ __('ui.footer.check_again_later') }}</p>
+                                <a href="{{ route('news.index') }}">Belum ada berita yang dipublikasikan</a>
+                                <p class="footer-post-date">Silakan cek kembali nanti</p>
                             </div>
                         </article>
                     @endforelse
@@ -541,21 +541,21 @@
             </div>
 
             <div class="footer-links">
-                <h4>{{ __('ui.footer.quick_access') }}</h4>
-                <a href="#about-smk">{{ __('ui.footer.profile') }}</a>
-                <a href="#majors-smk">{{ __('ui.footer.majors') }}</a>
-                <a href="#partnership-section">{{ __('ui.footer.industry_partnership') }}</a>
-                <a href="#partnership-section">{{ __('ui.footer.college_partnership') }}</a>
-                <a href="{{ route('news.index') }}">{{ __('ui.footer.school_news') }}</a>
-                <a href="#school-footer">{{ __('ui.footer.school_contact') }}</a>
+                <h4>Akses Cepat</h4>
+                <a href="#about-smk">Profil Sekolah</a>
+                <a href="#majors-smk">Program Keahlian</a>
+                <a href="{{ url('/') }}#partnership">Kerjasama Industri</a>
+                <a href="{{ url('/') }}#partnership">Kerjasama Perguruan Tinggi</a>
+                <a href="{{ route('news.index') }}">Berita Sekolah</a>
+                <a href="{{ url('/') }}#contact">Kontak Sekolah</a>
             </div>
 
             <div class="footer-contact-map">
-                <h4>{{ __('ui.footer.contact_us') }}</h4>
-                <p><strong>{{ __('ui.footer.location') }}:</strong><br>{{ __('ui.footer.address') }}</p>
-                <p><strong>{{ __('ui.footer.phone') }}:</strong> (021) 82496976</p>
-                <p><strong>{{ __('ui.footer.whatsapp') }}:</strong> +6281293395500</p>
-                <p><strong>{{ __('ui.footer.website') }}:</strong> <a href="https://www.smkmetland.net" target="_blank" rel="noopener noreferrer">www.smkmetland.net</a></p>
+                <h4>HUBUNGI KAMI</h4>
+                <p><strong>Lokasi:</strong><br>Jl. Kota Taman Metropolitan, Cileungsi Kidul, Kec. Cileungsi, Kabupaten Bogor, Jawa Barat 16820</p>
+                <p><strong>Telepon:</strong> (021) 82496976</p>
+                <p><strong>WhatsApp:</strong> +6281293395500</p>
+                <p><strong>Website:</strong> <a href="https://www.smkmetland.net" target="_blank" rel="noopener noreferrer">www.smkmetland.net</a></p>
                 <div class="footer-socials">
                     <a href="https://youtube.com/@metlandschool?si=H326T8TIsX0qFjtO" target="_blank" rel="noopener noreferrer" aria-label="YouTube SMK Metland">
                         <i class="bi bi-youtube"></i>
@@ -572,7 +572,7 @@
                 </div>
                 <iframe
                     class="footer-map-frame"
-                    title="{{ __('ui.footer.map_title') }}"
+                    title="Lokasi SMK Metland"
                     loading="lazy"
                     allowfullscreen
                     referrerpolicy="no-referrer-when-downgrade"
@@ -581,7 +581,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} {{ __('ui.footer.copyright') }}</p>
+            <p>&copy; {{ date('Y') }} SMK Metland. Seluruh hak cipta dilindungi.</p>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
@@ -590,4 +590,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 </body>
 </html>
+
+
 

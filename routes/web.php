@@ -29,11 +29,44 @@ Route::get('/', function () {
 });
 Route::get('/visi-misi', [VisionMissionController::class, 'publicIndex'])->name('vision-mission');
 Route::view('/sejarah', 'sejarah')->name('sejarah');
+Route::view('/profile-sekolah', 'Profile')->name('Profile');
 Route::view('/jurusan/akuntansi', 'majors.Akuntansi')->name('majors.akuntansi');
 Route::view('/jurusan/pplg', 'majors.PPLG')->name('majors.pplg');
 Route::view('/jurusan/dkv', 'majors.DKV')->name('majors.dkv');
 Route::view('/jurusan/kuliner', 'majors.Kuliner')->name('majors.kuliner');
 Route::view('/jurusan/hotel', 'majors.Hotel')->name('majors.hotel');
+Route::view('/LPK', 'career.LPK')->name('LPK');
+Route::view('/LKP', 'career.LKP')->name('LKP');
+Route::get('/news', function (\Illuminate\Http\Request $request) {
+    $search = trim((string) $request->query('q', ''));
+    $query = News::with('author')
+        ->whereNotNull('published_at')
+        ->where('published_at', '<=', now());
+
+    if ($search !== '') {
+        $keywords = preg_split('/\s+/', $search, -1, PREG_SPLIT_NO_EMPTY);
+        $query->where(function ($q) use ($keywords) {
+            foreach ($keywords as $keyword) {
+                $like = '%' . $keyword . '%';
+                $q->where(function ($sub) use ($like) {
+                    $sub->where('title', 'like', $like)
+                        ->orWhere('title_en', 'like', $like)
+                        ->orWhere('content', 'like', $like)
+                        ->orWhere('content_en', 'like', $like);
+                });
+            }
+        });
+    }
+
+    $latestNews = $query
+        ->orderByDesc('published_at')
+        ->orderByDesc('id')
+        ->paginate(6)
+        ->withQueryString();
+
+    return view('news', compact('latestNews'));
+})->name('news');
+Route::view('/testi', 'testi')->name('testi');
 
 Route::get('/language/{locale}', function (string $locale) {
     if (!in_array($locale, ['en', 'id'], true)) {
@@ -45,8 +78,8 @@ Route::get('/language/{locale}', function (string $locale) {
     return redirect()->back();
 })->name('language.switch');
 
-Route::get('/news', [NewsController::class, 'publicIndex'])->name('news.index');
-Route::get('/news/{news:slug}', [NewsController::class, 'publicShow'])->name('news.show');
+Route::get('/berita', [NewsController::class, 'publicIndex'])->name('news.index');
+Route::get('/berita/{news:slug}', [NewsController::class, 'publicShow'])->name('news.show');
 Route::get('/student-works', [StudentWorkController::class, 'publicIndex'])->name('student-works.index');
 Route::get('/student-works/{studentWork:slug}', [StudentWorkController::class, 'publicShow'])->name('student-works.show');
 
@@ -80,3 +113,4 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 });
 
 require __DIR__.'/auth.php';
+

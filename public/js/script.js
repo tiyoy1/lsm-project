@@ -90,6 +90,22 @@ if (navbar) {
   window.addEventListener("scroll", toggleNavbarBlur, { passive: true });
 }
 
+const heroSection = document.querySelector(".hero");
+const heroVideo = document.querySelector(".hero-media video");
+const updateHeroVideoState = () => {
+  if (!heroSection || !heroVideo) {
+    return;
+  }
+  heroSection.classList.toggle("is-video-playing", !heroVideo.paused);
+};
+
+if (heroVideo) {
+  heroVideo.addEventListener("play", updateHeroVideoState);
+  heroVideo.addEventListener("pause", updateHeroVideoState);
+  heroVideo.addEventListener("loadeddata", updateHeroVideoState);
+  updateHeroVideoState();
+}
+
 const mobileMenuButton = document.querySelector(".nav-mobile-menu");
 const mobileNavList = document.querySelector("#primary-nav");
 
@@ -413,4 +429,47 @@ window.addEventListener("load", () => {
       },
     },
   });
+});
+
+/* Facilities Modal Logic */
+document.addEventListener("DOMContentLoaded", () => {
+    const facilityCards = document.querySelectorAll(".facilities-card");
+    const modal = document.getElementById("facilityModal");
+    if (!modal || facilityCards.length === 0) return;
+
+    const modalImg = document.getElementById("facilityModalImg");
+    const modalTitle = document.getElementById("facilityModalTitle");
+    const modalDesc = document.getElementById("facilityModalDesc");
+    const modalOverlay = document.querySelector(".facility-modal-overlay");
+    const closeBtn = document.querySelector(".facility-modal-close");
+
+    const openModal = (card) => {
+        const img = card.querySelector(".facilities-card-img");
+        const title = card.querySelector("h3");
+        const desc = card.querySelector("p");
+
+        if (img) modalImg.src = img.src;
+        if (title) modalTitle.textContent = title.textContent;
+        if (desc) modalDesc.textContent = desc.textContent;
+
+        modal.classList.add("is-active");
+        document.body.style.overflow = "hidden"; // Prevent scrolling
+    };
+
+    const closeModal = () => {
+        modal.classList.remove("is-active");
+        document.body.style.overflow = "";
+    };
+
+    // Attach click listeners to images specifically
+    facilityCards.forEach(card => {
+        const imgWrapper = card.querySelector(".facilities-card-img-wrap");
+        if (imgWrapper) {
+            imgWrapper.style.cursor = "pointer";
+            imgWrapper.addEventListener("click", () => openModal(card));
+        }
+    });
+
+    if (modalOverlay) modalOverlay.addEventListener("click", closeModal);
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
 });

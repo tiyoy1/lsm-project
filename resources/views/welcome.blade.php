@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMK METLAND</title>
-    <link rel="icon" type="image/webp" href="{{ asset('img/logo.webp') }}?v=20260305">
+    <title>LPK-LKP METLAND COLLEGE</title>
+    <link rel="icon" type="image/webp" href="{{ asset('img/LOGO METLAND COLLEGE-02.png') }}?v=20260305">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/scrollbar.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@200;300;400;500;600;700;800;900&family=Sora:wght@100..800&display=swap" rel="stylesheet">
     <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
@@ -23,71 +23,56 @@
 <body>
     <nav>
         <div class="logo">
-            <img src="{{ asset("img/logo.webp") }}" alt="Logo SMK Metland" class="logo-img">SMK METLAND
+            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.png") }}" alt="Logo Metland College" class="logo-img">Metland College
         </div>
         <ul id="primary-nav">
-            <li><a href="{{ url('/') }}">{{ __('ui.nav.home') }}</a></li>
+            <li><a href="{{ url('/') }}">Home</a></li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    {{ __('ui.nav.school_profile') }} <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    About <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
-                    <li><a href="{{ route('vision-mission') }}">{{ __('ui.nav.profile_vision') }}</a></li>
-                    <li><a href="{{ route('sejarah') }}">{{ __('ui.nav.profile_history') }}</a></li>
+                    <li><a href="{{ route('Profile') }}">Campus Profile</a></li>
+                    <li><a href="{{ route('vision-mission') }}">Vision & Mission</a></li>
+                    <li><a href="{{ route('sejarah') }}">History</a></li>
                 </ul>
             </li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    {{ __('ui.nav.majors') }} <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    Career <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
-                    <li><a href="{{ route('majors.akuntansi') }}">{{ __('ui.nav.major_accounting') }}</a></li>
-                    <li><a href="{{ route('majors.pplg') }}">{{ __('ui.nav.major_pplg') }}</a></li>
-                    <li><a href="{{ route('majors.dkv') }}">{{ __('ui.nav.major_dkv') }}</a></li>
-                    <li><a href="{{ route('majors.kuliner') }}">{{ __('ui.nav.major_culinary') }}</a></li>
-                    <li><a href="{{ route('majors.hotel') }}">{{ __('ui.nav.major_hotel') }}</a></li>
+                    <li><a href="{{ route('LPK') }}">LPK</a></li>
+                    <li><a href="{{ route('LKP') }}">LKP</a></li>
                 </ul>
             </li>
-            <li><a href="#partnership-section">{{ __('ui.nav.partnership') }}</a></li>
-            <li><a href="{{ route('news.index') }}">{{ __('ui.nav.news') }}</a></li>
-            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">{{ __('ui.nav.ppdb') }}</a></li>
-            <li><a href="#contact">{{ __('ui.nav.contact') }}</a></li>
-            <li class="nav-has-dropdown">
-                <button type="button" class="nav-dropdown-toggle">
-                    {{ __('ui.nav.more') }} <i class="bi bi-chevron-down" aria-hidden="true"></i>
-                </button>
-                <ul class="nav-dropdown">
-                    <li><a href="{{ route('student-works.index') }}">{{ __('ui.nav.student_works') }}</a></li>
-                    <li><a href="#alumni-section">{{ __('ui.nav.alumni') }}</a></li>
-                    <li><a href="#majors-smk">{{ __('ui.nav.organization') }}</a></li>
-                </ul>
-            </li>
+            <li><a href="{{ route('news') }}">News</a></li>
+            <li><a href="{{ route('testi') }}">Testimonials</a></li>
+            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#partnership">Partnership</a></li>
         </ul>
         <div class="sosmed-icon">
-  <a href="https://youtube.com/@metlandschool?si=H326T8TIsX0qFjtO" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
+  <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
     <i class="bi bi-youtube"></i>
   </a>
 
-  <a href="https://www.tiktok.com/@smkmetland" target="_blank" rel="noopener noreferrer" class="icon-tiktok" aria-label="TikTok SMK Metland">
+  <a href="https://www.tiktok.com/@metlandcollege?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="icon-tiktok" aria-label="TikTok SMK Metland">
     <i class="bi bi-tiktok"></i>
   </a>
-
-  <a href="https://www.facebook.com/smkmetland" target="_blank" rel="noopener noreferrer" class="icon-facebook" aria-label="Facebook SMK Metland">
-    <i class="bi bi-facebook"></i>
-  </a>
-  <a href="https://www.instagram.com/smkmetland?igsh=M2Q5aHJuMzB4MWNp" target="_blank" rel="noopener noreferrer" class="icon-instagram" aria-label="Instagram SMK Metland">
+  <a href="https://www.instagram.com/metland.college?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="icon-instagram" aria-label="Instagram SMK Metland">
     <i class="bi bi-instagram"></i>
   </a>
 </div>
         <div class="ppdb-btn">
-            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'">{{ __('ui.nav.ppdb') }}</button>
+            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'">Join Us</button>
         </div>
-        <div class="lang-switch" aria-label="{{ __('ui.lang.switcher_aria') }}">
-            <a href="{{ route('language.switch', 'id') }}" class="{{ app()->getLocale() === 'id' ? 'is-active' : '' }}">{{ __('ui.lang.id') }}</a>
-            <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">{{ __('ui.lang.en') }}</a>
+        <div class="lang-switch" aria-label="Pengalih bahasa">
+            <a href="{{ route('language.switch', 'id') }}" class="{{ app()->getLocale() === 'id' ? 'is-active' : '' }}">ID</a>
+            <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">EN</a>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
-            <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
+            <a href="{{ route('news') }}" class="nav-mobile-search" aria-label="Search news">
                 <i class="bi bi-search"></i>
             </a>
             <button type="button" class="nav-mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
@@ -95,55 +80,51 @@
             </button>
         </div>
     </nav>
-    <div class="slider-container">
-        <div class="slider-items">
-            <img src="{{ asset("img/hero.png") }}" alt="">
-            <div class="slider-content">
-                <p class="slider-subtitle">{{ __('ui.home.slider_subtitle') }}</p>
-                <h2 class="slider-title">SMK METLAND</h2>
-                <p class="slider-description">{{ __('ui.home.slider_desc_1') }}</p>
-                <a href="#" class="slider-action">{{ __('ui.home.slider_cta_1') }}</a>
+    <section class="hero">
+        <div class="hero-media">
+            <video
+                src="{{ asset('video/COMPANY PROFILE 2026.mp4') }}"
+                poster="{{ asset('img/Kertajati.png') }}"
+                preload="auto"
+                autoplay
+                muted
+                loop
+                playsinline
+            ></video>
+        </div>
+        <div class="hero-poster" aria-hidden="true">
+            <img src="{{ asset('img/Kertajati.png') }}" alt="">
+        </div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">"Professional & Lifelong Learning"</p>
+            <h1 class="hero-title">Crafting the <br><span>FUTURE</span></h1>
+            <p>Metland College is a vocational school that provides education and training to students who want to work in the hospitality industry.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="hero-btn is-outline">Contact</a>
+                <a href="#about-smk"     class="hero-btn">See more</a>
             </div>
         </div>
-        <div class="slider-items">
-            <img src="{{ asset("img/hero2.JPG") }}" alt="">
-            <div class="slider-content">
-                <p class="slider-subtitle">{{ __('ui.home.slider_subtitle') }}</p>
-                <h2 class="slider-title">SMK METLAND</h2>
-                <p class="slider-description">{{ __('ui.home.slider_desc_2') }}</p>
-                <a href="#" class="slider-action">{{ __('ui.home.slider_cta_2') }}</a>
-            </div>
-        </div>
-        <div class="slider-items">
-            <img src="{{ asset("img/hero3.png") }}" alt="">
-            <div class="slider-content">
-                <p class="slider-subtitle">{{ __('ui.home.slider_subtitle') }}</p>
-                <h2 class="slider-title">SMK METLAND</h2>
-                <p class="slider-description">{{ __('ui.home.slider_desc_3') }}</p>
-                <a href="#" class="slider-action">{{ __('ui.home.slider_cta_3') }}</a>
-            </div>
-        </div>
-        <button class="slider-nav slider-prev" type="button" aria-label="{{ __('ui.home.slider_prev_aria') }}">&#8249;</button>
-        <button class="slider-nav slider-next" type="button" aria-label="{{ __('ui.home.slider_next_aria') }}">&#8250;</button>
-        <div class="slider-dots" aria-label="{{ __('ui.home.slider_pagination_aria') }}"></div>
-    </div>
+    </section>
     <section id="about-smk" class="about-smk-section">
         <div class="about-smk-wrap">
             <div class="about-card">
-                <a href="{{ url('/about-smk') }}" class="about-head-link">
+                <a href="https://metlandsmarakertajati.com-hotel.id/id/" class="about-head-link">
                     <div class="about-head">
                         <i class="bi bi-mortarboard about-icon" aria-hidden="true"></i>
                         <div>
-                            <h3>{{ __('ui.home.about_title_1') }}</h3>
-                            <span class="about-head-cta">{{ __('ui.home.about_cta') }}</span>
+                            <h3>Hotel Metland SMARA Kertajati</h3>
+                            <span class="about-head-cta">See more</span>
                         </div>
                     </div>
                 </a>
-                <div class="about-image-frame">
-                    <img src="{{ asset("img/hero.png") }}" alt="Area sekolah" class="about-image">
-                </div>
+                <a class="about-image-frame" href="https://metlandsmarakertajati.com-hotel.id/id/" target="_blank" rel="noopener noreferrer" aria-label="Kunjungi situs Metland Smara Kertajati">
+                    <div class="img-container">
+                        <img src="{{ asset("img/Kertajati.png") }}" alt="Area sekolah" class="about-image">
+                    </div>
+                </a>
                 <div class="about-body">
-                    <p>{{ __('ui.home.about_desc_1') }}</p>
+                    <p>An industry-based hospitality training facility providing direct learning experiences in a real work environment. Focuses on hospitality practices so students understand professional standards early on.</p>
                 </div>
             </div>
             <div class="about-card">
@@ -151,174 +132,116 @@
                     <div class="about-head">
                         <i class="bi bi-buildings about-icon" aria-hidden="true"></i>
                         <div>
-                            <h3>{{ __('ui.home.about_title_2') }}</h3>
-                            <span class="about-head-cta">{{ __('ui.home.about_cta') }}</span>
+                            <h3>SMK Metland Cileungsi</h3>
+                            <span class="about-head-cta">See more</span>
                         </div>
                     </div>
                 </a>
-                <div class="about-image-frame">
-                    <img src="{{ asset("img/about.png") }}" alt="Program keahlian" class="about-image">
-                </div>
+                <a class="about-image-frame" href="https://smkmetland.net/ppdb/" target="_blank" rel="noopener noreferrer" aria-label="Kunjungi situs SMK Metland Cileungsi">
+                    <div class="img-container">
+                        <img src="{{ asset("img/SMK Metland Cileungsi.png") }}" alt="Program keahlian" class="about-image">
+                    </div>
+                </a>
                 <div class="about-body">
-                    <p>{{ __('ui.home.about_desc_2') }}</p>
+                    <p>A vocational school offering a variety of majors with a practice-based learning approach and industry needs. The goal is to produce graduates who are work-ready, competent, and able to compete in the professional world.</p>
                 </div>
             </div>
             <div class="about-card">
-                <a href="{{ url('/campus-life') }}" class="about-head-link">
+                <a href="https://smkmetlandcibitung.net/" class="about-head-link">
                     <div class="about-head">
                         <i class="bi bi-people about-icon" aria-hidden="true"></i>
                         <div>
-                            <h3>{{ __('ui.home.about_title_3') }}</h3>
-                            <span class="about-head-cta">{{ __('ui.home.about_cta') }}</span>
+                            <h3>SMK Metland Cibitung</h3>
+                            <span class="about-head-cta">See more</span>
                         </div>
                     </div>
                 </a>
-                <div class="about-image-frame">
-                    <img src="{{ asset("img/about2.png") }}" alt="Kegiatan siswa" class="about-image">
-                </div>
+                <a class="about-image-frame" href="https://smkmetlandcibitung.net/" target="_blank" rel="noopener noreferrer" aria-label="Kunjungi situs SMK Metland Cibitung">
+                    <div class="img-container">
+                        <img src="{{ asset("img/SMK Metland cibitung.png") }}" alt="Kegiatan siswa" class="about-image">
+                    </div>
+                    </a>
                 <div class="about-body">
-                    <p>{{ __('ui.home.about_desc_3') }}</p>
+                    <p>A school with an active and supportive learning environment, focusing not only on academics but also on student character development through organizations, social activities, and creative communities.</p>
                 </div>
             </div>
         </div>
     </section>
-    <section class="feature-carousel-section" aria-label="{{ __('ui.home.majors_section_aria') }}" id="majors-smk">
-        <div class="feature-carousel-badges">
-            <button type="button" class="feature-carousel-title feature-tab is-active" data-feature-group="majors" data-feature-desc="{{ __('ui.home.majors_desc') }}">{{ __('ui.home.majors_title') }}</button>
-            <button type="button" class="feature-carousel-title feature-tab is-alt" data-feature-group="extracurricular" data-feature-desc="{{ __('ui.home.extracurricular_desc') }}">{{ __('ui.home.extracurricular_title') }}</button>
-            <button type="button" class="feature-carousel-title feature-tab is-alt" data-feature-group="organization" data-feature-desc="{{ __('ui.home.organization_desc') }}">{{ __('ui.home.organization_title') }}</button>
-        </div>
-        <p class="feature-carousel-description">{{ __('ui.home.majors_desc') }}</p>
-        <div class="feature-carousel">
-            <article class="feature-card is-active" data-feature-group="majors">
-                <div class="feature-media">
-                    <img src="{{ asset("img/pplg/pplg2.png") }}" alt="Belajar praktis di SMK Metland">
+    <section class="career-section" id="career-section">
+        <div class="career-shell">
+            <div class="career-head">
+                <span class="section-badge" style="cursor: pointer; user-select: none; transition: all 0.3s ease;" onclick="let isLPK = this.innerText.includes('LPK'); this.innerText = isLPK ? 'Training Method (LKP)' : 'Training Method (LPK)'; document.getElementById('lpk-content').style.display = isLPK ? 'none' : 'flex'; document.getElementById('lkp-content').style.display = isLPK ? 'flex' : 'none';" title="Klik untuk mengubah LPK/LKP">Training Method (LPK)</span>
+                <h2 class="section-title">From <span>New Students</span> to Professional</h2> 
+                <p class="section-desc">Structured learning steps, focus on practice, and supported by industry mentors until ready to enter the workforce.</p>
+            </div>
+            <div class="career-timeline" id="lpk-content">
+                <span class="career-line" aria-hidden="true"></span>
+                <article class="career-step is-left">
+                    <span class="career-pill">1 Month</span>
+                    <div class="career-card">
+                        <div class="career-icon"><i class="bi bi-journal-bookmark"></i></div>
+                        <div>
+                            <h3>Pre-Screening Interview</h3>
+                            <p>In this early stage, participants undergo a selection process in the form of an interview. The goal is to assess the readiness, interest, and potential of participants before entering the main program.</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="career-step is-right">
+                    <span class="career-pill">2 Month</span>
+                    <div class="career-card">
+                        <div class="career-icon"><i class="bi bi-people"></i></div>
+                        <div>
+                            <h3>English for Industry</h3>
+                            <p>After passing selection, participants learn English focused on the workplace, especially in the industry. Not just grammar, but professional communication like speaking, email writing, and technical terms.</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="career-step is-left">
+                    <span class="career-pill">3 Month</span>
+                    <div class="career-card">
+                        <div class="career-icon"><i class="bi bi-briefcase"></i></div>
+                        <div>
+                            <h3>Skill Training</h3>
+                            <p>At this stage, participants enter core skill training in their respective fields. The material is technical and practical, ensuring participants have ready-to-use skills in the workforce.</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="career-step is-left">
+                    <span class="career-pill">6 Month</span>
+                    <div class="career-card">
+                        <div class="career-icon"><i class="bi bi-briefcase"></i></div>
+                        <div>
+                            <h3>On Job Training (OJT)</h3>
+                            <p>With base skills in hand, participants jump directly into the workplace through internships or field work. Here they learn directly in a real work environment for more relevant experience.</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="career-step is-right">
+                    <span class="career-pill is-finish">Graduate</span>
+                    <div class="career-card">
+                        <div class="career-icon"><i class="bi bi-mortarboard"></i></div>
+                        <div>
+                            <h3>Final Interview</h3>
+                            <p>The final stage is the final interview with the client/company. This serves as the final assessment to determine if participants are ready for recruitment or the next phase.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="career-timeline" id="lkp-content" style="display: none; align-items: center; justify-content: center; min-height: 250px; text-align: center;">
+                <div class="career-card" style="width: 100%; max-width: 500px; margin: 0 auto; flex-direction: column; align-items: center;">
+                    <div class="career-icon"><i class="bi bi-clock-history"></i></div>
+                    <div style="margin-top: 10px;">
+                        <h3>Coming Soon</h3>
+                        <p>Konten untuk Training Method (LKP) sedang dalam tahap penyusunan dan akan segera tersedia.</p>
+                    </div>
                 </div>
-                <div class="feature-content">
-                    <i class="ph ph-desktop-tower"></i>
-                    <h3>PPLG/IT</h3>
-                    <p>{{ __('ui.home.major_pplg_desc') }}</p>
-                    <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
-                </div>
-            </article>
-            <article class="feature-card" data-feature-group="majors">
-                <div class="feature-media">
-                    <img src="{{ asset("img/dkv/dkv2.png") }}" alt="Guru pembimbing berpengalaman">
-                </div>
-                <div class="feature-content">
-                    <i class="ph ph-pen-nib-straight"></i>
-                    <h3>DKV</h3>
-                    <p>{{ __('ui.home.major_dkv_desc') }}</p>
-                    <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
-                </div>
-            </article>
-            <article class="feature-card" data-feature-group="majors">
-                <div class="feature-media">
-                    <img src="{{ asset("img/akuntansi/akuntansi1.png") }}" alt="Kehidupan sekolah aktif">
-                </div>
-                <div class="feature-content">
-                    <i class="ph ph-currency-dollar"></i>
-                    <h3>Akuntansi</h3>
-                    <p>{{ __('ui.home.major_akuntansi_desc') }}</p>
-                    <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
-                </div>
-            </article>
-            <article class="feature-card" data-feature-group="majors">
-                <div class="feature-media">
-                    <img src="{{ asset("img/hotel/hotel1.png") }}" alt="Kehidupan sekolah aktif">
-                </div>
-                <div class="feature-content">
-                    <i class="ph ph-bank"></i>
-                    <h3>Perhotelan</h3>
-                    <p>{{ __('ui.home.major_hotel_desc') }}</p>
-                    <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
-                </div>
-            </article>
-            <article class="feature-card" data-feature-group="majors">
-                <div class="feature-media">
-                    <img src="{{ asset("img/kuliner/kuliner1.png") }}" alt="Kehidupan sekolah aktif">
-                </div>
-                <div class="feature-content">
-                    <i class="ph ph-chef-hat"></i>
-                    <h3>Kuliner/Tata boga</h3>
-                    <p>{{ __('ui.home.major_kuliner_desc') }}</p>
-                    <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
-                </div>
-            </article>
-            <article class="feature-card" data-feature-group="extracurricular">
-                <div class="feature-media">
-                    <img src="{{ asset("img/hero2.JPG") }}" alt="Ekstrakurikuler futsal">
-                </div>
-                <div class="feature-content">
-                    <i class="ph ph-soccer-ball"></i>
-                    <h3>Futsal</h3>
-                    <p>Sesi latihan rutin, sparing, dan pembinaan teamwork untuk membangun mental kompetitif siswa.</p>
-                    <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
-                </div>
-            </article>
-            <article class="feature-card" data-feature-group="extracurricular">
-                <div class="feature-media">
-                    <img src="{{ asset("img/about3.png") }}" alt="Ekstrakurikuler pramuka">
-                </div>
-                <div class="feature-content">
-                    <i class="ph ph-campfire"></i>
-                    <h3>Pramuka</h3>
-                    <p>Kegiatan kepemimpinan, kedisiplinan, dan survival skill lewat program lapangan terstruktur.</p>
-                    <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
-                </div>
-            </article>
-            <article class="feature-card" data-feature-group="extracurricular">
-                <div class="feature-media">
-                    <img src="{{ asset("img/hero3.png") }}" alt="Ekstrakurikuler english club">
-                </div>
-                <div class="feature-content">
-                    <i class="ph ph-microphone-stage"></i>
-                    <h3>English Club</h3>
-                    <p>Fokus public speaking, debate, dan conversation practice untuk persiapan akademik global.</p>
-                    <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
-                </div>
-            </article>
-            <article class="feature-card" data-feature-group="organization">
-                <div class="feature-media">
-                    <img src="{{ asset('img/organization/LOGO MAHES.png') }}" alt="Organisasi Maheswara Maheswari">
-                </div>
-                <div class="feature-content">
-                    <i class="ph ph-users-three"></i>
-                    <h3>{{ __('ui.home.organization_card_1_title') }}</h3>
-                    <p>{{ __('ui.home.organization_card_1_desc') }}</p>
-                    <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
-                </div>
-            </article>
-            <article class="feature-card" data-feature-group="organization">
-                <div class="feature-media">
-                    <img src="{{ asset("img/organization/logo osis.png") }}" alt="Organisasi PMR SMK Metland">
-                </div>
-                <div class="feature-content">
-                    <i class="ph ph-heartbeat"></i>
-                    <h3>{{ __('ui.home.organization_card_2_title') }}</h3>
-                    <p>{{ __('ui.home.organization_card_2_desc') }}</p>
-                    <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
-                </div>
-            </article>
-            <article class="feature-card" data-feature-group="organization">
-                <div class="feature-media">
-                    <img src="{{ asset("img/organization/logo mpk.png") }}" alt="Organisasi Paskibra SMK Metland">
-                </div>
-                <div class="feature-content">
-                    <i class="ph ph-flag-banner"></i>
-                    <h3>{{ __('ui.home.organization_card_3_title') }}</h3>
-                    <p>{{ __('ui.home.organization_card_3_desc') }}</p>
-                    <a href="#" class="feature-btn">{{ __('ui.home.major_more') }}</a>
-                </div>
-            </article>
-            <div class="feature-controls">
-                <button type="button" class="feature-nav feature-prev" aria-label="{{ __('ui.home.feature_prev_aria') }}">&lt;</button>
-                <div class="feature-dots" aria-label="{{ __('ui.home.feature_dots_aria') }}"></div>
-                <button type="button" class="feature-nav feature-next" aria-label="{{ __('ui.home.feature_next_aria') }}">&gt;</button>
+            </div>
+            <div class="career-footer">
+                <a href="{{ route('LPK') }}" class="career-cta">View Details</a>
             </div>
         </div>
     </section>
-    <section class="news-section" id="news-section" aria-label="{{ __('ui.home.news_section_aria') }}">
+    <section class="news-section" id="news-section" aria-label="Latest news from SMK Metland">
         @php
             $latestNewsCollection = $latestNews ?? collect();
             $featuredNews = $latestNewsCollection->first();
@@ -326,8 +249,8 @@
         @endphp
         <div class="news-shell">
             <div class="news-head">
-                <span class="news-badge">{{ __('ui.news.latest_badge') }}</span>
-                <a href="{{ route('news.index') }}" class="news-all-link">{{ __('ui.news.see_all') }} <i class="fa-solid fa-arrow-right"></i></a>
+                <span class="news-badge">LATEST NEWS</span>
+                <a href="{{ route('news') }}" class="news-all-link">See All <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
             <div class="news-layout">
@@ -335,13 +258,13 @@
                     <article class="news-featured-card">
                         <div class="news-featured-media">
                             <img src="{{ $featuredNews->image_url }}" alt="{{ $featuredNews->localized_title }}">
-                            <span class="news-tag">{{ __('ui.news.tag') }}</span>
+                            <span class="news-tag">News</span>
                         </div>
                         <div class="news-featured-body">
                             <p class="news-meta"><i class="fa-regular fa-calendar"></i> {{ ($featuredNews->published_at ?? $featuredNews->created_at)->translatedFormat('d M Y') }}</p>
                             <h3>{{ $featuredNews->localized_title }}</h3>
                             <p>{{ \Illuminate\Support\Str::limit(strip_tags($featuredNews->localized_content), 180) }}</p>
-                            <a href="{{ route('news.show', $featuredNews->slug) }}" class="news-read-more">{{ __('ui.news.read_more') }}</a>
+                            <a href="{{ route('news.show', $featuredNews->slug) }}" class="news-read-more">Read More</a>
                         </div>
                     </article>
 
@@ -361,14 +284,14 @@
                 @else
                     <article class="news-featured-card">
                         <div class="news-featured-media">
-                            <img src="{{ asset('img/hero2.JPG') }}" alt="{{ __('ui.home.news_default_alt') }}">
-                            <span class="news-tag">{{ __('ui.news.tag') }}</span>
+                            <img src="{{ asset('img/hero2.JPG') }}" alt="Kegiatan terbaru siswa">
+                            <span class="news-tag">News</span>
                         </div>
                         <div class="news-featured-body">
-                            <p class="news-meta"><i class="fa-regular fa-calendar"></i> {{ __('ui.news.no_data_date') }}</p>
-                            <h3>{{ __('ui.news.none_title') }}</h3>
-                            <p>{{ __('ui.news.none_desc') }}</p>
-                            <a href="{{ route('news.index') }}" class="news-read-more">{{ __('ui.news.view_news_page') }}</a>
+                            <p class="news-meta"><i class="fa-regular fa-calendar"></i> No data yet</p>
+                            <h3>School news has not been published yet</h3>
+                            <p>News content will appear here once published from the admin panel.</p>
+                            <a href="{{ route('news') }}" class="news-read-more">View News Page</a>
                         </div>
                     </article>
                 @endif
@@ -378,50 +301,50 @@
     <section class="alumni-section" id="alumni-section">
         <div class="alumni-shell">
             <div class="alumni-head">
-                <span class="alumni-badge"><span>{{ __('ui.nav.alumni') }}</span></span>
-                <h2>{{ __('ui.home.alumni_heading_prefix') }} <span>{{ __('ui.home.alumni_heading_highlight') }}</span></h2>
-                <p>{{ __('ui.home.alumni_heading_desc') }}</p>
+                <span class="section-badge"><span>Testimonialsals</span></span>
+                <h2 class="section-title">What <span>They Say</span></h2>
+                <p class="section-desc">Alumni reviews regarding their learning experience at SMK Metland.</p>
             </div>
 
             <div class="alumni-slide-container swiper">
                 <ul class="alumni-card-list swiper-wrapper">
                     <li class="alumni-card-item swiper-slide">
                         <a href="#" class="alumni-card-link">
-                            <img src="{{ asset('img/logo.webp') }}" alt="Logo MPK SMK Metland" class="alumni-card-image" data-swiper-parallax="-80">
-                            <p class="alumni-card-badge" data-swiper-parallax="-40">{{ __('ui.home.alumni_person_1_name') }}</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">{{ __('ui.home.alumni_person_1_quote') }}</h2>
+                            <img src="{{ asset('img/logo.webp') }}" alt="Foto Alumni" class="alumni-card-image" data-swiper-parallax="-80">
+                            <p class="alumni-card-badge" data-swiper-parallax="-40">Rafi Pratama</p>
+                            <h2 class="alumni-card-title" data-swiper-parallax="-20">Ã¢â‚¬Å“Studying at SMK Metland made me more work-ready because I got used to projects and deadlines.Ã¢â‚¬Â</h2>
                             <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
                         </a>
                     </li>
                     <li class="alumni-card-item swiper-slide">
                         <a href="#" class="alumni-card-link">
-                            <img src="{{ asset('img/logo.webp') }}" alt="Logo Rohis SMK Metland" class="alumni-card-image" data-swiper-parallax="-80">
-                            <p class="alumni-card-badge" data-swiper-parallax="-40">{{ __('ui.home.alumni_person_2_name') }}</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">{{ __('ui.home.alumni_person_2_quote') }}</h2>
+                            <img src="{{ asset('img/logo.webp') }}" alt="Foto Alumni" class="alumni-card-image" data-swiper-parallax="-80">
+                            <p class="alumni-card-badge" data-swiper-parallax="-40">Dimas Mahendra</p>
+                            <h2 class="alumni-card-title" data-swiper-parallax="-20">Ã¢â‚¬Å“Materi praktiknya relevan dengan industri, jadi saat Graduate saya lebih percaya diri masuk dunia kerja.Ã¢â‚¬Â</h2>
                             <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
                         </a>
                     </li>
                     <li class="alumni-card-item swiper-slide">
                         <a href="#" class="alumni-card-link">
-                            <img src="{{ asset('img/logo.webp') }}" alt="Logo Rohis SMK Metland" class="alumni-card-image" data-swiper-parallax="-80">
-                            <p class="alumni-card-badge" data-swiper-parallax="-40">{{ __('ui.home.alumni_person_3_name') }}</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">{{ __('ui.home.alumni_person_3_quote') }}</h2>
+                            <img src="{{ asset('img/logo.webp') }}" alt="Foto Alumni" class="alumni-card-image" data-swiper-parallax="-80">
+                            <p class="alumni-card-badge" data-swiper-parallax="-40">Rifki Pratama</p>
+                            <h2 class="alumni-card-title" data-swiper-parallax="-20">Ã¢â‚¬Å“The teachers are supportive and the school environment helped me grow and gain confidence.Ã¢â‚¬Â</h2>
                             <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
                         </a>
                     </li>
                     <li class="alumni-card-item swiper-slide">
                         <a href="#" class="alumni-card-link">
-                            <img src="{{ asset('img/logo.webp') }}" alt="Logo PMR SMK Metland" class="alumni-card-image" data-swiper-parallax="-80">
-                            <p class="alumni-card-badge" data-swiper-parallax="-40">{{ __('ui.home.alumni_person_4_name') }}</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">{{ __('ui.home.alumni_person_4_quote') }}</h2>
+                            <img src="{{ asset('img/logo.webp') }}" alt="Foto Alumni" class="alumni-card-image" data-swiper-parallax="-80">
+                            <p class="alumni-card-badge" data-swiper-parallax="-40">Alya Ramadhani</p>
+                            <h2 class="alumni-card-title" data-swiper-parallax="-20">Ã¢â‚¬Å“Organizational activities and extracurriculars taught me teamwork, communication, and leadership.Ã¢â‚¬Â</h2>
                             <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
                         </a>
                     </li>
                     <li class="alumni-card-item swiper-slide">
                         <a href="#" class="alumni-card-link">
-                            <img src="{{ asset('img/logo.webp') }}" alt="Logo Paskibra SMK Metland" class="alumni-card-image" data-swiper-parallax="-80">
-                            <p class="alumni-card-badge" data-swiper-parallax="-40">{{ __('ui.home.alumni_person_5_name') }}</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">{{ __('ui.home.alumni_person_5_quote') }}</h2>
+                            <img src="{{ asset('img/logo.webp') }}" alt="Foto Alumni" class="alumni-card-image" data-swiper-parallax="-80">
+                            <p class="alumni-card-badge" data-swiper-parallax="-40">Fikri Saputra</p>
+                            <h2 class="alumni-card-title" data-swiper-parallax="-20">Ã¢â‚¬Å“SMK Metland provides a balanced learning experience between theory, practice, and character.Ã¢â‚¬Â</h2>
                             <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
                         </a>
                     </li>
@@ -434,50 +357,64 @@
         </div>
     </section>
     <section class="contact" id="contact">
-      <div class="contact-header">
-        <span class="contact-label">{{ __('ui.contact.badge') }}</span>
-        <h2>{{ __('ui.contact.title') }}</h2>
-        <p>{{ __('ui.contact.subtitle') }}</p>
+      <div class="section-header">
+        <span class="section-badge">Contact Us</span>
+        <h2 class="section-title">Connect With Our Team</h2>
+        <p class="section-desc">Have questions about our school, programs, or enrollment? Send Message and our team akan menghubungi Anda.</p>
       </div>
 
       <div class="row">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.9227473878086!2d106.97256397475222!3d-6.4039541935867605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e699445f0d1c541%3A0x3c8a27a75eb76093!2sSMK%20Metland%20School!5e0!3m2!1sid!2sid!4v1771736307836!5m2!1sid!2sid"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          class="map"
-        ></iframe>
+        <div class="contact-left">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.9227473878086!2d106.97256397475222!3d-6.4039541935867605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e699445f0d1c541%3A0x3c8a27a75eb76093!2sSMK%20Metland%20School!5e0!3m2!1sid!2sid!4v1771736307836!5m2!1sid!2sid"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="map"
+            ></iframe>
+            <div class="contact-left-text">
+                <h3>Ready to craft your future with us?</h3>
+                <p>Join Metland College today and take the first step towards a successful career. Our dedicated team is here to guide you through every step of your educational journey.</p>
+            </div>
+        </div>
 
         <form action="" id="contact-form" novalidate>
+            <label for="name" class="form-label">Name</label>
           <div class="input-group">
             <i data-feather="user"></i>
-            <input type="text" name="name" placeholder="{{ __('ui.contact.name_placeholder') }}" required minlength="2" />
+            <input type="text" name="name" placeholder="Full name" required minlength="2" />
           </div>
+          <label for="email" class="form-label">Email</label>
           <div class="input-group">
             <i data-feather="mail"></i>
-            <input type="email" name="email" placeholder="{{ __('ui.contact.email_placeholder') }}" required />
+            <input type="email" name="email" placeholder="Email address" required />
           </div>
+          <label for="phone" class="form-label">Phone Number</label>
           <div class="input-group">
             <i data-feather="phone"></i>
-            <input type="tel" name="phone" placeholder="{{ __('ui.contact.phone_placeholder') }}" required />
+            <input type="tel" name="phone" placeholder="Phone number" required />
+          </div>
+            <label for="desc" class="form-label">What's your message?</label>
+          <div class="input-group">
+            <i data-feather="desc"></i>
+            <input type="desc" name="desc" placeholder="Description" required />
           </div>
           <p class="contact-feedback" id="contact-feedback" role="status" aria-live="polite"></p>
-          <button type="submit" class="btn contact-btn">{{ __('ui.contact.send') }}</button>
+          <button type="submit" class="btn contact-btn">Send Message</button>
         </form>
       </div>
     </section>
 
-    <section class="school-partnership" id="partnership-section" aria-label="{{ __('ui.home.partnership_section_aria') }}">
+    <section class="school-partnership" id="partnership" aria-label="PARTNERSHIP industri dan perguruan tinggi">
         <div class="partnership-shell">
-            <div class="partnership-head">
-                <span class="partnership-badge">{{ __('ui.home.partnership_badge') }}</span>
-                <h2>{{ __('ui.home.partnership_title') }}</h2>
-                <p>{{ __('ui.home.partnership_desc') }}</p>
+            <div class="partnership-header">
+                <span class="partnership-badge">PARTNERSHIP</span>
+                <h2 class="partnership-title">PARTNERSHIP <span>Industri & Perguruan Tinggi</span></h2>
+                <p class="partnership-desc">Sourced from the partnership list on the official SMK Metland website, this collaboration supports internship, teaching factory, and synchronization of industry needs.</p>
             </div>
 
             <div class="partner-group">
-                <h3>{{ __('ui.home.partner_group_industry') }}</h3>
+                <h3>Industry Partners</h3>
                 <div class="partner-logo-grid">
                     <article class="partner-logo-card">
                         <img src="{{ asset('img/partners/virtalus-150x150.png') }}" alt="Logo Virtalus">
@@ -511,7 +448,7 @@
             </div>
 
             <div class="partner-group">
-                <h3>{{ __('ui.home.partner_group_hospitality') }}</h3>
+                <h3>Hotel & Hospitality Partners</h3>
                 <div class="partner-logo-grid">
                     <article class="partner-logo-card">
                         <img src="{{ asset('img/partners/Metland-Hotels-Group-150x150.png') }}" alt="Logo Metland Hotels Group">
@@ -561,7 +498,7 @@
             </div>
 
             <div class="partner-group">
-                <h3>{{ __('ui.home.partner_group_college') }}</h3>
+                <h3>University Partners</h3>
                 <div class="partner-logo-grid">
                     <article class="partner-logo-card">
                         <img src="{{ asset('img/partners/biru-150x150.png') }}" alt="Logo STIE Pariwisata YAPARI-AKTRIPA">
@@ -607,7 +544,7 @@
             </div>
 
             <div class="partnership-source">
-                <a href="https://smkmetland.net/ppdb/" target="_blank" rel="noopener noreferrer">{{ __('ui.home.partner_source') }}</a>
+                <a href="https://smkmetland.net/ppdb/" target="_blank" rel="noopener noreferrer">Logo source: smkmetland.net</a>
             </div>
         </div>
     </section>
@@ -616,14 +553,14 @@
         <div class="footer-shell">
             <div class="footer-brand">
                 <div class="footer-brand-head">
-                    <img src="{{ asset("img/logo.webp") }}" alt="Logo SMK Metland" class="footer-logo">
-                    <h3>METLAND SCHOOL</h3>
+                    <img src="{{ asset("img/LOGO METLAND COLLEGE-02.png") }}" alt="Logo Metland College" class="footer-logo">
+                    <h3>METLAND COLLEGE</h3>
                 </div>
-                <p>{{ __('ui.home.footer_tagline') }}</p>
+                <p>The first step towards a brilliant career. Learn practically, develop creatively, and get ready to jump into the industry.</p>
             </div>
 
             <div class="footer-posts">
-                <h4>{{ __('ui.footer.recent_posts') }}</h4>
+                <h4>Recent Posts</h4>
                 <div class="footer-post-list">
                     @php
                         $footerNews = ($latestNews ?? collect())->take(2);
@@ -638,10 +575,10 @@
                         </article>
                     @empty
                         <article class="footer-post-item">
-                            <img src="{{ asset('img/hero2.JPG') }}" alt="{{ __('ui.footer.no_news_alt') }}" class="footer-post-thumb">
+                            <img src="{{ asset('img/hero2.JPG') }}" alt="No News yet" class="footer-post-thumb">
                             <div class="footer-post-content">
-                                <a href="{{ route('news.index') }}">{{ __('ui.footer.no_published_news') }}</a>
-                                <p class="footer-post-date">{{ __('ui.footer.check_again_later') }}</p>
+                                <a href="{{ route('news') }}">No news has been published yet</a>
+                                <p class="footer-post-date">Please check back later</p>
                             </div>
                         </article>
                     @endforelse
@@ -649,38 +586,34 @@
             </div>
 
             <div class="footer-links">
-                <h4>{{ __('ui.footer.quick_access') }}</h4>
-                <a href="#about-smk">{{ __('ui.footer.profile') }}</a>
-                <a href="#majors-smk">{{ __('ui.footer.majors') }}</a>
-                <a href="#partnership-section">{{ __('ui.footer.industry_partnership') }}</a>
-                <a href="#partnership-section">{{ __('ui.footer.college_partnership') }}</a>
-                <a href="{{ route('news.index') }}">{{ __('ui.footer.school_news') }}</a>
-                <a href="#school-footer">{{ __('ui.footer.school_contact') }}</a>
+                <h4>Quick Links</h4>
+                <a href="#about-smk">About</a>
+                <a href="#career-section">Career</a>
+                <a href="#news-section">News</a>
+                <a href="#contact">Contact</a>
+                <a href="#partnership">Partnership</a>
+                <a href="#alumni-section">More</a>
             </div>
 
             <div class="footer-contact-map">
-                <h4>{{ __('ui.footer.contact_us') }}</h4>
-                <p><strong>{{ __('ui.footer.location') }}:</strong><br>{{ __('ui.footer.address') }}</p>
-                <p><strong>{{ __('ui.footer.phone') }}:</strong> (021) 82496976</p>
-                <p><strong>{{ __('ui.footer.whatsapp') }}:</strong> +6281293395500</p>
-                <p><strong>{{ __('ui.footer.website') }}:</strong> <a href="https://www.smkmetland.net" target="_blank" rel="noopener noreferrer">www.smkmetland.net</a></p>
+                <h4>CONTACT US</h4>
+                <p><strong>Location:</strong><br>Jl. Taman Metro Raya Metland Transyogi, Kec. Cileungsi, Kab. Bogor, Prov. Jawa Barat</p>
+                <p><strong>WhatsApp:</strong> +62-8180-9999-180</p>
+                <p><strong>Website:</strong> <a href="https://www.smkmetland.net" target="_blank" rel="noopener noreferrer">www.smkmetland.net</a></p>
                 <div class="footer-socials">
-                    <a href="https://youtube.com/@metlandschool?si=H326T8TIsX0qFjtO" target="_blank" rel="noopener noreferrer" aria-label="YouTube SMK Metland">
+                    <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" aria-label="YouTube Metland Academy">
                         <i class="bi bi-youtube"></i>
                     </a>
-                    <a href="https://www.tiktok.com/@smkmetland" target="_blank" rel="noopener noreferrer" aria-label="TikTok SMK Metland">
+                    <a href="https://www.tiktok.com/@metlandcollege" target="_blank" rel="noopener noreferrer" aria-label="TikTok Metland College">
                         <i class="bi bi-tiktok"></i>
                     </a>
-                    <a href="https://www.facebook.com/smkmetland" target="_blank" rel="noopener noreferrer" aria-label="Facebook SMK Metland">
-                        <i class="bi bi-facebook"></i>
-                    </a>
-                    <a href="https://www.instagram.com/smkmetland?igsh=M2Q5aHJuMzB4MWNp" target="_blank" rel="noopener noreferrer" aria-label="Instagram SMK Metland">
+                    <a href="https://www.instagram.com/metland.college/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Metland College">
                         <i class="bi bi-instagram"></i>
                     </a>
                 </div>
                 <iframe
                     class="footer-map-frame"
-                    title="{{ __('ui.footer.map_title') }}"
+                    title="Lokasi SMK Metland"
                     loading="lazy"
                     allowfullscreen
                     referrerpolicy="no-referrer-when-downgrade"
@@ -689,7 +622,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} {{ __('ui.footer.copyright') }}</p>
+            <p>&copy; {{ date('Y') }} SMK Metland. All rights reserved.</p>
         </div>
     </footer>
 
