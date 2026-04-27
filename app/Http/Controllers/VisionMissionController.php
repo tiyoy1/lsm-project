@@ -49,7 +49,7 @@ class VisionMissionController extends Controller
 
         VisionMission::create($validated);
 
-        return redirect()->route('admin.vision-mission.index')->with('success', 'Visi misi berhasil ditambahkan.');
+        return redirect()->route('legacy-admin.vision-mission.index')->with('success', 'Visi misi berhasil ditambahkan.');
     }
 
     /**
@@ -80,7 +80,7 @@ class VisionMissionController extends Controller
 
         $visionMission->update($validated);
 
-        return redirect()->route('admin.vision-mission.index')->with('success', 'Visi misi berhasil diperbarui.');
+        return redirect()->route('legacy-admin.vision-mission.index')->with('success', 'Visi misi berhasil diperbarui.');
     }
 
     /**
@@ -90,6 +90,6 @@ class VisionMissionController extends Controller
     {
         $visionMission->delete();
 
-        return redirect()->route('admin.vision-mission.index')->with('success', 'Visi misi berhasil dihapus.');
+        return redirect()->route('legacy-admin.vision-mission.index')->with('success', 'Visi misi berhasil dihapus.');
     }
 }

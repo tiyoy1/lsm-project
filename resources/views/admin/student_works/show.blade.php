@@ -29,7 +29,7 @@
         </div>
     @endif
 
-    <a href="{{ route('admin.student-works.index') }}" class="btn btn-secondary">Back</a>
-    <a href="{{ route('admin.student-works.edit', $studentWork) }}" class="btn btn-primary">Edit</a>
+    <a href="{{ route('legacy-admin.student-works.index') }}" class="btn btn-secondary">Back</a>
+    <a href="{{ route('legacy-admin.student-works.edit', $studentWork) }}" class="btn btn-primary">Edit</a>
 </div>
 @endsection

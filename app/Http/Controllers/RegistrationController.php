@@ -32,9 +32,13 @@ class RegistrationController extends Controller
             'full_name' => 'required|string|max:255',
             'birth_date' => 'required|date',
             'gender' => 'required|in:Male,Female',
+            'last_school' => 'required|string|max:255',
             'address' => 'required|string|max:255',
+            'majors' => 'required|string|max:255',
+            'country' => 'required|string|max:255',
             'phone' => 'required|string|max:25',
             'email' => 'required|email|max:255|unique:registrations,email|unique:students,email',
+            'reason' => 'required|string|max:2000',
         ]);
 
         Registration::create([

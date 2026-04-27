@@ -53,7 +53,7 @@ class StudentController extends Controller
 
         Student::create($validated);
 
-        return redirect()->route('admin.student.index')->with('success', 'Student created successfully.');
+        return redirect()->route('legacy-admin.student.index')->with('success', 'Student created successfully.');
     }
 
     /**
@@ -88,7 +88,7 @@ class StudentController extends Controller
 
         $student->update($validated);
 
-        return redirect()->route('admin.student.index')->with('success', 'Student updated successfully.');
+        return redirect()->route('legacy-admin.student.index')->with('success', 'Student updated successfully.');
     }
 
     /**
@@ -98,6 +98,6 @@ class StudentController extends Controller
     {
         $student->delete();
 
-        return redirect()->route('admin.student.index')->with('success', 'Student deleted successfully.');
+        return redirect()->route('legacy-admin.student.index')->with('success', 'Student deleted successfully.');
     }
 }

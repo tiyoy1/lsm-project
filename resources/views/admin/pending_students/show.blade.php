@@ -37,16 +37,16 @@
                 <div class="col-md-9 text-capitalize">{{ $pendingStudent->status }}</div>
             </div>
 
-            <a href="{{ route('admin.pending-students.index') }}" class="btn btn-secondary">Back</a>
+            <a href="{{ route('legacy-admin.pending-students.index') }}" class="btn btn-secondary">Back</a>
 
-            <form action="{{ route('admin.pending-students.update-status', $pendingStudent) }}" method="POST" style="display:inline-block;">
+            <form action="{{ route('legacy-admin.pending-students.update-status', $pendingStudent) }}" method="POST" style="display:inline-block;">
                 @csrf
                 @method('PATCH')
                 <input type="hidden" name="status" value="accepted">
                 <button type="submit" class="btn btn-success">Accept</button>
             </form>
 
-            <form action="{{ route('admin.pending-students.update-status', $pendingStudent) }}" method="POST" style="display:inline-block;">
+            <form action="{{ route('legacy-admin.pending-students.update-status', $pendingStudent) }}" method="POST" style="display:inline-block;">
                 @csrf
                 @method('PATCH')
                 <input type="hidden" name="status" value="rejected">

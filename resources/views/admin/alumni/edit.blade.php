@@ -6,12 +6,12 @@
 <div class="container">
     <h1 class="mb-4">Edit Alumni</h1>
 
-    <form action="{{ route('admin.alumni.update', $alumniItem) }}" method="POST">
+    <form action="{{ route('legacy-admin.alumni.update', $alumniItem) }}" method="POST">
         @method('PUT')
-        @include('admin.alumni._form')
+        @include('legacy-admin.alumni._form')
 
         <button type="submit" class="btn btn-primary">Update</button>
-        <a href="{{ route('admin.alumni.index') }}" class="btn btn-secondary">Cancel</a>
+        <a href="{{ route('legacy-admin.alumni.index') }}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 @endsection

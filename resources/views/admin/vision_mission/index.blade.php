@@ -6,7 +6,7 @@
 <div class="container">
     <h1>Visi Misi Sekolah</h1>
 
-    <a href="{{ route('admin.vision-mission.create') }}" class="btn btn-primary mb-3">Tambah Visi Misi</a>
+    <a href="{{ route('legacy-admin.vision-mission.create') }}" class="btn btn-primary mb-3">Tambah Visi Misi</a>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -28,9 +28,9 @@
                     <td>{{ $item->vision }}</td>
                     <td>{{ $item->mission }}</td>
                     <td>
-                        <a href="{{ route('admin.vision-mission.edit', $item) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="{{ route('legacy-admin.vision-mission.edit', $item) }}" class="btn btn-sm btn-warning">Edit</a>
 
-                        <form action="{{ route('admin.vision-mission.destroy', $item) }}" method="POST" style="display:inline-block;">
+                        <form action="{{ route('legacy-admin.vision-mission.destroy', $item) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Hapus data visi misi ini?')">Delete</button>

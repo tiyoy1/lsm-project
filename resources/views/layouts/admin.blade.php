@@ -416,37 +416,28 @@
                 </div>
                 <hr class="sidebar-divider">
                 <nav class="nav flex-column">
-                    <a class="admin-nav-link {{ request()->routeIs('admin.panel') ? 'active' : '' }}" href="{{ route('admin.panel') }}">
+                    <a class="admin-nav-link {{ request()->routeIs('legacy-admin.panel') ? 'active' : '' }}" href="{{ route('legacy-admin.panel') }}">
                         <i class="fas fa-table-cells-large"></i><span>Admin Panel</span>
                     </a>
-                    <a class="admin-nav-link {{ request()->routeIs('admin.student.*') ? 'active' : '' }}" href="{{ route('admin.student.index') }}">
+                    <a class="admin-nav-link {{ request()->routeIs('legacy-admin.student.*') ? 'active' : '' }}" href="{{ route('legacy-admin.student.index') }}">
                         <i class="fas fa-user-graduate"></i><span>Students</span>
                     </a>
-                    <a class="admin-nav-link {{ request()->routeIs('admin.pending-students.*') ? 'active' : '' }}" href="{{ route('admin.pending-students.index') }}">
+                    <a class="admin-nav-link {{ request()->routeIs('legacy-admin.pending-students.*') ? 'active' : '' }}" href="{{ route('legacy-admin.pending-students.index') }}">
                         <i class="fas fa-user-clock"></i><span>Pending Students</span>
                     </a>
-                    <a class="admin-nav-link {{ request()->routeIs('admin.alumni.*') ? 'active' : '' }}" href="{{ route('admin.alumni.index') }}">
+                    <a class="admin-nav-link {{ request()->routeIs('legacy-admin.alumni.*') ? 'active' : '' }}" href="{{ route('legacy-admin.alumni.index') }}">
                         <i class="fas fa-users"></i><span>Alumni</span>
                     </a>
-                    <a class="admin-nav-link {{ request()->routeIs('admin.majors.*') ? 'active' : '' }}" href="{{ route('admin.majors.index') }}">
-                        <i class="fas fa-layer-group"></i><span>Jurusan</span>
-                    </a>
-                    <a class="admin-nav-link {{ request()->routeIs('admin.ekskuls.*') ? 'active' : '' }}" href="{{ route('admin.ekskuls.index') }}">
-                        <i class="fas fa-futbol"></i><span>Ekskul</span>
-                    </a>
-                    <a class="admin-nav-link {{ request()->routeIs('admin.vision-mission.*') ? 'active' : '' }}" href="{{ route('admin.vision-mission.index') }}">
+                    <a class="admin-nav-link {{ request()->routeIs('legacy-admin.vision-mission.*') ? 'active' : '' }}" href="{{ route('legacy-admin.vision-mission.index') }}">
                         <i class="fas fa-bullseye"></i><span>Visi Misi</span>
                     </a>
-                    <a class="admin-nav-link {{ request()->routeIs('admin.school-profile.*') ? 'active' : '' }}" href="{{ route('admin.school-profile.index') }}">
+                    <a class="admin-nav-link {{ request()->routeIs('legacy-admin.school-profile.*') ? 'active' : '' }}" href="{{ route('legacy-admin.school-profile.index') }}">
                         <i class="fas fa-school"></i><span>Profil Sekolah</span>
                     </a>
-                    <a class="admin-nav-link {{ request()->routeIs('admin.organizations.*') ? 'active' : '' }}" href="{{ route('admin.organizations.index') }}">
-                        <i class="fas fa-building"></i><span>Organizations</span>
-                    </a>
-                    <a class="admin-nav-link {{ request()->routeIs('admin.student-works.*') ? 'active' : '' }}" href="{{ route('admin.student-works.index') }}">
+                    <a class="admin-nav-link {{ request()->routeIs('legacy-admin.student-works.*') ? 'active' : '' }}" href="{{ route('legacy-admin.student-works.index') }}">
                         <i class="fas fa-images"></i><span>Karya Siswa</span>
                     </a>
-                    <a class="admin-nav-link {{ request()->routeIs('admin.news.*') ? 'active' : '' }}" href="{{ route('admin.news.index') }}">
+                    <a class="admin-nav-link {{ request()->routeIs('legacy-admin.news.*') ? 'active' : '' }}" href="{{ route('legacy-admin.news.index') }}">
                         <i class="fas fa-newspaper"></i><span>News</span>
                     </a>
                 </nav>

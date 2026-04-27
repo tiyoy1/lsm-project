@@ -19,7 +19,7 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
-</head>
+</head> 
 <body>
     <nav>
         <div class="logo">
@@ -378,28 +378,31 @@
             </div>
         </div>
 
-        <form action="" id="contact-form" novalidate>
+        <form action="{{ route('contact.store') }}" method="POST" id="contact-form" novalidate>
+            @csrf
             <label for="name" class="form-label">Name</label>
           <div class="input-group">
             <i data-feather="user"></i>
-            <input type="text" name="name" placeholder="Full name" required minlength="2" />
+            <input type="text" name="name" value="{{ old('name') }}" placeholder="Full name" required minlength="2" />
           </div>
           <label for="email" class="form-label">Email</label>
           <div class="input-group">
             <i data-feather="mail"></i>
-            <input type="email" name="email" placeholder="Email address" required />
+            <input type="email" name="email" value="{{ old('email') }}" placeholder="Email address" required />
           </div>
           <label for="phone" class="form-label">Phone Number</label>
           <div class="input-group">
             <i data-feather="phone"></i>
-            <input type="tel" name="phone" placeholder="Phone number" required />
+            <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="Phone number" required />
           </div>
             <label for="desc" class="form-label">What's your message?</label>
           <div class="input-group">
             <i data-feather="desc"></i>
-            <input type="desc" name="desc" placeholder="Description" required />
+            <textarea name="message" placeholder="Description" required>{{ old('message') }}</textarea>
           </div>
-          <p class="contact-feedback" id="contact-feedback" role="status" aria-live="polite"></p>
+          <p class="contact-feedback {{ session('contact_success') ? 'is-success' : ($errors->any() ? 'is-error' : '') }}" id="contact-feedback" role="status" aria-live="polite">
+              {{ session('contact_success') ?? ($errors->first() ?: '') }}
+          </p>
           <button type="submit" class="btn contact-btn">Send Message</button>
         </form>
       </div>

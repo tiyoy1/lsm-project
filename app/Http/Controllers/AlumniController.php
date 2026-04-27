@@ -52,7 +52,7 @@ class AlumniController extends Controller
 
         Alumni::create($validated);
 
-        return redirect()->route('admin.alumni.index')->with('success', 'Data alumni berhasil ditambahkan.');
+        return redirect()->route('legacy-admin.alumni.index')->with('success', 'Data alumni berhasil ditambahkan.');
     }
 
     /**
@@ -86,7 +86,7 @@ class AlumniController extends Controller
 
         $alumnus->update($validated);
 
-        return redirect()->route('admin.alumni.index')->with('success', 'Data alumni berhasil diperbarui.');
+        return redirect()->route('legacy-admin.alumni.index')->with('success', 'Data alumni berhasil diperbarui.');
     }
 
     /**
@@ -96,6 +96,6 @@ class AlumniController extends Controller
     {
         $alumnus->delete();
 
-        return redirect()->route('admin.alumni.index')->with('success', 'Data alumni berhasil dihapus.');
+        return redirect()->route('legacy-admin.alumni.index')->with('success', 'Data alumni berhasil dihapus.');
     }
 }

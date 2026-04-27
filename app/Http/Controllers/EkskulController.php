@@ -51,7 +51,7 @@ class EkskulController extends Controller
 
         Ekskul::create($validated);
 
-        return redirect()->route('admin.ekskuls.index')->with('success', 'Data ekskul berhasil ditambahkan.');
+        return redirect()->route('legacy-admin.ekskuls.index')->with('success', 'Data ekskul berhasil ditambahkan.');
     }
 
     /**
@@ -84,7 +84,7 @@ class EkskulController extends Controller
 
         $ekskul->update($validated);
 
-        return redirect()->route('admin.ekskuls.index')->with('success', 'Data ekskul berhasil diperbarui.');
+        return redirect()->route('legacy-admin.ekskuls.index')->with('success', 'Data ekskul berhasil diperbarui.');
     }
 
     /**
@@ -94,6 +94,6 @@ class EkskulController extends Controller
     {
         $ekskul->delete();
 
-        return redirect()->route('admin.ekskuls.index')->with('success', 'Data ekskul berhasil dihapus.');
+        return redirect()->route('legacy-admin.ekskuls.index')->with('success', 'Data ekskul berhasil dihapus.');
     }
 }
