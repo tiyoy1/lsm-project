@@ -99,13 +99,12 @@
             font-weight: 600;
         }
 
-        /* Form Styling */
         .form-section {
             padding: 80px 0;
             background: #f2fbfb;
         }
         .form-container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             background: #fff;
             padding: 50px;
@@ -407,12 +406,12 @@
                         <label for="country">Country Goal</label>
                         <select id="country" name="country" required>
                             <option value="">Select Destination Country</option>
+                            <option value="English" @selected(old('country') === 'English')>English</option>
+                            <option value="Mandarin" @selected(old('country') === 'Mandarin')>Mandarin</option>
                             <option value="Japan" @selected(old('country') === 'Japan')>Japan</option>
-                            <option value="Dubai (UAE)" @selected(old('country') === 'Dubai (UAE)')>Dubai (UAE)</option>
-                            <option value="Singapore" @selected(old('country') === 'Singapore')>Singapore</option>
-                            <option value="Australia" @selected(old('country') === 'Australia')>Australia</option>
-                            <option value="Turkey" @selected(old('country') === 'Turkey')>Turkey</option>
-                            <option value="Other" @selected(old('country') === 'Other')>Other</option>
+                            <option value="German" @selected(old('country') === 'German')>German</option>
+                            <option value="Korea" @selected(old('country') === 'Korea')>Korea</option>
+                            <option value="Dubai" @selected(old('country') === 'Dubai')>Dubai</option>
                         </select>
                         @error('country')
                             <p class="error-msg">{{ $message }}</p>
