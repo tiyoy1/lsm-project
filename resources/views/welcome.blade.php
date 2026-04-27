@@ -312,7 +312,7 @@
                         <a href="#" class="alumni-card-link">
                             <img src="{{ asset('img/logo.webp') }}" alt="Foto Alumni" class="alumni-card-image" data-swiper-parallax="-80">
                             <p class="alumni-card-badge" data-swiper-parallax="-40">Rafi Pratama</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">Ã¢â‚¬Å“Studying at SMK Metland made me more work-ready because I got used to projects and deadlines.Ã¢â‚¬Â</h2>
+                            <h2 class="alumni-card-title" data-swiper-parallax="-20">“Studying at SMK Metland made me more work-ready because I got used to projects and deadlines."</h2>
                             <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
                         </a>
                     </li>
@@ -320,7 +320,7 @@
                         <a href="#" class="alumni-card-link">
                             <img src="{{ asset('img/logo.webp') }}" alt="Foto Alumni" class="alumni-card-image" data-swiper-parallax="-80">
                             <p class="alumni-card-badge" data-swiper-parallax="-40">Dimas Mahendra</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">Ã¢â‚¬Å“Materi praktiknya relevan dengan industri, jadi saat Graduate saya lebih percaya diri masuk dunia kerja.Ã¢â‚¬Â</h2>
+                            <h2 class="alumni-card-title" data-swiper-parallax="-20">“Materi praktiknya relevan dengan industri, jadi saat Graduate saya lebih percaya diri masuk dunia kerja."</h2>
                             <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
                         </a>
                     </li>
@@ -328,7 +328,7 @@
                         <a href="#" class="alumni-card-link">
                             <img src="{{ asset('img/logo.webp') }}" alt="Foto Alumni" class="alumni-card-image" data-swiper-parallax="-80">
                             <p class="alumni-card-badge" data-swiper-parallax="-40">Rifki Pratama</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">Ã¢â‚¬Å“The teachers are supportive and the school environment helped me grow and gain confidence.Ã¢â‚¬Â</h2>
+                            <h2 class="alumni-card-title" data-swiper-parallax="-20">“The teachers are supportive and the school environment helped me grow and gain confidence."</h2>
                             <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
                         </a>
                     </li>
@@ -336,7 +336,7 @@
                         <a href="#" class="alumni-card-link">
                             <img src="{{ asset('img/logo.webp') }}" alt="Foto Alumni" class="alumni-card-image" data-swiper-parallax="-80">
                             <p class="alumni-card-badge" data-swiper-parallax="-40">Alya Ramadhani</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">Ã¢â‚¬Å“Organizational activities and extracurriculars taught me teamwork, communication, and leadership.Ã¢â‚¬Â</h2>
+                            <h2 class="alumni-card-title" data-swiper-parallax="-20">“Organizational activities and extracurriculars taught me teamwork, communication, and leadership."</h2>
                             <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
                         </a>
                     </li>
@@ -344,7 +344,7 @@
                         <a href="#" class="alumni-card-link">
                             <img src="{{ asset('img/logo.webp') }}" alt="Foto Alumni" class="alumni-card-image" data-swiper-parallax="-80">
                             <p class="alumni-card-badge" data-swiper-parallax="-40">Fikri Saputra</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">Ã¢â‚¬Å“SMK Metland provides a balanced learning experience between theory, practice, and character.Ã¢â‚¬Â</h2>
+                            <h2 class="alumni-card-title" data-swiper-parallax="-20">“SMK Metland provides a balanced learning experience between theory, practice, and character.”</h2>
                             <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
                         </a>
                     </li>
