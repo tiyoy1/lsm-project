@@ -1331,8 +1331,8 @@ body > nav ul li.nav-mobile-only {
     }
 
     body > nav .logo {
-        order: 2;
-        margin-right: 0;
+        order: 1;
+        margin-right: auto;
         font-size: 0.9rem;
         gap: 8px;
         color: #eafcff;
@@ -1349,9 +1349,9 @@ body > nav ul li.nav-mobile-only {
     }
 
     body > nav .nav-mobile-actions {
-        order: 1;
-        margin-left: 0;
-        margin-right: 2px;
+        order: 2;
+        margin-left: auto;
+        margin-right: 0;
         display: inline-flex;
         align-items: center;
         gap: 8px;
@@ -1491,3 +1491,4 @@ body > nav ul li.nav-mobile-only {
         transform: translateY(0);
     }
 }
+
