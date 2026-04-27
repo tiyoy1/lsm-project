@@ -38,13 +38,17 @@ class RegistrationResource extends Resource
                 DatePicker::make('birth_date')->required(),
                 Select::make('gender')
                     ->options([
-                        'male' => 'Male',
-                        'female' => 'Female',
+                        'Male' => 'Male',
+                        'Female' => 'Female',
                     ])
                     ->required(),
+                TextInput::make('last_school')->maxLength(255),
                 Textarea::make('address')->rows(3)->required(),
+                TextInput::make('majors')->maxLength(255),
+                TextInput::make('country')->maxLength(255),
                 TextInput::make('phone')->tel()->maxLength(50),
                 TextInput::make('email')->email()->required()->maxLength(255),
+                Textarea::make('reason')->rows(3),
                 Select::make('status')
                     ->options([
                         'pending' => 'Pending',

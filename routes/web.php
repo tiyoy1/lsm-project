@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\AdminPanelController;
+use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\EkskulController;
 use App\Http\Controllers\MajorController;
 use App\Http\Controllers\NewsController;
@@ -27,6 +28,7 @@ Route::get('/', function () {
 
     return view('welcome', compact('latestNews'));
 });
+Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact.store');
 Route::get('/visi-misi', [VisionMissionController::class, 'publicIndex'])->name('vision-mission');
 Route::view('/sejarah', 'sejarah')->name('sejarah');
 Route::view('/profile-sekolah', 'Profile')->name('Profile');
@@ -111,4 +113,3 @@ Route::middleware(['auth', 'admin'])->prefix('legacy-admin')->name('legacy-admin
 });
 
 require __DIR__.'/auth.php';
-

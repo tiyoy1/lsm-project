@@ -36,8 +36,8 @@ class StudentResource extends Resource
                 DatePicker::make('birth_date')->required(),
                 Select::make('gender')
                     ->options([
-                        'male' => 'Male',
-                        'female' => 'Female',
+                        'Male' => 'Male',
+                        'Female' => 'Female',
                     ])
                     ->required(),
                 Textarea::make('address')->rows(3)->required(),
