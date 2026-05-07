@@ -112,25 +112,6 @@
     <section id="about-smk" class="about-smk-section">
         <div class="about-smk-wrap">
             <div class="about-card">
-                <a href="https://metlandsmarakertajati.com-hotel.id/id/" class="about-head-link">
-                    <div class="about-head">
-                        <i class="bi bi-mortarboard about-icon" aria-hidden="true"></i>
-                        <div>
-                            <h3>Hotel Metland SMARA Kertajati</h3>
-                            <span class="about-head-cta">See more</span>
-                        </div>
-                    </div>
-                </a>
-                <a class="about-image-frame" href="https://metlandsmarakertajati.com-hotel.id/id/" target="_blank" rel="noopener noreferrer" aria-label="Kunjungi situs Metland Smara Kertajati">
-                    <div class="img-container">
-                        <img src="{{ asset("img/Kertajati.png") }}" alt="Area sekolah" class="about-image">
-                    </div>
-                </a>
-                <div class="about-body">
-                    <p>An industry-based hospitality training facility providing direct learning experiences in a real work environment. Focuses on hospitality practices so students understand professional standards early on.</p>
-                </div>
-            </div>
-            <div class="about-card">
                 <a href="{{ url('/program-keahlian') }}" class="about-head-link">
                     <div class="about-head">
                         <i class="bi bi-buildings about-icon" aria-hidden="true"></i>
@@ -166,6 +147,25 @@
                     </a>
                 <div class="about-body">
                     <p>A school with an active and supportive learning environment, focusing not only on academics but also on student character development through organizations, social activities, and creative communities.</p>
+                </div>
+            </div>
+            <div class="about-card">
+                <a href="https://metlandsmarakertajati.com-hotel.id/id/" class="about-head-link">
+                    <div class="about-head">
+                        <i class="bi bi-mortarboard about-icon" aria-hidden="true"></i>
+                        <div>
+                            <h3>Hotel Metland SMARA Kertajati</h3>
+                            <span class="about-head-cta">See more</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="about-image-frame" href="https://metlandsmarakertajati.com-hotel.id/id/" target="_blank" rel="noopener noreferrer" aria-label="Kunjungi situs Metland Smara Kertajati">
+                    <div class="img-container">
+                        <img src="{{ asset("img/Kertajati.png") }}" alt="Area sekolah" class="about-image">
+                    </div>
+                </a>
+                <div class="about-body">
+                    <p>An industry-based hospitality training facility providing direct learning experiences in a real work environment. Focuses on hospitality practices so students understand professional standards early on.</p>
                 </div>
             </div>
         </div>
