@@ -448,7 +448,7 @@
             </div>
             <div class="stat-item">
                 <div class="stat-num">6 bln</div>
-                <div class="stat-label">Waktu Pelatihan</div>
+                <div class="stat-label">Estimasi Pelatihan</div>
             </div>
         </div>
 

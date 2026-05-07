@@ -699,35 +699,35 @@
                     <div class="lkp-boarding-item">
                         <span class="lkp-boarding-item-icon"><i class="bi bi-egg-fried"></i></span>
                         <div class="lkp-boarding-item-text">
-                            <strong>Gratis Makan Siang*</strong>
+                            <strong>Makan Siang</strong>
                             Tersedia setiap hari belajar
                         </div>
                     </div>
                     <div class="lkp-boarding-item">
                         <span class="lkp-boarding-item-icon"><i class="bi bi-person-badge"></i></span>
                         <div class="lkp-boarding-item-text">
-                            <strong>Gratis 1 Pcs Seragam Pelatihan*</strong>
+                            <strong> 1 Pcs Seragam Pelatihan</strong>
                             Seragam resmi program LKP
                         </div>
                     </div>
                     <div class="lkp-boarding-item">
                         <span class="lkp-boarding-item-icon"><i class="bi bi-book"></i></span>
                         <div class="lkp-boarding-item-text">
-                            <strong>Gratis 1 Set Buku Modul Pelatihan*</strong>
+                            <strong> 1 Set Buku Modul Pelatihan</strong>
                             Materi belajar lengkap dan terstruktur
                         </div>
                     </div>
                     <div class="lkp-boarding-item">
                         <span class="lkp-boarding-item-icon"><i class="bi bi-stars"></i></span>
                         <div class="lkp-boarding-item-text">
-                            <strong>Gratis Laundry Seragam 1 Stel/hari*</strong>
+                            <strong> Laundry Seragam 1 Stel/hari</strong>
                             Layanan cuci seragam harian
                         </div>
                     </div>
                     <div class="lkp-boarding-item">
                         <span class="lkp-boarding-item-icon"><i class="bi bi-award"></i></span>
                         <div class="lkp-boarding-item-text">
-                            <strong>Gratis Pelatihan Table Manner</strong>
+                            <strong> Pelatihan Table Manner</strong>
                             Etiket & sopan santun internasional
                         </div>
                     </div>
