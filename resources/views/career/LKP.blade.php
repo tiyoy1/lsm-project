@@ -749,7 +749,7 @@
             <div class="career-timeline">
                 <span class="career-line" aria-hidden="true"></span>
                 <article class="career-step is-left">
-                    <span class="career-pill">1 Month</span>
+                    <span class="career-pill">First Step!</span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-journal-bookmark"></i></div>
                         <div>
@@ -759,7 +759,7 @@
                     </div>
                 </article>
                 <article class="career-step is-right">
-                    <span class="career-pill">2 Month</span>
+                    <span class="career-pill">Second Step!</span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-translate"></i></div>
                         <div>
@@ -769,7 +769,7 @@
                     </div>
                 </article>
                 <article class="career-step is-left">
-                    <span class="career-pill">3 Month</span>
+                    <span class="career-pill">Third Step!</span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-briefcase"></i></div>
                         <div>
@@ -779,7 +779,7 @@
                     </div>
                 </article>
                 <article class="career-step is-right">
-                    <span class="career-pill">4 Month</span>
+                    <span class="career-pill">Fourth Step!</span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-file-earmark-text"></i></div>
                         <div>

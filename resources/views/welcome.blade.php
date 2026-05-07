@@ -65,7 +65,7 @@
   </a>
 </div>
         <div class="ppdb-btn">
-            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'">Join Us</button>
+            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'">Join us</button>
         </div>
         <div class="lang-switch" aria-label="Pengalih bahasa">
             <a href="{{ route('language.switch', 'id') }}" class="{{ app()->getLocale() === 'id' ? 'is-active' : '' }}">ID</a>
@@ -177,7 +177,7 @@
             <div class="career-timeline" id="lpk-content">
                 <span class="career-line" aria-hidden="true"></span>
                 <article class="career-step is-left">
-                    <span class="career-pill">1 Month</span>
+                    <span class="career-pill">First Step! </span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-journal-bookmark"></i></div>
                         <div>
@@ -187,7 +187,7 @@
                     </div>
                 </article>
                 <article class="career-step is-right">
-                    <span class="career-pill">2 Month</span>
+                    <span class="career-pill">Second Step!</span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-people"></i></div>
                         <div>
@@ -197,7 +197,7 @@
                     </div>
                 </article>
                 <article class="career-step is-left">
-                    <span class="career-pill">3 Month</span>
+                    <span class="career-pill">Third Step!</span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-briefcase"></i></div>
                         <div>
@@ -207,7 +207,7 @@
                     </div>
                 </article>
                 <article class="career-step is-left">
-                    <span class="career-pill">6 Month</span>
+                    <span class="career-pill">Fourth Step!</span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-briefcase"></i></div>
                         <div>
