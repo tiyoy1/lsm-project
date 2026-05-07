@@ -219,6 +219,9 @@ nav .sosmed-icon .icon-instagram {
 nav .sosmed-icon .icon-facebook {
     color: #4840e4;
 } /* opsional */
+nav .sosmed-icon .icon-whatsapp {
+    color: #25d366;
+} /* opsional */
 
 nav .ppdb-btn button {
     margin-left: 0;

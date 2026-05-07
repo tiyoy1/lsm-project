@@ -101,13 +101,13 @@
             <h1 class="hero-title">Vision &<br><span>MISSION</span></h1>
             <p>Learn about our foundational goals, core values, and our unwavering commitment to shaping the next generation of professional industry leaders.</p>
             <div class="hero-actions">
-                <a href="#about-smk" class="hero-btn">See more</a>
+                <a href="#vm-section" class="hero-btn">See more</a>
             </div>
         </div>
     </section>
 
     <!-- VISION MISSION SECTION -->
-    <section class="vm-section">
+    <section class="vm-section" id="vm-section">
         <div class="vm-container">
             
             <!-- Vision Card -->
@@ -201,7 +201,25 @@
 
             <div class="footer-contact-map">
                 <h4>CONTACT US</h4>
-                <p><strong>Location:</strong><br>Jl. Taman Metro Raya Metland Transyogi, Kec. Cileungsi, Kab. Bogor, Prov. Jawa Barat</p>
+                <p style="margin-bottom: 12px;"><strong>Locations:</strong></p>
+                <p style="margin-bottom: 8px;">
+                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CILEUNGSI</strong><br>
+                        Jl. Kota Taman Metropolitan, Cileungsi Kidul, Kec. Cileungsi, Kabupaten Bogor, Jawa Barat 16820
+                    </a>
+                </p>
+                <p style="margin-bottom: 8px;">
+                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CIBITUNG</strong><br>
+                        P4W8+46C, Telagamurni, Kec. Cikarang Bar., Kabupaten Bekasi, Jawa Barat 17530
+                    </a>
+                </p>
+                <p style="margin-bottom: 16px;">
+                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>HOTEL METLAND SMARA KERTAJATI</strong><br>
+                        Jl. Kertajati - Kadipaten, Babakan, Kec. Kertajati, Kabupaten Majalengka, Jawa Barat 45457
+                    </a>
+                </p>
                 <p><strong>WhatsApp:</strong> +62-8180-9999-180</p>
                 <p><strong>Website:</strong> <a href="https://www.smkmetland.net" target="_blank" rel="noopener noreferrer">www.smkmetland.net</a></p>
                 <div class="footer-socials">

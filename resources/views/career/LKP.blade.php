@@ -101,7 +101,7 @@
             <h1 class="hero-title">Welcome to <br><span>LKP</span></h1>
             <p>LKP Metland College adalah lembaga kursus yang menyediakan pendidikan dan pelatihan untuk siswa yang ingin bekerja diluar negri.</p>
             <div class="hero-actions">
-                <a href="#about-smk" class="hero-btn">See more</a>
+                <a href="#about-lkp" class="hero-btn">See more</a>
             </div>
         </div>
     </section>
@@ -307,115 +307,7 @@
         .lkp-lang-card.arab .lkp-card-banner { background-image: url('https://flagcdn.com/w640/sa.png'); }
 
         /* =================== BOARDING SECTION =================== */
-        .lkp-boarding {
-            background: linear-gradient(160deg, #061e26, #0d3040);
-            border-radius: 32px;
-            padding: 60px 70px;
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-        .lkp-boarding::before {
-            content: '';
-            position: absolute;
-            top: -100px; right: -100px;
-            width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(95,226,226,0.12) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .lkp-boarding::after {
-            content: '';
-            position: absolute;
-            bottom: -80px; left: -80px;
-            width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(28,165,165,0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .lkp-boarding-inner {
-            position: relative;
-            z-index: 2;
-        }
-        .lkp-boarding-head {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            margin-bottom: 36px;
-        }
-        .lkp-boarding-icon {
-            width: 60px; height: 60px;
-            background: linear-gradient(135deg, #1ca5a5, #5fe2e2);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: #fff;
-            flex-shrink: 0;
-            box-shadow: 0 8px 20px rgba(28,165,165,0.4);
-        }
-        .lkp-boarding-title-wrap h3 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #fff;
-            margin: 0 0 4px;
-        }
-        .lkp-boarding-title-wrap p {
-            color: #81c5c7;
-            font-size: 0.95rem;
-            margin: 0;
-        }
-        .lkp-boarding-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
-        }
-        .lkp-boarding-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 14px;
-            padding: 16px 20px;
-            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-        }
-        .lkp-boarding-item:hover {
-            background: rgba(95,226,226,0.1);
-            border-color: rgba(95,226,226,0.3);
-            transform: translateX(5px);
-        }
-        .lkp-boarding-item-icon {
-            font-size: 1.5rem;
-            color: #5fe2e2;
-            flex-shrink: 0;
-        }
-        .lkp-boarding-item-text {
-            font-size: 0.97rem;
-            color: #cce9ea;
-            font-weight: 500;
-            line-height: 1.4;
-        }
-        .lkp-boarding-item-text strong {
-            color: #fff;
-            display: block;
-            font-size: 1rem;
-            margin-bottom: 2px;
-        }
-        .lkp-boarding-note {
-            margin-top: 22px;
-            font-size: 0.82rem;
-            color: #6a9fa1;
-            font-style: italic;
-        }
-
-        @media (max-width: 992px) {
-            .lkp-boarding { padding: 45px 30px; }
-            .lkp-lang-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 576px) {
-            .lkp-boarding-head { flex-direction: column; align-items: flex-start; }
-        }
+        
 
         /* ============ ALUMNI TESTI SECTION ============ */
         .alumni-testi {
@@ -565,7 +457,7 @@
         {{-- ===== Header ===== --}}
         <div class="lkp-intro-header">
             <div class="lkp-eyebrow">LKP Metland College</div>
-            <h2 class="lkp-main-title">Lembaga Kursus &<br><span>Pelatihan Bahasa Asing</span></h2>
+            <h2 class="lkp-main-title">Lembaga Kursus Pelatihan<br><span> Bahasa Asing</span></h2>
             <p class="lkp-main-desc">LKP Metland College menyediakan kursus dan pelatihan bahasa asing untuk mempersiapkan Anda bekerja ke luar negeri dengan percaya diri.</p>
         </div>
 
@@ -586,7 +478,7 @@
                 </div>
                 <div class="lkp-card-body">
                     <ul>
-                        <li>Pelatihan Dasar – Dasar Bahasa Inggris</li>
+                        <li>Kursus Bahasa Inggris</li>
                         <li>Fokus Tes TOEFL</li>
                         <li>Pendamping Interview</li>
                     </ul>
@@ -602,7 +494,7 @@
                 </div>
                 <div class="lkp-card-body">
                     <ul>
-                        <li>Pelatihan Dasar – Dasar Bahasa Mandarin</li>
+                        <li>Kursus Bahasa Mandarin</li>
                         <li>Fokus Tes HSK</li>
                         <li>Pendamping Interview</li>
                     </ul>
@@ -618,7 +510,7 @@
                 </div>
                 <div class="lkp-card-body">
                     <ul>
-                        <li>Pelatihan Dasar – Dasar Bahasa Jepang</li>
+                        <li>Kursus Bahasa Jepang</li>
                         <li>Fokus Tes JFT Basic A2 / JLPT N4</li>
                         <li>Belajar Ujian SSW*</li>
                         <li>Pendamping Interview</li>
@@ -635,7 +527,7 @@
                 </div>
                 <div class="lkp-card-body">
                     <ul>
-                        <li>Pelatihan Dasar – Dasar Bahasa Jerman</li>
+                        <li>Kursus Bahasa Jerman</li>
                         <li>Fokus Tes A1, A2, dan B1</li>
                         <li>Pendamping Interview</li>
                     </ul>
@@ -651,7 +543,7 @@
                 </div>
                 <div class="lkp-card-body">
                     <ul>
-                        <li>Pelatihan Dasar – Dasar Bahasa Korea</li>
+                        <li>Kursus Bahasa Korea</li>
                         <li>Fokus Tes Bahasa</li>
                         <li>Pendamping Interview</li>
                     </ul>
@@ -667,7 +559,7 @@
                 </div>
                 <div class="lkp-card-body">
                     <ul>
-                        <li>Pelatihan Dasar – Dasar Bahasa Arab</li>
+                        <li>Kursus Bahasa Arab</li>
                         <li>Fokus Tes Bahasa</li>
                         <li>Pendamping Interview</li>
                     </ul>
@@ -675,67 +567,6 @@
             </div>
 
         </div>{{-- /lkp-lang-grid --}}
-
-        {{-- ===== Kelas Boarding Section ===== --}}
-        <div class="lkp-boarding">
-            <div class="lkp-boarding-inner">
-                <div class="lkp-boarding-head">
-                    <div class="lkp-boarding-icon">
-                        <i class="bi bi-house-heart"></i>
-                    </div>
-                    <div class="lkp-boarding-title-wrap">
-                        <h3>Tersedia Kelas Boarding</h3>
-                        <p>Fasilitas lengkap untuk mendukung proses belajar intensif Anda</p>
-                    </div>
-                </div>
-                <div class="lkp-boarding-grid">
-                    <div class="lkp-boarding-item">
-                        <span class="lkp-boarding-item-icon"><i class="bi bi-building"></i></span>
-                        <div class="lkp-boarding-item-text">
-                            <strong>Asrama (Tempat Tinggal)</strong>
-                            di Metland College
-                        </div>
-                    </div>
-                    <div class="lkp-boarding-item">
-                        <span class="lkp-boarding-item-icon"><i class="bi bi-egg-fried"></i></span>
-                        <div class="lkp-boarding-item-text">
-                            <strong>Makan Siang</strong>
-                            Tersedia setiap hari belajar
-                        </div>
-                    </div>
-                    <div class="lkp-boarding-item">
-                        <span class="lkp-boarding-item-icon"><i class="bi bi-person-badge"></i></span>
-                        <div class="lkp-boarding-item-text">
-                            <strong> 1 Pcs Seragam Pelatihan</strong>
-                            Seragam resmi program LKP
-                        </div>
-                    </div>
-                    <div class="lkp-boarding-item">
-                        <span class="lkp-boarding-item-icon"><i class="bi bi-book"></i></span>
-                        <div class="lkp-boarding-item-text">
-                            <strong> 1 Set Buku Modul Pelatihan</strong>
-                            Materi belajar lengkap dan terstruktur
-                        </div>
-                    </div>
-                    <div class="lkp-boarding-item">
-                        <span class="lkp-boarding-item-icon"><i class="bi bi-stars"></i></span>
-                        <div class="lkp-boarding-item-text">
-                            <strong> Laundry Seragam 1 Stel/hari</strong>
-                            Layanan cuci seragam harian
-                        </div>
-                    </div>
-                    <div class="lkp-boarding-item">
-                        <span class="lkp-boarding-item-icon"><i class="bi bi-award"></i></span>
-                        <div class="lkp-boarding-item-text">
-                            <strong> Pelatihan Table Manner</strong>
-                            Etiket & sopan santun internasional
-                        </div>
-                    </div>
-                </div>
-                <p class="lkp-boarding-note">*Fasilitas berlaku untuk kelas atau tipe asrama tertentu. Hubungi kami untuk info lebih lanjut.</p>
-            </div>
-        </div>
-
       </div>
     </section>
 
@@ -959,7 +790,25 @@
 
             <div class="footer-contact-map">
                 <h4>CONTACT US</h4>
-                <p><strong>Location:</strong><br>Jl. Taman Metro Raya Metland Transyogi, Kec. Cileungsi, Kab. Bogor, Prov. Jawa Barat</p>
+                <p style="margin-bottom: 12px;"><strong>Locations:</strong></p>
+                <p style="margin-bottom: 8px;">
+                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CILEUNGSI</strong><br>
+                        Jl. Kota Taman Metropolitan, Cileungsi Kidul, Kec. Cileungsi, Kabupaten Bogor, Jawa Barat 16820
+                    </a>
+                </p>
+                <p style="margin-bottom: 8px;">
+                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CIBITUNG</strong><br>
+                        P4W8+46C, Telagamurni, Kec. Cikarang Bar., Kabupaten Bekasi, Jawa Barat 17530
+                    </a>
+                </p>
+                <p style="margin-bottom: 16px;">
+                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>HOTEL METLAND SMARA KERTAJATI</strong><br>
+                        Jl. Kertajati - Kadipaten, Babakan, Kec. Kertajati, Kabupaten Majalengka, Jawa Barat 45457
+                    </a>
+                </p>
                 <p><strong>WhatsApp:</strong> +62-8180-9999-180</p>
                 <p><strong>Website:</strong> <a href="https://www.smkmetland.net" target="_blank" rel="noopener noreferrer">www.smkmetland.net</a></p>
                 <div class="footer-socials">

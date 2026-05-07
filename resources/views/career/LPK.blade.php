@@ -117,6 +117,20 @@
             width: min(1200px, 92vw);
             margin: 0 auto;
         }
+
+        .section-badge-lpk {
+            display: inline-block;
+            padding: 8px 24px;
+            background: linear-gradient(120deg, rgba(88, 210, 210, 0.15), rgba(88, 210, 210, 0.05));
+            border: 2px solid rgba(88, 210, 210, 0.3);
+            border-radius: 999px;
+            color: #2d8f8f;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            font-size: 0.85rem;
+        }
         
         /* Intro Section */
         .lpk-intro {
@@ -312,6 +326,118 @@
             line-height: 1.7;
             font-size: 0.95rem;
         }
+
+        .lkp-boarding {
+            background: linear-gradient(160deg, #061e26, #0d3040);
+            border-radius: 32px;
+            padding: 60px 70px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .lkp-boarding::before {
+            content: '';
+            position: absolute;
+            top: -100px; right: -100px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(95,226,226,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .lkp-boarding::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; left: -80px;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(28,165,165,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .lkp-boarding-inner {
+            position: relative;
+            z-index: 2;
+        }
+        .lkp-boarding-head {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .lkp-boarding-icon {
+            width: 60px; height: 60px;
+            background: linear-gradient(135deg, #1ca5a5, #5fe2e2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #fff;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(28,165,165,0.4);
+            margin-top: -55px;
+        }
+        .lkp-boarding-title-wrap h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 0 0 4px;
+        }
+        .lkp-boarding-title-wrap p {
+            color: #81c5c7;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        .lkp-boarding-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+        .lkp-boarding-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 16px 20px;
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+        }
+        .lkp-boarding-item:hover {
+            background: rgba(95,226,226,0.1);
+            border-color: rgba(95,226,226,0.3);
+            transform: translateX(5px);
+        }
+        .lkp-boarding-item-icon {
+            font-size: 1.5rem;
+            color: #5fe2e2;
+            flex-shrink: 0;
+        }
+        .lkp-boarding-item-text {
+            font-size: 0.97rem;
+            color: #cce9ea;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .lkp-boarding-item-text strong {
+            color: #fff;
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+        .lkp-boarding-note {
+            margin-top: 22px;
+            font-size: 1.2rem;
+            color: #fff;
+            font-style: italic;
+            padding-top: 10px;
+            left: -17%;
+        }
+
+        @media (max-width: 992px) {
+            .lkp-boarding { padding: 45px 30px; }
+            .lkp-lang-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 576px) {
+            .lkp-boarding-head { flex-direction: column; align-items: flex-start; }
+        }
         
         /* Extra Section: Pathway */
         .lpk-pathway {
@@ -418,11 +544,11 @@
         <!-- Intro -->
         <div class="lpk-intro">
             <div class="lpk-intro-text">
-                <h2>Bina Karir Cemerlang di <br><span>LPK Metland College</span></h2>
+                <h2>Industri Pariwisata Cemerlang di <br><span>LPK Metland College</span></h2>
                 <p>Lembaga Pelatihan Kerja (LPK) Metland College merupakan solusi tepat bagi kamu yang ingin cepat diserap oleh industri hospitality. Dengan kurikulum praktis dan bimbingan eksklusif dari praktisi perhotelan, kami siap mengasah kompetensimu hingga mencapai standar internasional.</p>
                 <ul class="lpk-benefits">
-                    <li><i class="bi bi-award"></i> Sertifikasi Kompetensi Resmi</li>
-                    <li><i class="bi bi-building-check"></i> Penyaluran ke Hotel Berbintang</li>
+                    <li><i class="bi bi-award"></i> Bersertifikat BNSP</li>
+                    <li><i class="bi bi-building-check"></i> Penyaluran Kerja ke Luar Negeri</li>
                     <li><i class="bi bi-person-video3"></i> Instruktur Praktisi Ahli</li>
                     <li><i class="bi bi-briefcase"></i> Program Magang (OJT) Eksklusif</li>
                 </ul>
@@ -455,7 +581,7 @@
         <!-- Programs -->
         <div class="program-header">
             <div class="section-header" style="margin-bottom: 0;">
-                <div class="section-badge" style="margin: 0 auto 15px;">Program Unggulan</div>
+                <div class="section-badge-lpk" style="margin: 0 auto 15px;">Program Unggulan</div>
                 <h2 class="section-title">Pilihan Program Pelatihan</h2>
                 <p class="section-desc" style="margin-left: auto; margin-right: auto;">Pilih program vokasi yang tepat untuk mewujudkan karir impianmu di dunia perhotelan.</p>
             </div>
@@ -469,7 +595,7 @@
             </div>
             <div class="program-card">
                 <div class="program-icon"><i class="bi bi-egg-fried"></i></div>
-                <h3>Culinary Arts</h3>
+                <h3>Culinary</h3>
                 <p>Menguasai teknik memasak profesional, mulai dari pengenalan bahan masakan lokal hingga pengolahan hidangan kontinental dan oriental.</p>
             </div>
             <div class="program-card">
@@ -493,8 +619,8 @@
             <div class="pathway-steps">
                 <div class="pathway-step">
                     <div class="step-icon"><i class="bi bi-book"></i></div>
-                    <div class="step-title">Pelatihan In-Class</div>
-                    <div class="step-desc">Pembekalan teori dan praktik dasar di fasilitas simulasi hotel.</div>
+                    <div class="step-title">Pelatihan</div>
+                    <div class="step-desc">Pembekalan teori dan praktik dasar di fasilitas hotel.</div>
                 </div>
                 <div class="pathway-step">
                     <div class="step-icon"><i class="bi bi-briefcase-fill"></i></div>
@@ -512,15 +638,74 @@
                     <div class="step-desc">Bantuan proses rekrutmen ke jaringan industri hospitality.</div>
                 </div>
             </div>
-        </div>
 
+            <hr style="border-color: rgba(255,255,255,0.1); margin: 60px 0;">
+
+            <!-- Boarding Section -->
+            <div class="lkp-boarding-inner" style="text-align: left;">
+                <div class="lkp-boarding-head">
+                    <div class="lkp-boarding-icon">
+                        <i class="bi bi-house-heart"></i>
+                    </div>
+                    <div class="lkp-boarding-title-wrap">
+                        <h3>Tersedia Kelas Boarding</h3>
+                        <p>Fasilitas lengkap untuk mendukung proses belajar intensif Anda</p>
+                    </div>
+                </div>
+                <div class="lkp-boarding-grid">
+                    <div class="lkp-boarding-item">
+                        <span class="lkp-boarding-item-icon"><i class="bi bi-building"></i></span>
+                        <div class="lkp-boarding-item-text">
+                            <strong>Asrama (Tempat Tinggal)</strong>
+                            di Metland College
+                        </div>
+                    </div>
+                    <div class="lkp-boarding-item">
+                        <span class="lkp-boarding-item-icon"><i class="bi bi-egg-fried"></i></span>
+                        <div class="lkp-boarding-item-text">
+                            <strong>Makan Siang</strong>
+                            Tersedia setiap hari belajar
+                        </div>
+                    </div>
+                    <div class="lkp-boarding-item">
+                        <span class="lkp-boarding-item-icon"><i class="bi bi-person-badge"></i></span>
+                        <div class="lkp-boarding-item-text">
+                            <strong> 1 Pcs Seragam Pelatihan</strong>
+                            Seragam resmi program LKP
+                        </div>
+                    </div>
+                    <div class="lkp-boarding-item">
+                        <span class="lkp-boarding-item-icon"><i class="bi bi-book"></i></span>
+                        <div class="lkp-boarding-item-text">
+                            <strong> 1 Set Buku Modul Pelatihan</strong>
+                            Materi belajar lengkap dan terstruktur
+                        </div>
+                    </div>
+                    <div class="lkp-boarding-item">
+                        <span class="lkp-boarding-item-icon"><i class="ph-fill ph-washing-machine"></i></span>
+                        <div class="lkp-boarding-item-text">
+                            <strong> Laundry Seragam 1 Stel/hari</strong>
+                            Layanan cuci seragam harian
+                        </div>
+                    </div>
+                    <div class="lkp-boarding-item">
+                        <span class="lkp-boarding-item-icon"><i class="bi bi-award"></i></span>
+                        <div class="lkp-boarding-item-text">
+                            <strong> Pelatihan Table Manner</strong>
+                            Etiket & sopan santun internasional
+                        </div>
+                    </div>
+                </div>
+                <p class="lkp-boarding-note" style="text-align: left;">*Fasilitas berlaku untuk kelas atau tipe asrama tertentu. Hubungi kami untuk info lebih lanjut.</p>
+            </div>
+        </div>
       </div>
     </section>
 
     <section class="career-section" id="career-section">
         <div class="career-shell">
             <div class="career-head">
-                <span class="section-badge" title="Klik untuk mengubah LPK/LKP">Training Method</span>
+                <span class="section-badge-lpk" title="Klik untuk mengubah LPK/LKP">Training Method</span>
                 <h2 class="section-title">From <span>New Students</span> to Professional</h2> 
                 <p class="section-desc">Structured learning steps, focus on practice, and supported by industry mentors until ready to enter the workforce.</p>
             </div>
@@ -930,7 +1115,25 @@
 
             <div class="footer-contact-map">
                 <h4>CONTACT US</h4>
-                <p><strong>Location:</strong><br>Jl. Taman Metro Raya Metland Transyogi, Kec. Cileungsi, Kab. Bogor, Prov. Jawa Barat</p>
+                <p style="margin-bottom: 12px;"><strong>Locations:</strong></p>
+                <p style="margin-bottom: 8px;">
+                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CILEUNGSI</strong><br>
+                        Jl. Kota Taman Metropolitan, Cileungsi Kidul, Kec. Cileungsi, Kabupaten Bogor, Jawa Barat 16820
+                    </a>
+                </p>
+                <p style="margin-bottom: 8px;">
+                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CIBITUNG</strong><br>
+                        P4W8+46C, Telagamurni, Kec. Cikarang Bar., Kabupaten Bekasi, Jawa Barat 17530
+                    </a>
+                </p>
+                <p style="margin-bottom: 16px;">
+                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>HOTEL METLAND SMARA KERTAJATI</strong><br>
+                        Jl. Kertajati - Kadipaten, Babakan, Kec. Kertajati, Kabupaten Majalengka, Jawa Barat 45457
+                    </a>
+                </p>
                 <p><strong>WhatsApp:</strong> +62-8180-9999-180</p>
                 <p><strong>Website:</strong> <a href="https://www.smkmetland.net" target="_blank" rel="noopener noreferrer">www.smkmetland.net</a></p>
                 <div class="footer-socials">
