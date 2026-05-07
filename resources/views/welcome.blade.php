@@ -63,9 +63,12 @@
   <a href="https://www.instagram.com/metland.college?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="icon-instagram" aria-label="Instagram SMK Metland">
     <i class="bi bi-instagram"></i>
   </a>
+  <a href="https://www.instagram.com/metland.college?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="icon-whatsapp" aria-label="Instagram SMK Metland">
+    <i class="bi bi-whatsapp"></i>
+  </a>
 </div>
         <div class="ppdb-btn">
-            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'">Join Us</button>
+            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'">Join us</button>
         </div>
         <div class="lang-switch" aria-label="Pengalih bahasa">
             <a href="{{ route('language.switch', 'id') }}" class="{{ app()->getLocale() === 'id' ? 'is-active' : '' }}">ID</a>
@@ -177,7 +180,7 @@
             <div class="career-timeline" id="lpk-content">
                 <span class="career-line" aria-hidden="true"></span>
                 <article class="career-step is-left">
-                    <span class="career-pill">1 Month</span>
+                    <span class="career-pill">First Step! </span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-journal-bookmark"></i></div>
                         <div>
@@ -187,7 +190,7 @@
                     </div>
                 </article>
                 <article class="career-step is-right">
-                    <span class="career-pill">2 Month</span>
+                    <span class="career-pill">Second Step!</span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-people"></i></div>
                         <div>
@@ -197,7 +200,7 @@
                     </div>
                 </article>
                 <article class="career-step is-left">
-                    <span class="career-pill">3 Month</span>
+                    <span class="career-pill">Third Step!</span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-briefcase"></i></div>
                         <div>
@@ -207,7 +210,7 @@
                     </div>
                 </article>
                 <article class="career-step is-left">
-                    <span class="career-pill">6 Month</span>
+                    <span class="career-pill">Fourth Step!</span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-briefcase"></i></div>
                         <div>
@@ -600,9 +603,26 @@
 
             <div class="footer-contact-map">
                 <h4>CONTACT US</h4>
-                <p><strong>Location:</strong><br>Jl. Taman Metro Raya Metland Transyogi, Kec. Cileungsi, Kab. Bogor, Prov. Jawa Barat</p>
+                <p style="margin-bottom: 12px;"><strong>Locations:</strong></p>
+                <p style="margin-bottom: 8px;">
+                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CILEUNGSI</strong><br>
+                        Jl. Kota Taman Metropolitan, Cileungsi Kidul, Kec. Cileungsi, Kabupaten Bogor, Jawa Barat 16820
+                    </a>
+                </p>
+                <p style="margin-bottom: 8px;">
+                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CIBITUNG</strong><br>
+                        P4W8+46C, Telagamurni, Kec. Cikarang Bar., Kabupaten Bekasi, Jawa Barat 17530
+                    </a>
+                </p>
+                <p style="margin-bottom: 16px;">
+                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>HOTEL METLAND SMARA KERTAJATI</strong><br>
+                        Jl. Kertajati - Kadipaten, Babakan, Kec. Kertajati, Kabupaten Majalengka, Jawa Barat 45457
+                    </a>
+                </p>
                 <p><strong>WhatsApp:</strong> +62-8180-9999-180</p>
-                <p><strong>Website:</strong> <a href="https://www.smkmetland.net" target="_blank" rel="noopener noreferrer">www.smkmetland.net</a></p>
                 <div class="footer-socials">
                     <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" aria-label="YouTube Metland Academy">
                         <i class="bi bi-youtube"></i>
