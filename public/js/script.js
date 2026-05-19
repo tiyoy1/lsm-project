@@ -90,21 +90,7 @@ if (navbar) {
   window.addEventListener("scroll", toggleNavbarBlur, { passive: true });
 }
 
-const heroSection = document.querySelector(".hero");
-const heroVideo = document.querySelector(".hero-media video");
-const updateHeroVideoState = () => {
-  if (!heroSection || !heroVideo) {
-    return;
-  }
-  heroSection.classList.toggle("is-video-playing", !heroVideo.paused);
-};
-
-if (heroVideo) {
-  heroVideo.addEventListener("play", updateHeroVideoState);
-  heroVideo.addEventListener("pause", updateHeroVideoState);
-  heroVideo.addEventListener("loadeddata", updateHeroVideoState);
-  updateHeroVideoState();
-}
+// Hero video has been replaced by a carousel
 
 const mobileMenuButton = document.querySelector(".nav-mobile-menu");
 const mobileNavList = document.querySelector("#primary-nav");
@@ -388,6 +374,19 @@ if (revealTargets.length > 0 && "IntersectionObserver" in window) {
 }
 
 window.addEventListener("load", () => {
+  const heroRoot = document.querySelector(".hero-swiper");
+  if (heroRoot && typeof window.Swiper !== "undefined") {
+    new window.Swiper(heroRoot, {
+      slidesPerView: 1,
+      loop: true,
+      speed: 1200,
+      autoplay: {
+        delay: 4500,
+        disableOnInteraction: false,
+      },
+    });
+  }
+
   const alumniRoot = document.querySelector(".alumni-slide-container.swiper");
   if (!alumniRoot || typeof window.Swiper === "undefined") {
     return;

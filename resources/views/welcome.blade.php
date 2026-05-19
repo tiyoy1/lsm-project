@@ -85,18 +85,19 @@
     </nav>
     <section class="hero">
         <div class="hero-media">
-            <video
-                src="{{ asset('video/COMPANY PROFILE 2026.mp4') }}"
-                poster="{{ asset('img/Kertajati.png') }}"
-                preload="auto"
-                autoplay
-                muted
-                loop
-                playsinline
-            ></video>
-        </div>
-        <div class="hero-poster" aria-hidden="true">
-            <img src="{{ asset('img/Kertajati.png') }}" alt="">
+            <div class="swiper hero-swiper" style="width: 100%; height: 100%;">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/SMK Metland Cileungsi.png') }}" alt="SMK Metland Cileungsi" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/SMK Metland cibitung.png') }}" alt="SMK Metland Cibitung" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/Kertajati.png') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-content">
@@ -108,7 +109,7 @@
                 <a href="#about-smk"     class="hero-btn">See more</a>
             </div>
         </div>
-    </section>
+    </section>  
     <section id="about-smk" class="about-smk-section">
         <div class="about-smk-wrap">
             <div class="about-card">
@@ -304,58 +305,110 @@
     <section class="alumni-section" id="alumni-section">
         <div class="alumni-shell">
             <div class="alumni-head">
-                <span class="section-badge"><span>Testimonialsals</span></span>
+                <span class="section-badge"><span>Testimonials</span></span>
                 <h2 class="section-title">What <span>They Say</span></h2>
                 <p class="section-desc">Alumni reviews regarding their learning experience at SMK Metland.</p>
             </div>
 
-            <div class="alumni-slide-container swiper">
-                <ul class="alumni-card-list swiper-wrapper">
-                    <li class="alumni-card-item swiper-slide">
-                        <a href="#" class="alumni-card-link">
-                            <img src="{{ asset('img/logo.webp') }}" alt="Foto Alumni" class="alumni-card-image" data-swiper-parallax="-80">
-                            <p class="alumni-card-badge" data-swiper-parallax="-40">Rafi Pratama</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">“Studying at SMK Metland made me more work-ready because I got used to projects and deadlines."</h2>
-                            <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
-                        </a>
-                    </li>
-                    <li class="alumni-card-item swiper-slide">
-                        <a href="#" class="alumni-card-link">
-                            <img src="{{ asset('img/logo.webp') }}" alt="Foto Alumni" class="alumni-card-image" data-swiper-parallax="-80">
-                            <p class="alumni-card-badge" data-swiper-parallax="-40">Dimas Mahendra</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">“Materi praktiknya relevan dengan industri, jadi saat Graduate saya lebih percaya diri masuk dunia kerja."</h2>
-                            <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
-                        </a>
-                    </li>
-                    <li class="alumni-card-item swiper-slide">
-                        <a href="#" class="alumni-card-link">
-                            <img src="{{ asset('img/logo.webp') }}" alt="Foto Alumni" class="alumni-card-image" data-swiper-parallax="-80">
-                            <p class="alumni-card-badge" data-swiper-parallax="-40">Rifki Pratama</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">“The teachers are supportive and the school environment helped me grow and gain confidence."</h2>
-                            <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
-                        </a>
-                    </li>
-                    <li class="alumni-card-item swiper-slide">
-                        <a href="#" class="alumni-card-link">
-                            <img src="{{ asset('img/logo.webp') }}" alt="Foto Alumni" class="alumni-card-image" data-swiper-parallax="-80">
-                            <p class="alumni-card-badge" data-swiper-parallax="-40">Alya Ramadhani</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">“Organizational activities and extracurriculars taught me teamwork, communication, and leadership."</h2>
-                            <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
-                        </a>
-                    </li>
-                    <li class="alumni-card-item swiper-slide">
-                        <a href="#" class="alumni-card-link">
-                            <img src="{{ asset('img/logo.webp') }}" alt="Foto Alumni" class="alumni-card-image" data-swiper-parallax="-80">
-                            <p class="alumni-card-badge" data-swiper-parallax="-40">Fikri Saputra</p>
-                            <h2 class="alumni-card-title" data-swiper-parallax="-20">“SMK Metland provides a balanced learning experience between theory, practice, and character.”</h2>
-                            <span class="alumni-card-button" data-swiper-parallax="-8"><i class="bi bi-arrow-right"></i></span>
-                        </a>
-                    </li>
-                </ul>
-
-                <div class="alumni-controls">
-                    <div class="swiper-pagination" aria-label="Alumni slide pagination"></div>
+            <div class="testi-grid">
+                {{-- Card 1 — Featured (Hospitality) --}}
+                <div class="testi-card is-featured">
+                    <div class="testi-stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="testi-dest">
+                        <i class="bi bi-building"></i>
+                        Hospitality Graduate
+                    </div>
+                    <p class="testi-quote">"Belajar di Metland College benar-benar mengubah hidup saya. Dari yang awalnya tidak tahu apa-apa tentang hospitality, sekarang saya sudah bisa bekerja di hotel bintang 5. Praktik langsung di Hotel Metland SMARA Kertajati memberikan pengalaman nyata yang tidak bisa didapat di tempat lain. Guru-guru di sini sangat suportif dan selalu mendorong kami untuk terus berkembang."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="background: linear-gradient(135deg, #1ca5a5, #0f6c75);">RP</div>
+                        <div class="testi-author-info">
+                            <h4>Rafi Pratama</h4>
+                            <p>Front Desk Officer — Hotel Ayana Midplaza</p>
+                        </div>
+                    </div>
                 </div>
+
+                {{-- Card 2 (Language) --}}
+                <div class="testi-card">
+                    <div class="testi-stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="testi-dest">
+                        <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag">
+                        Bekerja di Jepang
+                    </div>
+                    <p class="testi-quote">"Saya ikut kursus Bahasa Jepang di LKP Metland dan dalam 6 bulan berhasil lulus JLPT N4. Sekarang saya sudah bekerja di Osaka dan bisa berkomunikasi dengan lancar."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="background: linear-gradient(135deg, #BC002D, #8a001f);">FA</div>
+                        <div class="testi-author-info">
+                            <h4>Fauzan Alfarizi</h4>
+                            <p>Teknisi Manufaktur — Osaka, Jepang</p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Card 3 (International) --}}
+                <div class="testi-card">
+                    <div class="testi-stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                    </div>
+                    <div class="testi-dest">
+                        <img src="https://flagcdn.com/w40/de.png" alt="Germany Flag">
+                        Bekerja di Jerman
+                    </div>
+                    <p class="testi-quote">"Kursus Bahasa Jerman di sini sangat terstruktur. Saya berhasil lulus B1 dan langsung dapat kerja di Berlin sebagai tenaga kesehatan."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="background: linear-gradient(135deg, #DD0000, #8a0000);">NR</div>
+                        <div class="testi-author-info">
+                            <h4>Nadia Rahmawati</h4>
+                            <p>Perawat — Rumah Sakit Berlin, Jerman</p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Card 4 (Hospitality) --}}
+                <div class="testi-card">
+                    <div class="testi-stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="testi-dest">
+                        <i class="bi bi-cup-hot"></i>
+                        F&B Service Graduate
+                    </div>
+                    <p class="testi-quote">"Materi praktiknya relevan dengan industri, jadi saat lulus saya lebih percaya diri masuk dunia kerja. Training di teaching factory sangat membantu."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="background: linear-gradient(135deg, #2e7d32, #1b5e20);">DM</div>
+                        <div class="testi-author-info">
+                            <h4>Dimas Mahendra</h4>
+                            <p>F&B Supervisor — The Ritz-Carlton Jakarta</p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Card 5 (International) --}}
+                <div class="testi-card">
+                    <div class="testi-stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="testi-dest">
+                        <img src="https://flagcdn.com/w40/kr.png" alt="Korea Flag">
+                        Bekerja di Korea
+                    </div>
+                    <p class="testi-quote">"Pendampingan interview dari LKP sangat membantu. Saya bisa menjawab pertanyaan HRD Korea dengan percaya diri dan akhirnya diterima kerja."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="background: linear-gradient(135deg, #003478, #001a3d);">RS</div>
+                        <div class="testi-author-info">
+                            <h4>Rizal Santoso</h4>
+                            <p>Operator Produksi — Seoul, Korea Selatan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="{{ route('testi') }}" class="career-cta" style="display: inline-block;">See more</a>
             </div>
         </div>
     </section>
@@ -385,23 +438,23 @@
             @csrf
             <label for="name" class="form-label">Name</label>
           <div class="input-group">
-            <i data-feather="user"></i>
+            <i class="bi bi-person"></i>
             <input type="text" name="name" value="{{ old('name') }}" placeholder="Full name" required minlength="2" />
           </div>
           <label for="email" class="form-label">Email</label>
           <div class="input-group">
-            <i data-feather="mail"></i>
+            <i class="bi bi-envelope"></i>
             <input type="email" name="email" value="{{ old('email') }}" placeholder="Email address" required />
           </div>
           <label for="phone" class="form-label">Phone Number</label>
           <div class="input-group">
-            <i data-feather="phone"></i>
+            <i class="bi bi-telephone"></i>
             <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="Phone number" required />
           </div>
             <label for="desc" class="form-label">What's your message?</label>
           <div class="input-group">
-            <i data-feather="desc"></i>
-            <textarea name="message" placeholder="Description" required>{{ old('message') }}</textarea>
+            <i data-feather="message-square"></i>
+            <textarea name="message" id="desc" placeholder="Description" rows="4" required style="resize: vertical;">{{ old('message') }}</textarea>
           </div>
           <p class="contact-feedback {{ session('contact_success') ? 'is-success' : ($errors->any() ? 'is-error' : '') }}" id="contact-feedback" role="status" aria-live="polite">
               {{ session('contact_success') ?? ($errors->first() ?: '') }}
@@ -415,7 +468,7 @@
         <div class="partnership-shell">
             <div class="partnership-header">
                 <span class="partnership-badge">PARTNERSHIP</span>
-                <h2 class="partnership-title">PARTNERSHIP <span>Industri & Perguruan Tinggi</span></h2>
+                <h2 class="partnership-title">PARTNERSHIP <br><span>Industri & Perguruan Tinggi</span></h2>
                 <p class="partnership-desc">Sourced from the partnership list on the official SMK Metland website, this collaboration supports internship, teaching factory, and synchronization of industry needs.</p>
             </div>
 

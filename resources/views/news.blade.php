@@ -82,18 +82,19 @@
     </nav>
     <section class="hero">
         <div class="hero-media">
-            <video
-                src="{{ asset('video/COMPANY PROFILE 2026.mp4') }}"
-                poster="{{ asset('img/Kertajati.png') }}"
-                preload="auto"
-                autoplay
-                muted
-                loop
-                playsinline
-            ></video>
-        </div>
-        <div class="hero-poster" aria-hidden="true">
-            <img src="{{ asset('img/Kertajati.png') }}" alt="">
+            <div class="swiper hero-swiper" style="width: 100%; height: 100%;">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/SMK Metland Cileungsi.png') }}" alt="SMK Metland Cileungsi" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/SMK Metland cibitung.png') }}" alt="SMK Metland Cibitung" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/Kertajati.png') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-content">
