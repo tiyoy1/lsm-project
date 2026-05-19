@@ -26,7 +26,7 @@ class RegistrationResource extends Resource
 {
     protected static ?string $model = Registration::class;
 
-    protected static string|\UnitEnum|null $navigationGroup = 'Legacy SMK';
+    protected static string|\UnitEnum|null $navigationGroup = 'Metland College';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentList;
 

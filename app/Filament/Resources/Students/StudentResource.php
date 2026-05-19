@@ -24,7 +24,7 @@ class StudentResource extends Resource
 {
     protected static ?string $model = Student::class;
 
-    protected static string|\UnitEnum|null $navigationGroup = 'Legacy SMK';
+    protected static string|\UnitEnum|null $navigationGroup = 'Metland College';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedAcademicCap;
 
