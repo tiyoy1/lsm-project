@@ -47,7 +47,7 @@
                 </ul>
             </li>
             <li><a href="{{ route('news') }}">News</a></li>
-            <li><a href="{{ route('testi') }}">Testimonials</a></li>
+            <li><a href="{{ route('testi') }}">Alumni Reviews</a></li>
             <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
             <li><a href="{{ url('/') }}#contact">Contact</a></li>
             <li><a href="{{ url('/') }}#partnership">Partnership</a></li>
@@ -962,7 +962,7 @@
     <section class="alumni-testi" id="alumni-testi">
       <div class="alumni-testi-shell">
         <div class="alumni-testi-head">
-            <div class="alumni-testi-badge">Alumni Testimonials</div>
+            <div class="alumni-testi-badge">Alumni Reviews</div>
             <h2 class="alumni-testi-title">What Our <span>Alumni Say</span></h2>
             <p class="alumni-testi-desc">Dengarkan pengalaman nyata dari alumni LPK Metland College yang kini telah sukses bekerja di industri perhotelan.</p>
         </div>

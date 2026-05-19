@@ -32,6 +32,7 @@ class RegistrationController extends Controller
             'full_name' => 'required|string|max:255',
             'birth_date' => 'required|date',
             'gender' => 'required|in:Male,Female',
+            'education_level' => 'required|in:SMA,SMK',
             'last_school' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'majors' => 'required|string|max:255',

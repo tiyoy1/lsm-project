@@ -375,9 +375,20 @@
                         @enderror
                     </div>
 
+                    <div class="field-group">
+                        <label for="education_level">Education Level</label>
+                        <select id="education_level" name="education_level" required>
+                            <option value="">Select level</option>
+                            <option value="SMA" @selected(old('education_level') === 'SMA')>SMA</option>
+                            <option value="SMK" @selected(old('education_level') === 'SMK')>SMK</option>
+                        </select>
+                        @error('education_level')
+                            <p class="error-msg">{{ $message }}</p>
+                        @enderror
+                    </div>
                     <div class="field-group full">
-                        <label for="last_school">Last School</label>
-                        <input type="text" id="last_school" name="last_school" value="{{ old('last_school') }}" placeholder="Enter your last school" required>
+                        <label for="last_school">Last School Name</label>
+                        <input type="text" id="last_school" name="last_school" value="{{ old('last_school') }}" placeholder="Enter your school name" required>
                         @error('last_school')
                             <p class="error-msg">{{ $message }}</p>
                         @enderror

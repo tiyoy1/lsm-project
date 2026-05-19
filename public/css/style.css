@@ -5911,7 +5911,7 @@ body > nav ul li.nav-mobile-only {
     }
 }
 
-/* ============ TESTIMONIAL QUOTE GRID ============ */
+/* ============ ALUMNI REVIEWS QUOTE GRID ============ */
 .testi-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

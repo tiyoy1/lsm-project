@@ -47,7 +47,7 @@
                 </ul>
             </li>
             <li><a href="{{ route('news') }}">News</a></li>
-            <li><a href="{{ route('testi') }}">Testimonials</a></li>
+            <li><a href="{{ route('testi') }}">Alumni Reviews</a></li>
             <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#partnership">Partnership</a></li>
@@ -305,7 +305,7 @@
     <section class="alumni-section" id="alumni-section">
         <div class="alumni-shell">
             <div class="alumni-head">
-                <span class="section-badge"><span>Testimonials</span></span>
+                <span class="section-badge"><span>Alumni Reviews</span></span>
                 <h2 class="section-title">What <span>They Say</span></h2>
                 <p class="section-desc">Alumni reviews regarding their learning experience at SMK Metland.</p>
             </div>

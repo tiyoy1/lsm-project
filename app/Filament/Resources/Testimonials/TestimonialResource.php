@@ -28,11 +28,11 @@ class TestimonialResource extends Resource
 
     protected static string|\UnitEnum|null $navigationGroup = 'Metland College';
 
-    protected static ?string $navigationLabel = 'Testimoni';
+        protected static ?string $navigationLabel = 'Alumni Reviews';
 
-    protected static ?string $modelLabel = 'Testimoni';
+        protected static ?string $modelLabel = 'Review';
 
-    protected static ?string $pluralModelLabel = 'Testimoni';
+        protected static ?string $pluralModelLabel = 'Reviews';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChatBubbleBottomCenterText;
 
