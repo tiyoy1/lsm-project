@@ -327,7 +327,7 @@
 </head>
 <body>
     @php
-        $gformUrl = 'https://forms.gle/PASTE_YOUR_GFORM_LINK_HERE';
+        $gformUrl = 'https://forms.gle/bNM8YNTo9sSea7fy7';
     @endphp
     <nav>
         <div class="logo">
@@ -475,10 +475,10 @@
                         </div>
                         <div class="package-card-body">
                             <ul>
-                                <li>Professional Certificate</li>
-                                <li>Professional Certificate</li>
-                                <li>Professional Certificate</li>
-                                <li>Professional Certificate</li>
+                                <li>Bersertifikat BNSP</li>
+                                <li>Instruktur Pkaatisi Ahli</li>
+                                <li>Penyaluran Kerja ke Luar Negeri</li>
+                                <li>Program Magang Eksklusif</li>
                             </ul>
                         </div>
                         <div class="package-card-footer">

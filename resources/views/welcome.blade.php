@@ -22,7 +22,7 @@
 </head> 
 <body>
     @php
-        $whatsappNumber = '6281387385258';
+        $whatsappNumber = '6281809999180';
     @endphp
     <nav>
         <div class="logo">
