@@ -8,15 +8,19 @@ class Testimonial extends Model
 {
     protected $fillable = [
         'name',
-        'role',
-        'quote',
         'photo',
+        'program',
+        'current_job',
+        'company',
+        'testimonial',
         'rating',
-        'sort_order',
-        'is_published',
+        'is_approved',
+        'is_featured',
     ];
 
     protected $casts = [
-        'is_published' => 'boolean',
+        'rating' => 'integer',
+        'is_approved' => 'boolean',
+        'is_featured' => 'boolean',
     ];
 }

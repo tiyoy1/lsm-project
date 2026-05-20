@@ -16,6 +16,22 @@
   - `php artisan filament:optimize`
 - Ensure PHP OPcache is enabled (and sufficiently sized) on the server.
 
+## API
+
+### Testimonials
+
+- Endpoint: `GET /api/testimonials`
+- Query params:
+  - `featured_only=1` (optional) to return featured testimonials only.
+
+Example (frontend fetch):
+
+```js
+const res = await fetch('/api/testimonials?featured_only=1');
+const json = await res.json();
+console.log(json.data);
+```
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

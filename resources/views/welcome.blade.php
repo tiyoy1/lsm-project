@@ -321,102 +321,55 @@
                 <p class="section-desc">Alumni reviews regarding their learning experience at SMK Metland.</p>
             </div>
 
-            <div class="testi-grid">
-                {{-- Card 1 — Featured (Hospitality) --}}
-                <div class="testi-card is-featured">
-                    <div class="testi-stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    </div>
-                    <div class="testi-dest">
-                        <i class="bi bi-building"></i>
-                        Hospitality Graduate
-                    </div>
-                    <p class="testi-quote">"Belajar di Metland College benar-benar mengubah hidup saya. Dari yang awalnya tidak tahu apa-apa tentang hospitality, sekarang saya sudah bisa bekerja di hotel bintang 5. Praktik langsung di Hotel Metland SMARA Kertajati memberikan pengalaman nyata yang tidak bisa didapat di tempat lain. Guru-guru di sini sangat suportif dan selalu mendorong kami untuk terus berkembang."</p>
-                    <div class="testi-author">
-                        <div class="testi-avatar" style="background: linear-gradient(135deg, #1ca5a5, #0f6c75);">RP</div>
-                        <div class="testi-author-info">
-                            <h4>Rafi Pratama</h4>
-                            <p>Front Desk Officer — Hotel Ayana Midplaza</p>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Card 2 (Language) --}}
-                <div class="testi-card">
-                    <div class="testi-stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    </div>
-                    <div class="testi-dest">
-                        <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag">
-                        Bekerja di Jepang
-                    </div>
-                    <p class="testi-quote">"Saya ikut kursus Bahasa Jepang di LKP Metland dan dalam 6 bulan berhasil lulus JLPT N4. Sekarang saya sudah bekerja di Osaka dan bisa berkomunikasi dengan lancar."</p>
-                    <div class="testi-author">
-                        <div class="testi-avatar" style="background: linear-gradient(135deg, #BC002D, #8a001f);">FA</div>
-                        <div class="testi-author-info">
-                            <h4>Fauzan Alfarizi</h4>
-                            <p>Teknisi Manufaktur — Osaka, Jepang</p>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Card 3 (International) --}}
-                <div class="testi-card">
-                    <div class="testi-stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
-                    </div>
-                    <div class="testi-dest">
-                        <img src="https://flagcdn.com/w40/de.png" alt="Germany Flag">
-                        Bekerja di Jerman
-                    </div>
-                    <p class="testi-quote">"Kursus Bahasa Jerman di sini sangat terstruktur. Saya berhasil lulus B1 dan langsung dapat kerja di Berlin sebagai tenaga kesehatan."</p>
-                    <div class="testi-author">
-                        <div class="testi-avatar" style="background: linear-gradient(135deg, #DD0000, #8a0000);">NR</div>
-                        <div class="testi-author-info">
-                            <h4>Nadia Rahmawati</h4>
-                            <p>Perawat — Rumah Sakit Berlin, Jerman</p>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Card 4 (Hospitality) --}}
-                <div class="testi-card">
-                    <div class="testi-stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    </div>
-                    <div class="testi-dest">
-                        <i class="bi bi-cup-hot"></i>
-                        F&B Service Graduate
-                    </div>
-                    <p class="testi-quote">"Materi praktiknya relevan dengan industri, jadi saat lulus saya lebih percaya diri masuk dunia kerja. Training di teaching factory sangat membantu."</p>
-                    <div class="testi-author">
-                        <div class="testi-avatar" style="background: linear-gradient(135deg, #2e7d32, #1b5e20);">DM</div>
-                        <div class="testi-author-info">
-                            <h4>Dimas Mahendra</h4>
-                            <p>F&B Supervisor — The Ritz-Carlton Jakarta</p>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Card 5 (International) --}}
-                <div class="testi-card">
-                    <div class="testi-stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    </div>
-                    <div class="testi-dest">
-                        <img src="https://flagcdn.com/w40/kr.png" alt="Korea Flag">
-                        Bekerja di Korea
-                    </div>
-                    <p class="testi-quote">"Pendampingan interview dari LKP sangat membantu. Saya bisa menjawab pertanyaan HRD Korea dengan percaya diri dan akhirnya diterima kerja."</p>
-                    <div class="testi-author">
-                        <div class="testi-avatar" style="background: linear-gradient(135deg, #003478, #001a3d);">RS</div>
-                        <div class="testi-author-info">
-                            <h4>Rizal Santoso</h4>
-                            <p>Operator Produksi — Seoul, Korea Selatan</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+	            <div class="testi-grid">
+	                @forelse(($homeTestimonials ?? collect()) as $index => $t)
+	                    @php
+	                        $initials = collect(preg_split('/\s+/', trim((string) $t->name), -1, PREG_SPLIT_NO_EMPTY))
+	                            ->take(2)
+	                            ->map(fn ($w) => mb_strtoupper(mb_substr($w, 0, 1)))
+	                            ->implode('');
+	                        $rating = (int) ($t->rating ?? 5);
+	                        $photoUrl = filled($t->photo) ? \Illuminate\Support\Facades\Storage::disk('public')->url($t->photo) : null;
+	                        $meta = collect([$t->current_job, $t->company])->filter()->implode(' — ');
+	                    @endphp
+	                    <div class="testi-card {{ $index === 0 ? 'is-featured' : '' }}">
+	                        <div class="testi-stars" aria-label="Rating {{ $rating }} / 5">
+	                            @for($i = 1; $i <= 5; $i++)
+	                                <i class="bi {{ $i <= $rating ? 'bi-star-fill' : 'bi-star' }}"></i>
+	                            @endfor
+	                        </div>
+	                        @if(filled($t->program))
+	                            <div class="testi-dest">
+	                                <i class="bi bi-mortarboard"></i>
+	                                {{ $t->program }}
+	                            </div>
+	                        @endif
+	                        <p class="testi-quote">"{{ $t->testimonial }}"</p>
+	                        <div class="testi-author">
+	                            @if($photoUrl)
+	                                <img src="{{ $photoUrl }}" alt="{{ $t->name }}" class="testi-avatar" style="object-fit: cover;">
+	                            @else
+	                                <div class="testi-avatar" style="background: linear-gradient(135deg, #1ca5a5, #0f6c75);">{{ $initials }}</div>
+	                            @endif
+	                            <div class="testi-author-info">
+	                                <h4>{{ $t->name }}</h4>
+	                                <p>{{ $meta ?: 'Alumni' }}</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                @empty
+	                    <div class="testi-card is-featured">
+	                        <p class="testi-quote">"Belum ada testimoni yang disetujui. Silakan submit testimoni kamu!"</p>
+	                        <div class="testi-author">
+	                            <div class="testi-avatar" style="background: linear-gradient(135deg, #1ca5a5, #0f6c75);">MC</div>
+	                            <div class="testi-author-info">
+	                                <h4>Metland College</h4>
+	                                <p><a href="{{ route('testimonials.submit') }}">Submit Testimonial</a></p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                @endforelse
+	            </div>
 
             <div style="text-align: center; margin-top: 48px;">
                 <a href="{{ route('testi') }}" class="career-cta" style="display: inline-block;">See more</a>

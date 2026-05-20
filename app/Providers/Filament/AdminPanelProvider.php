@@ -6,8 +6,7 @@ use App\Filament\Pages\Dashboard;
 use App\Filament\Resources\News\NewsResource;
 use App\Filament\Resources\ContactSettings\ContactSettingResource;
 use App\Filament\Resources\Partnerships\PartnershipResource;
-use App\Filament\Resources\Registrations\RegistrationResource;
-use App\Filament\Resources\Students\StudentResource;
+use App\Filament\Resources\Testimonials\TestimonialResource;
 use App\Filament\Widgets\AdminStatsOverview;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -40,11 +39,10 @@ class AdminPanelProvider extends PanelProvider
                 Dashboard::class,
             ])
             ->resources([
-                StudentResource::class,
-                RegistrationResource::class,
                 NewsResource::class,
                 ContactSettingResource::class,
                 PartnershipResource::class,
+                TestimonialResource::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([

@@ -632,11 +632,78 @@
 
         </div>
       </div>
-    </section>
+	    </section>
 
-    {{-- ======= WHY CHOOSE SECTION (Complement) ======= --}}
-    <section class="why-choose-section">
-        <div class="why-choose-shell">
+        {{-- ======= SUBMIT TESTIMONIAL FORM (PUBLIC) ======= --}}
+        <section class="container" id="submit" style="max-width: 980px; margin: 0 auto 80px;">
+            <div class="testi-page-head" style="margin-bottom: 28px;">
+                <div class="testi-page-badge">Submit</div>
+                <h2 class="testi-page-title">Submit Your <span>Testimonial</span></h2>
+                <p class="testi-page-desc">Testimoni kamu akan tampil setelah ditinjau dan disetujui admin.</p>
+            </div>
+
+            @if(session('testimonial_success'))
+                <div class="alert alert-success">{{ session('testimonial_success') }}</div>
+            @endif
+
+            @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul class="mb-0">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form action="{{ route('testi.store') }}" method="POST" enctype="multipart/form-data" class="card shadow-sm">
+                @csrf
+                <div class="card-body p-4">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Name</label>
+                            <input class="form-control" name="name" value="{{ old('name') }}" required maxlength="255" placeholder="Full name">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Photo (optional)</label>
+                            <input class="form-control" type="file" name="photo" accept="image/*">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Program (optional)</label>
+                            <input class="form-control" name="program" value="{{ old('program') }}" maxlength="255" placeholder="LPK / LKP / etc">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Current Job (optional)</label>
+                            <input class="form-control" name="current_job" value="{{ old('current_job') }}" maxlength="255" placeholder="Current role">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Company (optional)</label>
+                            <input class="form-control" name="company" value="{{ old('company') }}" maxlength="255" placeholder="Company name">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label">Rating</label>
+                            <select class="form-select" name="rating" required>
+                                @for($i = 5; $i >= 1; $i--)
+                                    <option value="{{ $i }}" @selected((int) old('rating', 5) === $i)>{{ $i }}</option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Testimonial</label>
+                            <textarea class="form-control" name="testimonial" rows="6" required maxlength="4000" placeholder="Write your testimonial...">{{ old('testimonial') }}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 d-flex gap-2">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+	    {{-- ======= WHY CHOOSE SECTION (Complement) ======= --}}
+	    <section class="why-choose-section">
+	        <div class="why-choose-shell">
             <div class="why-choose-head">
                 <div class="why-choose-badge">Why Choose Us</div>
                 <h2 class="why-choose-title">Trusted by <span>Hundreds of Alumni</span></h2>

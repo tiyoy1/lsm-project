@@ -13,10 +13,12 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SchoolProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentWorkController;
+use App\Http\Controllers\TestimonialPageController;
 use App\Http\Controllers\VisionMissionController;
 use App\Models\ContactSetting;
 use App\Models\News;
 use App\Models\Partnership;
+use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -37,7 +39,14 @@ Route::get('/', function () {
         ->orderBy('id')
         ->get();
 
-    return view('welcome', compact('latestNews', 'contactSetting', 'partnerships'));
+    $homeTestimonials = Testimonial::query()
+        ->where('is_approved', true)
+        ->orderByDesc('is_featured')
+        ->orderByDesc('id')
+        ->take(6)
+        ->get();
+
+    return view('welcome', compact('latestNews', 'contactSetting', 'partnerships', 'homeTestimonials'));
 });
 Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact.store');
 Route::get('/visi-misi', [VisionMissionController::class, 'publicIndex'])->name('vision-mission');
@@ -79,7 +88,10 @@ Route::get('/news', function (\Illuminate\Http\Request $request) {
 
     return view('news', compact('latestNews'));
 })->name('news');
-Route::view('/testi', 'testi')->name('testi');
+Route::get('/testi', [TestimonialPageController::class, 'index'])->name('testi');
+Route::post('/testi', [TestimonialPageController::class, 'store'])->name('testi.store');
+Route::get('/testimonials/submit', fn () => redirect()->route('testi', [], 302)->withFragment('submit'))->name('testimonials.submit');
+Route::post('/testimonials/submit', fn () => redirect()->route('testi', [], 302))->name('testimonials.store');
 
 Route::get('/language/{locale}', function (string $locale) {
     if (!in_array($locale, ['en', 'id'], true)) {
