@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testimonials - Metland College</title>
+    <title>Alumni Reviews - Metland College</title>
     <link rel="icon" type="image/webp" href="{{ asset('img/LOGO METLAND COLLEGE-02.png') }}?v=20260305">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -47,7 +47,7 @@
                 </ul>
             </li>
             <li><a href="{{ route('news') }}">News</a></li>
-            <li><a href="{{ route('testi') }}">Testimonials</a></li>
+            <li><a href="{{ route('testi') }}">Alumni Reviews</a></li>
             <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
             <li><a href="{{ url('/') }}#contact">Contact</a></li>
             <li><a href="{{ url('/') }}#partnership">Partnership</a></li>
@@ -99,7 +99,7 @@
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-content">
             <p class="hero-eyebrow">"What They Say About Us"</p>
-            <h1 class="hero-title">Alumni<br><span>TESTIMONIALS</span></h1>
+            <h1 class="hero-title">Alumni<br><span>REVIEWS</span></h1>
             <p>Hear from our alumni and students about their experiences, achievements, and journeys with Metland College.</p>
             <div class="hero-actions">
                 <a href="#content-section" class="hero-btn">See more</a>

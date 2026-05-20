@@ -223,100 +223,6 @@ nav .sosmed-icon .icon-whatsapp {
     color: #25d366;
 } /* opsional */
 
-.whatsapp-fab {
-    position: fixed;
-    right: 24px;
-    bottom: 24px;
-    width: 60px;
-    height: 60px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #25d366, #128c7e, #1fd16a);
-    background-size: 180% 180%;
-    color: #ffffff;
-    font-size: 1.9rem;
-    box-shadow: 0 18px 32px rgba(18, 140, 126, 0.35);
-    z-index: 999;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease, background-position 0.35s ease;
-    overflow: visible;
-    isolation: isolate;
-}
-
-.whatsapp-fab:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 22px 38px rgba(18, 140, 126, 0.45);
-    color: #ffffff;
-    filter: saturate(1.05);
-    background-position: 100% 0%;
-    animation: whatsappFabPulse 1.4s ease-in-out infinite;
-}
-
-.whatsapp-fab::before {
-    content: "";
-    position: absolute;
-    inset: -6px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(37, 211, 102, 0.22), transparent 70%);
-    opacity: 0;
-    transform: scale(0.86);
-    transition: opacity 0.25s ease, transform 0.25s ease;
-    z-index: -1;
-}
-
-.whatsapp-fab:hover::before {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-.whatsapp-fab-tooltip {
-    position: absolute;
-    right: calc(100% + 14px);
-    top: 50%;
-    transform: translateY(-50%) translateX(8px);
-    padding: 8px 12px;
-    border-radius: 999px;
-    background: rgba(8, 28, 25, 0.92);
-    color: #ffffff;
-    font-size: 0.8rem;
-    font-weight: 700;
-    line-height: 1;
-    white-space: nowrap;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.22s ease, transform 0.22s ease;
-}
-
-.whatsapp-fab-tooltip::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 100%;
-    transform: translateY(-50%);
-    border-width: 7px 0 7px 8px;
-    border-style: solid;
-    border-color: transparent transparent transparent rgba(8, 28, 25, 0.92);
-}
-
-.whatsapp-fab:hover .whatsapp-fab-tooltip {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
-}
-
-@keyframes whatsappFabPulse {
-    0% {
-        box-shadow: 0 18px 32px rgba(18, 140, 126, 0.35);
-    }
-    50% {
-        box-shadow: 0 22px 42px rgba(18, 140, 126, 0.5);
-    }
-    100% {
-        box-shadow: 0 18px 32px rgba(18, 140, 126, 0.35);
-    }
-}
-
 nav .ppdb-btn button {
     margin-left: 0;
     color: #e9fdff;
@@ -1701,7 +1607,13 @@ body > nav ul li.nav-mobile-only {
     padding: 2.618rem 2.618rem 2.05rem;
     max-width: 1040px;
     border-radius: 32px;
-    background:rgba(8, 57, 61, 0.98);
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(17, 174, 178, 0.16),
+            transparent 28%
+        ),
+        linear-gradient(145deg, rgba(8, 57, 61, 0.98), rgba(13, 128, 134, 0.95));
     box-shadow: 0 28px 46px rgba(9, 72, 78, 0.18);
     overflow: hidden;
 }
@@ -4743,20 +4655,6 @@ body > nav ul li.nav-mobile-only {
         font-size: 0.68rem;
     }
 
-    .whatsapp-fab {
-        right: 16px;
-        bottom: 16px;
-        width: 54px;
-        height: 54px;
-        font-size: 1.65rem;
-    }
-
-    .whatsapp-fab-tooltip {
-        right: calc(100% + 10px);
-        font-size: 0.72rem;
-        padding: 7px 10px;
-    }
-
     .about-head {
         min-height: 74px;
         padding: 12px 14px;
@@ -5434,12 +5332,23 @@ body > nav ul li.nav-mobile-only {
 /* Vision Card (Premium Deep Ocean Design) */
 .vision-card {
     background-color: #041219;
+    background-image:
+        radial-gradient(
+            circle at 0% 0%,
+            rgba(31, 145, 151, 0.25) 0%,
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(88, 210, 210, 0.15) 0%,
+            transparent 60%
+        );
     border-radius: 40px;
     padding: 90px 60px;
     text-align: center;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(4, 18, 25, 0.3);
+    box-shadow: 0 40px 80px rgba(4, 18, 25, 0.3);
     border: 1px solid rgba(88, 210, 210, 0.18);
 }
 
@@ -5486,6 +5395,7 @@ body > nav ul li.nav-mobile-only {
     line-height: 1.5;
     max-width: 850px;
     margin: 0 auto;
+    font-family: "Playfair Display", serif;
     font-weight: 500;
     font-style: italic;
     letter-spacing: 0.02em;
@@ -5843,6 +5753,12 @@ body > nav ul li.nav-mobile-only {
     transition: all 0.3s ease-in-out;
 }
 
+.section-badge:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 .section-title {
     font-size: clamp(2rem, 4vw, 3.2rem);
     font-family: "Sora", sans-serif;
@@ -5995,7 +5911,7 @@ body > nav ul li.nav-mobile-only {
     }
 }
 
-/* ============ TESTIMONIAL QUOTE GRID ============ */
+/* ============ ALUMNI REVIEWS QUOTE GRID ============ */
 .testi-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

@@ -21,9 +21,6 @@
     />
 </head> 
 <body>
-    @php
-        $whatsappNumber = '6281809999180';
-    @endphp
     <nav>
         <div class="logo">
             <img src="{{ asset("img\LOGO METLAND COLLEGE-02.png") }}" alt="Logo Metland College" class="logo-img">Metland College
@@ -50,7 +47,7 @@
                 </ul>
             </li>
             <li><a href="{{ route('news') }}">News</a></li>
-            <li><a href="{{ route('testi') }}">Testimonials</a></li>
+            <li><a href="{{ route('testi') }}">Alumni Reviews</a></li>
             <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#partnership">Partnership</a></li>
@@ -65,6 +62,9 @@
   </a>
   <a href="https://www.instagram.com/metland.college?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="icon-instagram" aria-label="Instagram SMK Metland">
     <i class="bi bi-instagram"></i>
+  </a>
+  <a href="https://www.instagram.com/metland.college?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="icon-whatsapp" aria-label="Instagram SMK Metland">
+    <i class="bi bi-whatsapp"></i>
   </a>
 </div>
         <div class="ppdb-btn">
@@ -305,8 +305,8 @@
     <section class="alumni-section" id="alumni-section">
         <div class="alumni-shell">
             <div class="alumni-head">
-                <span class="section-badge"><span>Testimonials</span></span>
-                <h2 class="section-title">What <span>They</span> Say</h2>
+                <span class="section-badge"><span>Alumni Reviews</span></span>
+                <h2 class="section-title">What <span>They Say</span></h2>
                 <p class="section-desc">Alumni reviews regarding their learning experience at SMK Metland.</p>
             </div>
 
@@ -415,8 +415,8 @@
     <section class="contact" id="contact">
       <div class="section-header">
         <span class="section-badge">Contact Us</span>
-        <h2 class="section-title"><span>Get In Touch</span> With Our Team</h2>
-        <p class="section-desc">We would love to hear from you.</p>
+        <h2 class="section-title">Connect With Our Team</h2>
+        <p class="section-desc">Have questions about our school, programs, or enrollment? Send Message and our team akan menghubungi Anda.</p>
       </div>
 
       <div class="row">
@@ -429,8 +429,8 @@
               class="map"
             ></iframe>
             <div class="contact-left-text">
-                <h3>Have any business?</h3>
-                <p>Join us on this journey to create a brighter future where success begins with collaboration..</p>
+                <h3>Ready to craft your future with us?</h3>
+                <p>Join Metland College today and take the first step towards a successful career. Our dedicated team is here to guide you through every step of your educational journey.</p>
             </div>
         </div>
 
@@ -438,19 +438,23 @@
             @csrf
             <label for="name" class="form-label">Name</label>
           <div class="input-group">
+            <i class="bi bi-person"></i>
             <input type="text" name="name" value="{{ old('name') }}" placeholder="Full name" required minlength="2" />
           </div>
           <label for="email" class="form-label">Email</label>
           <div class="input-group">
+            <i class="bi bi-envelope"></i>
             <input type="email" name="email" value="{{ old('email') }}" placeholder="Email address" required />
           </div>
           <label for="phone" class="form-label">Phone Number</label>
           <div class="input-group">
+            <i class="bi bi-telephone"></i>
             <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="Phone number" required />
           </div>
             <label for="desc" class="form-label">What's your message?</label>
           <div class="input-group">
-            <input name="message" id="desc" placeholder="Description" rows="4" required style="resize: vertical;">{{ old('message') }}</input>
+            <i data-feather="message-square"></i>
+            <textarea name="message" id="desc" placeholder="Description" rows="4" required style="resize: vertical;">{{ old('message') }}</textarea>
           </div>
           <p class="contact-feedback {{ session('contact_success') ? 'is-success' : ($errors->any() ? 'is-error' : '') }}" id="contact-feedback" role="status" aria-live="polite">
               {{ session('contact_success') ?? ($errors->first() ?: '') }}
@@ -549,15 +553,11 @@
                         <img src="{{ asset('img/partners/Pullman-removebg-preview-150x150.png') }}" alt="Logo Pullman">
                         <p>Pullman</p>
                     </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/dt_153037286-150x90.png') }}" alt="Logo Pullman">
-                        <p>Grand Hyatt</p>
-                    </article>
                 </div>
             </div>
 
             <div class="partner-group">
-                <h3>University & Career Development Partners</h3>
+                <h3>University Partners</h3>
                 <div class="partner-logo-grid">
                     <article class="partner-logo-card">
                         <img src="{{ asset('img/partners/biru-150x150.png') }}" alt="Logo STIE Pariwisata YAPARI-AKTRIPA">
@@ -568,7 +568,7 @@
                         <p>Petchruniversity</p>
                     </article>
                     <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/anabuki_logo.jpg') }}" alt="Logo Anabuki">
+                        <img src="{{ asset('img/partners/dt_153037286-150x90.png') }}" alt="Logo Anabuki">
                         <p>Anabuki</p>
                     </article>
                     <article class="partner-logo-card">
@@ -708,16 +708,5 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="{{ asset("js/script.js") }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <a
-        class="whatsapp-fab"
-        href="https://wa.me/{{ $whatsappNumber }}"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat via WhatsApp"
-        title="Chat via WhatsApp"
-    >
-        <i class="bi bi-whatsapp" aria-hidden="true"></i>
-        <span class="whatsapp-fab-tooltip">Hubungi kami!</span>
-    </a>
 </body>
 </html>
