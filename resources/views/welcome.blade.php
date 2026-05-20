@@ -557,7 +557,7 @@
             </div>
 
             <div class="partner-group">
-                <h3>University Partners</h3>
+                <h3>University & Career Development Partners</h3>
                 <div class="partner-logo-grid">
                     <article class="partner-logo-card">
                         <img src="{{ asset('img/partners/biru-150x150.png') }}" alt="Logo STIE Pariwisata YAPARI-AKTRIPA">
@@ -568,7 +568,7 @@
                         <p>Petchruniversity</p>
                     </article>
                     <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/dt_153037286-150x90.png') }}" alt="Logo Anabuki">
+                        <img src="{{ asset('img/partners/anabuki_logo.jpg') }}" alt="Logo Anabuki">
                         <p>Anabuki</p>
                     </article>
                     <article class="partner-logo-card">
