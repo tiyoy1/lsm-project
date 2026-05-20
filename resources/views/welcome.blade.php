@@ -306,7 +306,7 @@
         <div class="alumni-shell">
             <div class="alumni-head">
                 <span class="section-badge"><span>Testimonials</span></span>
-                <h2 class="section-title">What <span>They Say</span></h2>
+                <h2 class="section-title">What <span>They</span> Say</h2>
                 <p class="section-desc">Alumni reviews regarding their learning experience at SMK Metland.</p>
             </div>
 
@@ -415,8 +415,8 @@
     <section class="contact" id="contact">
       <div class="section-header">
         <span class="section-badge">Contact Us</span>
-        <h2 class="section-title">Connect With Our Team</h2>
-        <p class="section-desc">Have questions about our school, programs, or enrollment? Send Message and our team akan menghubungi Anda.</p>
+        <h2 class="section-title"><span>Get In Touch</span> With Our Team</h2>
+        <p class="section-desc">We would love to hear from you.</p>
       </div>
 
       <div class="row">
@@ -429,8 +429,8 @@
               class="map"
             ></iframe>
             <div class="contact-left-text">
-                <h3>Ready to craft your future with us?</h3>
-                <p>Join Metland College today and take the first step towards a successful career. Our dedicated team is here to guide you through every step of your educational journey.</p>
+                <h3>Have any business?</h3>
+                <p>Join us on this journey to create a brighter future where success begins with collaboration..</p>
             </div>
         </div>
 
