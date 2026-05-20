@@ -676,6 +676,7 @@
                     </a>
                 </p>
                 <p><strong>WhatsApp:</strong> +62-8180-9999-180</p>
+                <p><strong>Gmail:</strong> <a href="#">(nama gmail)</a></p> <!-- blum diisi -->
                 <div class="footer-socials">
                     <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" aria-label="YouTube Metland Academy">
                         <i class="bi bi-youtube"></i>
