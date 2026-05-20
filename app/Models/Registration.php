@@ -13,6 +13,7 @@ class Registration extends Model
         'address',
         'phone',
         'email',
+        'education_level',
         'last_school',
         'majors',
         'country',

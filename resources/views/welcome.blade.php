@@ -61,7 +61,7 @@
                 </ul>
             </li>
             <li><a href="{{ route('news') }}">News</a></li>
-            <li><a href="{{ route('testi') }}">Testimonials</a></li>
+            <li><a href="{{ route('testi') }}">Alumni Reviews</a></li>
             <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#partnership">Partnership</a></li>
@@ -99,13 +99,19 @@
             <div class="swiper hero-swiper" style="width: 100%; height: 100%;">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/SMK Metland Cileungsi.png') }}" alt="SMK Metland Cileungsi" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="hero-slide-media">
+                            <img src="{{ asset('img/SMK Metland Cileungsi.png') }}" alt="SMK Metland Cileungsi" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                     </div>
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/SMK Metland cibitung.png') }}" alt="SMK Metland Cibitung" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="hero-slide-media">
+                            <img src="{{ asset('img/SMK Metland cibitung.png') }}" alt="SMK Metland Cibitung" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                     </div>
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/Kertajati.png') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="hero-slide-media">
+                            <img src="{{ asset('img/Kertajati.png') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -316,8 +322,8 @@
     <section class="alumni-section" id="alumni-section">
         <div class="alumni-shell">
             <div class="alumni-head">
-                <span class="section-badge"><span>Testimonials</span></span>
-                <h2 class="section-title">What <span>They</span> Say</h2>
+                <span class="section-badge"><span>Alumni Reviews</span></span>
+                <h2 class="section-title">What <span>They Say</span></h2>
                 <p class="section-desc">Alumni reviews regarding their learning experience at SMK Metland.</p>
             </div>
 
@@ -379,8 +385,8 @@
     <section class="contact" id="contact">
       <div class="section-header">
         <span class="section-badge">Contact Us</span>
-        <h2 class="section-title"><span>Get In Touch</span> With Our Team</h2>
-        <p class="section-desc">We would love to hear from you.</p>
+        <h2 class="section-title">Connect With Our Team</h2>
+        <p class="section-desc">Have questions about our school, programs, or enrollment? Send Message and our team akan menghubungi Anda.</p>
       </div>
 
       <div class="row">
@@ -393,8 +399,8 @@
               class="map"
             ></iframe>
             <div class="contact-left-text">
-                <h3>Have any business?</h3>
-                <p>Join us on this journey to create a brighter future where success begins with collaboration..</p>
+                <h3>Ready to craft your future with us?</h3>
+                <p>Join Metland College today and take the first step towards a successful career. Our dedicated team is here to guide you through every step of your educational journey.</p>
             </div>
         </div>
 
@@ -402,19 +408,23 @@
             @csrf
             <label for="name" class="form-label">Name</label>
           <div class="input-group">
+            <i class="bi bi-person"></i>
             <input type="text" name="name" value="{{ old('name') }}" placeholder="Full name" required minlength="2" />
           </div>
           <label for="email" class="form-label">Email</label>
           <div class="input-group">
+            <i class="bi bi-envelope"></i>
             <input type="email" name="email" value="{{ old('email') }}" placeholder="Email address" required />
           </div>
           <label for="phone" class="form-label">Phone Number</label>
           <div class="input-group">
+            <i class="bi bi-telephone"></i>
             <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="Phone number" required />
           </div>
             <label for="desc" class="form-label">What's your message?</label>
           <div class="input-group">
-            <input name="message" id="desc" placeholder="Description" rows="4" required style="resize: vertical;">{{ old('message') }}</input>
+            <i data-feather="message-square"></i>
+            <textarea name="message" id="desc" placeholder="Description" rows="4" required style="resize: vertical;">{{ old('message') }}</textarea>
           </div>
           <p class="contact-feedback {{ session('contact_success') ? 'is-success' : ($errors->any() ? 'is-error' : '') }}" id="contact-feedback" role="status" aria-live="polite">
               {{ session('contact_success') ?? ($errors->first() ?: '') }}
@@ -554,6 +564,7 @@
                     </a>
                 </p>
 	                <p><strong>WhatsApp:</strong> {{ filled($contactSetting?->whatsapp) ? $contactSetting->whatsapp : '+62-8180-9999-180' }}</p>
+                <p><strong>Gmail:</strong> <a href="#">(nama gmail)</a></p> <!-- blum diisi -->
                 <div class="footer-socials">
                     <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" aria-label="YouTube Metland Academy">
                         <i class="bi bi-youtube"></i>

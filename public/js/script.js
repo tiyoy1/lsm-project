@@ -379,9 +379,9 @@ window.addEventListener("load", () => {
     new window.Swiper(heroRoot, {
       slidesPerView: 1,
       loop: true,
-      speed: 2500,
+      speed: 3500,
       autoplay: {
-        delay: 1200,
+        delay: 2000,
         disableOnInteraction: false,
       },
     });

@@ -101,8 +101,10 @@
 
         .package {
             position: relative;
-            padding: 60px 0 120px 0;
-            background: #f2fbfb;
+            padding: 96px 0;
+            background:
+                radial-gradient(circle at top left, rgba(28, 165, 165, 0.14), transparent 34%),
+                linear-gradient(180deg, #ffffff 0%, #f3fbfb 100%);
         }
 
         .section-divider {
@@ -137,11 +139,6 @@
             box-shadow:
                 0 0 0 10px rgba(28, 165, 165, 0.08),
                 0 12px 24px rgba(15, 118, 110, 0.18);
-        }
-
-        .package-header {
-            text-align: center;
-            margin-bottom: 50px;
         }
 
         .package-shell {
@@ -215,7 +212,6 @@
 
         .package-card-head h2 span {
             color: #1ca5a5;
-            font-weight: bold;
         }
 
         .package-card-body {
@@ -268,16 +264,17 @@
             min-height: 52px;
             padding: 0 22px;
             border-radius: 999px;
-            background: #0f6c75;
+            background: linear-gradient(135deg, #1ca5a5, #0f6c75);
             color: #fff;
             font-weight: 700;
             text-decoration: none;
+            box-shadow: 0 14px 28px rgba(28, 165, 165, 0.25);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
         .package-card-footer .card-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 24px rgba(28, 165, 165, 0.32);
+            box-shadow: 0 18px 34px rgba(28, 165, 165, 0.32);
         }
 
         .package-card-footer button {
@@ -294,7 +291,84 @@
             order: 2;
         }
 
-        
+        .form-section {
+            padding: 80px 0;
+            background: #f2fbfb;
+        }
+        .form-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .form-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 2.5rem;
+            color: #0f172a;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .field-group {
+            margin-bottom: 20px;
+        }
+        .field-group.full {
+            grid-column: span 2;
+        }
+        .field-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #334155;
+            font-size: 0.95rem;
+        }
+        .field-group input, .field-group select, .field-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        .field-group input:focus, .field-group select:focus, .field-group textarea:focus {
+            outline: none;
+            border-color: #1ca5a5;
+            box-shadow: 0 0 0 4px rgba(28, 165, 165, 0.1);
+        }
+        .error-msg {
+            color: #ef4444;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+        .submit-btn-wrap {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .reg-submit-btn {
+            background: linear-gradient(135deg, #1ca5a5, #0f6c75);
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(28, 165, 165, 0.3);
+        }
+        .reg-submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(28, 165, 165, 0.4);
+        }
 
         @media (max-width: 768px) {
             .form-grid {
@@ -317,10 +391,6 @@
 
             .package-card {
                 padding: 26px 22px;
-            }
-
-            .section-divider {
-                height: 56px;
             }
         }
     </style>
@@ -460,25 +530,20 @@
     <div class="section-divider" aria-hidden="true"></div>
 
     <section class="package">
-        <div class="package-header">
-            <span class="section-badge">Choose your package</span>
-            <h2 class="section-title">Explore Our <span>Programs</span></h2>
-            <p class="section-desc">More than knowledge, we provide the roadmap to your success.</p>
-        </div>
         <div class="package-shell">
             <div class="package-grid">
                 <div class="package-card-wrap">
                     <div class="package-card package-card--lpk">
                         <div class="package-card-head">
                             <span class="package-kicker">LPK</span>
-                            <h2>Join us to build your <span class="package-hook">FUTURE</span> work life</h2>
+                            <h2>Join us to build your <span>FUTURE</span> work life</h2>
                         </div>
                         <div class="package-card-body">
                             <ul>
-                                <li>Bersertifikat BNSP</li>
-                                <li>Instruktur Pkaatisi Ahli</li>
-                                <li>Penyaluran Kerja ke Luar Negeri</li>
-                                <li>Program Magang Eksklusif</li>
+                                <li>Professional Certificate</li>
+                                <li>Professional Certificate</li>
+                                <li>Professional Certificate</li>
+                                <li>Professional Certificate</li>
                             </ul>
                         </div>
                         <div class="package-card-footer">
@@ -490,7 +555,7 @@
                     <div class="package-card package-card--lkp">
                         <div class="package-card-head">
                             <span class="package-kicker">LKP</span>
-                            <h2>Join us to build your <span class="package-hook">FUTURE</span> language</h2>
+                            <h2>Join us to build your <span>FUTURE</span> language</h2>
                         </div>
                         <div class="package-card-body">
                             <ul>
