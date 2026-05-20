@@ -438,23 +438,19 @@
             @csrf
             <label for="name" class="form-label">Name</label>
           <div class="input-group">
-            <i class="bi bi-person"></i>
             <input type="text" name="name" value="{{ old('name') }}" placeholder="Full name" required minlength="2" />
           </div>
           <label for="email" class="form-label">Email</label>
           <div class="input-group">
-            <i class="bi bi-envelope"></i>
             <input type="email" name="email" value="{{ old('email') }}" placeholder="Email address" required />
           </div>
           <label for="phone" class="form-label">Phone Number</label>
           <div class="input-group">
-            <i class="bi bi-telephone"></i>
             <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="Phone number" required />
           </div>
             <label for="desc" class="form-label">What's your message?</label>
           <div class="input-group">
-            <i data-feather="message-square"></i>
-            <textarea name="message" id="desc" placeholder="Description" rows="4" required style="resize: vertical;">{{ old('message') }}</textarea>
+            <input name="message" id="desc" placeholder="Description" rows="4" required style="resize: vertical;">{{ old('message') }}</input>
           </div>
           <p class="contact-feedback {{ session('contact_success') ? 'is-success' : ($errors->any() ? 'is-error' : '') }}" id="contact-feedback" role="status" aria-live="polite">
               {{ session('contact_success') ?? ($errors->first() ?: '') }}
