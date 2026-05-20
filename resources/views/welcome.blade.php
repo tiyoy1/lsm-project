@@ -549,6 +549,10 @@
                         <img src="{{ asset('img/partners/Pullman-removebg-preview-150x150.png') }}" alt="Logo Pullman">
                         <p>Pullman</p>
                     </article>
+                    <article class="partner-logo-card">
+                        <img src="{{ asset('img/partners/dt_153037286-150x90.png') }}" alt="Logo Pullman">
+                        <p>Grand Hyatt</p>
+                    </article>
                 </div>
             </div>
 
