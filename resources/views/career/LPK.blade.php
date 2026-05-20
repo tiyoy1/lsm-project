@@ -198,20 +198,49 @@
             border-radius: 24px;
             overflow: hidden;
             padding: 20px;
-            box-shadow: 0 24px 48px rgba(8, 50, 57, 0.2);
+            box-shadow: 0 14px 8px rgba(8, 50, 57, 0.2);
         }
         
-        .lpk-image-wrapper .lpk-intro-image {
+        .lpk-image-swiper {
             width: 100%;
             height: 500px;
-            object-fit: cover;
             border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .lpk-image-swiper .swiper-slide {
+            overflow: hidden;
+        }
+
+        .lpk-image-wrapper .lpk-intro-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
             transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .lpk-image-wrapper:hover .lpk-intro-image {
             transform: scale(1.05);
+        }
+
+        .lpk-image-pagination {
+            bottom: 18px !important;
+        }
+
+        .lpk-image-pagination .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: rgba(28, 165, 165, 0.28);
+            opacity: 1;
+            transition: transform 0.25s ease, width 0.25s ease, background-color 0.25s ease;
+        }
+
+        .lpk-image-pagination .swiper-pagination-bullet-active {
+            width: 28px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #1ca5a5, #0f6c75);
+            transform: translateY(-1px);
         }
         
         /* Stats */
@@ -533,8 +562,8 @@
             .lpk-pathway {
                 padding: 50px 30px;
             }
-            .lpk-intro-image img {
-                height: auto;
+            .lpk-image-swiper {
+                height: 360px;
             }
         }
     </style>
@@ -555,7 +584,20 @@
                 </ul>
             </div>
             <div class="lpk-image-wrapper">
-                <img src="{{ asset('img/kertajati.png') }}" alt="LPK Metland College" class="lpk-intro-image">
+                <div class="swiper lpk-image-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="{{ asset('img/SMK Metland Cileungsi.png') }}" alt="SMK Metland Cileungsi" class="lpk-intro-image">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('img/SMK Metland cibitung.png') }}" alt="SMK Metland Cibitung" class="lpk-intro-image">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('img/kertajati.png') }}" alt="Kertajati" class="lpk-intro-image">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination lpk-image-pagination" aria-hidden="true"></div>
+                </div>
             </div>
         </div>
 
@@ -1168,5 +1210,27 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="{{ asset("js/script.js") }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script>
+        window.addEventListener("load", () => {
+            const lpkImageRoot = document.querySelector(".lpk-image-swiper");
+            if (lpkImageRoot && typeof window.Swiper !== "undefined") {
+                // eslint-disable-next-line no-new
+                new window.Swiper(lpkImageRoot, {
+                    slidesPerView: 1,
+                    loop: true,
+                    speed: 1400,
+                    parallax: true,
+                    autoplay: {
+                        delay: 3600,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: ".lpk-image-pagination",
+                        clickable: true,
+                    },
+                });
+            }
+        });
+    </script>
 </body>
 </html>
