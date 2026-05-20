@@ -66,7 +66,7 @@
                 </ul>
             </li>
             <li><a href="{{ route('news') }}">News</a></li>
-            <li><a href="{{ route('testi') }}">Alumni Reviews</a></li>
+            <li><a href="{{ route('testi') }}">Reviews</a></li>
             <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#partnership">Partnership</a></li>
@@ -426,17 +426,17 @@
 	                            <article class="partner-logo-card">
 	                                @if(filled($partner->url))
 	                                    <a href="{{ $partner->url }}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-	                                        <img src="{{ $partnerLogoUrl }}" alt="Logo {{ $partner->name }}">
+	                                        <img src="{{ $partnerLogoUrl }}" alt="Logo {{ $partner->name }}" loading="lazy" decoding="async">
 	                                        <p>{{ $partner->name }}</p>
 	                                    </a>
 	                                @else
-	                                    <img src="{{ $partnerLogoUrl }}" alt="Logo {{ $partner->name }}">
+	                                    <img src="{{ $partnerLogoUrl }}" alt="Logo {{ $partner->name }}" loading="lazy" decoding="async">
 	                                    <p>{{ $partner->name }}</p>
 	                                @endif
 	                            </article>
 	                        @empty
 	                            <article class="partner-logo-card">
-	                                <img src="{{ asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="No partners yet">
+	                                <img src="{{ asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="No partners yet" loading="lazy" decoding="async">
 	                                <p>No partners yet</p>
 	                            </article>
 	                        @endforelse

@@ -2713,6 +2713,7 @@ body > nav ul li.nav-mobile-only {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
     gap: 12px;
+    contain: layout style paint;
 }
 
 .partner-logo-card {
@@ -2721,20 +2722,19 @@ body > nav ul li.nav-mobile-only {
     padding: 12px 10px;
     background: #ffffff;
     border: 1px solid rgba(16, 101, 109, 0.12);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    contain: content;
 }
 
 .partner-logo-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
 .partner-logo-card img {
@@ -2742,6 +2742,7 @@ body > nav ul li.nav-mobile-only {
     max-width: 130px;
     height: 74px;
     object-fit: contain;
+    content-visibility: auto;
 }
 
 .partner-logo-card p {
@@ -4181,17 +4182,20 @@ body > nav ul li.nav-mobile-only {
     .partner-logo-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
+        contain: layout style paint;
     }
 
     .partner-logo-card {
         min-height: 132px;
         padding: 10px 8px;
         border-radius: 12px;
+        contain: content;
     }
 
     .partner-logo-card img {
         max-width: 104px;
         height: 58px;
+        content-visibility: auto;
     }
 
     .partner-logo-card p {
@@ -4803,6 +4807,7 @@ body > nav ul li.nav-mobile-only {
 
     .partner-logo-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        contain: layout style paint;
     }
 
     .footer-map-frame {

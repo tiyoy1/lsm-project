@@ -52,7 +52,7 @@
                 </ul>
             </li>
             <li><a href="{{ route('news') }}">News</a></li>
-            <li><a href="{{ route('testi') }}">Alumni Reviews</a></li>
+            <li><a href="{{ route('testi') }}">Reviews</a></li>
             <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
             <li><a href="{{ url('/') }}#contact">Contact</a></li>
             <li><a href="{{ url('/') }}#partnership">Partnership</a></li>
@@ -443,13 +443,105 @@
             .why-choose-section { padding: 70px 0 80px; }
             .why-stat-card { padding: 26px 16px; }
         }
+
+        /* ============ ALUMNI REVIEWS INFO SECTION ============ */
+        .alumni-reviews-info {
+            padding: 20px 1.25rem 30px;
+            background: #f2fbfb;
+            position: relative;
+            text-align: center;
+        }
+
+        .alumni-reviews-shell {
+            width: min(1180px, 92vw);
+            margin: 0 auto;
+        }
+
+        .alumni-reviews-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .alumni-reviews-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7px 16px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #1b7f86;
+            border: 1px solid rgba(39, 167, 173, 0.35);
+            background: rgba(112, 223, 227, 0.26);
+        }
+
+        .alumni-reviews-title {
+            margin: 8px 0;
+            color: #1a3a3f;
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .alumni-reviews-title span {
+            color: #0e8389;
+        }
+
+        .alumni-reviews-desc {
+            margin: 0;
+            color: #5a7880;
+            font-size: 1rem;
+            line-height: 1.65;
+            max-width: 720px;
+            margin: 12px auto 0;
+        }
+
+        @media (max-width: 768px) {
+            .alumni-reviews-info {
+                padding: 15px 1.25rem 20px;
+            }
+
+            .alumni-reviews-title {
+                font-size: 1.8rem;
+            }
+
+            .alumni-reviews-desc {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .alumni-reviews-info {
+                padding: 12px 1.25rem 15px;
+            }
+
+            .alumni-reviews-title {
+                font-size: 1.5rem;
+            }
+
+            .alumni-reviews-desc {
+                font-size: 0.9rem;
+            }
+        }
     </style>
+
+    {{-- ======= ALUMNI REVIEWS DESCRIPTION SECTION ======= --}}
+    <section class="alumni-reviews-info">
+        <div class="alumni-reviews-shell">
+            <div class="alumni-reviews-header">
+            </div>
+        </div>
+    </section>
 
     {{-- ======= TESTIMONIAL GRID SECTION ======= --}}
     <section class="testi-page" id="content-section">
       <div class="testi-page-shell">
         <div class="testi-page-head">
-            <div class="testi-page-badge">Testimonials</div>
+            <div class="testi-page-badge">Alumni Reviews</div>
             <h2 class="testi-page-title">Hear From Our <span>Alumni & Students</span></h2>
             <p class="testi-page-desc">Real stories from Metland College graduates who have built successful careers in hospitality, language proficiency, and international work placements.</p>
         </div>
