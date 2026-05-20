@@ -10,6 +10,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
@@ -41,6 +42,15 @@ class PartnershipResource extends Resource
         return $schema
             ->components([
                 TextInput::make('name')->label('Nama')->required()->maxLength(255),
+                Select::make('category')
+                    ->label('Kategori')
+                    ->options([
+                        'industry' => 'Industri Partners',
+                        'hospitality' => 'Hotel & Hospitality',
+                        'university' => 'University & Career Development',
+                    ])
+                    ->default('industry')
+                    ->required(),
                 Textarea::make('description')->label('Deskripsi')->rows(4),
                 FileUpload::make('logo')
                     ->label('Logo')
@@ -61,6 +71,7 @@ class PartnershipResource extends Resource
             ->modifyQueryUsing(fn (Builder $query) => $query->select([
                 'id',
                 'name',
+                'category',
                 'logo',
                 'is_active',
                 'sort_order',
@@ -69,6 +80,15 @@ class PartnershipResource extends Resource
             ->columns([
                 ImageColumn::make('logo')->disk('public')->square()->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('name')->searchable()->sortable(),
+                TextColumn::make('category')
+                    ->label('Kategori')
+                    ->badge()
+                    ->formatStateUsing(fn (string $state): string => match ($state) {
+                        'hospitality' => 'Hotel & Hospitality',
+                        'university' => 'University & Career Development',
+                        default => 'Industri Partners',
+                    })
+                    ->toggleable(isToggledHiddenByDefault: true),
                 IconColumn::make('is_active')->boolean()->label('Active')->sortable(),
                 TextColumn::make('sort_order')->sortable()->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),

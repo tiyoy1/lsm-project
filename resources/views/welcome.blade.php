@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LPK-LKP METLAND COLLEGE</title>
-    <link rel="icon" type="image/webp" href="{{ asset('img/LOGO METLAND COLLEGE-02.png') }}?v=20260305">
+    @php
+        $faviconUrl = null;
+        if (filled($contactSetting?->favicon)) {
+            $faviconUrl = \Illuminate\Support\Facades\Storage::disk('public')->url($contactSetting->favicon);
+        }
+    @endphp
+    <link rel="icon" type="image/webp" href="{{ $faviconUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') . '?v=20260305' }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -22,11 +28,16 @@
 </head> 
 <body>
     @php
-        $whatsappNumber = '6281809999180';
+        $logoUrl = null;
+        if (filled($contactSetting?->logo)) {
+            $logoUrl = \Illuminate\Support\Facades\Storage::disk('public')->url($contactSetting->logo);
+        }
+
+        $whatsappNumber = preg_replace('/\\D+/', '', (string) (($contactSetting?->whatsapp ?? '') ?: '6281809999180'));
     @endphp
     <nav>
         <div class="logo">
-            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.png") }}" alt="Logo Metland College" class="logo-img">Metland College
+            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="Logo Metland College" class="logo-img">Metland College
         </div>
         <ul id="primary-nav">
             <li><a href="{{ url('/') }}">Home</a></li>
@@ -468,139 +479,53 @@
                 <p class="partnership-desc">Sourced from the partnership list on the official SMK Metland website, this collaboration supports internship, teaching factory, and synchronization of industry needs.</p>
             </div>
 
-            <div class="partner-group">
-                <h3>Industry Partners</h3>
-                <div class="partner-logo-grid">
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/virtalus-150x150.png') }}" alt="Logo Virtalus">
-                        <p>Virtalus</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/Grand_Metropolitan-removebg-preview-150x150.png') }}" alt="Logo Grand Metropolitan">
-                        <p>Grand Metropolitan</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/Kaliana_Apartment-removebg-preview-150x150.png') }}" alt="Logo Kaliana Apartment">
-                        <p>Kaliana Apartment</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/Indesso-removebg-preview-150x150.png') }}" alt="Logo Indesso">
-                        <p>Indesso</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/Metropolitan_Mall_Cibubur-removebg-preview-150x150.png') }}" alt="Logo Metropolitan Mall Cibubur">
-                        <p>Metropolitan Mall Cibubur</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/PT_Metland-removebg-preview-e1704943421395-150x150.png') }}" alt="Logo PT Metropolitan Land">
-                        <p>PT Metropolitan Land</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/Sila_Tea-removebg-preview-150x150.png') }}" alt="Logo Sila Tea">
-                        <p>Sila Tea</p>
-                    </article>
-                </div>
-            </div>
+	            @php
+	                $partnershipGroups = collect($partnerships ?? [])
+	                    ->groupBy(fn ($p) => $p->category ?? 'industry');
 
-            <div class="partner-group">
-                <h3>Hotel & Hospitality Partners</h3>
-                <div class="partner-logo-grid">
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/Metland-Hotels-Group-150x150.png') }}" alt="Logo Metland Hotels Group">
-                        <p>Metland Hotels Group</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/Ayana-removebg-preview-1-150x150.png') }}" alt="Logo Ayana Midplaza Jakarta">
-                        <p>Ayana Midplaza Jakarta</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/Harris_Hotel-removebg-preview-150x150.png') }}" alt="Logo Harris Hotels">
-                        <p>Harris Hotels</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/accor-e1705022947913-150x150.png') }}" alt="Logo Accor">
-                        <p>Accor</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/ritz-calton-150x150.png') }}" alt="Logo The Ritz-Carlton">
-                        <p>The Ritz-Carlton</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/shangri-150x150.png') }}" alt="Logo Shangri-La">
-                        <p>Shangri-La</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/Kempinski-removebg-preview-150x150.png') }}" alt="Logo Kempinski">
-                        <p>Kempinski</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/Horison_Hotels_Group__1_-removebg-preview-150x150.png') }}" alt="Logo Horison Hotels Group">
-                        <p>Horison Hotels Group</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/Ra_Suites-removebg-preview-150x150.png') }}" alt="Logo RA Suites">
-                        <p>RA Suites</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/Hotel_Ciputra_Cibubur-removebg-preview-150x150.png') }}" alt="Logo Hotel Ciputra Cibubur">
-                        <p>Hotel Ciputra Cibubur</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/Pullman-removebg-preview-150x150.png') }}" alt="Logo Pullman">
-                        <p>Pullman</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/dt_153037286-150x90.png') }}" alt="Logo Pullman">
-                        <p>Grand Hyatt</p>
-                    </article>
-                </div>
-            </div>
+	                $categoryLabels = [
+	                    'industry' => 'Industry Partners',
+	                    'hospitality' => 'Hotel & Hospitality Partners',
+	                    'university' => 'University & Career Development Partners',
+	                ];
 
-            <div class="partner-group">
-                <h3>University & Career Development Partners</h3>
-                <div class="partner-logo-grid">
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/biru-150x150.png') }}" alt="Logo STIE Pariwisata YAPARI-AKTRIPA">
-                        <p>STIE Pariwisata YAPARI-AKTRIPA</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/Phitsanulok_Logo-1-150x150.jpg') }}" alt="Logo Petchruniversity">
-                        <p>Petchruniversity</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/anabuki_logo.jpg') }}" alt="Logo Anabuki">
-                        <p>Anabuki</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/long-beach-150x150.png') }}" alt="Logo Longbeach">
-                        <p>Longbeach</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/philipin-university-150x150.png') }}" alt="Logo Philippine University">
-                        <p>Philippine University</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/puket-1-150x150.png') }}" alt="Logo Phuket Partner">
-                        <p>Phuket Partner</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/teii-e1705024305638-150x150.png') }}" alt="Logo TEII Program">
-                        <p>TEII Program</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/trskt-150x150.png') }}" alt="Logo TRSKT Partner">
-                        <p>TRSKT Partner</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/unesco-150x150.png') }}" alt="Logo UNESCO Partner">
-                        <p>UNESCO Partner</p>
-                    </article>
-                    <article class="partner-logo-card">
-                        <img src="{{ asset('img/partners/IMG-20230612-WA0015-1-150x150.jpg') }}" alt="Logo International Campus Partner">
-                        <p>International Campus Partner</p>
-                    </article>
-                </div>
-            </div>
+	                $categoryOrder = ['industry', 'hospitality', 'university'];
+	            @endphp
+
+	            @foreach($categoryOrder as $categoryKey)
+	                @php
+	                    $items = $partnershipGroups->get($categoryKey, collect());
+	                @endphp
+
+	                <div class="partner-group">
+	                    <h3>{{ $categoryLabels[$categoryKey] }}</h3>
+	                    <div class="partner-logo-grid">
+	                        @forelse($items as $partner)
+	                            @php
+	                                $partnerLogoUrl = filled($partner->logo)
+	                                    ? \Illuminate\Support\Facades\Storage::disk('public')->url($partner->logo)
+	                                    : asset('img/LOGO METLAND COLLEGE-02.png');
+	                            @endphp
+	                            <article class="partner-logo-card">
+	                                @if(filled($partner->url))
+	                                    <a href="{{ $partner->url }}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+	                                        <img src="{{ $partnerLogoUrl }}" alt="Logo {{ $partner->name }}">
+	                                        <p>{{ $partner->name }}</p>
+	                                    </a>
+	                                @else
+	                                    <img src="{{ $partnerLogoUrl }}" alt="Logo {{ $partner->name }}">
+	                                    <p>{{ $partner->name }}</p>
+	                                @endif
+	                            </article>
+	                        @empty
+	                            <article class="partner-logo-card">
+	                                <img src="{{ asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="No partners yet">
+	                                <p>No partners yet</p>
+	                            </article>
+	                        @endforelse
+	                    </div>
+	                </div>
+	            @endforeach
 
             <div class="partnership-source">
                 <a href="https://smkmetland.net/ppdb/" target="_blank" rel="noopener noreferrer">Logo source: smkmetland.net</a>
@@ -612,7 +537,7 @@
         <div class="footer-shell">
             <div class="footer-brand">
                 <div class="footer-brand-head">
-                    <img src="{{ asset("img/LOGO METLAND COLLEGE-02.png") }}" alt="Logo Metland College" class="footer-logo">
+                    <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="Logo Metland College" class="footer-logo">
                     <h3>METLAND COLLEGE</h3>
                 </div>
                 <p>The first step towards a brilliant career. Learn practically, develop creatively, and get ready to jump into the industry.</p>
@@ -675,7 +600,7 @@
                         Jl. Kertajati - Kadipaten, Babakan, Kec. Kertajati, Kabupaten Majalengka, Jawa Barat 45457
                     </a>
                 </p>
-                <p><strong>WhatsApp:</strong> +62-8180-9999-180</p>
+	                <p><strong>WhatsApp:</strong> {{ filled($contactSetting?->whatsapp) ? $contactSetting->whatsapp : '+62-8180-9999-180' }}</p>
                 <div class="footer-socials">
                     <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" aria-label="YouTube Metland Academy">
                         <i class="bi bi-youtube"></i>

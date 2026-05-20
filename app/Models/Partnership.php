@@ -11,6 +11,7 @@ class Partnership extends Model
         'description',
         'logo',
         'url',
+        'category',
         'sort_order',
         'is_active',
     ];

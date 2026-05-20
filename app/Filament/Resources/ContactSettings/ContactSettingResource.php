@@ -9,6 +9,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Resources\Resource;
@@ -44,6 +45,20 @@ class ContactSettingResource extends Resource
                 TextInput::make('website')->label('Website')->maxLength(255),
                 TextInput::make('maps_url')->label('Google Maps URL')->maxLength(2048),
                 TextInput::make('open_hours')->label('Jam operasional')->maxLength(255),
+                FileUpload::make('logo')
+                    ->label('Logo')
+                    ->disk('public')
+                    ->directory('brand')
+                    ->image()
+                    ->imageEditor()
+                    ->maxSize(4096),
+                FileUpload::make('favicon')
+                    ->label('Favicon')
+                    ->disk('public')
+                    ->directory('brand')
+                    ->image()
+                    ->imageEditor()
+                    ->maxSize(2048),
             ]);
     }
 

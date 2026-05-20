@@ -15,5 +15,7 @@ class ContactSetting extends Model
         'website',
         'maps_url',
         'open_hours',
+        'logo',
+        'favicon',
     ];
 }

@@ -4,6 +4,8 @@ namespace App\Providers\Filament;
 
 use App\Filament\Pages\Dashboard;
 use App\Filament\Resources\News\NewsResource;
+use App\Filament\Resources\ContactSettings\ContactSettingResource;
+use App\Filament\Resources\Partnerships\PartnershipResource;
 use App\Filament\Resources\Registrations\RegistrationResource;
 use App\Filament\Resources\Students\StudentResource;
 use App\Filament\Widgets\AdminStatsOverview;
@@ -41,6 +43,8 @@ class AdminPanelProvider extends PanelProvider
                 StudentResource::class,
                 RegistrationResource::class,
                 NewsResource::class,
+                ContactSettingResource::class,
+                PartnershipResource::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([

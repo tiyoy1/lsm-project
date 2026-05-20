@@ -14,7 +14,9 @@ use App\Http\Controllers\SchoolProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentWorkController;
 use App\Http\Controllers\VisionMissionController;
+use App\Models\ContactSetting;
 use App\Models\News;
+use App\Models\Partnership;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,7 +28,16 @@ Route::get('/', function () {
         ->take(4)
         ->get();
 
-    return view('welcome', compact('latestNews'));
+    $contactSetting = ContactSetting::query()->latest('id')->first();
+
+    $partnerships = Partnership::query()
+        ->where('is_active', true)
+        ->orderBy('category')
+        ->orderBy('sort_order')
+        ->orderBy('id')
+        ->get();
+
+    return view('welcome', compact('latestNews', 'contactSetting', 'partnerships'));
 });
 Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact.store');
 Route::get('/visi-misi', [VisionMissionController::class, 'publicIndex'])->name('vision-mission');
