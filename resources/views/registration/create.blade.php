@@ -99,6 +99,198 @@
             font-weight: 600;
         }
 
+        .package {
+            position: relative;
+            padding: 96px 0;
+            background:
+                radial-gradient(circle at top left, rgba(28, 165, 165, 0.14), transparent 34%),
+                linear-gradient(180deg, #ffffff 0%, #f3fbfb 100%);
+        }
+
+        .section-divider {
+            width: min(1200px, 92vw);
+            margin: 0 auto;
+            position: relative;
+            height: 72px;
+        }
+
+        .section-divider::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: min(100%, 640px);
+            height: 2px;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(90deg, transparent 0%, rgba(28, 165, 165, 0.18) 12%, rgba(28, 165, 165, 0.75) 50%, rgba(28, 165, 165, 0.18) 88%, transparent 100%);
+            border-radius: 999px;
+        }
+
+        .section-divider::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 18px;
+            height: 18px;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1ca5a5, #0f6c75);
+            box-shadow:
+                0 0 0 10px rgba(28, 165, 165, 0.08),
+                0 12px 24px rgba(15, 118, 110, 0.18);
+        }
+
+        .package-shell {
+            width: min(1200px, 92vw);
+            margin: 0 auto;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .package-card-wrap {
+            display: flex;
+        }
+
+        .package-card {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+            padding: 34px;
+            border-radius: 28px;
+            border: 1px solid rgba(28, 165, 165, 0.12);
+            box-shadow: 0 22px 60px rgba(15, 118, 110, 0.12);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .package-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(28, 165, 165, 0.08), transparent 55%);
+            pointer-events: none;
+        }
+
+        .package-card-head {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 22px;
+        }
+
+        .package-card-head .package-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(28, 165, 165, 0.12);
+            color: #0f6c75;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .package-card-head h2 {
+            margin: 0;
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.5rem, 2vw, 2.15rem);
+            line-height: 1.12;
+            color: #0f172a;
+            letter-spacing: -0.03em;
+        }
+
+        .package-card-head h2 span {
+            color: #1ca5a5;
+        }
+
+        .package-card-body {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+
+        .package-card-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 14px;
+        }
+
+        .package-card-body li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            border-radius: 16px;
+            background: #f8fcfc;
+            color: #334155;
+            line-height: 1.55;
+            border: 1px solid rgba(15, 118, 110, 0.08);
+        }
+
+        .package-card-body li::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-top: 7px;
+            flex: 0 0 10px;
+            background: linear-gradient(135deg, #1ca5a5, #0f6c75);
+            box-shadow: 0 0 0 6px rgba(28, 165, 165, 0.12);
+        }
+
+        .package-card-footer {
+            position: relative;
+            z-index: 1;
+            margin-top: 24px;
+        }
+
+        .package-card-footer .card-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 0 22px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #1ca5a5, #0f6c75);
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 14px 28px rgba(28, 165, 165, 0.25);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .package-card-footer .card-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 34px rgba(28, 165, 165, 0.32);
+        }
+
+        .package-card-footer button {
+            border: 0;
+            padding: 0;
+            background: transparent;
+        }
+
+        .package-card--lpk {
+            order: 1;
+        }
+
+        .package-card--lkp {
+            order: 2;
+        }
+
         .form-section {
             padding: 80px 0;
             background: #f2fbfb;
@@ -188,10 +380,25 @@
             .form-container {
                 padding: 30px 20px;
             }
+
+            .package {
+                padding: 72px 0;
+            }
+
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .package-card {
+                padding: 26px 22px;
+            }
         }
     </style>
 </head>
 <body>
+    @php
+        $gformUrl = 'https://forms.gle/bNM8YNTo9sSea7fy7';
+    @endphp
     <nav>
         <div class="logo">
             <img src="{{ asset("img/LOGO METLAND COLLEGE-02.png") }}" alt="Logo Metland College" class="logo-img">Metland College
@@ -320,146 +527,50 @@
         </div>
     </section>
 
-    <section class="form-section" id="registration-form">
-        <div class="form-container">
-            <div class="form-header">
-                <span class="section-badge" style="margin: 0 auto 15px;">Student Enrollment</span>
-                <h2>Application Form</h2>
-                <p>Please fill out the form accurately to start your registration process.</p>
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <section class="package">
+        <div class="package-shell">
+            <div class="package-grid">
+                <div class="package-card-wrap">
+                    <div class="package-card package-card--lpk">
+                        <div class="package-card-head">
+                            <span class="package-kicker">LPK</span>
+                            <h2>Join us to build your <span>FUTURE</span> work life</h2>
+                        </div>
+                        <div class="package-card-body">
+                            <ul>
+                                <li>Professional Certificate</li>
+                                <li>Professional Certificate</li>
+                                <li>Professional Certificate</li>
+                                <li>Professional Certificate</li>
+                            </ul>
+                        </div>
+                        <div class="package-card-footer">
+                            <a href="{{ $gformUrl }}" class="card-btn" target="_blank" rel="noopener noreferrer">Register Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="package-card-wrap">
+                    <div class="package-card package-card--lkp">
+                        <div class="package-card-head">
+                            <span class="package-kicker">LKP</span>
+                            <h2>Join us to build your <span>FUTURE</span> language</h2>
+                        </div>
+                        <div class="package-card-body">
+                            <ul>
+                                <li>Language-based professional training</li>
+                                <li>Communication-focused learning path</li>
+                                <li>Practical sessions with industry mentors</li>
+                                <li>Career-ready support and guidance</li>
+                            </ul>
+                        </div>
+                        <div class="package-card-footer">
+                            <a href="{{ $gformUrl }}" class="card-btn" target="_blank" rel="noopener noreferrer">Register Now</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            @if(session('success'))
-                <div class="alert alert-success border-0 shadow-sm mb-4" style="border-radius: 15px; background-color: #f0fdf4; color: #166534;">
-                    <i class="bi bi-check-circle-fill me-2"></i> {{ session('success') }}
-                </div>
-            @endif
-
-            @if($errors->any())
-                <div class="alert alert-danger border-0 shadow-sm mb-4" style="border-radius: 15px; background-color: #fef2f2; color: #991b1b;">
-                    <ul class="mb-0">
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
-            <form action="{{ route('ppdb.store') }}" method="POST">
-                @csrf
-                <div class="form-grid">
-                    <div class="field-group full">
-                        <label for="full_name">Full Name</label>
-                        <input type="text" id="full_name" name="full_name" value="{{ old('full_name') }}" placeholder="Enter your full name" required>
-                        @error('full_name')
-                            <p class="error-msg">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div class="field-group">
-                        <label for="birth_date">Date of Birth</label>
-                        <input type="date" id="birth_date" name="birth_date" value="{{ old('birth_date') }}" required>
-                        @error('birth_date')
-                            <p class="error-msg">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div class="field-group">
-                        <label for="gender">Gender</label>
-                        <select id="gender" name="gender" required>
-                            <option value="">Select gender</option>
-                            <option value="Male" @selected(old('gender') === 'Male')>Male</option>
-                            <option value="Female" @selected(old('gender') === 'Female')>Female</option>
-                        </select>
-                        @error('gender')
-                            <p class="error-msg">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div class="field-group">
-                        <label for="education_level">Education Level</label>
-                        <select id="education_level" name="education_level" required>
-                            <option value="">Select level</option>
-                            <option value="SMA" @selected(old('education_level') === 'SMA')>SMA</option>
-                            <option value="SMK" @selected(old('education_level') === 'SMK')>SMK</option>
-                        </select>
-                        @error('education_level')
-                            <p class="error-msg">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="field-group full">
-                        <label for="last_school">Last School Name</label>
-                        <input type="text" id="last_school" name="last_school" value="{{ old('last_school') }}" placeholder="Enter your school name" required>
-                        @error('last_school')
-                            <p class="error-msg">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="field-group full">
-                        <label for="address">Address</label>
-                        <textarea id="address" name="address" placeholder="Enter your complete address" required>{{ old('address') }}</textarea>
-                        @error('address')
-                            <p class="error-msg">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    
-                    <div class="field-group full">
-                        <label for="majors">Majors</label>
-                        <select id="majors" name="majors" required>
-                            <option value="">Select majors</option>
-                            <option value="Hotel & Hospitality" @selected(old('majors') === 'Hotel & Hospitality')>Hotel & Hospitality</option>
-                            <option value="Culinary Arts" @selected(old('majors') === 'Culinary Arts')>Culinary Arts</option>
-                            <option value="Digital Development" @selected(old('majors') === 'Digital Development')>Digital Development</option>
-                            <option value="Multi-Media Design" @selected(old('majors') === 'Multi-Media Design')>Multi-Media Design</option>
-                        </select>
-                        @error('majors')
-                            <p class="error-msg">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="field-group full">
-                        <label for="country">Country Goal</label>
-                        <select id="country" name="country" required>
-                            <option value="">Select Destination Country</option>
-                            <option value="English" @selected(old('country') === 'English')>English</option>
-                            <option value="Mandarin" @selected(old('country') === 'Mandarin')>Mandarin</option>
-                            <option value="Japan" @selected(old('country') === 'Japan')>Japan</option>
-                            <option value="German" @selected(old('country') === 'German')>German</option>
-                            <option value="Korea" @selected(old('country') === 'Korea')>Korea</option>
-                            <option value="Dubai" @selected(old('country') === 'Dubai')>Dubai</option>
-                        </select>
-                        @error('country')
-                            <p class="error-msg">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div class="field-group">
-                        <label for="phone">Phone Number (WhatsApp)</label>
-                        <input type="text" id="phone" name="phone" value="{{ old('phone') }}" placeholder="e.g. 08123456789" required>
-                        @error('phone')
-                            <p class="error-msg">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div class="field-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="e.g. name@example.com" required>
-                        @error('email')
-                            <p class="error-msg">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div class="field-group full">
-                        <label for="reason">Reason for Joining</label>
-                        <textarea id="reason" name="reason" placeholder="Why do you want to join Metland College?" required>{{ old('reason') }}</textarea>
-                        @error('reason')
-                            <p class="error-msg">{{ $message }}</p>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="submit-btn-wrap">
-                    <button type="submit" class="reg-submit-btn">Submit Application</button>
-                    <p class="mt-3 text-muted small">By submitting, you agree to our terms and conditions.</p>
-                </div>
-            </form>
         </div>
     </section>
 
