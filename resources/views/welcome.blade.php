@@ -197,7 +197,7 @@
         <div class="career-shell">
             <div class="career-head">
                 <span class="section-badge" style="cursor: pointer; user-select: none; transition: all 0.3s ease;" onclick="let isLPK = this.innerText.includes('LPK'); this.innerText = isLPK ? 'Training Method (LKP)' : 'Training Method (LPK)'; document.getElementById('lpk-content').style.display = isLPK ? 'none' : 'flex'; document.getElementById('lkp-content').style.display = isLPK ? 'flex' : 'none';" title="Klik untuk mengubah LPK/LKP">Training Method (LPK)</span>
-                <h2 class="section-title">From <span>New Students</span> to Professional</h2> 
+                <h2 class="section-title">From <span>Basic</span> to <span>Professional</span></h2> 
                 <p class="section-desc">Structured learning steps, focus on practice, and supported by industry mentors until ready to enter the workforce.</p>
             </div>
             <div class="career-timeline" id="lpk-content">
@@ -470,7 +470,7 @@
                         <article class="footer-post-item">
                             <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" class="footer-post-thumb">
                             <div class="footer-post-content">
-                                <a href="{{ route('news.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->localized_title, 76) }}</a>
+                                <a href="{{ route('news.show', $featuredNews->slug) }}">{{ \Illuminate\Support\Str::limit($item->localized_title, 76) }}</a>
                                 <p class="footer-post-date">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>
                             </div>
                         </article>
@@ -541,7 +541,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} SMK Metland. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Lau Siape Mpruy. All rights reserved.</p>
         </div>
     </footer>
 
