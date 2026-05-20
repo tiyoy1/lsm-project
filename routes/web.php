@@ -103,8 +103,8 @@ Route::get('/language/{locale}', function (string $locale) {
     return redirect()->back();
 })->name('language.switch');
 
-Route::get('/berita', [NewsController::class, 'publicIndex'])->name('news.index');
-Route::get('/berita/{news:slug}', [NewsController::class, 'publicShow'])->name('news.show');
+Route::get('/news', [NewsController::class, 'publicIndex'])->name('news.index');
+Route::get('/news/{news:slug}', [NewsController::class, 'publicShow'])->name('news.show');
 Route::get('/student-works', [StudentWorkController::class, 'publicIndex'])->name('student-works.index');
 Route::get('/student-works/{studentWork:slug}', [StudentWorkController::class, 'publicShow'])->name('student-works.show');
 
