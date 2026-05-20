@@ -597,9 +597,10 @@ body > nav ul li.nav-mobile-only {
 }
 
 .about-smk-section {
-    padding: 180px 0 68px; /* tambah ruang atas */
+    padding: 180px 0 68px;
     position: relative;
     z-index: 1;
+    background: #f2fbfb;
 }
 
 .about-smk-wrap {
