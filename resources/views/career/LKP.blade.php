@@ -49,7 +49,6 @@
             <li><a href="{{ route('news.index') }}">News</a></li>
             <li><a href="{{ route('testi') }}">Reviews</a></li>
             <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
-            <li><a href="{{ url('/') }}#contact">Contact</a></li>
             <li><a href="{{ url('/') }}#partnership">Partnership</a></li>
         </ul>
         <div class="sosmed-icon">
