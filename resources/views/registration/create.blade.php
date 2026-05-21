@@ -617,7 +617,6 @@
                 <a href="{{ route('Profile') }}">About</a>
                 <a href="{{ route('LPK') }}">Career</a>
                 <a href="{{ route('news.index') }}">News</a>
-                <a href="#contact">Contact</a>
                 <a href="#partnership">Partnership</a>
                 <a href="#alumni-section">More</a>
             </div>
