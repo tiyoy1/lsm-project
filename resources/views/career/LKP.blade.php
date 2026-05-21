@@ -332,19 +332,7 @@
             z-index: 2;
         }
         .alumni-testi-head { text-align: center; margin-bottom: 64px; }
-        .alumni-testi-badge {
-            display: inline-block;
-            background: rgba(28,165,165,0.12);
-            border: 1px solid rgba(28,165,165,0.35);
-            color: #0f6c75;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            padding: 6px 20px;
-            border-radius: 50px;
-            margin-bottom: 20px;
-        }
+        .alumni-testi-head .section-badge { cursor: default; }
         .alumni-testi-title {
             font-family: 'Outfit', sans-serif;
             font-size: clamp(2rem, 4vw, 2.8rem);
@@ -574,7 +562,7 @@
         <div class="career-shell">
             <div class="career-head">
                 <span class="section-badge">Training Method</span>
-                <h2 class="section-title">From <span>New Students</span> to Professional</h2>
+                <h2 class="section-title">From <span>Basic</span> to Professional</h2>
                 <p class="section-desc">Structured learning steps, focus on practice, and supported by industry mentors until ready to enter the workforce.</p>
             </div>
             <div class="career-timeline">
@@ -636,7 +624,7 @@
     <section class="alumni-testi" id="alumni-testi">
       <div class="alumni-testi-shell">
         <div class="alumni-testi-head">
-            <div class="alumni-testi-badge">Alumni Testimonials</div>
+            <div class="section-badge">Alumni Reviews</div>
             <h2 class="alumni-testi-title">What Our <span>Alumni Say</span></h2>
             <p class="alumni-testi-desc">Dengarkan kisah nyata dari alumni LKP Metland College yang kini telah berhasil bekerja dan berkarir di luar negeri.</p>
         </div>

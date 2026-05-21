@@ -1,18 +1,405 @@
+@php
+    $contactSetting = $contactSetting ?? \App\Models\ContactSetting::query()->latest('id')->first();
+    $latestNews = $latestNews ?? \App\Models\News::query()->published()->orderByDesc('published_at')->orderByDesc('id')->take(4)->get();
+    
+    $faviconUrl = null;
+    if (filled($contactSetting?->favicon)) {
+        $faviconUrl = \Illuminate\Support\Facades\Storage::disk('public')->url($contactSetting->favicon);
+    }
+    
+    $logoUrl = null;
+    if (filled($contactSetting?->logo)) {
+        $logoUrl = \Illuminate\Support\Facades\Storage::disk('public')->url($contactSetting->logo);
+    }
+
+    $whatsappNumber = preg_replace('/\D+/', '', (string) (($contactSetting?->whatsapp ?? '') ?: '6281809999180'));
+@endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ __('ui.news.title') }} - SMK Metland</title>
-    <link rel="icon" type="image/webp" href="{{ asset('img/logo.webp') }}?v=20260305">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/scrollbar.css') }}">
+    <link rel="icon" type="image/webp" href="{{ $faviconUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') . '?v=20260305' }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/scrollbar.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@200;300;400;500;600;700;800;900&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <style>
+        .news-page-body {
+            background: #f2fbfb !important;
+            font-family: "Outfit", sans-serif;
+        }
+        nav {
+            background-color: rgba(7, 23, 31, 0.58) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28) !important;
+            transition: background-color 0.28s ease, backdrop-filter 0.28s ease, box-shadow 0.28s ease !important;
+        }
+        .news-page-main {
+            padding-top: 130px !important;
+            padding-bottom: 80px !important;
+            width: min(1200px, 92vw) !important;
+            margin: 0 auto !important;
+        }
+        .news-page-head {
+            margin-bottom: 50px !important;
+            text-align: center !important;
+        }
+        .news-page-home-link {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            color: #1ca5a5 !important;
+            text-decoration: none !important;
+            font-weight: 600 !important;
+            font-size: 0.9rem !important;
+            margin-bottom: 24px !important;
+            transition: all 0.25s ease !important;
+            background: rgba(28, 165, 165, 0.06) !important;
+            padding: 8px 20px !important;
+            border-radius: 999px !important;
+            border: 1px solid rgba(28, 165, 165, 0.12) !important;
+        }
+        .news-page-home-link:hover {
+            background: rgba(28, 165, 165, 0.12) !important;
+            transform: translateX(-4px) !important;
+            color: #0f6c75 !important;
+        }
+        .news-page-head h1 {
+            font-family: 'Sora', sans-serif !important;
+            font-weight: 800 !important;
+            color: #0f6c75 !important;
+            font-size: clamp(2.2rem, 5vw, 3.4rem) !important;
+            margin: 0 0 12px 0 !important;
+            letter-spacing: -0.8px !important;
+            line-height: 1.15 !important;
+        }
+        .news-page-head p {
+            font-family: 'Outfit', sans-serif !important;
+            font-size: 1.15rem !important;
+            color: #5b7579 !important;
+            max-width: 600px !important;
+            margin: 0 auto !important;
+            line-height: 1.6 !important;
+        }
+        .news-search-inline {
+            max-width: 650px !important;
+            margin: 0 auto 50px !important;
+            background: #ffffff !important;
+            padding: 6px !important;
+            border-radius: 999px !important;
+            box-shadow: 0 10px 30px rgba(15, 108, 117, 0.05) !important;
+            border: 1px solid rgba(28, 165, 165, 0.12) !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+        }
+        .news-search-inline input {
+            flex: 1 !important;
+            height: 48px !important;
+            border: none !important;
+            background: transparent !important;
+            padding: 0 24px !important;
+            font-size: 1rem !important;
+            color: #0f6c75 !important;
+            outline: none !important;
+            box-shadow: none !important;
+            font-family: 'Outfit', sans-serif !important;
+        }
+        .news-search-inline input::placeholder {
+            color: #9cb2b5 !important;
+        }
+        .news-search-inline button {
+            width: 48px !important;
+            height: 48px !important;
+            border-radius: 50% !important;
+            background: linear-gradient(135deg, #1ca5a5, #0f6c75) !important;
+            color: #ffffff !important;
+            border: none !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            cursor: pointer !important;
+            transition: all 0.25s ease !important;
+            box-shadow: 0 4px 12px rgba(28, 165, 165, 0.2) !important;
+        }
+        .news-search-inline button:hover {
+            transform: scale(1.05) !important;
+            box-shadow: 0 6px 18px rgba(28, 165, 165, 0.3) !important;
+        }
+        .news-search-result {
+            text-align: center !important;
+            font-size: 1.05rem !important;
+            color: #5b7579 !important;
+            margin-top: -30px !important;
+            margin-bottom: 40px !important;
+        }
+        .news-search-result strong {
+            color: #0f6c75 !important;
+        }
+        .news-clear-search {
+            color: #b64858 !important;
+            text-decoration: none !important;
+            margin-left: 10px !important;
+            font-weight: 600 !important;
+            font-size: 0.9rem !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 4px !important;
+        }
+        .news-clear-search:hover {
+            text-decoration: underline !important;
+        }
+        .news-page-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 30px !important;
+            margin-top: 20px !important;
+        }
+        @media (max-width: 992px) {
+            .news-page-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+        }
+        @media (max-width: 600px) {
+            .news-page-grid {
+                grid-template-columns: 1fr !important;
+                gap: 24px !important;
+            }
+        }
+        .news-page-card {
+            background: #ffffff !important;
+            border: 1px solid rgba(28, 165, 165, 0.06) !important;
+            border-radius: 20px !important;
+            overflow: hidden !important;
+            box-shadow: 0 12px 35px rgba(15, 108, 117, 0.03) !important;
+            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100% !important;
+        }
+        .news-page-card:hover {
+            transform: translateY(-8px) !important;
+            box-shadow: 0 24px 48px rgba(15, 108, 117, 0.08) !important;
+            border-color: rgba(28, 165, 165, 0.2) !important;
+        }
+        .news-page-media {
+            position: relative !important;
+            height: 230px !important;
+            overflow: hidden !important;
+        }
+        .news-page-media img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            transition: transform 0.6s ease !important;
+        }
+        .news-page-card:hover .news-page-media img {
+            transform: scale(1.08) !important;
+        }
+        .news-page-tag {
+            position: absolute !important;
+            top: 16px !important;
+            right: 16px !important;
+            bottom: auto !important;
+            background: rgba(28, 165, 165, 0.95) !important;
+            color: #ffffff !important;
+            font-size: 0.72rem !important;
+            font-weight: 700 !important;
+            padding: 5px 12px !important;
+            border-radius: 999px !important;
+            letter-spacing: 0.05em !important;
+            text-transform: uppercase !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12) !important;
+        }
+        .news-page-content {
+            padding: 24px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            flex: 1 !important;
+        }
+        .news-page-content h2 {
+            font-family: 'Sora', sans-serif !important;
+            font-weight: 700 !important;
+            color: #0d464c !important;
+            font-size: 1.25rem !important;
+            line-height: 1.4 !important;
+            margin: 0 0 12px 0 !important;
+            transition: color 0.25s ease !important;
+        }
+        .news-page-card:hover .news-page-content h2 {
+            color: #1ca5a5 !important;
+        }
+        .news-page-meta {
+            color: #7b989c !important;
+            font-size: 0.85rem !important;
+            gap: 12px !important;
+            margin-bottom: 16px !important;
+            display: flex !important;
+            align-items: center !important;
+            flex-wrap: wrap !important;
+        }
+        .news-page-meta i {
+            color: #1ca5a5 !important;
+        }
+        .news-page-content p {
+            color: #5b7579 !important;
+            font-size: 0.95rem !important;
+            line-height: 1.65 !important;
+            margin: 0 0 24px 0 !important;
+            flex: 1 !important;
+        }
+        .news-page-btn {
+            align-self: flex-start !important;
+            margin-top: auto !important;
+            padding: 10px 24px !important;
+            background: linear-gradient(135deg, #1ca5a5, #0f6c75) !important;
+            border-radius: 999px !important;
+            color: #ffffff !important;
+            font-size: 0.88rem !important;
+            font-weight: 600 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+            text-decoration: none !important;
+            transition: all 0.25s ease !important;
+            box-shadow: 0 4px 15px rgba(28, 165, 165, 0.15) !important;
+        }
+        .news-page-btn:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(28, 165, 165, 0.25) !important;
+            color: #ffffff !important;
+        }
+        .news-page-pagination {
+            margin-top: 50px !important;
+            gap: 10px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        .news-page-page {
+            min-width: 42px !important;
+            height: 42px !important;
+            border-radius: 50% !important;
+            border: 1px solid rgba(28, 165, 165, 0.15) !important;
+            color: #0f6c75 !important;
+            background: #ffffff !important;
+            transition: all 0.25s ease !important;
+            font-size: 0.92rem !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-weight: 600 !important;
+            text-decoration: none !important;
+        }
+        .news-page-page:hover:not(.is-disabled):not(.is-active) {
+            background: rgba(28, 165, 165, 0.08) !important;
+            color: #1ca5a5 !important;
+            border-color: #1ca5a5 !important;
+        }
+        .news-page-page.is-active {
+            background: linear-gradient(135deg, #1ca5a5, #0f6c75) !important;
+            border-color: transparent !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(28, 165, 165, 0.25) !important;
+        }
+        .news-page-page.is-disabled {
+            color: #b3c5c7 !important;
+            border-color: rgba(28, 165, 165, 0.08) !important;
+            background: rgba(28, 165, 165, 0.02) !important;
+            pointer-events: none !important;
+        }
+        .news-page-empty {
+            background: #ffffff !important;
+            border: 1px solid rgba(28, 165, 165, 0.1) !important;
+            border-radius: 20px !important;
+            padding: 60px 40px !important;
+            box-shadow: 0 10px 30px rgba(15, 108, 117, 0.04) !important;
+            max-width: 600px !important;
+            margin: 40px auto 0 !important;
+            text-align: center !important;
+        }
+        .news-page-empty h2 {
+            color: #0d464c !important;
+            font-family: 'Sora', sans-serif !important;
+            font-weight: 700 !important;
+            margin: 0 0 12px 0 !important;
+        }
+        .news-page-empty p {
+            color: #5b7579 !important;
+            font-size: 1.05rem !important;
+            margin: 0 !important;
+        }
+    </style>
 </head>
 <body class="news-page-body">
+    <nav>
+        <div class="logo">
+            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
+        </div>
+        <ul id="primary-nav">
+            <li><a href="{{ url('/') }}">Home</a></li>
+            <li class="nav-has-dropdown">
+                <button type="button" class="nav-dropdown-toggle">
+                    About <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                </button>
+                <ul class="nav-dropdown">
+                    <li><a href="{{ route('Profile') }}">Campus Profile</a></li>
+                    <li><a href="{{ route('vision-mission') }}">Vision & Mission</a></li>
+                    <li><a href="{{ route('sejarah') }}">History</a></li>
+                </ul>
+            </li>
+            <li class="nav-has-dropdown">
+                <button type="button" class="nav-dropdown-toggle">
+                    Career <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                </button>
+                <ul class="nav-dropdown">
+                    <li><a href="{{ route('LPK') }}">LPK</a></li>
+                    <li><a href="{{ route('LKP') }}">LKP</a></li>
+                </ul>
+            </li>
+            <li><a href="{{ route('news.index') }}">News</a></li>
+            <li><a href="{{ route('testi') }}">Reviews</a></li>
+            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
+            <li><a href="{{ url('/') }}#partnership">Partnership</a></li>
+        </ul>
+        <div class="sosmed-icon">
+            <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
+                <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://www.tiktok.com/@metlandcollege?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="icon-tiktok" aria-label="TikTok SMK Metland">
+                <i class="bi bi-tiktok"></i>
+            </a>
+            <a href="https://www.instagram.com/metland.college?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="icon-instagram" aria-label="Instagram SMK Metland">
+                <i class="bi bi-instagram"></i>
+            </a>
+        </div>
+        <div class="ppdb-btn">
+            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'">Join Us</button>
+        </div>
+        <div class="lang-switch" aria-label="Pengalih bahasa">
+            <a href="{{ route('language.switch', 'id') }}" class="{{ app()->getLocale() === 'id' ? 'is-active' : '' }}">ID</a>
+            <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">EN</a>
+        </div>
+        <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
+            <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
+                <i class="bi bi-search"></i>
+            </a>
+            <button type="button" class="nav-mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+    </nav>
+
     <main class="news-page-main">
         <header class="news-page-head">
             <a href="{{ url('/') }}" class="news-page-home-link"><i class="bi bi-arrow-left"></i> {{ __('ui.news.back_home') }}</a>
@@ -86,6 +473,24 @@
             </section>
         @endif
     </main>
+
+    @include('partials.footer')
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="{{ asset("js/script.js") }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <a
+        class="whatsapp-fab"
+        href="https://wa.me/{{ $whatsappNumber }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat via WhatsApp"
+        title="Chat via WhatsApp"
+    >
+        <i class="bi bi-whatsapp" aria-hidden="true"></i>
+        <span class="whatsapp-fab-tooltip">Hubungi kami!</span>
+    </a>
 </body>
 </html>
 

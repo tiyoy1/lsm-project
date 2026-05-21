@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
     <meta charset="UTF-8">
@@ -200,7 +200,7 @@
             </div>
             <div class="career-timeline" id="lpk-content">
                 <span class="career-line" aria-hidden="true"></span>
-                <article class="career-step is-right">
+                <article class="career-step is-left">
                     <span class="career-pill">First Step! </span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-journal-bookmark"></i></div>
@@ -210,7 +210,7 @@
                         </div>
                     </div>
                 </article>
-                <article class="career-step is-left">
+                <article class="career-step is-right">
                     <span class="career-pill">Second Step!</span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-people"></i></div>
@@ -220,7 +220,7 @@
                         </div>
                     </div>
                 </article>
-                <article class="career-step is-right">
+                <article class="career-step is-left">
                     <span class="career-pill">Third Step!</span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-briefcase"></i></div>
@@ -230,7 +230,7 @@
                         </div>
                     </div>
                 </article>
-                <article class="career-step is-left">
+                <article class="career-step is-right">
                     <span class="career-pill">Final Step</span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-briefcase"></i></div>
@@ -378,8 +378,7 @@
     <section class="school-partnership" id="partnership" aria-label="PARTNERSHIP industri dan perguruan tinggi">
         <div class="partnership-shell">
             <div class="partnership-header">
-                <span class="partnership-badge">PARTNERSHIP</span>
-                <h2 class="partnership-title">PARTNERSHIP <br><span>Industri & Perguruan Tinggi</span></h2>
+                <h2 class="partnership-title">Industri <span>&amp; Perguruan Tinggi</span></h2>
                 <p class="partnership-desc">Sourced from the partnership list on the official SMK Metland website, this collaboration supports internship, teaching factory, and synchronization of industry needs.</p>
             </div>
 
@@ -483,7 +482,15 @@
             </div>
 
             <div class="footer-contact-map">
-                <p style="margin-bottom: 12px;"><strong>Locations:</strong></p>
+                <p>
+                    <i class="bi bi-envelope-fill" style="color: #1ca5a5; margin-right: 6px;"></i>
+                    <a href="mailto:admin@metlandcollege.net">admin@metlandcollege.net</a>
+                </p>
+                <p>
+                    <i class="bi bi-whatsapp" style="color: #1ca5a5; margin-right: 6px;"></i>
+                    {{ filled($contactSetting?->whatsapp) ? $contactSetting->whatsapp : '+62-8180-9999-180' }}
+                </p>
+                <p style="margin: 14px 0 12px;"><strong>Locations:</strong></p>
                 <p style="margin-bottom: 8px;">
                     <a href="https://maps.app.goo.gl/WkG3ifbvA4o52RkAA" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CILEUNGSI</strong><br>
@@ -499,8 +506,6 @@
                         <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>HOTEL METLAND SMARA KERTAJATI</strong><br>
                     </a>
                 </p>
-	                <p><strong>WhatsApp:</strong> {{ filled($contactSetting?->whatsapp) ? $contactSetting->whatsapp : '+62-8180-9999-180' }}</p>
-                <p><strong>Gmail:</strong> <a href="mailto:admin@metlandcollege.net">admin@metlandcollege.net</a></p> <!-- blum diisi -->
                 <div class="footer-socials">
                     <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" aria-label="YouTube Metland Academy">
                         <i class="bi bi-youtube"></i>
@@ -521,9 +526,6 @@
                     src="https://www.google.com/maps?cid=4362342788863844499&hl=id&gl=ID&output=embed">
                 </iframe>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} Lau Siape Mpruy. All rights reserved.</p>
         </div>
     </footer>
 

@@ -738,7 +738,6 @@
                         </div>
                     </div>
                 </div>
-                <p class="lkp-boarding-note" style="text-align: left;">*Fasilitas berlaku untuk kelas atau tipe asrama tertentu. Hubungi kami untuk info lebih lanjut.</p>
             </div>
         </div>
       </div>
@@ -747,8 +746,8 @@
     <section class="career-section" id="career-section">
         <div class="career-shell">
             <div class="career-head">
-                <span class="section-badge-lpk" title="Klik untuk mengubah LPK/LKP">Training Method</span>
-                <h2 class="section-title">From <span>New Students</span> to Professional</h2> 
+                <span class="section-badge">Training Method</span>
+                <h2 class="section-title">From <span>Basic</span> to Professional</h2> 
                 <p class="section-desc">Structured learning steps, focus on practice, and supported by industry mentors until ready to enter the workforce.</p>
             </div>
             <div class="career-timeline" id="lpk-content">
@@ -793,7 +792,7 @@
                         </div>
                     </div>
                 </article>
-                <article class="career-step is-right">
+                <article class="career-step is-left">
                     <span class="career-pill is-finish">Graduate</span>
                     <div class="career-card">
                         <div class="career-icon"><i class="bi bi-mortarboard"></i></div>
@@ -842,6 +841,9 @@
         .alumni-testi-head {
             text-align: center;
             margin-bottom: 64px;
+        }
+        .alumni-testi-head .section-badge {
+            cursor: default;
         }
         .alumni-testi-badge {
             display: inline-block;
@@ -1003,7 +1005,7 @@
     <section class="alumni-testi" id="alumni-testi">
       <div class="alumni-testi-shell">
         <div class="alumni-testi-head">
-            <div class="alumni-testi-badge">Alumni Reviews</div>
+            <div class="section-badge">Alumni Reviews</div>
             <h2 class="alumni-testi-title">What Our <span>Alumni Say</span></h2>
             <p class="alumni-testi-desc">Dengarkan pengalaman nyata dari alumni LPK Metland College yang kini telah sukses bekerja di industri perhotelan.</p>
         </div>

@@ -51,7 +51,9 @@ class NewsResource extends Resource
                     ->image()
                     ->imageEditor()
                     ->maxSize(8192),
-                DateTimePicker::make('published_at')->label('Publish at'),
+                DateTimePicker::make('published_at')
+                    ->label('Publish at')
+                    ->default(fn () => now()),
                 Select::make('author_id')
                     ->relationship('author', 'name')
                     ->searchable()

@@ -49,7 +49,15 @@
         </div>
 
         <div class="footer-contact-map">
-            <p style="margin-bottom: 12px;"><strong>Locations:</strong></p>
+            <p>
+                <i class="bi bi-envelope-fill" style="color: #1ca5a5; margin-right: 6px;"></i>
+                <a href="mailto:admin@metlandcollege.net">admin@metlandcollege.net</a>
+            </p>
+            <p>
+                <i class="bi bi-whatsapp" style="color: #1ca5a5; margin-right: 6px;"></i>
+                {{ $footerWhatsapp }}
+            </p>
+            <p style="margin: 14px 0 12px;"><strong>Locations:</strong></p>
             <p style="margin-bottom: 8px;">
                 <a href="https://maps.app.goo.gl/WkG3ifbvA4o52RkAA" target="_blank" rel="noopener noreferrer">
                     <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CILEUNGSI</strong><br>
@@ -65,8 +73,6 @@
                     <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>HOTEL METLAND SMARA KERTAJATI</strong><br>
                 </a>
             </p>
-            <p><strong>WhatsApp:</strong> {{ $footerWhatsapp }}</p>
-            <p><strong>Gmail:</strong> <a href="mailto:admin@metlandcollege.net">admin@metlandcollege.net</a></p>
             <div class="footer-socials">
                 <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" aria-label="YouTube Metland Academy">
                     <i class="bi bi-youtube"></i>
@@ -87,8 +93,5 @@
                 src="https://www.google.com/maps?cid=4362342788863844499&hl=id&gl=ID&output=embed">
             </iframe>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; {{ date('Y') }} Lau Siape Mpruy. All rights reserved.</p>
     </div>
 </footer>

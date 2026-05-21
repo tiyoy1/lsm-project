@@ -134,19 +134,7 @@
             z-index: 2;
         }
         .testi-page-head { text-align: center; margin-bottom: 64px; }
-        .testi-page-badge {
-            display: inline-block;
-            background: rgba(28,165,165,0.12);
-            border: 1px solid rgba(28,165,165,0.35);
-            color: #0f6c75;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            padding: 6px 20px;
-            border-radius: 50px;
-            margin-bottom: 20px;
-        }
+        .testi-page-head .section-badge { cursor: default; }
         .testi-page-title {
             font-family: 'Outfit', sans-serif;
             font-size: clamp(2rem, 4vw, 2.8rem);
@@ -318,19 +306,7 @@
             text-align: center;
             margin-bottom: 60px;
         }
-        .why-choose-badge {
-            display: inline-block;
-            background: rgba(95,226,226,0.12);
-            border: 1px solid rgba(95,226,226,0.3);
-            color: #5fe2e2;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            padding: 6px 20px;
-            border-radius: 50px;
-            margin-bottom: 20px;
-        }
+        .why-choose-head .section-badge { cursor: default; }
         .why-choose-title {
             font-family: 'Outfit', sans-serif;
             font-size: clamp(2rem, 4vw, 2.8rem);
@@ -540,7 +516,7 @@
     <section class="testi-page" id="content-section">
       <div class="testi-page-shell">
         <div class="testi-page-head">
-            <div class="testi-page-badge">Alumni Reviews</div>
+            <div class="section-badge">Alumni Reviews</div>
             <h2 class="testi-page-title">Hear From Our <span>Alumni & Students</span></h2>
             <p class="testi-page-desc">Real stories from Metland College graduates who have built successful careers in hospitality, language proficiency, and international work placements.</p>
         </div>
@@ -801,7 +777,7 @@
 	    <section class="why-choose-section">
 	        <div class="why-choose-shell">
             <div class="why-choose-head">
-                <div class="why-choose-badge">Why Choose Us</div>
+                <div class="section-badge">Why Choose Us</div>
                 <h2 class="why-choose-title">Trusted by <span>Hundreds of Alumni</span></h2>
                 <p class="why-choose-desc">Numbers don't lie. Here's why Metland College is the top choice for hospitality and language training.</p>
             </div>
