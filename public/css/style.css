@@ -5953,15 +5953,9 @@ body > nav ul li.nav-mobile-only {
 }
 
 .section-badge {
-    display: inline-block;
-    padding: 8px 24px;
-    background: linear-gradient(
-        120deg,
-        rgba(88, 210, 210, 0.15),
-        rgba(88, 210, 210, 0.05)
-    );
-    border: 2px solid rgba(88, 210, 210, 0.3);
-    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
     color: #2d8f8f;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -5969,12 +5963,22 @@ body > nav ul li.nav-mobile-only {
     margin-bottom: 24px;
     font-size: 0.85rem;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    padding: 0;
+}
+
+.section-badge::before,
+.section-badge::after {
+    content: '⸻⸻⸻';
+    color: #2d8f8f;
+    opacity: 0.6;
+    font-size: 0.9rem;
 }
 
 .section-badge:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    opacity: 0.8;
 }
 
 .section-title {
