@@ -3,6 +3,7 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional & Lifelong Learning - Metland College vocational school offering hospitality, culinary, hotel, DKV, accounting education">
     <title>LPK-LKP METLAND COLLEGE</title>
     @php
         $faviconUrl = null;
@@ -11,11 +12,15 @@
         }
     @endphp
     <link rel="icon" type="image/webp" href="{{ $faviconUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') . '?v=20260305' }}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" media="print" onload="this.media='all'; this.onload=null;" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
     <link rel="stylesheet" href="{{ asset('css/scrollbar.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +42,7 @@
     @endphp
     <nav>
         <div class="logo">
-            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="Logo Metland College" class="logo-img">Metland College
+            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
         </div>
         <ul id="primary-nav">
             <li><a href="{{ url('/') }}">Home</a></li>
@@ -381,53 +386,6 @@
                 <a href="{{ route('testi') }}" class="career-cta" style="display: inline-block;">See more</a>
             </div>
         </div>
-    </section>
-    <section class="contact" id="contact">
-      <div class="section-header">
-        <span class="section-badge">Contact Us</span>
-        <h2 class="section-title">Connect With Our Team</h2>
-        <p class="section-desc">Have questions about our school, programs, or enrollment? Send Message and our team akan menghubungi Anda.</p>
-      </div>
-
-      <div class="row">
-        <div class="contact-left">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.9227473878086!2d106.97256397475222!3d-6.4039541935867605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e699445f0d1c541%3A0x3c8a27a75eb76093!2sSMK%20Metland%20School!5e0!3m2!1sid!2sid!4v1771736307836!5m2!1sid!2sid"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              class="map"
-            ></iframe>
-            <div class="contact-left-text">
-                <h3>Ready to craft your future with us?</h3>
-                <p>Join Metland College today and take the first step towards a successful career. Our dedicated team is here to guide you through every step of your educational journey.</p>
-            </div>
-        </div>
-
-        <form action="{{ route('contact.store') }}" method="POST" id="contact-form" novalidate>
-            @csrf
-            <label for="name" class="form-label">Name</label>
-          <div class="input-group">
-            <input type="text" name="name" value="{{ old('name') }}" placeholder="Full name" required minlength="2" />
-          </div>
-          <label for="email" class="form-label">Email</label>
-          <div class="input-group">
-            <input type="email" name="email" value="{{ old('email') }}" placeholder="Email address" required />
-          </div>
-          <label for="phone" class="form-label">Phone Number</label>
-          <div class="input-group">
-            <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="Phone number" required />
-          </div>
-            <label for="desc" class="form-label">What's your message?</label>
-          <div class="input-group">
-            <input name="message" id="desc" placeholder="Description" rows="4" required style="resize: vertical;">{{ old('message') }}</input>
-          </div>
-          <p class="contact-feedback {{ session('contact_success') ? 'is-success' : ($errors->any() ? 'is-error' : '') }}" id="contact-feedback" role="status" aria-live="polite">
-              {{ session('contact_success') ?? ($errors->first() ?: '') }}
-          </p>
-          <button type="submit" class="btn contact-btn">Send Message</button>
-        </form>
-      </div>
     </section>
 
     <section class="school-partnership" id="partnership" aria-label="PARTNERSHIP industri dan perguruan tinggi">
