@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
     <meta charset="UTF-8">
@@ -65,7 +65,7 @@
                     <li><a href="{{ route('LKP') }}">LKP</a></li>
                 </ul>
             </li>
-            <li><a href="{{ route('news') }}">News</a></li>
+            <li><a href="{{ route('news.index') }}">News</a></li>
             <li><a href="{{ route('testi') }}">Reviews</a></li>
             <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -91,7 +91,7 @@
             <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">EN</a>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
-            <a href="{{ route('news') }}" class="nav-mobile-search" aria-label="Search news">
+            <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
                 <i class="bi bi-search"></i>
             </a>
             <button type="button" class="nav-mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
@@ -276,7 +276,7 @@
         <div class="news-shell">
             <div class="news-head">
                 <span class="news-badge">LATEST NEWS</span>
-                <a href="{{ route('news') }}" class="news-all-link">See All <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="{{ route('news.index') }}" class="news-all-link">See All <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
             <div class="news-layout">
@@ -317,7 +317,7 @@
                             <p class="news-meta"><i class="fa-regular fa-calendar"></i> No data yet</p>
                             <h3>School news has not been published yet</h3>
                             <p>News content will appear here once published from the admin panel.</p>
-                            <a href="{{ route('news') }}" class="news-read-more">View News Page</a>
+                            <a href="{{ route('news.index') }}" class="news-read-more">View News Page</a>
                         </div>
                     </article>
                 @endif
@@ -470,7 +470,7 @@
                         <article class="footer-post-item">
                             <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" class="footer-post-thumb">
                             <div class="footer-post-content">
-                                <a href="{{ route('news.show', $featuredNews->slug) }}">{{ \Illuminate\Support\Str::limit($item->localized_title, 76) }}</a>
+                                <a href="{{ route('news.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->localized_title, 76) }}</a>
                                 <p class="footer-post-date">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>
                             </div>
                         </article>
@@ -478,7 +478,7 @@
                         <article class="footer-post-item">
                             <img src="{{ asset('img/hero2.JPG') }}" alt="No News yet" class="footer-post-thumb">
                             <div class="footer-post-content">
-                                <a href="{{ route('news') }}">No news has been published yet</a>
+                                <a href="{{ route('news.index') }}">No news has been published yet</a>
                                 <p class="footer-post-date">Please check back later</p>
                             </div>
                         </article>

@@ -51,7 +51,7 @@
                     <li><a href="{{ route('LKP') }}">LKP</a></li>
                 </ul>
             </li>
-            <li><a href="{{ route('news') }}">News</a></li>
+            <li><a href="{{ route('news.index') }}">News</a></li>
             <li><a href="{{ route('testi') }}">Reviews</a></li>
             <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
             <li><a href="{{ url('/') }}#contact">Contact</a></li>
@@ -77,7 +77,7 @@
             <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">EN</a>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
-            <a href="{{ route('news') }}" class="nav-mobile-search" aria-label="Search news">
+            <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
                 <i class="bi bi-search"></i>
             </a>
             <button type="button" class="nav-mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
@@ -121,7 +121,7 @@
                     <h2 class="section-title">Campus Updates & <span>Announcements</span></h2>
                     <p class="section-desc">Discover the latest events, achievements, and important announcements from Metland College.</p>
                 </div>
-                <form action="{{ route('news') }}" method="GET" class="news-content-search" role="search">
+                <form action="{{ route('news.index') }}" method="GET" class="news-content-search" role="search">
                     <div class="news-search-box">
                         <i class="bi bi-search"></i>
                         <input type="text" name="q" value="{{ request('q') }}" placeholder="Search news..." aria-label="Search news">
@@ -133,7 +133,7 @@
             @if(request('q'))
                 <p class="news-search-result-text">
                     <i class="bi bi-funnel"></i> Showing results for "<strong>{{ request('q') }}</strong>"
-                    <a href="{{ route('news') }}" class="news-clear-search"><i class="bi bi-x-circle"></i> Clear</a>
+                    <a href="{{ route('news.index') }}" class="news-clear-search"><i class="bi bi-x-circle"></i> Clear</a>
                 </p>
             @endif
 
@@ -227,7 +227,7 @@
             @endif
 
             <div class="news-view-all-wrap">
-                <a href="{{ route('news') }}" class="news-view-all-btn">
+                <a href="{{ route('news.index') }}" class="news-view-all-btn">
                     <i class="bi bi-grid-3x3-gap"></i> View All News Archive
                 </a>
             </div>
@@ -262,7 +262,7 @@
                         <article class="footer-post-item">
                             <img src="{{ asset('img/hero2.JPG') }}" alt="No News yet" class="footer-post-thumb">
                             <div class="footer-post-content">
-                                <a href="{{ route('news') }}">No news has been published yet</a>
+                                <a href="{{ route('news.index') }}">No news has been published yet</a>
                                 <p class="footer-post-date">Please check back later</p>
                             </div>
                         </article>
