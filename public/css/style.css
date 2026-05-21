@@ -529,50 +529,35 @@ body > nav ul li.nav-mobile-only {
 }
 
 .hero-btn {
-    color: #e9fdff;
+    color: #ffffff;
     text-decoration: none;
     padding: 11px 26px;
     border-radius: 999px;
-    border: 1px solid rgba(88, 210, 210, 0.75);
+    border: 1px solid #50d6d6;
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    transition:
-        transform 0.28s ease,
-        box-shadow 0.28s ease,
-        color 0.28s ease;
+    transition: all 0.2s ease;
     letter-spacing: 0.08em;
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    background: linear-gradient(
-        120deg,
-        rgba(88, 210, 210, 0.3),
-        rgba(88, 210, 210, 0.14)
-    );
+    background: linear-gradient(120deg, #50d6d6, #2fa1a8);
     box-shadow: 0 8px 18px rgba(11, 92, 92, 0.32);
 }
 
 .hero-btn::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    border-radius: 999px;
-    background: linear-gradient(120deg, #50d6d6, #2fa1a8);
-    transform: scaleX(0);
-    transform-origin: left center;
-    transition: transform 0.3s ease-in-out;
-}
-
-.hero-btn:hover::before {
-    transform: scaleX(1);
+    display: none;
 }
 
 .hero-btn:hover {
-    color: #ffffff;
-    transform: translateY(-2px);
+    opacity: 0.85;
     box-shadow: 0 12px 24px rgba(24, 126, 126, 0.45);
+}
+
+.hero-btn:active {
+    opacity: 0.7;
+    transform: scale(0.98);
 }
 
 .hero-btn.is-outline {
@@ -582,11 +567,7 @@ body > nav ul li.nav-mobile-only {
 }
 
 .hero-btn.is-outline::before {
-    background: linear-gradient(
-        120deg,
-        rgba(255, 255, 255, 0.28),
-        rgba(88, 210, 210, 0.2)
-    );
+    display: none;
 }
 
 @keyframes heroContentReveal {

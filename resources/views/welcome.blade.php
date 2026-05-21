@@ -317,6 +317,7 @@
     <section class="alumni-section" id="alumni-section">
         <div class="alumni-shell">
             <div class="alumni-head">
+                <span class="section-badge"><span>Alumni Reviews</span></span>
                 <h2 class="section-title">What <span>They Say</span></h2>
                 <p class="section-desc">Alumni reviews regarding their learning experience at SMK Metland.</p>
             </div>
@@ -375,6 +376,53 @@
                 <a href="{{ route('testi') }}" class="career-cta" style="display: inline-block;">See more</a>
             </div>
         </div>
+    </section>
+    <section class="contact" id="contact">
+      <div class="section-header">
+        <span class="section-badge">Contact Us</span>
+        <h2 class="section-title"><span>Get In Touch</span> With Our Team</h2>
+        <p class="section-desc">.</p>
+      </div>
+
+      <div class="row">
+        <div class="contact-left">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.9227473878086!2d106.97256397475222!3d-6.4039541935867605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e699445f0d1c541%3A0x3c8a27a75eb76093!2sSMK%20Metland%20School!5e0!3m2!1sid!2sid!4v1771736307836!5m2!1sid!2sid"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="map"
+            ></iframe>
+            <div class="contact-left-text">
+                <h3>Have any business inquiries?</h3>
+                <p>Contact us to start our jorney for brightness future and smarter generation.</p>
+            </div>
+        </div>
+
+        <form action="{{ route('contact.store') }}" method="POST" id="contact-form" novalidate>
+            @csrf
+            <label for="name" class="form-label">Name</label>
+          <div class="input-group">
+            <input type="text" name="name" value="{{ old('name') }}" placeholder="Full name" required minlength="2" />
+          </div>
+          <label for="email" class="form-label">Email</label>
+          <div class="input-group">
+            <input type="email" name="email" value="{{ old('email') }}" placeholder="Email address" required />
+          </div>
+          <label for="phone" class="form-label">Phone Number</label>
+          <div class="input-group">
+            <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="Phone number" required />
+          </div>
+            <label for="desc" class="form-label">What's your message?</label>
+          <div class="input-group">
+            <input name="message" id="desc" placeholder="Description" rows="4" required style="resize: vertical;">{{ old('message') }}</input>
+          </div>
+          <p class="contact-feedback {{ session('contact_success') ? 'is-success' : ($errors->any() ? 'is-error' : '') }}" id="contact-feedback" role="status" aria-live="polite">
+              {{ session('contact_success') ?? ($errors->first() ?: '') }}
+          </p>
+          <button type="submit" class="btn contact-btn">Send Message</button>
+        </form>
+      </div>
     </section>
 
     <section class="school-partnership" id="partnership" aria-label="PARTNERSHIP industri dan perguruan tinggi">

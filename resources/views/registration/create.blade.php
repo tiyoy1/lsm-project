@@ -551,9 +551,6 @@
                                 <li>Professional Certificate</li>
                             </ul>
                         </div>
-                        <div class="package-card-footer">
-                            <a href="{{ $gformUrl }}" class="card-btn" target="_blank" rel="noopener noreferrer">Register Now</a>
-                        </div>
                     </div>
                 </div>
                 <div class="package-card-wrap">
@@ -570,11 +567,11 @@
                                 <li>Career-ready support and guidance</li>
                             </ul>
                         </div>
-                        <div class="package-card-footer">
-                            <a href="{{ $gformUrl }}" class="card-btn" target="_blank" rel="noopener noreferrer">Register Now</a>
-                        </div>
                     </div>
                 </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="{{ $gformUrl }}" class="hero-btn" target="_blank" rel="noopener noreferrer">Register Now</a>
             </div>
         </div>
     </section>
