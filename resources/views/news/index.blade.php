@@ -19,13 +19,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ __('ui.news.title') }} - SMK Metland</title>
+    <title>{{ __('ui.news.title') }} - Metland College</title>
     <link rel="icon" type="image/webp" href="{{ $faviconUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') . '?v=20260305' }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -33,6 +34,7 @@
     <link rel="stylesheet" href="{{ asset('css/scrollbar.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@200;300;400;500;600;700;800;900&family=Sora:wght@100..800&display=swap" rel="stylesheet">
     <style>
+        html { scroll-behavior: smooth; }
         .news-page-body {
             background: #f2fbfb !important;
             font-family: "Outfit", sans-serif;
@@ -45,7 +47,7 @@
             transition: background-color 0.28s ease, backdrop-filter 0.28s ease, box-shadow 0.28s ease !important;
         }
         .news-page-main {
-            padding-top: 130px !important;
+            padding-top: 60px !important;
             padding-bottom: 80px !important;
             width: min(1200px, 92vw) !important;
             margin: 0 auto !important;
@@ -339,6 +341,130 @@
             font-size: 1.05rem !important;
             margin: 0 !important;
         }
+
+        /* ── News Hero Section ── */
+        .news-hero {
+            position: relative;
+            /* match home hero: full viewport height */
+            min-height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a1a22;
+        }
+        .news-hero-media {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.75;
+        }
+        .news-hero-media .swiper,
+        .news-hero-media .swiper-wrapper,
+        .news-hero-media .swiper-slide {
+            width: 100%;
+            height: 100%;
+        }
+        .news-hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .news-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(4, 18, 24, 0.2), rgba(5, 16, 22, 0.7)),
+                radial-gradient(circle at 45% 35%, rgba(0, 0, 0, 0.1), rgba(5, 18, 24, 0.72));
+            z-index: 1;
+        }
+        .news-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #f4fbff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            width: min(92vw, 780px);
+            padding: 2.4rem 2.8rem;
+            animation: newsHeroReveal 650ms ease-out forwards;
+            transform: translateY(6px);
+            opacity: 0;
+        }
+        .news-hero-eyebrow {
+            margin: 0;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.32rem;
+            text-transform: uppercase;
+            color: rgba(225, 249, 252, 0.95);
+        }
+        .news-hero-title {
+            margin: 0;
+            font-size: clamp(2.2rem, 6vw, 4.5rem);
+            line-height: 1.05;
+            font-family: "Outfit", sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 0 16px rgba(66, 176, 176, 0.2);
+        }
+        .news-hero-title span {
+            color: #5fe2e2;
+        }
+        .news-hero-content p {
+            font-size: 1.1rem;
+            color: rgba(225, 249, 252, 0.85);
+            max-width: 550px;
+            line-height: 1.6;
+        }
+        .news-hero-btn {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 11px 26px;
+            border-radius: 999px;
+            border: 1px solid #50d6d6;
+            overflow: hidden;
+            transition: all 0.2s ease;
+            letter-spacing: 0.08em;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            background: linear-gradient(120deg, #50d6d6, #2fa1a8);
+            box-shadow: 0 8px 18px rgba(11, 92, 92, 0.32);
+        }
+        .news-hero-btn:hover {
+            opacity: 0.85;
+            box-shadow: 0 12px 24px rgba(24, 126, 126, 0.45);
+            color: #ffffff;
+        }
+        @keyframes newsHeroReveal {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @media (max-width: 600px) {
+            .news-hero {
+                min-height: 55vh;
+            }
+            .news-hero-content {
+                padding: 1.5rem;
+            }
+        }
+        /* Reveal animation for news cards when scrolled into view */
+        .news-page-grid .news-page-card {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 480ms cubic-bezier(.2,.9,.2,1), transform 480ms cubic-bezier(.2,.9,.2,1);
+        }
+        .news-page-grid .news-page-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="news-page-body">
@@ -400,9 +526,35 @@
         </div>
     </nav>
 
-    <main class="news-page-main">
+    {{-- ── NEWS HERO SECTION ── --}}
+    <section class="news-hero">
+        <div class="news-hero-media">
+            <div class="swiper news-hero-swiper" style="width: 100%; height: 100%;">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/SMK Metland Cileungsi.png') }}" alt="SMK Metland Cileungsi">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/SMK Metland cibitung.png') }}" alt="SMK Metland Cibitung">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/Kertajati.png') }}" alt="Kertajati">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="news-hero-overlay" aria-hidden="true"></div>
+        <div class="news-hero-content">
+            <p class="news-hero-eyebrow">"Latest Updates & Announcements"</p>
+            <h1 class="news-hero-title">Metland College <br><span>NEWS</span></h1>
+            <p>Stay up to date with the latest news, events, activities, and important announcements from Metland College.</p>
+            <a href="#news-content" class="news-hero-btn">See more</a>
+        </div>
+    </section>
+
+    <main class="news-page-main" id="news-content">
         <header class="news-page-head">
-            <h1>{{ __('ui.news.title') }}</h1>
+            <h2>{{ __('ui.news.title') }}</h2>
             <p>{{ __('ui.news.latest_subtitle') }}</p>
         </header>
         <form action="{{ route('news.index') }}" method="GET" class="news-search-inline" role="search">
@@ -487,6 +639,40 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="{{ asset("js/script.js") }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var newsHeroEl = document.querySelector('.news-hero-swiper');
+            if (newsHeroEl && typeof Swiper !== 'undefined') {
+                new Swiper(newsHeroEl, {
+                    slidesPerView: 1,
+                    loop: true,
+                    speed: 3500,
+                    autoplay: {
+                        delay: 2000,
+                        disableOnInteraction: false,
+                    },
+                });
+            }
+
+            // Reveal news cards when they scroll into view
+            var newsCards = document.querySelectorAll('.news-page-card');
+            if (newsCards.length) {
+                if ('IntersectionObserver' in window) {
+                    var obs = new IntersectionObserver(function(entries, observer) {
+                        entries.forEach(function(entry) {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('is-visible');
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.12 });
+                    newsCards.forEach(function(card) { obs.observe(card); });
+                } else {
+                    newsCards.forEach(function(card) { card.classList.add('is-visible'); });
+                }
+            }
+        });
+    </script>
     <a
         class="whatsapp-fab"
         href="https://wa.me/{{ $whatsappNumber }}"

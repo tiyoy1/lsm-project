@@ -39,12 +39,23 @@ Route::get('/', function () {
         ->orderBy('id')
         ->get();
 
-    $homeTestimonials = Testimonial::query()
-        ->where('is_approved', true)
-        ->orderByDesc('is_featured')
-        ->orderByDesc('id')
-        ->take(6)
-        ->get();
+    // Testimonials may be from a migrated table that doesn't have the
+    // `is_approved` column yet (dev environments). Guard against that
+    // so the home page still renders instead of throwing a query error.
+    try {
+        if (\Illuminate\Support\Facades\Schema::hasColumn('testimonials', 'is_approved')) {
+            $homeTestimonials = Testimonial::query()
+                ->where('is_approved', true)
+                ->orderByDesc('is_featured')
+                ->orderByDesc('id')
+                ->take(6)
+                ->get();
+        } else {
+            $homeTestimonials = collect();
+        }
+    } catch (\Exception $e) {
+        $homeTestimonials = collect();
+    }
 
     return view('welcome', compact('latestNews', 'contactSetting', 'partnerships', 'homeTestimonials'));
 });
@@ -59,40 +70,6 @@ Route::view('/jurusan/kuliner', 'majors.Kuliner')->name('majors.kuliner');
 Route::view('/jurusan/hotel', 'majors.Hotel')->name('majors.hotel');
 Route::view('/LPK', 'career.LPK')->name('LPK');
 Route::view('/LKP', 'career.LKP')->name('LKP');
-Route::get('/news', function (\Illuminate\Http\Request $request) {
-    $search = trim((string) $request->query('q', ''));
-    $category = trim((string) $request->query('category', ''));
-    $query = News::with('author')
-        ->whereNotNull('published_at')
-        ->where('published_at', '<=', now());
-
-    if ($category !== '') {
-        $query->where('category', $category);
-    }
-
-    if ($search !== '') {
-        $keywords = preg_split('/\s+/', $search, -1, PREG_SPLIT_NO_EMPTY);
-        $query->where(function ($q) use ($keywords) {
-            foreach ($keywords as $keyword) {
-                $like = '%' . $keyword . '%';
-                $q->where(function ($sub) use ($like) {
-                    $sub->where('title', 'like', $like)
-                        ->orWhere('title_en', 'like', $like)
-                        ->orWhere('content', 'like', $like)
-                        ->orWhere('content_en', 'like', $like);
-                });
-            }
-        });
-    }
-
-    $latestNews = $query
-        ->orderByDesc('published_at')
-        ->orderByDesc('id')
-        ->paginate(6)
-        ->withQueryString();
-
-    return view('news', compact('latestNews'));
-})->name('news');
 Route::get('/testi', [TestimonialPageController::class, 'index'])->name('testi');
 Route::post('/testi', [TestimonialPageController::class, 'store'])->name('testi.store');
 Route::get('/testimonials/submit', fn () => redirect()->route('testi', [], 302)->withFragment('submit'))->name('testimonials.submit');

@@ -19,7 +19,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $news->localized_title }} - {{ __('ui.news.title') }} SMK Metland</title>
+    <title>{{ $news->localized_title }} - {{ __('ui.news.title') }} Metland College</title>
     <link rel="icon" type="image/webp" href="{{ $faviconUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') . '?v=20260305' }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

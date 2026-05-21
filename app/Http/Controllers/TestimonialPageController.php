@@ -14,11 +14,19 @@ class TestimonialPageController extends Controller
     {
         $contactSetting = ContactSetting::query()->latest('id')->first();
 
-        $testimonials = Testimonial::query()
-            ->where('is_approved', true)
-            ->orderByDesc('is_featured')
-            ->orderByDesc('id')
-            ->get();
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasColumn('testimonials', 'is_approved')) {
+                $testimonials = Testimonial::query()
+                    ->where('is_approved', true)
+                    ->orderByDesc('is_featured')
+                    ->orderByDesc('id')
+                    ->get();
+            } else {
+                $testimonials = collect();
+            }
+        } catch (\Exception $e) {
+            $testimonials = collect();
+        }
 
         return view('testi', compact('testimonials', 'contactSetting'));
     }
