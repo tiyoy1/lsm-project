@@ -583,7 +583,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} SMK Metland. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Lau Siape Mpruy. All rights reserved.</p>
         </div>
     </footer>
 
