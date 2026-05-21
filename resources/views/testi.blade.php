@@ -3,13 +3,18 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alumni Reviews - Metland College</title>
+    <meta name="description" content="Testimonials and reviews from alumni of Metland College">
+    <title>Testimonials - Metland College</title>
     <link rel="icon" type="image/webp" href="{{ asset('img/LOGO METLAND COLLEGE-02.png') }}?v=20260305">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" media="print" onload="this.media='all'; this.onload=null;">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
     <link rel="stylesheet" href="{{ asset('css/scrollbar.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +36,7 @@
     @endphp
     <nav>
         <div class="logo">
-            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.png") }}" alt="Logo Metland College" class="logo-img">Metland College
+            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.png") }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
         </div>
         <ul id="primary-nav">
             <li><a href="{{ url('/') }}">Home</a></li>
@@ -54,8 +59,8 @@
                     <li><a href="{{ route('LKP') }}">LKP</a></li>
                 </ul>
             </li>
-            <li><a href="{{ route('news') }}">News</a></li>
-            <li><a href="{{ route('testi') }}">Alumni Reviews</a></li>
+            <li><a href="{{ route('news.index') }}">News</a></li>
+            <li><a href="{{ route('testi') }}">Reviews</a></li>
             <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
             <li><a href="{{ url('/') }}#contact">Contact</a></li>
             <li><a href="{{ url('/') }}#partnership">Partnership</a></li>
@@ -80,7 +85,7 @@
             <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">EN</a>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
-            <a href="{{ route('news') }}" class="nav-mobile-search" aria-label="Search news">
+            <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
                 <i class="bi bi-search"></i>
             </a>
             <button type="button" class="nav-mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
@@ -93,13 +98,13 @@
             <div class="swiper hero-swiper" style="width: 100%; height: 100%;">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/SMK Metland Cileungsi.png') }}" alt="SMK Metland Cileungsi" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="{{ asset('img/SMK Metland Cileungsi.png') }}" alt="SMK Metland Cileungsi" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     </div>
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/SMK Metland cibitung.png') }}" alt="SMK Metland Cibitung" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="{{ asset('img/SMK Metland cibitung.png') }}" alt="SMK Metland Cibitung" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     </div>
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/Kertajati.png') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="{{ asset('img/Kertajati.png') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
@@ -446,13 +451,105 @@
             .why-choose-section { padding: 70px 0 80px; }
             .why-stat-card { padding: 26px 16px; }
         }
+
+        /* ============ ALUMNI REVIEWS INFO SECTION ============ */
+        .alumni-reviews-info {
+            padding: 20px 1.25rem 30px;
+            background: #f2fbfb;
+            position: relative;
+            text-align: center;
+        }
+
+        .alumni-reviews-shell {
+            width: min(1180px, 92vw);
+            margin: 0 auto;
+        }
+
+        .alumni-reviews-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .alumni-reviews-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7px 16px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #1b7f86;
+            border: 1px solid rgba(39, 167, 173, 0.35);
+            background: rgba(112, 223, 227, 0.26);
+        }
+
+        .alumni-reviews-title {
+            margin: 8px 0;
+            color: #1a3a3f;
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .alumni-reviews-title span {
+            color: #0e8389;
+        }
+
+        .alumni-reviews-desc {
+            margin: 0;
+            color: #5a7880;
+            font-size: 1rem;
+            line-height: 1.65;
+            max-width: 720px;
+            margin: 12px auto 0;
+        }
+
+        @media (max-width: 768px) {
+            .alumni-reviews-info {
+                padding: 15px 1.25rem 20px;
+            }
+
+            .alumni-reviews-title {
+                font-size: 1.8rem;
+            }
+
+            .alumni-reviews-desc {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .alumni-reviews-info {
+                padding: 12px 1.25rem 15px;
+            }
+
+            .alumni-reviews-title {
+                font-size: 1.5rem;
+            }
+
+            .alumni-reviews-desc {
+                font-size: 0.9rem;
+            }
+        }
     </style>
+
+    {{-- ======= ALUMNI REVIEWS DESCRIPTION SECTION ======= --}}
+    <section class="alumni-reviews-info">
+        <div class="alumni-reviews-shell">
+            <div class="alumni-reviews-header">
+            </div>
+        </div>
+    </section>
 
     {{-- ======= TESTIMONIAL GRID SECTION ======= --}}
     <section class="testi-page" id="content-section">
       <div class="testi-page-shell">
         <div class="testi-page-head">
-            <div class="testi-page-badge">Testimonials</div>
+            <div class="testi-page-badge">Alumni Reviews</div>
             <h2 class="testi-page-title">Hear From Our <span>Alumni & Students</span></h2>
             <p class="testi-page-desc">Real stories from Metland College graduates who have built successful careers in hospitality, language proficiency, and international work placements.</p>
         </div>
@@ -492,7 +589,7 @@
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <div class="testi-dest">
-                    <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag">
+                    <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag" loading="lazy" decoding="async">
                     Bekerja di Jepang
                 </div>
                 <p class="testi-quote">"Saya ikut kursus Bahasa Jepang di LKP Metland dan dalam 6 bulan berhasil lulus JLPT N4. Sekarang saya sudah bekerja di Osaka dan bisa berkomunikasi dengan lancar."</p>
@@ -511,7 +608,7 @@
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
                 </div>
                 <div class="testi-dest">
-                    <img src="https://flagcdn.com/w40/de.png" alt="Germany Flag">
+                    <img src="https://flagcdn.com/w40/de.png" alt="Germany Flag" loading="lazy" decoding="async">
                     Bekerja di Jerman
                 </div>
                 <p class="testi-quote">"Kursus Bahasa Jerman di sini sangat terstruktur. Saya berhasil lulus B1 dan langsung dapat kerja di Berlin sebagai tenaga kesehatan."</p>
@@ -549,7 +646,7 @@
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <div class="testi-dest">
-                    <img src="https://flagcdn.com/w40/kr.png" alt="Korea Flag">
+                    <img src="https://flagcdn.com/w40/kr.png" alt="Korea Flag" loading="lazy" decoding="async">
                     Bekerja di Korea
                 </div>
                 <p class="testi-quote">"Pendampingan interview dari LKP sangat membantu. Saya bisa menjawab pertanyaan HRD Korea dengan percaya diri dan akhirnya diterima kerja."</p>
@@ -587,7 +684,7 @@
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <div class="testi-dest">
-                    <img src="https://flagcdn.com/w40/cn.png" alt="China Flag">
+                    <img src="https://flagcdn.com/w40/cn.png" alt="China Flag" loading="lazy" decoding="async">
                     Bekerja di China
                 </div>
                 <p class="testi-quote">"Dalam 5 bulan saya berhasil lulus HSK 3. Metode belajarnya menyenangkan dan tidak membosankan. Sekarang saya kerja di Shanghai sebagai interpreter. LKP Metland memberikan fondasi bahasa yang sangat kuat dan juga mempersiapkan mental kami untuk beradaptasi di lingkungan kerja internasional. Highly recommended!"</p>
@@ -606,7 +703,7 @@
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <div class="testi-dest">
-                    <img src="https://flagcdn.com/w40/sa.png" alt="Saudi Arabia Flag">
+                    <img src="https://flagcdn.com/w40/sa.png" alt="Saudi Arabia Flag" loading="lazy" decoding="async">
                     Bekerja di Arab Saudi
                 </div>
                 <p class="testi-quote">"Belajar bahasa Arab di LKP Metland memberi saya kepercayaan diri. Saya kini bekerja di Riyadh dan dihargai karena bisa berbahasa lokal."</p>
@@ -763,7 +860,7 @@
         <div class="footer-shell">
             <div class="footer-brand">
                 <div class="footer-brand-head">
-                    <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="Logo Metland College" class="footer-logo">
+                    <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="Logo Metland College" class="footer-logo" loading="lazy" decoding="async">
                     <h3>METLAND COLLEGE</h3>
                 </div>
                 <p>The first step towards a brilliant career. Learn practically, develop creatively, and get ready to jump into the industry.</p>
@@ -777,7 +874,7 @@
                     @endphp
                     @forelse($footerNews as $item)
                         <article class="footer-post-item">
-                            <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" class="footer-post-thumb">
+                            <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" class="footer-post-thumb" loading="lazy" decoding="async">
                             <div class="footer-post-content">
                                 <a href="{{ route('news.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->localized_title, 76) }}</a>
                                 <p class="footer-post-date">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>
@@ -785,9 +882,9 @@
                         </article>
                     @empty
                         <article class="footer-post-item">
-                            <img src="{{ asset('img/hero2.JPG') }}" alt="No News yet" class="footer-post-thumb">
+                            <img src="{{ asset('img/hero2.JPG') }}" alt="No News yet" class="footer-post-thumb" loading="lazy" decoding="async">
                             <div class="footer-post-content">
-                                <a href="{{ route('news') }}">No news has been published yet</a>
+                                <a href="{{ route('news.index') }}">No news has been published yet</a>
                                 <p class="footer-post-date">Please check back later</p>
                             </div>
                         </article>
@@ -799,7 +896,7 @@
                 <h4>Quick Links</h4>
                 <a href="{{ route('Profile') }}">About</a>
                 <a href="{{ route('LPK') }}">Career</a>
-                <a href="{{ route('news') }}">News</a>
+                <a href="{{ route('news.index') }}">News</a>
                 <a href="#contact">Contact</a>
                 <a href="#partnership">Partnership</a>
                 <a href="#alumni-section">More</a>
@@ -863,9 +960,9 @@
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="{{ asset("js/script.js") }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
+    <script src="{{ asset("js/script.js") }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
     <script>
         // Testimonial Filter Tabs
         document.addEventListener('DOMContentLoaded', function() {

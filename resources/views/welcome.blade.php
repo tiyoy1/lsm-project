@@ -1,8 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional & Lifelong Learning - Metland College vocational school offering hospitality, culinary, hotel, DKV, accounting education">
     <title>LPK-LKP METLAND COLLEGE</title>
     @php
         $faviconUrl = null;
@@ -11,11 +12,15 @@
         }
     @endphp
     <link rel="icon" type="image/webp" href="{{ $faviconUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') . '?v=20260305' }}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" media="print" onload="this.media='all'; this.onload=null;" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
     <link rel="stylesheet" href="{{ asset('css/scrollbar.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +42,7 @@
     @endphp
     <nav>
         <div class="logo">
-            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="Logo Metland College" class="logo-img">Metland College
+            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
         </div>
         <ul id="primary-nav">
             <li><a href="{{ url('/') }}">Home</a></li>
@@ -60,8 +65,8 @@
                     <li><a href="{{ route('LKP') }}">LKP</a></li>
                 </ul>
             </li>
-            <li><a href="{{ route('news') }}">News</a></li>
-            <li><a href="{{ route('testi') }}">Alumni Reviews</a></li>
+            <li><a href="{{ route('news.index') }}">News</a></li>
+            <li><a href="{{ route('testi') }}">Reviews</a></li>
             <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#partnership">Partnership</a></li>
@@ -86,7 +91,7 @@
             <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">EN</a>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
-            <a href="{{ route('news') }}" class="nav-mobile-search" aria-label="Search news">
+            <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
                 <i class="bi bi-search"></i>
             </a>
             <button type="button" class="nav-mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
@@ -261,7 +266,7 @@
         <div class="news-shell">
             <div class="news-head">
                 <span class="news-badge">LATEST NEWS</span>
-                <a href="{{ route('news') }}" class="news-all-link">See All <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="{{ route('news.index') }}" class="news-all-link">See All <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
             <div class="news-layout">
@@ -302,7 +307,7 @@
                             <p class="news-meta"><i class="fa-regular fa-calendar"></i> No data yet</p>
                             <h3>School news has not been published yet</h3>
                             <p>News content will appear here once published from the admin panel.</p>
-                            <a href="{{ route('news') }}" class="news-read-more">View News Page</a>
+                            <a href="{{ route('news.index') }}" class="news-read-more">View News Page</a>
                         </div>
                     </article>
                 @endif
@@ -458,17 +463,17 @@
 	                            <article class="partner-logo-card">
 	                                @if(filled($partner->url))
 	                                    <a href="{{ $partner->url }}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-	                                        <img src="{{ $partnerLogoUrl }}" alt="Logo {{ $partner->name }}">
+	                                        <img src="{{ $partnerLogoUrl }}" alt="Logo {{ $partner->name }}" loading="lazy" decoding="async">
 	                                        <p>{{ $partner->name }}</p>
 	                                    </a>
 	                                @else
-	                                    <img src="{{ $partnerLogoUrl }}" alt="Logo {{ $partner->name }}">
+	                                    <img src="{{ $partnerLogoUrl }}" alt="Logo {{ $partner->name }}" loading="lazy" decoding="async">
 	                                    <p>{{ $partner->name }}</p>
 	                                @endif
 	                            </article>
 	                        @empty
 	                            <article class="partner-logo-card">
-	                                <img src="{{ asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="No partners yet">
+	                                <img src="{{ asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="No partners yet" loading="lazy" decoding="async">
 	                                <p>No partners yet</p>
 	                            </article>
 	                        @endforelse
@@ -510,7 +515,7 @@
                         <article class="footer-post-item">
                             <img src="{{ asset('img/hero2.JPG') }}" alt="No News yet" class="footer-post-thumb">
                             <div class="footer-post-content">
-                                <a href="{{ route('news') }}">No news has been published yet</a>
+                                <a href="{{ route('news.index') }}">No news has been published yet</a>
                                 <p class="footer-post-date">Please check back later</p>
                             </div>
                         </article>
@@ -522,7 +527,7 @@
                 <h4>Quick Links</h4>
                 <a href="{{ route('Profile') }}">About</a>
                 <a href="{{ route('LPK') }}">Career</a>
-                <a href="{{ route('news') }}">News</a>
+                <a href="{{ route('news.index') }}">News</a>
                 <a href="#contact">Contact</a>
                 <a href="#partnership">Partnership</a>
                 <a href="#alumni-section">More</a>
@@ -569,7 +574,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} SMK Metland. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Lau Siape Mpruy. All rights reserved.</p>
         </div>
     </footer>
 

@@ -57,7 +57,7 @@
                     <li><a href="{{ route('LKP') }}">LKP</a></li>
                 </ul>
             </li>
-            <li><a href="{{ route('news') }}">News</a></li>
+            <li><a href="{{ route('news.index') }}">News</a></li>
             <li><a href="{{ route('testi') }}">Alumni Reviews</a></li>
             <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
             <li><a href="{{ url('/') }}#contact">Contact</a></li>
@@ -83,7 +83,7 @@
             <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">EN</a>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
-            <a href="{{ route('news') }}" class="nav-mobile-search" aria-label="Search news">
+            <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
                 <i class="bi bi-search"></i>
             </a>
             <button type="button" class="nav-mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
@@ -782,7 +782,7 @@
                         <article class="footer-post-item">
                             <img src="{{ asset('img/hero2.JPG') }}" alt="No News yet" class="footer-post-thumb">
                             <div class="footer-post-content">
-                                <a href="{{ route('news') }}">No news has been published yet</a>
+                                <a href="{{ route('news.index') }}">No news has been published yet</a>
                                 <p class="footer-post-date">Please check back later</p>
                             </div>
                         </article>
@@ -794,7 +794,7 @@
                 <h4>Quick Links</h4>
                 <a href="{{ route('Profile') }}">About</a>
                 <a href="{{ route('LPK') }}">Career</a>
-                <a href="{{ route('news') }}">News</a>
+                <a href="{{ route('news.index') }}">News</a>
                 <a href="#contact">Contact</a>
                 <a href="#partnership">Partnership</a>
                 <a href="#alumni-section">More</a>
