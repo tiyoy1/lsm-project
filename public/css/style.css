@@ -546,7 +546,7 @@ body > nav ul li.nav-mobile-only {
     font-weight: 700;
     text-transform: uppercase;
     background: linear-gradient(
-        120deg,
+        90deg,
         rgba(88, 210, 210, 0.3),
         rgba(88, 210, 210, 0.14)
     );
@@ -559,14 +559,14 @@ body > nav ul li.nav-mobile-only {
     inset: 0;
     z-index: -1;
     border-radius: 999px;
-    background: linear-gradient(120deg, #50d6d6, #2fa1a8);
-    transform: scaleX(0);
-    transform-origin: left center;
+    background: linear-gradient(90deg, #50d6d6, #2fa1a8);
+    transform: scaleY(0);
+    transform-origin: top center;
     transition: transform 0.3s ease-in-out;
 }
 
 .hero-btn:hover::before {
-    transform: scaleX(1);
+    transform: scaleY(1);
 }
 
 .hero-btn:hover {
