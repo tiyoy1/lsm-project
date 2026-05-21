@@ -102,9 +102,7 @@
         .package {
             position: relative;
             padding: 96px 0;
-            background:
-                radial-gradient(circle at top left, rgba(28, 165, 165, 0.14), transparent 34%),
-                linear-gradient(180deg, #ffffff 0%, #f3fbfb 100%);
+            background: #f2fbfb;
         }
 
         .section-divider {
@@ -264,11 +262,10 @@
             min-height: 52px;
             padding: 0 22px;
             border-radius: 999px;
-            background: linear-gradient(135deg, #1ca5a5, #0f6c75);
+            background: #1ca5a5;
             color: #fff;
             font-weight: 700;
             text-decoration: none;
-            box-shadow: 0 14px 28px rgba(28, 165, 165, 0.25);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
@@ -354,7 +351,7 @@
             margin-top: 30px;
         }
         .reg-submit-btn {
-            background: linear-gradient(135deg, #1ca5a5, #0f6c75);
+            background: linear-gradient(135deg, , #0f6c75);
             color: #fff;
             border: none;
             padding: 15px 40px;
@@ -363,7 +360,6 @@
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(28, 165, 165, 0.3);
         }
         .reg-submit-btn:hover {
             transform: translateY(-3px);
@@ -397,6 +393,15 @@
 </head>
 <body>
     @php
+        $contactSetting = $contactSetting ?? null;
+        $latestNews = $latestNews ?? collect();
+
+        $logoUrl = null;
+        if (filled($contactSetting?->logo)) {
+            $logoUrl = \Illuminate\Support\Facades\Storage::disk('public')->url($contactSetting->logo);
+        }
+
+        $whatsappNumber = preg_replace('/\\D+/', '', (string) (($contactSetting?->whatsapp ?? '') ?: '6281809999180'));
         $gformUrl = 'https://forms.gle/bNM8YNTo9sSea7fy7';
     @endphp
     <nav>
@@ -425,7 +430,7 @@
                 </ul>
             </li>
             <li><a href="{{ route('news') }}">News</a></li>
-            <li><a href="{{ route('testi') }}">Testimonials</a></li>
+            <li><a href="{{ route('testi') }}">Alumni Reviews</a></li>
             <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
             <li><a href="{{ url('/') }}#contact">Contact</a></li>
             <li><a href="{{ url('/') }}#partnership">Partnership</a></li>
@@ -480,7 +485,7 @@
             <h1 class="hero-title">Start Your <br><span>JOURNEY</span></h1>
             <p>Ready to become a hospitality professional? Register now and take the first step towards a global career with Metland College.</p>
             <div class="hero-actions">
-                <a href="#registration-form" class="hero-btn">Register Now</a>
+                <a href="#package" class="hero-btn">Register Now</a>
                 <a href="#info" class="hero-btn is-outline">Learn More</a>
             </div>
         </div>
@@ -529,7 +534,7 @@
 
     <div class="section-divider" aria-hidden="true"></div>
 
-    <section class="package">
+    <section class="package" id="package">
         <div class="package-shell">
             <div class="package-grid">
                 <div class="package-card-wrap">
@@ -578,7 +583,7 @@
         <div class="footer-shell">
             <div class="footer-brand">
                 <div class="footer-brand-head">
-                    <img src="{{ asset("img/LOGO METLAND COLLEGE-02.png") }}" alt="Logo Metland College" class="footer-logo">
+                    <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="Logo Metland College" class="footer-logo">
                     <h3>METLAND COLLEGE</h3>
                 </div>
                 <p>The first step towards a brilliant career. Learn practically, develop creatively, and get ready to jump into the industry.</p>
@@ -588,7 +593,7 @@
                 <h4>Recent Posts</h4>
                 <div class="footer-post-list">
                     @php
-                        $footerNews = ($latestNews ?? collect())->take(2);
+                        $footerNews = $latestNews->take(2);
                     @endphp
                     @forelse($footerNews as $item)
                         <article class="footer-post-item">
@@ -612,37 +617,33 @@
 
             <div class="footer-links">
                 <h4>Quick Links</h4>
-                <a href="{{ url('/') }}#about-smk">About</a>
-                <a href="{{ url('/') }}#career-section">Career</a>
+                <a href="{{ route('Profile') }}">About</a>
+                <a href="{{ route('LPK') }}">Career</a>
                 <a href="{{ route('news') }}">News</a>
-                <a href="{{ url('/') }}#contact">Contact</a>
-                <a href="{{ url('/') }}#partnership">Partnership</a>
-                <a href="{{ url('/') }}#alumni-section">More</a>
+                <a href="#contact">Contact</a>
+                <a href="#partnership">Partnership</a>
+                <a href="#alumni-section">More</a>
             </div>
 
             <div class="footer-contact-map">
-                <h4>CONTACT US</h4>
                 <p style="margin-bottom: 12px;"><strong>Locations:</strong></p>
                 <p style="margin-bottom: 8px;">
                     <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CILEUNGSI</strong><br>
-                        Jl. Kota Taman Metropolitan, Cileungsi Kidul, Kec. Cileungsi, Kabupaten Bogor, Jawa Barat 16820
                     </a>
                 </p>
                 <p style="margin-bottom: 8px;">
                     <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CIBITUNG</strong><br>
-                        P4W8+46C, Telagamurni, Kec. Cikarang Bar., Kabupaten Bekasi, Jawa Barat 17530
                     </a>
                 </p>
                 <p style="margin-bottom: 16px;">
                     <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>HOTEL METLAND SMARA KERTAJATI</strong><br>
-                        Jl. Kertajati - Kadipaten, Babakan, Kec. Kertajati, Kabupaten Majalengka, Jawa Barat 45457
                     </a>
                 </p>
-                <p><strong>WhatsApp:</strong> +62-8180-9999-180</p>
-                <p><strong>Website:</strong> <a href="https://www.smkmetland.net" target="_blank" rel="noopener noreferrer">www.smkmetland.net</a></p>
+	                <p><strong>WhatsApp:</strong> {{ filled($contactSetting?->whatsapp) ? $contactSetting->whatsapp : '+62-8180-9999-180' }}</p>
+                <p><strong>Gmail:</strong> <a href="#">(nama gmail)</a></p> <!-- blum diisi -->
                 <div class="footer-socials">
                     <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" aria-label="YouTube Metland Academy">
                         <i class="bi bi-youtube"></i>
@@ -668,6 +669,18 @@
             <p>&copy; {{ date('Y') }} SMK Metland. All rights reserved.</p>
         </div>
     </footer>
+
+    <a
+        class="whatsapp-fab"
+        href="https://wa.me/{{ $whatsappNumber }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat via WhatsApp"
+        title="Chat via WhatsApp"
+    >
+        <i class="bi bi-whatsapp" aria-hidden="true"></i>
+        <span class="whatsapp-fab-tooltip">Hubungi kami!</span>
+    </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
