@@ -6239,3 +6239,100 @@ body > nav ul li.nav-mobile-only {
         grid-template-columns: 1fr;
     }
 }
+
+/* ============ TESTIMONIAL FORM STYLING ============ */
+.card {
+    background: #ffffff !important;
+    border: 1px solid #d4e8e8 !important;
+    box-shadow: 0 8px 18px rgba(45, 143, 143, 0.12) !important;
+    border-radius: 12px !important;
+}
+
+.form-label {
+    color: #2d8f8f;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    background: #ffffff !important;
+    border: 1px solid #d4e8e8 !important;
+    color: #0a1a22;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: #50d6d6 !important;
+    box-shadow: 0 0 0 3px rgba(80, 214, 214, 0.1) !important;
+    color: #0a1a22;
+}
+
+.form-control::placeholder {
+    color: #8fa5a5;
+}
+
+.form-select {
+    background: #ffffff !important;
+    border: 1px solid #d4e8e8 !important;
+    color: #0a1a22;
+    border-radius: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-select:focus {
+    border-color: #50d6d6 !important;
+    box-shadow: 0 0 0 3px rgba(80, 214, 214, 0.1) !important;
+}
+
+textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+textarea.form-control:focus {
+    border-color: #50d6d6 !important;
+    box-shadow: 0 0 0 3px rgba(80, 214, 214, 0.1) !important;
+}
+
+button.btn {
+    background: #50d6d6 !important;
+    border: none !important;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px 24px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button.btn:hover {
+    background: #3ab8b8 !important;
+}
+
+button.btn:active {
+    background: #2fa1a8 !important;
+}
+
+/* File input styling */
+.form-control[type="file"]::file-selector-button {
+    background: #50d6d6 !important;
+    border: none !important;
+    color: #ffffff !important;
+    padding: 8px 18px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: background 0.2s ease !important;
+    margin-right: 12px !important;
+}
+
+.form-control[type="file"]::file-selector-button:hover {
+    background: #3ab8b8 !important;
+}
+
+.form-control[type="file"] {
+    padding: 8px 12px !important;
+    color: #0a1a22 !important;
+}
