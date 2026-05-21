@@ -19,7 +19,12 @@ class NewsController extends Controller
     public function publicIndex(Request $request)
     {
         $search = trim((string) $request->query('q', ''));
+        $category = trim((string) $request->query('category', ''));
         $newsQuery = $this->visibleNewsQuery();
+
+        if ($category !== '') {
+            $newsQuery->where('category', $category);
+        }
 
         if ($search !== '') {
             $keywords = preg_split('/\s+/', $search, -1, PREG_SPLIT_NO_EMPTY);
@@ -44,7 +49,7 @@ class NewsController extends Controller
             ->paginate(9)
             ->withQueryString();
 
-        return view('news.index', compact('news', 'search'));
+        return view('news.index', compact('news', 'search', 'category'));
     }
 
     public function publicShow(News $news)
@@ -69,11 +74,15 @@ class NewsController extends Controller
     {
         $search = trim((string) $request->query('q', ''));
         $status = (string) $request->query('status', 'published');
+        $category = trim((string) $request->query('category', ''));
         if (!in_array($status, ['published', 'draft', 'all'], true)) {
             $status = 'published';
         }
 
         $news = News::with('author')
+            ->when($category !== '', function ($query) use ($category) {
+                $query->where('category', $category);
+            })
             ->when($search !== '', function ($query) use ($search) {
                 $query->where(function ($subQuery) use ($search) {
                     $subQuery->where('title', 'like', '%' . $search . '%')

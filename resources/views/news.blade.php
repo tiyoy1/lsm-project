@@ -124,9 +124,21 @@
                     <div class="news-search-box">
                         <i class="bi bi-search"></i>
                         <input type="text" name="q" value="{{ request('q') }}" placeholder="Search news..." aria-label="Search news">
+                        @if(request('category'))
+                            <input type="hidden" name="category" value="{{ request('category') }}">
+                        @endif
                     </div>
                     <button type="submit" class="news-search-btn">Search</button>
                 </form>
+            </div>
+            
+            <div class="news-categories" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1.5rem; margin-bottom: 2rem; justify-content: center; align-items: center;">
+                <span style="font-weight: 600; color: #4b5563; font-size: 0.95rem; margin-right: 5px;"><i class="bi bi-tags-fill" style="margin-right: 4px; color: #0d9488;"></i> Categories:</span>
+                <a href="{{ route('news.index', ['q' => request('q')]) }}" class="news-category-badge" style="padding: 6px 16px; border-radius: 20px; background-color: {{ !request('category') ? '#0d9488' : '#f3f4f6' }}; color: {{ !request('category') ? '#fff' : '#4b5563' }}; text-decoration: none; font-weight: 500; font-size: 0.85rem; border: 1px solid {{ !request('category') ? '#0d9488' : '#e5e7eb' }}; transition: all 0.2s ease;">All</a>
+                <a href="{{ route('news.index', ['category' => 'career', 'q' => request('q')]) }}" class="news-category-badge" style="padding: 6px 16px; border-radius: 20px; background-color: {{ request('category') == 'career' ? '#0d9488' : '#f3f4f6' }}; color: {{ request('category') == 'career' ? '#fff' : '#4b5563' }}; text-decoration: none; font-weight: 500; font-size: 0.85rem; border: 1px solid {{ request('category') == 'career' ? '#0d9488' : '#e5e7eb' }}; transition: all 0.2s ease;">Career</a>
+                <a href="{{ route('news.index', ['category' => 'award', 'q' => request('q')]) }}" class="news-category-badge" style="padding: 6px 16px; border-radius: 20px; background-color: {{ request('category') == 'award' ? '#0d9488' : '#f3f4f6' }}; color: {{ request('category') == 'award' ? '#fff' : '#4b5563' }}; text-decoration: none; font-weight: 500; font-size: 0.85rem; border: 1px solid {{ request('category') == 'award' ? '#0d9488' : '#e5e7eb' }}; transition: all 0.2s ease;">Award</a>
+                <a href="{{ route('news.index', ['category' => 'ketenagakerjaan', 'q' => request('q')]) }}" class="news-category-badge" style="padding: 6px 16px; border-radius: 20px; background-color: {{ request('category') == 'ketenagakerjaan' ? '#0d9488' : '#f3f4f6' }}; color: {{ request('category') == 'ketenagakerjaan' ? '#fff' : '#4b5563' }}; text-decoration: none; font-weight: 500; font-size: 0.85rem; border: 1px solid {{ request('category') == 'ketenagakerjaan' ? '#0d9488' : '#e5e7eb' }}; transition: all 0.2s ease;">Ketenagakerjaan</a>
+                <a href="{{ route('news.index', ['category' => 'prestasi', 'q' => request('q')]) }}" class="news-category-badge" style="padding: 6px 16px; border-radius: 20px; background-color: {{ request('category') == 'prestasi' ? '#0d9488' : '#f3f4f6' }}; color: {{ request('category') == 'prestasi' ? '#fff' : '#4b5563' }}; text-decoration: none; font-weight: 500; font-size: 0.85rem; border: 1px solid {{ request('category') == 'prestasi' ? '#0d9488' : '#e5e7eb' }}; transition: all 0.2s ease;">Prestasi</a>
             </div>
 
             @if(request('q'))

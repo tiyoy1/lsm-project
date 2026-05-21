@@ -402,7 +402,6 @@
 
     <main class="news-page-main">
         <header class="news-page-head">
-            <a href="{{ url('/') }}" class="news-page-home-link"><i class="bi bi-arrow-left"></i> {{ __('ui.news.back_home') }}</a>
             <h1>{{ __('ui.news.title') }}</h1>
             <p>{{ __('ui.news.latest_subtitle') }}</p>
         </header>
@@ -416,7 +415,15 @@
             <button type="submit" aria-label="{{ __('ui.news.search_title') }}">
                 <i class="bi bi-search"></i>
             </button>
+            @if(request('category'))
+                <input type="hidden" name="category" value="{{ request('category') }}">
+            @endif
         </form>
+        <div class="news-categories" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: -20px; margin-bottom: 40px; justify-content: center; align-items: center;">
+            <a href="{{ route('news.index', ['q' => request('q')]) }}" style="padding: 8px 20px; border-radius: 20px; background-color: {{ !request('category') ? '#0f6c75' : '#ffffff' }}; color: {{ !request('category') ? '#ffffff' : '#5b7579' }}; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid {{ !request('category') ? '#0f6c75' : 'rgba(28, 165, 165, 0.2)' }}; transition: all 0.25s ease; box-shadow: {{ !request('category') ? '0 4px 12px rgba(15, 108, 117, 0.2)' : 'none' }};">All</a>
+            <a href="{{ route('news.index', ['category' => 'career', 'q' => request('q')]) }}" style="padding: 8px 20px; border-radius: 20px; background-color: {{ request('category') == 'career' ? '#0f6c75' : '#ffffff' }}; color: {{ request('category') == 'career' ? '#ffffff' : '#5b7579' }}; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid {{ request('category') == 'career' ? '#0f6c75' : 'rgba(28, 165, 165, 0.2)' }}; transition: all 0.25s ease; box-shadow: {{ request('category') == 'career' ? '0 4px 12px rgba(15, 108, 117, 0.2)' : 'none' }};">Career</a>
+            <a href="{{ route('news.index', ['category' => 'award', 'q' => request('q')]) }}" style="padding: 8px 20px; border-radius: 20px; background-color: {{ request('category') == 'award' ? '#0f6c75' : '#ffffff' }}; color: {{ request('category') == 'award' ? '#ffffff' : '#5b7579' }}; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid {{ request('category') == 'award' ? '#0f6c75' : 'rgba(28, 165, 165, 0.2)' }}; transition: all 0.25s ease; box-shadow: {{ request('category') == 'award' ? '0 4px 12px rgba(15, 108, 117, 0.2)' : 'none' }};">Award</a>
+        </div>
         @if(!empty($search))
             <p class="news-search-result">{{ __('ui.news.search_result_for', ['query' => $search]) }}</p>
         @endif

@@ -14,7 +14,7 @@ class News extends Model
 {
      use HasFactory;
 
-    protected $fillable = ['title', 'title_en', 'slug', 'content', 'content_en', 'image', 'published_at', 'author_id'];
+    protected $fillable = ['title', 'title_en', 'slug', 'category', 'content', 'content_en', 'image', 'published_at', 'author_id'];
 
     protected $casts = [
         'published_at' => 'datetime',

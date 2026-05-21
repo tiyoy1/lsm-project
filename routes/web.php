@@ -61,9 +61,14 @@ Route::view('/LPK', 'career.LPK')->name('LPK');
 Route::view('/LKP', 'career.LKP')->name('LKP');
 Route::get('/news', function (\Illuminate\Http\Request $request) {
     $search = trim((string) $request->query('q', ''));
+    $category = trim((string) $request->query('category', ''));
     $query = News::with('author')
         ->whereNotNull('published_at')
         ->where('published_at', '<=', now());
+
+    if ($category !== '') {
+        $query->where('category', $category);
+    }
 
     if ($search !== '') {
         $keywords = preg_split('/\s+/', $search, -1, PREG_SPLIT_NO_EMPTY);

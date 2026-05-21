@@ -43,6 +43,12 @@ class NewsResource extends Resource
                 TextInput::make('title')->required()->maxLength(255),
                 TextInput::make('title_en')->label('Title (EN)')->maxLength(255),
                 TextInput::make('slug')->disabled()->dehydrated(false),
+                Select::make('category')
+                    ->options([
+                        'career' => 'Career',
+                        'award' => 'Award',
+                    ])
+                    ->nullable(),
                 RichEditor::make('content')->required()->columnSpanFull(),
                 RichEditor::make('content_en')->label('Content (EN)')->columnSpanFull(),
                 FileUpload::make('image')
@@ -70,6 +76,7 @@ class NewsResource extends Resource
                 ->select([
                     'news.id',
                     'news.title',
+                    'news.category',
                     'news.image',
                     'news.published_at',
                     'news.updated_at',
@@ -79,6 +86,7 @@ class NewsResource extends Resource
             ->columns([
                 ImageColumn::make('image')->disk('public')->square()->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('title')->searchable()->sortable(),
+                TextColumn::make('category')->searchable()->sortable(),
                 TextColumn::make('author.name')->label('Author')->sortable()->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('published_at')->dateTime()->sortable(),
                 TextColumn::make('updated_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
