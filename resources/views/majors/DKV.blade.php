@@ -367,7 +367,6 @@
             <li><a href="{{ url('/') }}#partnership">Kerjasama</a></li>
             <li><a href="{{ route('news.index') }}">Berita</a></li>
             <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">PPDB</a></li>
-            <li><a href="{{ url('/') }}#contact">Kontak</a></li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
                     More <i class="bi bi-chevron-down" aria-hidden="true"></i>
@@ -547,7 +546,6 @@
                 <a href="{{ url('/') }}#partnership">Kerjasama Industri</a>
                 <a href="{{ url('/') }}#partnership">Kerjasama Perguruan Tinggi</a>
                 <a href="{{ route('news.index') }}">Berita Sekolah</a>
-                <a href="{{ url('/') }}#contact">Kontak Sekolah</a>
             </div>
 
             <div class="footer-contact-map">

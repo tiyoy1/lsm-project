@@ -783,7 +783,6 @@
                 <a href="#about-smk">About</a>
                 <a href="#career-section">Career</a>
                 <a href="#news-section">News</a>
-                <a href="{{ url('/') }}#contact">Contact</a>
                 <a href="{{ url('/') }}#partnership">Partnership</a>
                 <a href="#alumni-section">More</a>
             </div>
