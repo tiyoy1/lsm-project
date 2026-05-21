@@ -192,7 +192,7 @@
         <div class="career-shell">
             <div class="career-head">
                 <span class="section-badge" style="cursor: pointer; user-select: none; transition: all 0.3s ease;" onclick="let isLPK = this.innerText.includes('LPK'); this.innerText = isLPK ? 'Training Method (LKP)' : 'Training Method (LPK)'; document.getElementById('lpk-content').style.display = isLPK ? 'none' : 'flex'; document.getElementById('lkp-content').style.display = isLPK ? 'flex' : 'none';" title="Klik untuk mengubah LPK/LKP">Training Method (LPK)</span>
-                <h2 class="section-title">From <span>New Students</span> to Professional</h2> 
+                <h2 class="section-title">From <span>Basic</span> to <span>Professional</span></h2> 
                 <p class="section-desc">Structured learning steps, focus on practice, and supported by industry mentors until ready to enter the workforce.</p>
             </div>
             <div class="career-timeline" id="lpk-content">
