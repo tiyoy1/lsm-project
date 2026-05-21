@@ -85,18 +85,35 @@
             font-size: 0.9rem;
             color: #64748b;
         }
-        .course-tags {
+        .language-choice {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            margin-top: 4px;
         }
-        .course-tags span {
-            background: rgba(28, 165, 165, 0.1);
+        .language-choice span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 38px;
+            padding: 7px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(28, 165, 165, 0.18);
+            background: linear-gradient(135deg, rgba(28, 165, 165, 0.12), rgba(28, 165, 165, 0.04));
             color: #0f6c75;
-            padding: 5px 15px;
-            border-radius: 50px;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            box-shadow: 0 8px 18px rgba(28, 165, 165, 0.08);
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                background-color 0.2s ease;
+        }
+        .language-choice span:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 22px rgba(28, 165, 165, 0.14);
+            background: linear-gradient(135deg, rgba(28, 165, 165, 0.16), rgba(28, 165, 165, 0.06));
         }
 
         .package {
@@ -520,11 +537,26 @@
                 <div class="info-card">
                     <i class="bi bi-mortarboard info-icon"></i>
                     <h3>Available Programs</h3>
-                    <div class="course-tags">
+                    <div class="language-choice">
                         <span>Hotel & Hospitality</span>
                         <span>Culinary Arts</span>
                         <span>Digital Development</span>
                         <span>Multi-Media Design</span>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <i class="bi bi-mortarboard info-icon"></i>
+                    <h3>Languages Offered</h3>
+                    <div class="language-choice">
+                        <span>Korea</span>
+                        <span>Arab</span>
+                        <span>Dubai</span>
+                        <span>Croatia</span>
+                        <span>Turkey</span>
+                        <span>Canada</span>
+                        <span>Thailand</span>
+                        <span>USA</span>
+                        <span>Taiwan</span>
                     </div>
                 </div>
             </div>
@@ -544,10 +576,10 @@
                         </div>
                         <div class="package-card-body">
                             <ul>
-                                <li>Professional Certificate</li>
-                                <li>Professional Certificate</li>
-                                <li>Professional Certificate</li>
-                                <li>Professional Certificate</li>
+                                <li>Bersertifikat BNSP</li>
+                                <li>Penyaluran Kerja</li>
+                                <li>Instruktur Praktisi Ahli</li>
+                                <li>Program Magang (OJT) Eksklusif</li>
                             </ul>
                         </div>
                     </div>
@@ -575,95 +607,7 @@
         </div>
     </section>
 
-    <footer class="school-footer" id="school-footer">
-        <div class="footer-shell">
-            <div class="footer-brand">
-                <div class="footer-brand-head">
-                    <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="Logo Metland College" class="footer-logo">
-                    <h3>METLAND COLLEGE</h3>
-                </div>
-                <p>The first step towards a brilliant career. Learn practically, develop creatively, and get ready to jump into the industry.</p>
-            </div>
-
-            <div class="footer-posts">
-                <h4>Recent Posts</h4>
-                <div class="footer-post-list">
-                    @php
-                        $footerNews = $latestNews->take(2);
-                    @endphp
-                    @forelse($footerNews as $item)
-                        <article class="footer-post-item">
-                            <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" class="footer-post-thumb">
-                            <div class="footer-post-content">
-                                <a href="{{ route('news.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->localized_title, 76) }}</a>
-                                <p class="footer-post-date">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>
-                            </div>
-                        </article>
-                    @empty
-                        <article class="footer-post-item">
-                            <img src="{{ asset('img/hero2.JPG') }}" alt="No News yet" class="footer-post-thumb">
-                            <div class="footer-post-content">
-                                <a href="{{ route('news.index') }}">No news has been published yet</a>
-                                <p class="footer-post-date">Please check back later</p>
-                            </div>
-                        </article>
-                    @endforelse
-                </div>
-            </div>
-
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <a href="{{ route('Profile') }}">About</a>
-                <a href="{{ route('LPK') }}">Career</a>
-                <a href="{{ route('news.index') }}">News</a>
-                <a href="#partnership">Partnership</a>
-                <a href="#alumni-section">More</a>
-            </div>
-
-            <div class="footer-contact-map">
-                <p style="margin-bottom: 12px;"><strong>Locations:</strong></p>
-                <p style="margin-bottom: 8px;">
-                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CILEUNGSI</strong><br>
-                    </a>
-                </p>
-                <p style="margin-bottom: 8px;">
-                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CIBITUNG</strong><br>
-                    </a>
-                </p>
-                <p style="margin-bottom: 16px;">
-                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>HOTEL METLAND SMARA KERTAJATI</strong><br>
-                    </a>
-                </p>
-	                <p><strong>WhatsApp:</strong> {{ filled($contactSetting?->whatsapp) ? $contactSetting->whatsapp : '+62-8180-9999-180' }}</p>
-                <p><strong>Gmail:</strong> <a href="#">(nama gmail)</a></p> <!-- blum diisi -->
-                <div class="footer-socials">
-                    <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" aria-label="YouTube Metland Academy">
-                        <i class="bi bi-youtube"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@metlandcollege" target="_blank" rel="noopener noreferrer" aria-label="TikTok Metland College">
-                        <i class="bi bi-tiktok"></i>
-                    </a>
-                    <a href="https://www.instagram.com/metland.college/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Metland College">
-                        <i class="bi bi-instagram"></i>
-                    </a>
-                </div>
-                <iframe
-                    class="footer-map-frame"
-                    title="Lokasi SMK Metland"
-                    loading="lazy"
-                    allowfullscreen
-                    referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps?cid=4362342788863844499&hl=id&gl=ID&output=embed">
-                </iframe>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; {{ date('Y') }} SMK Metland. All rights reserved.</p>
-        </div>
-    </footer>
+        @include('partials.footer')
 
     <a
         class="whatsapp-fab"

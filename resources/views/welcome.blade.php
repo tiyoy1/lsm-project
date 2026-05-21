@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
     <meta charset="UTF-8">
@@ -194,8 +194,8 @@
     <section class="career-section" id="career-section">
         <div class="career-shell">
             <div class="career-head">
-                <span class="section-badge" style="cursor: pointer; user-select: none; transition: all 0.3s ease;" onclick="let isLPK = this.innerText.includes('LPK'); this.innerText = isLPK ? 'Training Method (LKP)' : 'Training Method (LPK)'; document.getElementById('lpk-content').style.display = isLPK ? 'none' : 'flex'; document.getElementById('lkp-content').style.display = isLPK ? 'flex' : 'none';" title="Klik untuk mengubah LPK/LKP">Training Method (LPK)</span>
-                <h2 class="section-title">From <span>Basic</span> to Professional</h2> 
+                <span class="section-badge" style="user-select: none; transition: all 0.3s ease;">Training Method</span>
+                <h2 class="section-title">From <span>Basic</span> to <span>Professional</span></h2> 
                 <p class="section-desc">Structured learning, focus on practice, and supported by industry until ready to enter the workforce.</p>
             </div>
             <div class="career-timeline" id="lpk-content">
@@ -314,10 +314,10 @@
     </section>
     <section class="alumni-section" id="alumni-section">
         <div class="alumni-shell">
-            <div class="alumni-head">
+            <div class="alumni-head text-center pb-4">
                 <span class="section-badge"><span>Alumni Reviews</span></span>
                 <h2 class="section-title">What <span>They Say</span></h2>
-                <p class="section-desc">Alumni reviews regarding their learning experience at SMK Metland.</p>
+                <p class="section-desc" style="margin: 0 auto;">Alumni reviews regarding their learning experience at SMK Metland.</p>
             </div>
 
 	            <div class="testi-grid">
@@ -485,22 +485,22 @@
             <div class="footer-contact-map">
                 <p style="margin-bottom: 12px;"><strong>Locations:</strong></p>
                 <p style="margin-bottom: 8px;">
-                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
+                    <a href="https://maps.app.goo.gl/WkG3ifbvA4o52RkAA" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CILEUNGSI</strong><br>
                     </a>
                 </p>
                 <p style="margin-bottom: 8px;">
-                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
+                    <a href="https://maps.app.goo.gl/aJr5nJd8Fe2ArL8s8" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CIBITUNG</strong><br>
                     </a>
                 </p>
                 <p style="margin-bottom: 16px;">
-                    <a href="https://maps.app.goo.gl/y8G2p1eNf8zS95657" target="_blank" rel="noopener noreferrer">
+                    <a href="https://maps.app.goo.gl/eKSkxnsdNuP2UJbQ7" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>HOTEL METLAND SMARA KERTAJATI</strong><br>
                     </a>
                 </p>
 	                <p><strong>WhatsApp:</strong> {{ filled($contactSetting?->whatsapp) ? $contactSetting->whatsapp : '+62-8180-9999-180' }}</p>
-                <p><strong>Gmail:</strong> <a href="#">(nama gmail)</a></p> <!-- blum diisi -->
+                <p><strong>Gmail:</strong> <a href="mailto:admin@metlandcollege.net">admin@metlandcollege.net</a></p> <!-- blum diisi -->
                 <div class="footer-socials">
                     <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" aria-label="YouTube Metland Academy">
                         <i class="bi bi-youtube"></i>
