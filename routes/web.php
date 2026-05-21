@@ -59,6 +59,35 @@ Route::view('/jurusan/kuliner', 'majors.Kuliner')->name('majors.kuliner');
 Route::view('/jurusan/hotel', 'majors.Hotel')->name('majors.hotel');
 Route::view('/LPK', 'career.LPK')->name('LPK');
 Route::view('/LKP', 'career.LKP')->name('LKP');
+Route::get('/news', function (\Illuminate\Http\Request $request) {
+    $search = trim((string) $request->query('q', ''));
+    $query = News::with('author')
+        ->whereNotNull('published_at')
+        ->where('published_at', '<=', now());
+
+    if ($search !== '') {
+        $keywords = preg_split('/\s+/', $search, -1, PREG_SPLIT_NO_EMPTY);
+        $query->where(function ($q) use ($keywords) {
+            foreach ($keywords as $keyword) {
+                $like = '%' . $keyword . '%';
+                $q->where(function ($sub) use ($like) {
+                    $sub->where('title', 'like', $like)
+                        ->orWhere('title_en', 'like', $like)
+                        ->orWhere('content', 'like', $like)
+                        ->orWhere('content_en', 'like', $like);
+                });
+            }
+        });
+    }
+
+    $latestNews = $query
+        ->orderByDesc('published_at')
+        ->orderByDesc('id')
+        ->paginate(6)
+        ->withQueryString();
+
+    return view('news', compact('latestNews'));
+})->name('news');
 Route::get('/testi', [TestimonialPageController::class, 'index'])->name('testi');
 Route::post('/testi', [TestimonialPageController::class, 'store'])->name('testi.store');
 Route::get('/testimonials/submit', fn () => redirect()->route('testi', [], 302)->withFragment('submit'))->name('testimonials.submit');
