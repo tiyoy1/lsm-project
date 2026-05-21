@@ -470,7 +470,7 @@
                         <article class="footer-post-item">
                             <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" class="footer-post-thumb">
                             <div class="footer-post-content">
-                                <a href="{{ route('news.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->localized_title, 76) }}</a>
+                                <a href="{{ route('news.show', $featuredNews->slug) }}">{{ \Illuminate\Support\Str::limit($item->localized_title, 76) }}</a>
                                 <p class="footer-post-date">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>
                             </div>
                         </article>
