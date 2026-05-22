@@ -506,6 +506,16 @@
                         <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>HOTEL METLAND SMARA KERTAJATI</strong><br>
                     </a>
                 </p>
+                <p style="margin-bottom: 16px;">
+                    <a href="https://maps.app.goo.gl/v7NmD5Zn2b3m2zGM7" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>HORISON ULTIMA BEKASI</strong><br>
+                    </a>
+                </p>
+                <p style="margin-bottom: 16px;">
+                    <a href="https://maps.app.goo.gl/xAJFLvyfYEwFE5sQ7" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SEVA SEMINYAK BADUNG BALI</strong><br>
+                    </a>
+                </p>
                 <div class="footer-socials">
                     <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" aria-label="YouTube Metland Academy">
                         <i class="bi bi-youtube"></i>
