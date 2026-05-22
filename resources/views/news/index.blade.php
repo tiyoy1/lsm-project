@@ -40,11 +40,20 @@
             font-family: "Outfit", sans-serif;
         }
         nav {
+            /* start transparent on page load; darken once user scrolls */
+            background: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            box-shadow: none !important;
+            transition: background-color 0.28s ease, backdrop-filter 0.28s ease, box-shadow 0.28s ease !important;
+        }
+
+        /* Applied when the page is scrolled */
+        .nav-scrolled {
             background-color: rgba(7, 23, 31, 0.58) !important;
             backdrop-filter: blur(10px) !important;
             -webkit-backdrop-filter: blur(10px) !important;
             box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28) !important;
-            transition: background-color 0.28s ease, backdrop-filter 0.28s ease, box-shadow 0.28s ease !important;
         }
         .news-page-main {
             padding-top: 60px !important;
@@ -95,7 +104,8 @@
         }
         .news-search-inline {
             max-width: 650px !important;
-            margin: 0 auto 50px !important;
+            /* lift the search box up to overlap the hero slightly */
+            margin: -80px auto 50px !important;
             background: #ffffff !important;
             padding: 6px !important;
             border-radius: 999px !important;
@@ -465,6 +475,15 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Responsive: remove negative lift on small screens */
+        @media (max-width: 768px) {
+            .news-search-inline {
+                margin: 0 auto 20px !important;
+                width: calc(100% - 32px) !important;
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+        }
     </style>
 </head>
 <body class="news-page-body">
@@ -653,6 +672,20 @@
                     },
                 });
             }
+
+            // Navbar: start transparent, darken on scroll
+            var navEl = document.querySelector('nav');
+            function updateNavScroll() {
+                if (!navEl) return;
+                if (window.scrollY > 20) {
+                    navEl.classList.add('nav-scrolled');
+                } else {
+                    navEl.classList.remove('nav-scrolled');
+                }
+            }
+            // Initialize state and bind scroll handler
+            updateNavScroll();
+            window.addEventListener('scroll', function() { requestAnimationFrame(updateNavScroll); });
 
             // Reveal news cards when they scroll into view
             var newsCards = document.querySelectorAll('.news-page-card');

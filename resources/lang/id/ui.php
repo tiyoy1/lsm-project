@@ -28,10 +28,10 @@ return [
     ],
     'news' => [
         'tag' => 'Berita',
-        'title' => 'NEWS',
+        'title' => '',
         'latest_badge' => 'BERITA TERBARU',
         'latest_title' => 'Kabar Terkini SMK Metland',
-        'latest_subtitle' => 'Update informasi terbaru dari SMK Metland.',
+        'latest_subtitle' => '',
         'detail_subtitle' => 'Detail berita terbaru SMK Metland.',
         'list_aria' => 'Daftar berita SMK Metland',
         'breadcrumb_aria' => 'Breadcrumb berita',

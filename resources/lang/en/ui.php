@@ -28,10 +28,10 @@ return [
     ],
     'news' => [
         'tag' => 'News',
-        'title' => 'NEWS',
+        'title' => '',
         'latest_badge' => 'LATEST NEWS',
         'latest_title' => 'Latest News from SMK Metland',
-        'latest_subtitle' => 'Latest information updates from SMK Metland.',
+        'latest_subtitle' => '',
         'detail_subtitle' => 'Latest news details from SMK Metland.',
         'list_aria' => 'SMK Metland news list',
         'breadcrumb_aria' => 'News breadcrumb',
