@@ -672,7 +672,7 @@
                 <div class="pathway-step">
                     <div class="step-icon"><i class="bi bi-shield-check"></i></div>
                     <div class="step-title">Uji Kompetensi</div>
-                    <div class="step-desc">Sertifikasi kemahiran berstandar industri resmi.</div>
+                    <div class="step-desc">Sertifikasi kemahiran berstandar BNSP.</div>
                 </div>
                 <div class="pathway-step">
                     <div class="step-icon"><i class="bi bi-building"></i></div>
@@ -698,8 +698,7 @@
                     <div class="lkp-boarding-item">
                         <span class="lkp-boarding-item-icon"><i class="bi bi-building"></i></span>
                         <div class="lkp-boarding-item-text">
-                            <strong>Asrama (Tempat Tinggal)</strong>
-                            di Metland College
+                            <strong>Asrama</strong>
                         </div>
                     </div>
                     <div class="lkp-boarding-item">
@@ -712,29 +711,25 @@
                     <div class="lkp-boarding-item">
                         <span class="lkp-boarding-item-icon"><i class="bi bi-person-badge"></i></span>
                         <div class="lkp-boarding-item-text">
-                            <strong> 1 Pcs Seragam Pelatihan</strong>
-                            Seragam resmi program LKP
+                            <strong>Seragam Pelatihan</strong>
                         </div>
                     </div>
                     <div class="lkp-boarding-item">
                         <span class="lkp-boarding-item-icon"><i class="bi bi-book"></i></span>
                         <div class="lkp-boarding-item-text">
-                            <strong> 1 Set Buku Modul Pelatihan</strong>
-                            Materi belajar lengkap dan terstruktur
+                            <strong>Modul Pelatihan</strong>
                         </div>
                     </div>
                     <div class="lkp-boarding-item">
                         <span class="lkp-boarding-item-icon"><i class="ph-fill ph-washing-machine"></i></span>
                         <div class="lkp-boarding-item-text">
-                            <strong> Laundry Seragam 1 Stel/hari</strong>
-                            Layanan cuci seragam harian
+                            <strong> Laundry Seragam </strong>
                         </div>
                     </div>
                     <div class="lkp-boarding-item">
                         <span class="lkp-boarding-item-icon"><i class="bi bi-award"></i></span>
                         <div class="lkp-boarding-item-text">
-                            <strong> Pelatihan Table Manner</strong>
-                            Etiket & sopan santun internasional
+                            <strong> Pelatihan Table</strong>
                         </div>
                     </div>
                 </div>
@@ -748,7 +743,7 @@
             <div class="career-head">
                 <span class="section-badge">Training Method</span>
                 <h2 class="section-title">From <span>Basic</span> to Professional</h2> 
-                <p class="section-desc">Structured learning steps, focus on practice, and supported by industry mentors until ready to enter the workforce.</p>
+                <p class="section-desc">Structured learning, focus on practice, and supported by industry mentors until ready to enter the workforce.</p>
             </div>
             <div class="career-timeline" id="lpk-content">
                 <span class="career-line" aria-hidden="true"></span>

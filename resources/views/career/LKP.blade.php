@@ -532,7 +532,7 @@
                 <div class="lkp-card-body">
                     <ul>
                         <li>Kursus Bahasa Korea</li>
-                        <li>Fokus Tes Bahasa</li>
+                        <li>Fokus Tes TOPIK II</li>
                         <li>Pendamping Interview</li>
                     </ul>
                 </div>
@@ -548,7 +548,7 @@
                 <div class="lkp-card-body">
                     <ul>
                         <li>Kursus Bahasa Arab</li>
-                        <li>Fokus Tes Bahasa</li>
+                        <li>Fokus Tes ALPT B2</li>
                         <li>Pendamping Interview</li>
                     </ul>
                 </div>
@@ -563,7 +563,7 @@
             <div class="career-head">
                 <span class="section-badge">Training Method</span>
                 <h2 class="section-title">From <span>Basic</span> to Professional</h2>
-                <p class="section-desc">Structured learning steps, focus on practice, and supported by industry mentors until ready to enter the workforce.</p>
+                <p class="section-desc">Structured learning, focus on practice, and supported by industry mentors until ready to enter the workforce.</p>
             </div>
             <div class="career-timeline">
                 <span class="career-line" aria-hidden="true"></span>

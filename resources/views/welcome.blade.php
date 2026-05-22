@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
     <meta charset="UTF-8">
@@ -523,7 +523,7 @@
                     loading="lazy"
                     allowfullscreen
                     referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps?cid=4362342788863844499&hl=id&gl=ID&output=embed">
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.6856233061058!2d108.18295181017014!3d-6.685809193281614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6ed711a2e575df%3A0x94929efc10aa1b2b!2sHotel%20Metland%20Smara%20Kertajati%20by%20Horison!5e0!3m2!1sen!2sid!4v1779417620688!5m2!1sen!2sid">
                 </iframe>
             </div>
         </div>
