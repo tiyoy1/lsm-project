@@ -112,7 +112,7 @@
             
             <!-- Heading Area -->
             <div class="campus-profile-header">
-                <span class="campus-profile-badge">About The Institution</span>
+                <span class="section-badge">About The Institution</span>
                 <h2 class="campus-profile-title">Empowering Futures with <span>Metland College</span></h2>
                 <p class="campus-profile-desc">Metland College is a premier vocational training institution meticulously designed to bridge the gap between academic theory and the fast-paced professional world. We focus on hands-on experiences, industry-standard training, and holistic character development to ensure our graduates are unequivocally work-ready.</p>
             </div>
@@ -169,7 +169,7 @@
     </section>
     <section class="facilities">
         <div class="facilities-head">
-            <span class="campus-fasilities-badge">Our Facilities</span>
+            <span class="section-badge">Our Facilities</span>
             <h2 class="campus-fasilities-title">What we have to support your <span>Process</span></h2>
             <p>Metland College memiliki fasilitas yang lengkap dan modern untuk mendukung kegiatan belajar mengajar.</p>
         </div>

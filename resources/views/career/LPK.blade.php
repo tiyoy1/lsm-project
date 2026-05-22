@@ -623,7 +623,7 @@
         <!-- Programs -->
         <div class="program-header">
             <div class="section-header" style="margin-bottom: 0;">
-                <div class="section-badge-lpk" style="margin: 0 auto 15px;">Program Unggulan</div>
+                <div class="section-badge" style="margin: 0 auto 15px;">Program Unggulan</div>
                 <h2 class="section-title">Pilihan Program Pelatihan</h2>
                 <p class="section-desc" style="margin-left: auto; margin-right: auto;">Pilih program vokasi yang tepat untuk mewujudkan karir impianmu di dunia perhotelan.</p>
             </div>
