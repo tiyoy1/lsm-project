@@ -104,17 +104,17 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="hero-slide-media">
-                            <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="SMK Metland Cileungsi" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="SMK Metland Cileungsi" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="hero-slide-media">
-                            <img src="{{ asset('img/SMK Metland cibitung.webp') }}" alt="SMK Metland Cibitung" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="{{ asset('img/SMK Metland cibitung.webp') }}" alt="SMK Metland Cibitung" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="hero-slide-media">
-                            <img src="{{ asset('img/Kertajati.webp') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="{{ asset('img/Kertajati.webp') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -144,7 +144,7 @@
                 </a>
                 <a class="about-image-frame" href="https://smkmetland.net/ppdb/" target="_blank" rel="noopener noreferrer" aria-label="Kunjungi situs SMK Metland Cileungsi">
                     <div class="img-container">
-                        <img src="{{ asset("img/SMK Metland Cileungsi.webp") }}" alt="Program keahlian" class="about-image">
+                        <img src="{{ asset("img/SMK Metland Cileungsi.webp") }}" alt="Program keahlian" class="about-image" loading="lazy" decoding="async">
                     </div>
                 </a>
                 <div class="about-body">
@@ -163,7 +163,7 @@
                 </a>
                 <a class="about-image-frame" href="https://smkmetlandcibitung.net/" target="_blank" rel="noopener noreferrer" aria-label="Kunjungi situs SMK Metland Cibitung">
                     <div class="img-container">
-                        <img src="{{ asset("img/SMK Metland cibitung.webp") }}" alt="Kegiatan siswa" class="about-image">
+                        <img src="{{ asset("img/SMK Metland cibitung.webp") }}" alt="Kegiatan siswa" class="about-image" loading="lazy" decoding="async">
                     </div>
                     </a>
                 <div class="about-body">
@@ -182,7 +182,7 @@
                 </a>
                 <a class="about-image-frame" href="https://metlandsmarakertajati.com-hotel.id/id/" target="_blank" rel="noopener noreferrer" aria-label="Kunjungi situs Metland Smara Kertajati">
                     <div class="img-container">
-                        <img src="{{ asset("img/Kertajati.webp") }}" alt="Area sekolah" class="about-image">
+                        <img src="{{ asset("img/Kertajati.webp") }}" alt="Area sekolah" class="about-image" loading="lazy" decoding="async">
                     </div>
                 </a>
                 <div class="about-body">
@@ -271,7 +271,7 @@
                 @if($featuredNews)
                     <article class="news-featured-card">
                         <div class="news-featured-media">
-                            <img src="{{ $featuredNews->image_url }}" alt="{{ $featuredNews->localized_title }}">
+                            <img src="{{ $featuredNews->image_url }}" alt="{{ $featuredNews->localized_title }}" loading="lazy" decoding="async">
                             <span class="news-tag">News</span>
                         </div>
                         <div class="news-featured-body">
@@ -286,7 +286,7 @@
                         @foreach($sideNews as $item)
                             <article class="news-mini-card">
                                 <a href="{{ route('news.show', $item->slug) }}" class="news-mini-thumb-link">
-                                    <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}">
+                                    <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" loading="lazy" decoding="async">
                                 </a>
                                 <div>
                                     <p class="news-mini-meta">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>
@@ -298,7 +298,7 @@
                 @else
                     <article class="news-featured-card">
                         <div class="news-featured-media">
-                            <img src="{{ asset('img/hero2.webp') }}" alt="Kegiatan terbaru siswa">
+                            <img src="{{ asset('img/hero2.webp') }}" alt="Kegiatan terbaru siswa" loading="lazy" decoding="async">
                             <span class="news-tag">News</span>
                         </div>
                         <div class="news-featured-body">
@@ -346,7 +346,7 @@
 	                        <p class="testi-quote">"{{ $t->testimonial }}"</p>
 	                        <div class="testi-author">
 	                            @if($photoUrl)
-	                                <img src="{{ $photoUrl }}" alt="{{ $t->name }}" class="testi-avatar" style="object-fit: cover;">
+	                                <img src="{{ $photoUrl }}" alt="{{ $t->name }}" class="testi-avatar" style="object-fit: cover;" loading="lazy" decoding="async">
 	                            @else
 	                                <div class="testi-avatar" style="background: linear-gradient(135deg, #1ca5a5, #0f6c75);">{{ $initials }}</div>
 	                            @endif
@@ -440,7 +440,7 @@
         <div class="footer-shell">
             <div class="footer-brand">
                 <div class="footer-brand-head">
-                    <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="footer-logo">
+                    <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="footer-logo" loading="lazy" decoding="async">
                     <h3>METLAND COLLEGE</h3>
                 </div>
                 <p>The first step towards a brilliant career. Learn practically, develop creatively, and get ready to jump into the industry.</p>
@@ -454,7 +454,7 @@
                     @endphp
                     @forelse($footerNews as $item)
                         <article class="footer-post-item">
-                            <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" class="footer-post-thumb">
+                            <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" class="footer-post-thumb" loading="lazy" decoding="async">
                             <div class="footer-post-content">
                                 <a href="{{ route('news.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->localized_title, 76) }}</a>
                                 <p class="footer-post-date">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>
@@ -462,7 +462,7 @@
                         </article>
                     @empty
                         <article class="footer-post-item">
-                            <img src="{{ asset('img/hero2.webp') }}" alt="No News yet" class="footer-post-thumb">
+                            <img src="{{ asset('img/hero2.webp') }}" alt="No News yet" class="footer-post-thumb" loading="lazy" decoding="async">
                             <div class="footer-post-content">
                                 <a href="{{ route('news.index') }}">No news has been published yet</a>
                                 <p class="footer-post-date">Please check back later</p>

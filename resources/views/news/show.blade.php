@@ -443,7 +443,7 @@
             <div class="news-detail-layout">
                 <article class="news-article-card">
                     <div class="news-article-media">
-                        <img src="{{ $news->image_url }}" alt="{{ $news->localized_title }}">
+                        <img src="{{ $news->image_url }}" alt="{{ $news->localized_title }}" loading="lazy" decoding="async">
                         <a
                             href="https://wa.me/?text={{ urlencode($news->localized_title . ' - ' . route('news.show', $news->slug)) }}"
                             target="_blank"
@@ -483,7 +483,7 @@
                         <div class="news-sidebar-list">
                             @forelse($sidebarNews as $item)
                                 <a href="{{ route('news.show', $item->slug) }}" class="news-sidebar-item {{ $item->id === $news->id ? 'is-active' : '' }}">
-                                    <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}">
+                                    <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" loading="lazy" decoding="async">
                                     <div>
                                         <p class="news-sidebar-item-title">{{ \Illuminate\Support\Str::limit($item->localized_title, 68) }}</p>
                                         <p class="news-sidebar-item-date">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>

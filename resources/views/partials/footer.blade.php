@@ -10,7 +10,7 @@
     <div class="footer-shell">
         <div class="footer-brand">
             <div class="footer-brand-head">
-                <img src="{{ $footerLogo }}" alt="Logo Metland College" class="footer-logo">
+                <img src="{{ $footerLogo }}" alt="Logo Metland College" class="footer-logo" loading="lazy" decoding="async">
                 <h3>METLAND COLLEGE</h3>
             </div>
             <p>The first step towards a brilliant career. Learn practically, develop creatively, and get ready to jump into the industry.</p>
@@ -21,7 +21,7 @@
             <div class="footer-post-list">
                 @forelse($footerNews as $item)
                     <article class="footer-post-item">
-                        <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" class="footer-post-thumb">
+                        <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" class="footer-post-thumb" loading="lazy" decoding="async">
                         <div class="footer-post-content">
                             <a href="{{ route('news.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->localized_title, 76) }}</a>
                             <p class="footer-post-date">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>
@@ -29,7 +29,7 @@
                     </article>
                 @empty
                     <article class="footer-post-item">
-                        <img src="{{ asset('img/hero2.webp') }}" alt="No News yet" class="footer-post-thumb">
+                        <img src="{{ asset('img/hero2.webp') }}" alt="No News yet" class="footer-post-thumb" loading="lazy" decoding="async">
                         <div class="footer-post-content">
                             <a href="{{ route('news.index') }}">No news has been published yet</a>
                             <p class="footer-post-date">Please check back later</p>

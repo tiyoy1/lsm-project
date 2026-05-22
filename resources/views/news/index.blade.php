@@ -551,13 +551,13 @@
             <div class="swiper news-hero-swiper" style="width: 100%; height: 100%;">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="SMK Metland Cileungsi">
+                        <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="SMK Metland Cileungsi" loading="lazy" decoding="async">
                     </div>
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/SMK Metland cibitung.webp') }}" alt="SMK Metland Cibitung">
+                        <img src="{{ asset('img/SMK Metland cibitung.webp') }}" alt="SMK Metland Cibitung" loading="lazy" decoding="async">
                     </div>
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/Kertajati.webp') }}" alt="Kertajati">
+                        <img src="{{ asset('img/Kertajati.webp') }}" alt="Kertajati" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
@@ -604,7 +604,7 @@
                 @foreach($news as $item)
                     <article class="news-page-card">
                         <div class="news-page-media">
-                            <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}">
+                            <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" loading="lazy" decoding="async">
                             <span class="news-page-tag">{{ __('ui.news.tag') }}</span>
                         </div>
                         <div class="news-page-content">

@@ -23,7 +23,7 @@
 <body>
     <nav>
         <div class="logo">
-            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.webp") }}" alt="Logo Metland College" class="logo-img">Metland College
+            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.webp") }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
         </div>
         <ul id="primary-nav">
             <li><a href="{{ url('/') }}">Home</a></li>
@@ -84,13 +84,13 @@
             <div class="swiper hero-swiper" style="width: 100%; height: 100%;">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="SMK Metland Cileungsi" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="SMK Metland Cileungsi" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     </div>
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/SMK Metland cibitung.webp') }}" alt="SMK Metland Cibitung" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="{{ asset('img/SMK Metland cibitung.webp') }}" alt="SMK Metland Cibitung" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     </div>
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/Kertajati.webp') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="{{ asset('img/Kertajati.webp') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
@@ -157,7 +157,7 @@
 
                 <!-- Right: Image Frame -->
                 <div class="campus-profile-image-frame">
-                    <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="Campus Infrastructure">
+                    <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="Campus Infrastructure" loading="lazy" decoding="async">
                     <div class="campus-profile-image-overlay"></div>
                     <div class="campus-profile-image-quote">
                         <p>"Preparing you today for the challenges of tomorrow."</p>
@@ -176,7 +176,7 @@
         <div class="facilities-body">
             <div class="facilities-card">
                 <div class="facilities-card-img-wrap">
-                    <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="" class="facilities-card-img">
+                    <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="" class="facilities-card-img" loading="lazy" decoding="async">
                 </div>
                 <div class="facilities-card-content">
                     <h3>Artisan Beverage Studio (ABS)</h3>
@@ -185,7 +185,7 @@
             </div>
             <div class="facilities-card">
                 <div class="facilities-card-img-wrap">
-                    <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="" class="facilities-card-img">
+                    <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="" class="facilities-card-img" loading="lazy" decoding="async">
                 </div>
                 <div class="facilities-card-content">
                     <h3>Culinary Kitchen</h3>
@@ -194,7 +194,7 @@
             </div>
             <div class="facilities-card">
                 <div class="facilities-card-img-wrap">
-                    <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="" class="facilities-card-img">
+                    <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="" class="facilities-card-img" loading="lazy" decoding="async">
                 </div>
                 <div class="facilities-card-content">
                     <h3>Housekeeping Mock-up Room</h3>
@@ -203,7 +203,7 @@
             </div>
             <div class="facilities-card">
                 <div class="facilities-card-img-wrap">
-                    <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="" class="facilities-card-img">
+                    <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="" class="facilities-card-img" loading="lazy" decoding="async">
                 </div>
                 <div class="facilities-card-content">
                     <h3>Front Office Lab</h3>
