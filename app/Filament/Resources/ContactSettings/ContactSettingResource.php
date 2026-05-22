@@ -31,6 +31,8 @@ class ContactSettingResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Kontak';
 
+    protected static bool $shouldRegisterNavigation = false;
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPhone;
 
     public static function form(Schema $schema): Schema
