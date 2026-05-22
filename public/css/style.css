@@ -438,6 +438,13 @@ body > nav ul li.nav-mobile-only {
     opacity: 75%;
 }
 
+.hero-media .swiper,
+.hero-media .swiper-wrapper,
+.hero-media .swiper-slide {
+    width: 100%;
+    height: 100%;
+}
+
 .hero-media img {
     width: 100%;
     height: 100%;
