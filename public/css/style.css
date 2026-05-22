@@ -5945,7 +5945,6 @@ body > nav ul li.nav-mobile-only {
     margin-bottom: 24px;
     font-size: 0.85rem;
     transition: all 0.3s ease-in-out;
-    cursor: pointer;
     user-select: none;
     white-space: nowrap;
     padding: 0;
@@ -6112,6 +6111,9 @@ body > nav ul li.nav-mobile-only {
     }
     .timeline-content {
         padding-left: 60px;
+    }
+    .section-badge {
+        align-items: center;
     }
 }
 
