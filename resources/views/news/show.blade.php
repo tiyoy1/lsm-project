@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $news->localized_title }} - {{ __('ui.news.title') }} Metland College</title>
-    <link rel="icon" type="image/webp" href="{{ $faviconUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') . '?v=20260305' }}">
+    <link rel="icon" type="image/webp" href="{{ $faviconUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') . '?v=20260305' }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
@@ -369,7 +369,7 @@
 <body class="news-page-body">
     <nav>
         <div class="logo">
-            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
+            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
         </div>
         <ul id="primary-nav">
             <li><a href="{{ url('/') }}">Home</a></li>

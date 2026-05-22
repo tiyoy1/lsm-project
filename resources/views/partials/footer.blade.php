@@ -1,5 +1,5 @@
 @php
-    $footerLogo = $logoUrl ?? asset('img/LOGO METLAND COLLEGE-02.png');
+    $footerLogo = $logoUrl ?? asset('img/LOGO METLAND COLLEGE-02.webp');
     $footerWhatsapp = isset($contactSetting) && filled($contactSetting?->whatsapp)
         ? $contactSetting->whatsapp
         : '+62-8180-9999-180';
@@ -29,7 +29,7 @@
                     </article>
                 @empty
                     <article class="footer-post-item">
-                        <img src="{{ asset('img/hero2.JPG') }}" alt="No News yet" class="footer-post-thumb">
+                        <img src="{{ asset('img/hero2.webp') }}" alt="No News yet" class="footer-post-thumb">
                         <div class="footer-post-content">
                             <a href="{{ route('news.index') }}">No news has been published yet</a>
                             <p class="footer-post-date">Please check back later</p>
