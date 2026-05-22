@@ -31,7 +31,7 @@
             <div class="news-detail-layout">
                 <article class="news-article-card">
                     <div class="news-article-media">
-                        <img src="{{ $studentWork->image_url }}" alt="{{ $studentWork->localized_title }}">
+                        <img src="{{ $studentWork->image_url }}" alt="{{ $studentWork->localized_title }}" loading="lazy" decoding="async">
                         <a
                             href="https://wa.me/?text={{ urlencode($studentWork->localized_title . ' - ' . route('student-works.show', $studentWork->slug)) }}"
                             target="_blank"
@@ -71,7 +71,7 @@
                         <div class="news-sidebar-list">
                             @forelse($sidebarStudentWorks as $item)
                                 <a href="{{ route('student-works.show', $item->slug) }}" class="news-sidebar-item {{ $item->id === $studentWork->id ? 'is-active' : '' }}">
-                                    <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}">
+                                    <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" loading="lazy" decoding="async">
                                     <div>
                                         <p class="news-sidebar-item-title">{{ \Illuminate\Support\Str::limit($item->localized_title, 68) }}</p>
                                         <p class="news-sidebar-item-date">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LKP - Metland College</title>
-    <link rel="icon" type="image/webp" href="{{ asset('img/LOGO METLAND COLLEGE-02.png') }}?v=20260305">
+    <link rel="icon" type="image/webp" href="{{ asset('img/LOGO METLAND COLLEGE-02.webp') }}?v=20260305">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -23,7 +23,7 @@
 <body>
     <nav>
         <div class="logo">
-            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.png") }}" alt="Logo Metland College" class="logo-img">Metland College
+            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.webp") }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
         </div>
         <ul id="primary-nav">
             <li><a href="{{ url('/') }}">Home</a></li>
@@ -84,13 +84,13 @@
             <div class="swiper hero-swiper" style="width: 100%; height: 100%;">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/SMK Metland Cileungsi.png') }}" alt="SMK Metland Cileungsi" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="SMK Metland Cileungsi" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     </div>
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/SMK Metland cibitung.png') }}" alt="SMK Metland Cibitung" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="{{ asset('img/SMK Metland cibitung.webp') }}" alt="SMK Metland Cibitung" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     </div>
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/Kertajati.png') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="{{ asset('img/Kertajati.webp') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
@@ -460,7 +460,7 @@
             {{-- 1. English --}}
             <div class="lkp-lang-card english">
                 <div class="lkp-card-banner">
-                    <img src="https://flagcdn.com/w160/gb.png" alt="Bendera Inggris" class="lkp-card-flag">
+                    <img src="https://flagcdn.com/w160/gb.png" alt="Bendera Inggris" class="lkp-card-flag" loading="lazy" decoding="async">
                     <span class="lkp-card-lang-name">English</span>
                     <span class="lkp-card-num">1</span>
                 </div>
@@ -476,7 +476,7 @@
             {{-- 2. Mandarin --}}
             <div class="lkp-lang-card mandarin">
                 <div class="lkp-card-banner">
-                    <img src="https://flagcdn.com/w160/cn.png" alt="Bendera China" class="lkp-card-flag">
+                    <img src="https://flagcdn.com/w160/cn.png" alt="Bendera China" class="lkp-card-flag" loading="lazy" decoding="async">
                     <span class="lkp-card-lang-name">Mandarin</span>
                     <span class="lkp-card-num">2</span>
                 </div>
@@ -492,7 +492,7 @@
             {{-- 3. Jepang --}}
             <div class="lkp-lang-card jepang">
                 <div class="lkp-card-banner">
-                    <img src="https://flagcdn.com/w160/jp.png" alt="Bendera Jepang" class="lkp-card-flag">
+                    <img src="https://flagcdn.com/w160/jp.png" alt="Bendera Jepang" class="lkp-card-flag" loading="lazy" decoding="async">
                     <span class="lkp-card-lang-name">Jepang</span>
                     <span class="lkp-card-num">3</span>
                 </div>
@@ -509,7 +509,7 @@
             {{-- 4. Jerman --}}
             <div class="lkp-lang-card jerman">
                 <div class="lkp-card-banner">
-                    <img src="https://flagcdn.com/w160/de.png" alt="Bendera Jerman" class="lkp-card-flag">
+                    <img src="https://flagcdn.com/w160/de.png" alt="Bendera Jerman" class="lkp-card-flag" loading="lazy" decoding="async">
                     <span class="lkp-card-lang-name">Jerman</span>
                     <span class="lkp-card-num">4</span>
                 </div>
@@ -525,7 +525,7 @@
             {{-- 5. Korea --}}
             <div class="lkp-lang-card korea">
                 <div class="lkp-card-banner">
-                    <img src="https://flagcdn.com/w160/kr.png" alt="Bendera Korea" class="lkp-card-flag">
+                    <img src="https://flagcdn.com/w160/kr.png" alt="Bendera Korea" class="lkp-card-flag" loading="lazy" decoding="async">
                     <span class="lkp-card-lang-name">Korea</span>
                     <span class="lkp-card-num">5</span>
                 </div>
@@ -541,7 +541,7 @@
             {{-- 6. Arab --}}
             <div class="lkp-lang-card arab">
                 <div class="lkp-card-banner">
-                    <img src="https://flagcdn.com/w160/sa.png" alt="Bendera Arab Saudi" class="lkp-card-flag">
+                    <img src="https://flagcdn.com/w160/sa.png" alt="Bendera Arab Saudi" class="lkp-card-flag" loading="lazy" decoding="async">
                     <span class="lkp-card-lang-name">Arab</span>
                     <span class="lkp-card-num">6</span>
                 </div>
@@ -637,7 +637,7 @@
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <div class="testi-dest">
-                    <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag">
+                    <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag" loading="lazy" decoding="async">
                     Bekerja di Jepang
                 </div>
                 <p class="testi-quote">"Saya ikut kursus Bahasa Jepang di LKP Metland dan dalam 6 bulan berhasil lulus JLPT N4. Pengajarnya sangat sabar dan metode belajarnya efektif banget. Sekarang saya sudah bekerja di Osaka dan bisa berkomunikasi dengan rekan kerja Jepang dengan lancar. Terima kasih LKP Metland!"</p>
@@ -656,7 +656,7 @@
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <div class="testi-dest">
-                    <img src="https://flagcdn.com/w40/de.png" alt="Germany Flag">
+                    <img src="https://flagcdn.com/w40/de.png" alt="Germany Flag" loading="lazy" decoding="async">
                     Bekerja di Jerman
                 </div>
                 <p class="testi-quote">"Kursus Bahasa Jerman di sini sangat terstruktur. Saya berhasil lulus B1 dan langsung dapat kerja di Berlin sebagai tenaga kesehatan."</p>
@@ -675,7 +675,7 @@
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
                 </div>
                 <div class="testi-dest">
-                    <img src="https://flagcdn.com/w40/kr.png" alt="Korea Flag">
+                    <img src="https://flagcdn.com/w40/kr.png" alt="Korea Flag" loading="lazy" decoding="async">
                     Bekerja di Korea
                 </div>
                 <p class="testi-quote">"Pendampingan interview dari LKP sangat membantu. Saya bisa menjawab pertanyaan HRD Korea dengan percaya diri dan akhirnya diterima kerja."</p>
@@ -694,7 +694,7 @@
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <div class="testi-dest">
-                    <img src="https://flagcdn.com/w40/sa.png" alt="Saudi Arabia Flag">
+                    <img src="https://flagcdn.com/w40/sa.png" alt="Saudi Arabia Flag" loading="lazy" decoding="async">
                     Bekerja di Arab Saudi
                 </div>
                 <p class="testi-quote">"Belajar bahasa Arab di LKP Metland memberi saya kepercayaan diri besar. Saya kini bekerja di Riyadh dan dihargai karena bisa bahasa lokal."</p>
@@ -713,7 +713,7 @@
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <div class="testi-dest">
-                    <img src="https://flagcdn.com/w40/cn.png" alt="China Flag">
+                    <img src="https://flagcdn.com/w40/cn.png" alt="China Flag" loading="lazy" decoding="async">
                     Bekerja di China
                 </div>
                 <p class="testi-quote">"Dalam 5 bulan saya berhasil lulus HSK 3. Metode belajarnya menyenangkan dan tidak membosankan. Sekarang saya kerja di Shanghai sebagai interpreter."</p>

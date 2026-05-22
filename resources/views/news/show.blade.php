@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $news->localized_title }} - {{ __('ui.news.title') }} Metland College</title>
-    <link rel="icon" type="image/webp" href="{{ $faviconUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') . '?v=20260305' }}">
+    <link rel="icon" type="image/webp" href="{{ $faviconUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') . '?v=20260305' }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
@@ -369,7 +369,7 @@
 <body class="news-page-body">
     <nav>
         <div class="logo">
-            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.png') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
+            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
         </div>
         <ul id="primary-nav">
             <li><a href="{{ url('/') }}">Home</a></li>
@@ -443,7 +443,7 @@
             <div class="news-detail-layout">
                 <article class="news-article-card">
                     <div class="news-article-media">
-                        <img src="{{ $news->image_url }}" alt="{{ $news->localized_title }}">
+                        <img src="{{ $news->image_url }}" alt="{{ $news->localized_title }}" loading="lazy" decoding="async">
                         <a
                             href="https://wa.me/?text={{ urlencode($news->localized_title . ' - ' . route('news.show', $news->slug)) }}"
                             target="_blank"
@@ -483,7 +483,7 @@
                         <div class="news-sidebar-list">
                             @forelse($sidebarNews as $item)
                                 <a href="{{ route('news.show', $item->slug) }}" class="news-sidebar-item {{ $item->id === $news->id ? 'is-active' : '' }}">
-                                    <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}">
+                                    <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" loading="lazy" decoding="async">
                                     <div>
                                         <p class="news-sidebar-item-title">{{ \Illuminate\Support\Str::limit($item->localized_title, 68) }}</p>
                                         <p class="news-sidebar-item-date">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>

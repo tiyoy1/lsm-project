@@ -39,7 +39,7 @@
                 @foreach($studentWorks as $item)
                     <article class="news-page-card">
                         <div class="news-page-media">
-                            <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}">
+                            <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" loading="lazy" decoding="async">
                             <span class="news-page-tag">{{ __('ui.student_works.tag') }}</span>
                         </div>
                         <div class="news-page-content">

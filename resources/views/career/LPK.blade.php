@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LPK - Metland College</title>
-    <link rel="icon" type="image/webp" href="{{ asset('img/LOGO METLAND COLLEGE-02.png') }}?v=20260305">
+    <link rel="icon" type="image/webp" href="{{ asset('img/LOGO METLAND COLLEGE-02.webp') }}?v=20260305">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -23,7 +23,7 @@
 <body>
     <nav>
         <div class="logo">
-            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.png") }}" alt="Logo Metland College" class="logo-img">Metland College
+            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.webp") }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
         </div>
         <ul id="primary-nav">
             <li><a href="{{ url('/') }}">Home</a></li>
@@ -84,13 +84,13 @@
             <div class="swiper hero-swiper" style="width: 100%; height: 100%;">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/SMK Metland Cileungsi.png') }}" alt="SMK Metland Cileungsi" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="SMK Metland Cileungsi" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     </div>
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/SMK Metland cibitung.png') }}" alt="SMK Metland Cibitung" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="{{ asset('img/SMK Metland cibitung.webp') }}" alt="SMK Metland Cibitung" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     </div>
                     <div class="swiper-slide">
-                        <img src="{{ asset('img/Kertajati.png') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="{{ asset('img/Kertajati.webp') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
@@ -586,13 +586,13 @@
                 <div class="swiper lpk-image-swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="{{ asset('img/SMK Metland Cileungsi.png') }}" alt="SMK Metland Cileungsi" class="lpk-intro-image">
+                            <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="SMK Metland Cileungsi" class="lpk-intro-image" loading="lazy" decoding="async">
                         </div>
                         <div class="swiper-slide">
-                            <img src="{{ asset('img/SMK Metland cibitung.png') }}" alt="SMK Metland Cibitung" class="lpk-intro-image">
+                            <img src="{{ asset('img/SMK Metland cibitung.webp') }}" alt="SMK Metland Cibitung" class="lpk-intro-image" loading="lazy" decoding="async">
                         </div>
                         <div class="swiper-slide">
-                            <img src="{{ asset('img/kertajati.png') }}" alt="Kertajati" class="lpk-intro-image">
+                            <img src="{{ asset('img/kertajati.webp') }}" alt="Kertajati" class="lpk-intro-image" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="swiper-pagination lpk-image-pagination" aria-hidden="true"></div>
@@ -1013,7 +1013,7 @@
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <div class="testi-dest">
-                    <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag">
+                    <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag" loading="lazy" decoding="async">
                     Bekerja di Jepang
                 </div>
                 <p class="testi-quote">"Awalnya saya tidak punya pengalaman apapun di bidang hospitality. Tapi setelah mengikuti program LPK Metland, saya mendapat bekal yang sangat lengkap — mulai dari skill teknis, bahasa Inggris industri, sampai etika kerja profesional. Alhamdulillah sekarang saya sudah bekerja di hotel bintang 5 di Tokyo dan sangat bersyukur atas kesempatan ini."</p>
@@ -1032,7 +1032,7 @@
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <div class="testi-dest">
-                    <img src="https://flagcdn.com/w40/ae.png" alt="UAE Flag">
+                    <img src="https://flagcdn.com/w40/ae.png" alt="UAE Flag" loading="lazy" decoding="async">
                     Bekerja di Dubai
                 </div>
                 <p class="testi-quote">"Program OJT-nya luar biasa. Saya langsung magang di hotel bintang 5 dan dari sana langsung direkrut. Trainer-nya sangat profesional dan sabar."</p>
@@ -1051,7 +1051,7 @@
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
                 </div>
                 <div class="testi-dest">
-                    <img src="https://flagcdn.com/w40/sg.png" alt="Singapore Flag">
+                    <img src="https://flagcdn.com/w40/sg.png" alt="Singapore Flag" loading="lazy" decoding="async">
                     Bekerja di Singapura
                 </div>
                 <p class="testi-quote">"Materi English for Industry benar-benar game changer. Saya jadi lebih percaya diri saat interview dan berkomunikasi dengan tamu internasional."</p>
@@ -1070,7 +1070,7 @@
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <div class="testi-dest">
-                    <img src="https://flagcdn.com/w40/au.png" alt="Australia Flag">
+                    <img src="https://flagcdn.com/w40/au.png" alt="Australia Flag" loading="lazy" decoding="async">
                     Bekerja di Australia
                 </div>
                 <p class="testi-quote">"Sertifikasi kompetensi yang saya dapat dari LPK Metland diakui langsung oleh hotel tempat saya bekerja sekarang di Melbourne."</p>
@@ -1089,7 +1089,7 @@
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <div class="testi-dest">
-                    <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag">
+                    <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag" loading="lazy" decoding="async">
                     Bekerja di Jepang
                 </div>
                 <p class="testi-quote">"Proses seleksi dan bimbingan dari LPK sangat terstruktur. Tim pengajarnya tulus membantu setiap peserta berkembang hingga siap kerja."</p>
