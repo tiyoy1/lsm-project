@@ -46,7 +46,7 @@ class News extends Model
     public function getImageUrlAttribute(): string
     {
         if (blank($this->image)) {
-            return asset('img/hero2.JPG');
+            return '/img/hero2.webp';
         }
 
         $relativeImagePath = ltrim($this->image, '/');
@@ -55,8 +55,8 @@ class News extends Model
         $exists = Cache::remember($cacheKey, now()->addHours(6), fn (): bool => Storage::disk('public')->exists($relativeImagePath));
 
         return $exists
-            ? asset('storage/' . $relativeImagePath)
-            : asset('img/hero2.JPG');
+            ? '/storage/' . $relativeImagePath
+            : '/img/hero2.webp';
 
     }
 

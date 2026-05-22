@@ -298,7 +298,7 @@
                 @else
                     <article class="news-featured-card">
                         <div class="news-featured-media">
-                            <img src="{{ asset('img/hero2.webp') }}" alt="Kegiatan terbaru siswa" loading="lazy" decoding="async">
+                            <img src="/img/hero2.webp" alt="Kegiatan terbaru siswa" loading="lazy" decoding="async">
                             <span class="news-tag">News</span>
                         </div>
                         <div class="news-featured-body">

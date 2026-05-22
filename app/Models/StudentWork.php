@@ -61,7 +61,7 @@ class StudentWork extends Model
         $path = $this->image ?? $this->photo;
 
         if (blank($path)) {
-            return asset('img/hero2.JPG');
+            return '/img/hero2.webp';
         }
 
         $relativeImagePath = ltrim($path, '/');
@@ -70,8 +70,8 @@ class StudentWork extends Model
         $exists = Cache::remember($cacheKey, now()->addHours(6), fn (): bool => Storage::disk('public')->exists($relativeImagePath));
 
         return $exists
-            ? asset('storage/' . $relativeImagePath)
-            : asset('img/hero2.JPG');
+            ? '/storage/' . $relativeImagePath
+            : '/img/hero2.webp';
 
     }
 
