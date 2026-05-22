@@ -55,7 +55,7 @@ class News extends Model
         $exists = Cache::remember($cacheKey, now()->addHours(6), fn (): bool => Storage::disk('public')->exists($relativeImagePath));
 
         return $exists
-            ? Storage::disk('public')->url($relativeImagePath)
+            ? asset('storage/' . $relativeImagePath)
             : asset('img/hero2.JPG');
 
     }
@@ -101,6 +101,22 @@ class News extends Model
         static::updating(function ($news) {
             if ($news->isDirty('title')) {
                 $news->slug = static::generateUniqueSlug($news->title, $news->id);
+            }
+
+            // Delete old image file when image is replaced
+            if ($news->isDirty('image') && filled($news->getOriginal('image'))) {
+                $oldPath = ltrim($news->getOriginal('image'), '/');
+                Storage::disk('public')->delete($oldPath);
+                Cache::forget('public_disk_exists:' . md5($oldPath));
+            }
+        });
+
+        static::deleting(function ($news) {
+            // Delete image file when news is deleted
+            if (filled($news->image)) {
+                $path = ltrim($news->image, '/');
+                Storage::disk('public')->delete($path);
+                Cache::forget('public_disk_exists:' . md5($path));
             }
         });
     }

@@ -70,7 +70,7 @@ class StudentWork extends Model
         $exists = Cache::remember($cacheKey, now()->addHours(6), fn (): bool => Storage::disk('public')->exists($relativeImagePath));
 
         return $exists
-            ? Storage::disk('public')->url($relativeImagePath)
+            ? asset('storage/' . $relativeImagePath)
             : asset('img/hero2.JPG');
 
     }
@@ -86,6 +86,26 @@ class StudentWork extends Model
         static::updating(function (self $studentWork) {
             if ($studentWork->isDirty('title') && filled($studentWork->title)) {
                 $studentWork->slug = static::generateUniqueSlug($studentWork->title, $studentWork->id);
+            }
+
+            // Delete old image file when image is replaced
+            foreach (['image', 'photo'] as $field) {
+                if ($studentWork->isDirty($field) && filled($studentWork->getOriginal($field))) {
+                    $oldPath = ltrim($studentWork->getOriginal($field), '/');
+                    Storage::disk('public')->delete($oldPath);
+                    Cache::forget('public_disk_exists:' . md5($oldPath));
+                }
+            }
+        });
+
+        static::deleting(function (self $studentWork) {
+            // Delete image/photo files when record is deleted
+            foreach (['image', 'photo'] as $field) {
+                if (filled($studentWork->$field)) {
+                    $path = ltrim($studentWork->$field, '/');
+                    Storage::disk('public')->delete($path);
+                    Cache::forget('public_disk_exists:' . md5($path));
+                }
             }
         });
     }
