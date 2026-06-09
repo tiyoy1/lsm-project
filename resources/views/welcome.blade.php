@@ -404,11 +404,11 @@
 	                    <h3>{{ $categoryLabels[$categoryKey] }}</h3>
 	                    <div class="partner-logo-grid">
 	                        @forelse($items as $partner)
-	                            @php
-	                                $partnerLogoUrl = filled($partner->logo)
-	                                    ? \Illuminate\Support\Facades\Storage::disk('public')->url($partner->logo)
-	                                    : asset('img/LOGO METLAND COLLEGE-02.webp');
-	                            @endphp
+                                @php
+                                    $partnerLogoUrl = filled($partner->logo)
+                                        ? \Illuminate\Support\Facades\Storage::disk('public')->url($partner->logo)
+                                        : asset('img/LOGO METLAND COLLEGE-02.webp');
+                                @endphp
 	                            <article class="partner-logo-card">
 	                                @if(filled($partner->url))
 	                                    <a href="{{ $partner->url }}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
