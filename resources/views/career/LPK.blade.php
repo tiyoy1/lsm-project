@@ -674,7 +674,7 @@
                     <div class="step-title">Uji Kompetensi</div>
                     <div class="step-desc">Sertifikasi kemahiran berstandar BNSP.</div>
                 </div>
-                <div class="pathway-step">
+                <div class="pathway-step">c
                     <div class="step-icon"><i class="bi bi-building"></i></div>
                     <div class="step-title">Penyaluran Kerja</div>
                     <div class="step-desc">Bantuan proses rekrutmen ke jaringan industri hospitality.</div>
