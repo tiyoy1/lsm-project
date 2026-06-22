@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
     <meta charset="UTF-8">
@@ -39,6 +39,69 @@
         }
 
         $whatsappNumber = preg_replace('/\\D+/', '', (string) (($contactSetting?->whatsapp ?? '') ?: '6281809999180'));
+
+        $careerSteps = [
+            [
+                'step' => 'First Step!',
+                'title' => 'Pre-Screening Interview',
+                'icon' => 'bi-journal-bookmark',
+                'summary' => 'Tahap awal untuk menyaring kesiapan, minat, dan potensi peserta sebelum masuk program utama.',
+                'details' => [
+                    'Pendaftaran Peserta (PBK Mendaftar) - Calon peserta mendaftar melalui portal resmi Metland College atau datang langsung ke kampus Transyogi, Cibitung, atau Kertajati.',
+                    'Pengiriman CV & Berkas Portofolio - Peserta mengirimkan CV terbaru dan dokumen pendukung akademis/profesional untuk evaluasi awal.',
+                    'Pre-Screening Interview (1 Bulan) - Tahap ini menilai kesesuaian usia 18-32 tahun, minat okupasi seperti Housekeeping, F&B Service, Culinary, dan linearitas profil dengan peluang kerja domestik maupun internasional.',
+                    'Fokus Penempatan - Arah penempatan dipersiapkan ke Jepang, Jerman, Bulgaria, Rumania, Kroasia, dan negara tujuan lainnya.',
+                    'Edukasi Product Knowledge Program - Peserta mendapat penjelasan ekosistem LPK-LKP Metland College, pilihan paket (Fast Track Alumni SMK Metland, Fast Track Jejaring, atau Executive), serta fasilitas seperti asrama, makan, dan laundry.',
+                    'Pembayaran Administrasi & Biaya Pelatihan - Peserta melunasi biaya pendaftaran dan program, lalu menerima kuitansi resmi dan bukti bayar.',
+                    'Pengisian & Pengumpulan Formulir (00-06) - Peserta melengkapi formulir administrasi standar dan dokumen fisik/digital sebagai syarat mengikuti PBK.',
+                ],
+                'footer' => 'Output tahap ini adalah peserta yang lolos seleksi awal dan siap melanjutkan ke pembekalan bahasa serta pelatihan industri.',
+            ],
+            [
+                'step' => 'Second Step!',
+                'title' => 'Language & English for Industry',
+                'icon' => 'bi-people',
+                'summary' => 'Pembekalan bahasa industri dan persiapan mobilisasi ke venue pelatihan serta asrama.',
+                'details' => [
+                    'Penentuan Tanggal Pelatihan & Surat Pemanggilan - Manajemen LPK menetapkan jadwal batch pelatihan dan mengirimkan surat pemanggilan resmi kepada peserta yang lolos.',
+                    'Koordinasi Venue Pelatihan (Surat Informasi) - Surat informasi pelatihan dikirim ke pihak industri lokasi praktik seperti Metland Hotel Smara Kertajati atau mitra lainnya.',
+                    'Persiapan Keberangkatan (Mobilisasi) - Peserta mendapat informasi titik kumpul, jam keberangkatan, barang bawaan, dan SOP perjalanan menuju lokasi karantina.',
+                    'Welcoming & Makan Bersama - Acara penyambutan dan makan bersama dilakukan sebelum peserta masuk asrama dan hotel untuk membangun kebersamaan.',
+                    'Orientasi Venue Pelatihan (Hotel Tour) - Peserta dikenalkan tata letak, standar penampilan, dan budaya kerja melalui observasi industri.',
+                    'Check-in Asrama LPK-LKP Metland College - Peserta dimobilisasi ke asrama, dilakukan pembagian kamar, seragam PBK 1 pcs, serta penyerahan E-Module atau buku modul.',
+                ],
+                'footer' => 'Tahap ini memastikan peserta siap secara mental, administratif, dan lingkungan sebelum memulai pelatihan inti.',
+            ],
+            [
+                'step' => 'Third Step!',
+                'title' => 'Skill Training',
+                'icon' => 'bi-briefcase',
+                'summary' => 'Pelatihan berbasis kompetensi yang fokus pada praktik, evaluasi berkala, dan intensifikasi bahasa asing.',
+                'details' => [
+                    'Day 1: Orientasi Program PBK - Pengenalan visi, misi, kurikulum pelatihan, disiplin, target kompetensi, dan instruktur.',
+                    'Day 2: Pembagian Buddy System - Mentoring sebaya diterapkan agar peserta lebih cepat beradaptasi dan saling mendukung.',
+                    'Day 3: Kick-off Praktik Kejuruan - Pelatihan berbasis kompetensi dimulai langsung dengan model Teaching Factory untuk perhotelan dan kuliner.',
+                    'Durasi Skill Training - Pelatihan praktik inti berjalan selama 3 bulan.',
+                    'Intensifikasi Bahasa Asing - Program bahasa industri dan bahasa negara tujuan seperti Inggris, Mandarin, Jepang, dan Jerman difokuskan pada interview dan komunikasi operasional, selama 2 bulan.',
+                    'Assessment Formatif Berkala - Evaluasi dilakukan pada Day 7, 14, 21, dan 28. Uji kompetensi teori dan praktik berlangsung setiap 6 hari, dan seluruh evidence wajib dikumpulkan ke tim assessor.',
+                ],
+                'footer' => 'Peserta akan dibentuk menjadi tenaga siap kerja dengan kompetensi teknis, disiplin, dan kemampuan bahasa yang lebih kuat.',
+            ],
+            [
+                'step' => 'Final Step',
+                'title' => 'On Job Training & Final Interview',
+                'icon' => 'bi-globe2',
+                'summary' => 'Penempatan magang, persiapan dokumen internasional, interview user, hingga keberangkatan kerja.',
+                'details' => [
+                    'On The Job Training (OJT / PKL) - Peserta diterjunkan ke industri mitra dalam maupun luar negeri untuk mempraktikkan kompetensi di lingkungan kerja nyata selama 6 bulan.',
+                    'Persiapan Dokumen Keberangkatan Internasional - Pengurusan paspor, visa kerja/magang, sertifikat kompetensi LSP, MCU, dan legalisasi dokumen perjanjian kerja.',
+                    'User - Final Interview - Pendampingan interview langsung dengan representatif industri dari negara tujuan seperti Jepang, Jerman, Kroasia, dan lainnya.',
+                    'Pre-Departure Briefing - Pembekalan akhir terkait budaya negara tujuan, disiplin tingkat lanjut, hukum ketenagakerjaan, dan kesiapan mental.',
+                    'Deployment - Proses pelepasan peserta menuju negara tujuan sebagai langkah menuju zero unemployment sesuai visi besar LPK-LKP Metland College.',
+                ],
+                'footer' => 'Tahap terakhir ini mempersiapkan peserta untuk penempatan kerja dan transisi profesional secara penuh.',
+            ],
+        ];
     @endphp
     <nav>
         <div class="logo">
@@ -200,58 +263,24 @@
             </div>
             <div class="career-timeline" id="lpk-content">
                 <span class="career-line" aria-hidden="true"></span>
-                <article class="career-step is-left">
-                    <span class="career-pill">First Step! </span>
-                    <div class="career-card">
-                        <div class="career-icon"><i class="bi bi-journal-bookmark"></i></div>
-                        <div>
-                            <h3>Pre-Screening Interview</h3>
-                            <p>In this early stage, participants undergo a selection process in the form of an interview. The goal is to assess the readiness, interest, and potential of participants before entering the main program.</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="career-step is-right">
-                    <span class="career-pill">Second Step!</span>
-                    <div class="career-card">
-                        <div class="career-icon"><i class="bi bi-people"></i></div>
-                        <div>
-                            <h3>English for Industry</h3>
-                            <p>After passing selection, participants learn English focused on the workplace, especially in the industry. Not just grammar, but professional communication like speaking, email writing, and technical terms.</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="career-step is-left">
-                    <span class="career-pill">Third Step!</span>
-                    <div class="career-card">
-                        <div class="career-icon"><i class="bi bi-briefcase"></i></div>
-                        <div>
-                            <h3>Skill Training</h3>
-                            <p>At this stage, participants enter core skill training in their respective fields. The material is technical and practical, ensuring participants have ready-to-use skills in the workforce.</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="career-step is-right">
-                    <span class="career-pill">Final Step</span>
-                    <div class="career-card">
-                        <div class="career-icon"><i class="bi bi-briefcase"></i></div>
-                        <div>
-                            <h3>On Job Training &amp; Final Interview</h3>
-                            <p>Participants enter the workplace through internships or field work, then continue to the final interview stage as the last assessment before recruitment or placement.</p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <div class="career-timeline" id="lkp-content" style="display: none; align-items: center; justify-content: center; min-height: 250px; text-align: center;">
-                <div class="career-card" style="width: 100%; max-width: 500px; margin: 0 auto; flex-direction: column; align-items: center;">
-                    <div class="career-icon"><i class="bi bi-clock-history"></i></div>
-                    <div style="margin-top: 10px;">
-                        <h3>Coming Soon</h3>
-                        <p>Konten untuk Training Method (LKP) sedang dalam tahap penyusunan dan akan segera tersedia.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="career-footer">
-                <a href="{{ route('LPK') }}" class="career-cta">View Details</a>
+                @foreach($careerSteps as $index => $step)
+                    <article class="career-step {{ $index % 2 === 0 ? 'is-left' : 'is-right' }}">
+                        <span class="career-pill">{{ $step['step'] }}</span>
+                        <button
+                            type="button"
+                            class="career-card career-card-trigger"
+                            data-career-index="{{ $index }}"
+                            aria-label="Open details for {{ $step['title'] }}"
+                        >
+                            <div class="career-icon"><i class="bi {{ $step['icon'] }}"></i></div>
+                            <div class="career-card-copy">
+                                <h3>{{ $step['title'] }}</h3>
+                                <p>{{ $step['summary'] }}</p>
+                                <span class="career-card-link">Click to view details <i class="bi bi-arrow-right"></i></span>
+                            </div>
+                        </button>
+                    </article>
+                @endforeach
             </div>
         </div>
     </section>
@@ -298,7 +327,7 @@
                 @else
                     <article class="news-featured-card">
                         <div class="news-featured-media">
-                            <img src="{{ asset('img/hero2.webp') }}" alt="Kegiatan terbaru siswa" loading="lazy" decoding="async">
+                            <img src="/img/hero2.webp" alt="Kegiatan terbaru siswa" loading="lazy" decoding="async">
                             <span class="news-tag">News</span>
                         </div>
                         <div class="news-featured-body">
@@ -404,11 +433,11 @@
 	                    <h3>{{ $categoryLabels[$categoryKey] }}</h3>
 	                    <div class="partner-logo-grid">
 	                        @forelse($items as $partner)
-	                            @php
-	                                $partnerLogoUrl = filled($partner->logo)
-	                                    ? \Illuminate\Support\Facades\Storage::disk('public')->url($partner->logo)
-	                                    : asset('img/LOGO METLAND COLLEGE-02.webp');
-	                            @endphp
+                                @php
+                                    $partnerLogoUrl = filled($partner->logo)
+                                        ? \Illuminate\Support\Facades\Storage::disk('public')->url($partner->logo)
+                                        : asset('img/LOGO METLAND COLLEGE-02.webp');
+                                @endphp
 	                            <article class="partner-logo-card">
 	                                @if(filled($partner->url))
 	                                    <a href="{{ $partner->url }}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
@@ -435,6 +464,22 @@
             </div>
         </div>
     </section>
+
+    <div class="career-modal" id="careerModal" aria-hidden="true">
+        <div class="career-modal-backdrop" data-career-modal-close></div>
+        <div class="career-modal-panel" role="dialog" aria-modal="true" aria-labelledby="careerModalTitle">
+            <button type="button" class="career-modal-close" data-career-modal-close aria-label="Close details">
+                <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </button>
+            <p class="career-modal-step" id="careerModalStep"></p>
+            <h3 class="career-modal-title" id="careerModalTitle"></h3>
+            <p class="career-modal-summary" id="careerModalSummary"></p>
+            <div class="career-modal-body">
+                <ul class="career-modal-list" id="careerModalList"></ul>
+            </div>
+            <div class="career-modal-footer" id="careerModalFooter"></div>
+        </div>
+    </div>
 
     <footer class="school-footer" id="school-footer">
         <div class="footer-shell">
@@ -544,6 +589,77 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="{{ asset("js/script.js") }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script>
+        (() => {
+            const careerSteps = @json($careerSteps);
+            const modal = document.getElementById('careerModal');
+            const titleEl = document.getElementById('careerModalTitle');
+            const summaryEl = document.getElementById('careerModalSummary');
+            const listEl = document.getElementById('careerModalList');
+            const footerEl = document.getElementById('careerModalFooter');
+            const stepEl = document.getElementById('careerModalStep');
+            const triggers = document.querySelectorAll('.career-card-trigger');
+            let lastActiveElement = null;
+
+            if (!modal || !titleEl || !summaryEl || !listEl || !footerEl || !stepEl || !triggers.length) {
+                return;
+            }
+
+            const openModal = (trigger) => {
+                const stepIndex = Number.parseInt(trigger.dataset.careerIndex || '0', 10);
+                const stepData = careerSteps[stepIndex];
+
+                if (!stepData) {
+                    return;
+                }
+
+                lastActiveElement = document.activeElement;
+                stepEl.textContent = stepData.step || '';
+                titleEl.textContent = stepData.title || '';
+                summaryEl.textContent = stepData.summary || '';
+                footerEl.textContent = stepData.footer || '';
+                listEl.innerHTML = '';
+                (stepData.details || []).forEach((point) => {
+                    const item = document.createElement('li');
+                    item.textContent = point;
+                    listEl.appendChild(item);
+                });
+
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('career-modal-open');
+
+                const closeButton = modal.querySelector('.career-modal-close');
+                if (closeButton) {
+                    closeButton.focus();
+                }
+            };
+
+            const closeModal = () => {
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('career-modal-open');
+
+                if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
+                    lastActiveElement.focus();
+                }
+            };
+
+            triggers.forEach((trigger) => {
+                trigger.addEventListener('click', () => openModal(trigger));
+            });
+
+            modal.querySelectorAll('[data-career-modal-close]').forEach((element) => {
+                element.addEventListener('click', closeModal);
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+                    closeModal();
+                }
+            });
+        })();
+    </script>
     <a
         class="whatsapp-fab"
         href="https://wa.me/{{ $whatsappNumber }}"

@@ -21,9 +21,81 @@
     />
 </head>
 <body>
+    @php
+        $careerSteps = [
+            [
+                'step' => 'First Step!',
+                'title' => 'Pre-Screening Interview',
+                'icon' => 'bi-journal-bookmark',
+                'summary' => 'Tahap awal untuk menilai kesiapan, minat, dan potensi peserta sebelum masuk program inti LPK.',
+                'details' => [
+                    'Pendaftaran peserta dilakukan melalui portal resmi Metland College atau secara langsung di kampus.',
+                    'Peserta mengirimkan CV terbaru dan dokumen pendukung akademis atau profesional untuk evaluasi awal.',
+                    'Pre-screening interview menilai kesesuaian usia, minat kerja, dan profil peserta dengan kebutuhan industri.',
+                    'Fokus penempatan dipersiapkan untuk peluang kerja di luar negeri seperti Jepang, Jerman, Bulgaria, Rumania, dan Kroasia.',
+                    'Peserta juga mendapat edukasi product knowledge tentang program, fasilitas, dan skema pelatihan yang tersedia.',
+                ],
+                'footer' => 'Output tahap ini adalah peserta yang lolos seleksi awal dan siap masuk pembekalan bahasa serta pelatihan industri.',
+            ],
+            [
+                'step' => 'Second Step!',
+                'title' => 'English for Industry',
+                'icon' => 'bi-people',
+                'summary' => 'Pembekalan bahasa kerja untuk komunikasi profesional sebelum peserta masuk ke pelatihan inti.',
+                'details' => [
+                    'Manajemen LPK menentukan tanggal pelatihan dan mengirim surat pemanggilan resmi kepada peserta.',
+                    'Venue pelatihan dikoordinasikan dengan industri mitra agar peserta memahami lokasi dan alur praktik.',
+                    'Peserta mengikuti persiapan keberangkatan, termasuk meeting point, jam mobilisasi, dan barang bawaan.',
+                    'Acara welcoming dan makan bersama dilakukan untuk membangun bonding antar peserta.',
+                    'Peserta mendapatkan orientasi venue pelatihan dan check-in asrama sebelum masuk ke pembelajaran intensif.',
+                ],
+                'footer' => 'Tahap ini memastikan peserta siap secara mental, administratif, dan sosial sebelum pelatihan inti dimulai.',
+            ],
+            [
+                'step' => 'Third Step!',
+                'title' => 'Skill Training',
+                'icon' => 'bi-briefcase',
+                'summary' => 'Pelatihan berbasis kompetensi yang fokus pada praktik, evaluasi berkala, dan intensifikasi bahasa asing.',
+                'details' => [
+                    'Day 1 berisi orientasi program PBK, pengenalan kurikulum, disiplin, target kompetensi, dan instruktur.',
+                    'Day 2 menerapkan buddy system agar peserta saling mendukung dalam proses adaptasi.',
+                    'Day 3 menjadi kick-off praktik kejuruan dengan metode teaching factory untuk perhotelan dan kuliner.',
+                    'Skill training berjalan selama 3 bulan dengan intensifikasi bahasa asing selama 2 bulan.',
+                    'Evaluasi dilakukan berkala pada Day 7, 14, 21, dan 28, disertai pengumpulan evidence ke tim assessor.',
+                ],
+                'footer' => 'Peserta dibentuk menjadi tenaga siap kerja yang kuat di aspek teknis, disiplin, dan bahasa.',
+            ],
+            [
+                'step' => 'Fourth Step!',
+                'title' => 'On Job Training (OJT)',
+                'icon' => 'bi-building',
+                'summary' => 'Penerjunan peserta ke industri mitra untuk mempraktikkan kompetensi di lingkungan kerja nyata.',
+                'details' => [
+                    'Peserta ditempatkan di industri mitra, baik dalam negeri maupun luar negeri, untuk praktik langsung.',
+                    'Durasi pemagangan berlangsung selama 6 bulan sebagai pembiasaan kerja profesional.',
+                    'Peserta mulai mengurus dokumen keberangkatan internasional seperti paspor, visa, dan sertifikat kompetensi.',
+                    'Medical check-up dan legalisasi dokumen kerja dipersiapkan agar proses penempatan berjalan lancar.',
+                ],
+                'footer' => 'Tahap ini menjadi jembatan utama dari pelatihan menuju pengalaman kerja nyata di industri.',
+            ],
+            [
+                'step' => 'Final Step',
+                'title' => 'Final Interview',
+                'icon' => 'bi-mortarboard',
+                'summary' => 'Tahap akhir berupa wawancara industri dan pembekalan keberangkatan sebelum penempatan kerja.',
+                'details' => [
+                    'Peserta mengikuti final interview bersama user atau representatif industri dari negara tujuan.',
+                    'Pre-departure briefing membahas budaya negara tujuan, disiplin, hukum ketenagakerjaan, dan kesiapan mental.',
+                    'Peserta menerima arahan akhir terkait deployment atau keberangkatan menuju lokasi kerja.',
+                    'Tahap ini menjadi penentu kesiapan peserta untuk direkrut atau ditempatkan secara profesional.',
+                ],
+                'footer' => 'Tahap akhir ini mempersiapkan peserta menuju penempatan kerja dan keberangkatan profesional penuh.',
+            ],
+        ];
+    @endphp
     <nav>
         <div class="logo">
-            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.webp") }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
+            <img src="{{ asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
         </div>
         <ul id="primary-nav">
             <li><a href="{{ url('/') }}">Home</a></li>
@@ -742,61 +814,29 @@
         <div class="career-shell">
             <div class="career-head">
                 <span class="section-badge">Training Method</span>
-                <h2 class="section-title">From <span>Basic</span> to Professional</h2> 
+                <h2 class="section-title">From <span>Basic</span> to <span>Professional</span></h2> 
                 <p class="section-desc">Structured learning, focus on practice, and supported by industry mentors until ready to enter the workforce.</p>
             </div>
             <div class="career-timeline" id="lpk-content">
                 <span class="career-line" aria-hidden="true"></span>
-                <article class="career-step is-left">
-                    <span class="career-pill">First Step!</span>
-                    <div class="career-card">
-                        <div class="career-icon"><i class="bi bi-journal-bookmark"></i></div>
-                        <div>
-                            <h3>Pre-Screening Interview</h3>
-                            <p>In this early stage, participants undergo a selection process in the form of an interview. The goal is to assess the readiness, interest, and potential of participants before entering the main program.</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="career-step is-right">
-                    <span class="career-pill">Second Step!</span>
-                    <div class="career-card">
-                        <div class="career-icon"><i class="bi bi-people"></i></div>
-                        <div>
-                            <h3>English for Industry</h3>
-                            <p>After passing selection, participants learn English focused on the workplace, especially in the industry. Not just grammar, but professional communication like speaking, email writing, and technical terms.</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="career-step is-left">
-                    <span class="career-pill">Third Step!</span>
-                    <div class="career-card">
-                        <div class="career-icon"><i class="bi bi-briefcase"></i></div>
-                        <div>
-                            <h3>Skill Training</h3>
-                            <p>At this stage, participants enter core skill training in their respective fields. The material is technical and practical, ensuring participants have ready-to-use skills in the workforce.</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="career-step is-right">
-                    <span class="career-pill">Fourth Step!</span>
-                    <div class="career-card">
-                        <div class="career-icon"><i class="bi bi-briefcase"></i></div>
-                        <div>
-                            <h3>On Job Training (OJT)</h3>
-                            <p>With base skills in hand, participants jump directly into the workplace through internships or field work. Here they learn directly in a real work environment for more relevant experience.</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="career-step is-left">
-                    <span class="career-pill is-finish">Graduate</span>
-                    <div class="career-card">
-                        <div class="career-icon"><i class="bi bi-mortarboard"></i></div>
-                        <div>
-                            <h3>Final Interview</h3>
-                            <p>The final stage is the final interview with the client/company. This serves as the final assessment to determine if participants are ready for recruitment or the next phase.</p>
-                        </div>
-                    </div>
-                </article>
+                @foreach($careerSteps as $index => $step)
+                    <article class="career-step {{ $index % 2 === 0 ? 'is-left' : 'is-right' }}">
+                        <span class="career-pill {{ $step['step'] === 'Final Step' ? 'is-finish' : '' }}">{{ $step['step'] }}</span>
+                        <button
+                            type="button"
+                            class="career-card career-card-trigger"
+                            data-career-index="{{ $index }}"
+                            aria-label="Open details for {{ $step['title'] }}"
+                        >
+                            <div class="career-icon"><i class="bi {{ $step['icon'] }}"></i></div>
+                            <div class="career-card-copy">
+                                <h3>{{ $step['title'] }}</h3>
+                                <p>{{ $step['summary'] }}</p>
+                                <span class="career-card-link">Click to view details <i class="bi bi-arrow-right"></i></span>
+                            </div>
+                        </button>
+                    </article>
+                @endforeach
             </div>
             <div class="career-timeline" id="lkp-content" style="display: none; align-items: center; justify-content: center; min-height: 250px; text-align: center;">
                 <div class="career-card" style="width: 100%; max-width: 500px; margin: 0 auto; flex-direction: column; align-items: center;">
@@ -809,6 +849,22 @@
             </div>
         </div>
     </section>
+
+    <div class="career-modal" id="careerModal" aria-hidden="true">
+        <div class="career-modal-backdrop" data-career-modal-close></div>
+        <div class="career-modal-panel" role="dialog" aria-modal="true" aria-labelledby="careerModalTitle">
+            <button type="button" class="career-modal-close" data-career-modal-close aria-label="Close details">
+                <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </button>
+            <p class="career-modal-step" id="careerModalStep"></p>
+            <h3 class="career-modal-title" id="careerModalTitle"></h3>
+            <p class="career-modal-summary" id="careerModalSummary"></p>
+            <div class="career-modal-body">
+                <ul class="career-modal-list" id="careerModalList"></ul>
+            </div>
+            <div class="career-modal-footer" id="careerModalFooter"></div>
+        </div>
+    </div>
 
     <style>
         /* ============ ALUMNI TESTI SECTION ============ */
@@ -1134,7 +1190,76 @@
                 });
             }
         });
+
+        (() => {
+            const careerSteps = @json($careerSteps);
+            const modal = document.getElementById('careerModal');
+            const titleEl = document.getElementById('careerModalTitle');
+            const summaryEl = document.getElementById('careerModalSummary');
+            const listEl = document.getElementById('careerModalList');
+            const footerEl = document.getElementById('careerModalFooter');
+            const stepEl = document.getElementById('careerModalStep');
+            const triggers = document.querySelectorAll('.career-card-trigger');
+            let lastActiveElement = null;
+
+            if (!modal || !titleEl || !summaryEl || !listEl || !footerEl || !stepEl || !triggers.length) {
+                return;
+            }
+
+            const openModal = (trigger) => {
+                const stepIndex = Number.parseInt(trigger.dataset.careerIndex || '0', 10);
+                const stepData = careerSteps[stepIndex];
+
+                if (!stepData) {
+                    return;
+                }
+
+                lastActiveElement = document.activeElement;
+                stepEl.textContent = stepData.step || '';
+                titleEl.textContent = stepData.title || '';
+                summaryEl.textContent = stepData.summary || '';
+                footerEl.textContent = stepData.footer || '';
+                listEl.innerHTML = '';
+                (stepData.details || []).forEach((point) => {
+                    const item = document.createElement('li');
+                    item.textContent = point;
+                    listEl.appendChild(item);
+                });
+
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('career-modal-open');
+
+                const closeButton = modal.querySelector('.career-modal-close');
+                if (closeButton) {
+                    closeButton.focus();
+                }
+            };
+
+            const closeModal = () => {
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('career-modal-open');
+
+                if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
+                    lastActiveElement.focus();
+                }
+            };
+
+            triggers.forEach((trigger) => {
+                trigger.addEventListener('click', () => openModal(trigger));
+            });
+
+            modal.querySelectorAll('[data-career-modal-close]').forEach((element) => {
+                element.addEventListener('click', closeModal);
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+                    closeModal();
+                }
+            });
+        })();
     </script>
 </body>
 </html>
-
