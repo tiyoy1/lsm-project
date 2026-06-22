@@ -1,6 +1,6 @@
-# LSM Project
+# Repository Private Metland College
 
-Aplikasi web Laravel untuk kebutuhan internal SMK Metland. Repository ini berisi source code aplikasi, sedangkan file `.env` tidak disimpan di repository karena berisi konfigurasi sensitif.
+Aplikasi web Laravel untuk kebutuhan internal Metland College. Repository ini berisi source code aplikasi, sedangkan file `.env` tidak disimpan di repository karena berisi konfigurasi sensitif.
 
 ## Tech Stack
 
