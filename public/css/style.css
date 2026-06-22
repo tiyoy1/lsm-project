@@ -1402,6 +1402,182 @@ body > nav ul li.nav-mobile-only {
     box-shadow: 0 14px 28px rgba(12, 53, 57, 0.08);
 }
 
+.career-card-trigger {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+    border: 0;
+    background: #ffffff;
+    appearance: none;
+    -webkit-appearance: none;
+    pointer-events: auto;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.career-card-trigger:hover,
+.career-card-trigger:focus-visible {
+    transform: translateY(-3px);
+    border-color: rgba(14, 131, 137, 0.28);
+    box-shadow: 0 18px 32px rgba(12, 53, 57, 0.12);
+}
+
+.career-card-trigger:focus-visible {
+    outline: 3px solid rgba(14, 131, 137, 0.24);
+    outline-offset: 3px;
+}
+
+.career-card-copy {
+    flex: 1;
+    min-width: 0;
+}
+
+.career-card-copy p {
+    margin-bottom: 10px;
+}
+
+.career-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.83rem;
+    font-weight: 700;
+    color: #0e8389;
+}
+
+.career-modal-open {
+    overflow: hidden;
+}
+
+.career-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.career-modal.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.career-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(7, 23, 25, 0.62);
+    backdrop-filter: blur(8px);
+}
+
+.career-modal-panel {
+    position: relative;
+    width: min(760px, 100%);
+    max-height: min(82vh, 920px);
+    overflow: auto;
+    padding: 28px 28px 26px;
+    border-radius: 26px;
+    background:
+        radial-gradient(circle at top right, rgba(95, 229, 232, 0.16), transparent 32%),
+        linear-gradient(180deg, #ffffff 0%, #f5fcfc 100%);
+    border: 1px solid rgba(14, 131, 137, 0.12);
+    box-shadow: 0 30px 80px rgba(6, 33, 35, 0.35);
+}
+
+.career-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(14, 131, 137, 0.1);
+    color: #0e8389;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.career-modal-step {
+    margin: 0 0 8px;
+    color: #0e8389;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.career-modal-title {
+    margin: 0 0 10px;
+    font-family: "Sora", sans-serif;
+    font-size: clamp(1.45rem, 3vw, 2.25rem);
+    color: #0c3337;
+}
+
+.career-modal-summary {
+    margin: 0 0 18px;
+    color: #355b5f;
+    line-height: 1.75;
+}
+
+.career-modal-body {
+    padding: 18px 18px 6px;
+    border-radius: 20px;
+    background: #ffffff;
+    border: 1px solid rgba(14, 131, 137, 0.1);
+}
+
+.career-modal-list {
+    margin: 0;
+    padding-left: 1.15rem;
+    color: #24484c;
+    line-height: 1.75;
+}
+
+.career-modal-list li + li {
+    margin-top: 12px;
+}
+
+.career-modal-footer {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: rgba(14, 131, 137, 0.08);
+    color: #21595e;
+    font-weight: 600;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .career-modal {
+        padding: 14px;
+    }
+
+    .career-modal-panel {
+        max-height: 88vh;
+        padding: 22px 18px 20px;
+        border-radius: 22px;
+    }
+
+    .career-modal-body {
+        padding: 16px 14px 4px;
+        border-radius: 18px;
+    }
+}
+
 .profile-section {
     position: relative;
     padding: 92px 0 96px;

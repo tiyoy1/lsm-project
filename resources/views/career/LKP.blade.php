@@ -562,7 +562,7 @@
         <div class="career-shell">
             <div class="career-head">
                 <span class="section-badge">Training Method</span>
-                <h2 class="section-title">From <span>Basic</span> to Professional</h2>
+                <h2 class="section-title">From <span>Basic</span> to  <span>Professional</span></h2>
                 <p class="section-desc">Structured learning, focus on practice, and supported by industry mentors until ready to enter the workforce.</p>
             </div>
             <div class="career-timeline">
