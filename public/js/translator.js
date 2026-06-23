@@ -56,11 +56,11 @@ function updateLangButtonActiveState(langCode) {
     const enBtn = document.getElementById('lang-btn-en');
     if (idBtn && enBtn) {
         if (langCode === 'id') {
-            idBtn.classList.add('is-active');
-            enBtn.classList.remove('is-active');
+            idBtn.style.display = 'none';
+            enBtn.style.display = 'flex';
         } else {
-            enBtn.classList.add('is-active');
-            idBtn.classList.remove('is-active');
+            idBtn.style.display = 'flex';
+            enBtn.style.display = 'none';
         }
     }
 
