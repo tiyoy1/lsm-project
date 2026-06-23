@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,33 +28,42 @@
 <body>
     <nav>
         <div class="logo">
-            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.webp") }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
+            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.webp") }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
         </div>
-        <ul id="primary-nav">
-            <li><a href="{{ url('/') }}">Home</a></li>
+        <ul id="primary-nav" class="notranslate">
+            <li><a href="{{ url('/') }}" data-en="Home" data-id="Beranda">Home</a></li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    About <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    <span data-en="About" data-id="Tentang">About</span> <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
-                    <li><a href="{{ route('Profile') }}">Campus Profile</a></li>
-                    <li><a href="{{ route('vision-mission') }}">Vision & Mission</a></li>
-                    <li><a href="{{ route('sejarah') }}">History</a></li>
+                    <li><a href="{{ route('Profile') }}" data-en="Campus Profile" data-id="Profil Kampus">Campus Profile</a></li>
+                    <li><a href="{{ route('vision-mission') }}" data-en="Vision & Mission" data-id="Visi & Misi">Vision & Mission</a></li>
+                    <li><a href="{{ route('sejarah') }}" data-en="History" data-id="Sejarah">History</a></li>
                 </ul>
             </li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    Career <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    <span data-en="Career" data-id="Karier">Career</span> <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
                     <li><a href="{{ route('LPK') }}">LPK</a></li>
                     <li><a href="{{ route('LKP') }}">LKP</a></li>
                 </ul>
             </li>
-            <li><a href="{{ route('news.index') }}">News</a></li>
-            <li><a href="{{ route('testi') }}">Reviews</a></li>
-            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
-            <li><a href="{{ url('/') }}#partnership">Partnership</a></li>
+            <li><a href="{{ route('news.index') }}" data-en="News" data-id="Berita">News</a></li>
+            <li><a href="{{ route('testi') }}" data-en="Reviews" data-id="Ulasan">Reviews</a></li>
+            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}" data-en="Join Us" data-id="Bergabung">Join Us</a></li>
+            <li><a href="{{ url('/') }}#partnership" data-en="Partnership" data-id="Kemitraan">Partnership</a></li>
+        
+            <li class="nav-mobile-only nav-mobile-lang notranslate">
+                <button type="button" onclick="setLanguage('id')" id="mobile-lang-btn-id" class="nav-lang-toggle" data-lang="id">
+                    <i class="bi bi-translate"></i> Ganti ke Indonesia
+                </button>
+                <button type="button" onclick="setLanguage('en')" id="mobile-lang-btn-en" class="nav-lang-toggle" data-lang="en" style="display:none;">
+                    <i class="bi bi-translate"></i> Switch to English
+                </button>
+            </li>
         </ul>
         <div class="sosmed-icon">
   <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
@@ -69,11 +78,11 @@
   </a>
 </div>
         <div class="ppdb-btn">
-            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'">Join Us</button>
+            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
-        <div class="lang-switch" aria-label="Pengalih bahasa">
-            <a href="{{ route('language.switch', 'id') }}" class="{{ app()->getLocale() === 'id' ? 'is-active' : '' }}">ID</a>
-            <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">EN</a>
+        <div class="lang-switch notranslate" aria-label="Language switcher">
+            <button type="button" onclick="setLanguage('id')" id="lang-btn-id">ID</button>
+            <button type="button" onclick="setLanguage('en')" id="lang-btn-en">EN</button>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
@@ -270,9 +279,42 @@
             .testi-page .testi-card.is-featured { grid-row: span 1; }
         }
         @media (max-width: 600px) {
-            .testi-page .testi-grid { grid-template-columns: 1fr; }
-            .testi-page { padding: 70px 0 60px; }
-            .testi-page-head { margin-bottom: 40px; }
+            .testi-page { padding: 120px 0 60px; }
+            .testi-page-head { margin-bottom: 30px; }
+            
+            /* Horizontal Swipe for Filters */
+            .testi-filter-tabs {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 15px;
+                scrollbar-width: none;
+            }
+            .testi-filter-tabs::-webkit-scrollbar {
+                display: none;
+            }
+            .testi-filter-btn {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+
+            /* Horizontal Swipe for Testimonials */
+            .testi-page .testi-grid {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 25px;
+                scrollbar-width: none;
+                gap: 16px;
+            }
+            .testi-page .testi-grid::-webkit-scrollbar {
+                display: none;
+            }
+            .testi-page .testi-card {
+                min-width: 85vw;
+                scroll-snap-align: center;
+                flex-shrink: 0;
+            }
         }
 
         /* ============ WHY CHOOSE SECTION (Complement) ============ */
@@ -517,7 +559,7 @@
       <div class="testi-page-shell">
         <div class="testi-page-head">
             <div class="section-badge">Alumni Reviews</div>
-            <h2 class="testi-page-title">Hear From Our <span>Alumni & Students</span></h2>
+            <h2 class="testi-page-title">What Our <span>Alumni Say</span></h2>
             <p class="testi-page-desc">Real stories from Metland College graduates who have built successful careers in hospitality, language proficiency, and international work placements.</p>
         </div>
 
@@ -868,6 +910,8 @@
             });
         });
     </script>
+    <div id="google_translate_element" style="display:none;"></div>
+    <script src="{{ asset('js/translator.js') }}"></script>
 </body>
 </html>
 

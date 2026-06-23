@@ -75,15 +75,6 @@ Route::post('/testi', [TestimonialPageController::class, 'store'])->name('testi.
 Route::get('/testimonials/submit', fn () => redirect()->route('testi', [], 302)->withFragment('submit'))->name('testimonials.submit');
 Route::post('/testimonials/submit', fn () => redirect()->route('testi', [], 302))->name('testimonials.store');
 
-Route::get('/language/{locale}', function (string $locale) {
-    if (!in_array($locale, ['en', 'id'], true)) {
-        abort(404);
-    }
-
-    session(['locale' => $locale]);
-
-    return redirect()->back();
-})->name('language.switch');
 
 Route::get('/news', [NewsController::class, 'publicIndex'])->name('news.index');
 Route::get('/news/{news:slug}', [NewsController::class, 'publicShow'])->name('news.show');

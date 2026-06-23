@@ -15,11 +15,11 @@
     $whatsappNumber = preg_replace('/\D+/', '', (string) (($contactSetting?->whatsapp ?? '') ?: '6281809999180'));
 @endphp
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ __('ui.news.title') }} - Metland College</title>
+    <title>News - Metland College</title>
     <link rel="icon" type="image/webp" href="{{ $faviconUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') . '?v=20260305' }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -489,33 +489,42 @@
 <body class="news-page-body">
     <nav>
         <div class="logo">
-            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
+            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
         </div>
-        <ul id="primary-nav">
-            <li><a href="{{ url('/') }}">Home</a></li>
+        <ul id="primary-nav" class="notranslate">
+            <li><a href="{{ url('/') }}" data-en="Home" data-id="Beranda">Home</a></li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    About <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    <span data-en="About" data-id="Tentang">About</span> <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
-                    <li><a href="{{ route('Profile') }}">Campus Profile</a></li>
-                    <li><a href="{{ route('vision-mission') }}">Vision & Mission</a></li>
-                    <li><a href="{{ route('sejarah') }}">History</a></li>
+                    <li><a href="{{ route('Profile') }}" data-en="Campus Profile" data-id="Profil Kampus">Campus Profile</a></li>
+                    <li><a href="{{ route('vision-mission') }}" data-en="Vision & Mission" data-id="Visi & Misi">Vision & Mission</a></li>
+                    <li><a href="{{ route('sejarah') }}" data-en="History" data-id="Sejarah">History</a></li>
                 </ul>
             </li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    Career <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    <span data-en="Career" data-id="Karier">Career</span> <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
                     <li><a href="{{ route('LPK') }}">LPK</a></li>
                     <li><a href="{{ route('LKP') }}">LKP</a></li>
                 </ul>
             </li>
-            <li><a href="{{ route('news.index') }}">News</a></li>
-            <li><a href="{{ route('testi') }}">Reviews</a></li>
-            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
-            <li><a href="{{ url('/') }}#partnership">Partnership</a></li>
+            <li><a href="{{ route('news.index') }}" data-en="News" data-id="Berita">News</a></li>
+            <li><a href="{{ route('testi') }}" data-en="Reviews" data-id="Ulasan">Reviews</a></li>
+            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}" data-en="Join Us" data-id="Bergabung">Join Us</a></li>
+            <li><a href="{{ url('/') }}#partnership" data-en="Partnership" data-id="Kemitraan">Partnership</a></li>
+        
+            <li class="nav-mobile-only nav-mobile-lang notranslate">
+                <button type="button" onclick="setLanguage('id')" id="mobile-lang-btn-id" class="nav-lang-toggle" data-lang="id">
+                    <i class="bi bi-translate"></i> Ganti ke Indonesia
+                </button>
+                <button type="button" onclick="setLanguage('en')" id="mobile-lang-btn-en" class="nav-lang-toggle" data-lang="en" style="display:none;">
+                    <i class="bi bi-translate"></i> Switch to English
+                </button>
+            </li>
         </ul>
         <div class="sosmed-icon">
             <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
@@ -529,11 +538,11 @@
             </a>
         </div>
         <div class="ppdb-btn">
-            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'">Join Us</button>
+            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
-        <div class="lang-switch" aria-label="Pengalih bahasa">
-            <a href="{{ route('language.switch', 'id') }}" class="{{ app()->getLocale() === 'id' ? 'is-active' : '' }}">ID</a>
-            <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">EN</a>
+        <div class="lang-switch notranslate" aria-label="Language switcher">
+            <button type="button" onclick="setLanguage('id')" id="lang-btn-id">ID</button>
+            <button type="button" onclick="setLanguage('en')" id="lang-btn-en">EN</button>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
@@ -573,17 +582,16 @@
 
     <main class="news-page-main" id="news-content">
         <header class="news-page-head">
-            <h2>{{ __('ui.news.title') }}</h2>
-            <p>{{ __('ui.news.latest_subtitle') }}</p>
+            <h2>News</h2>
         </header>
         <form action="{{ route('news.index') }}" method="GET" class="news-search-inline" role="search">
             <input
                 type="text"
                 name="q"
                 value="{{ $search ?? '' }}"
-                placeholder="{{ __('ui.news.search_placeholder') }}"
-                aria-label="{{ __('ui.news.search_placeholder') }}">
-            <button type="submit" aria-label="{{ __('ui.news.search_title') }}">
+                placeholder="Search news"
+                aria-label="Search news">
+            <button type="submit" aria-label="Search">
                 <i class="bi bi-search"></i>
             </button>
             @if(request('category'))
@@ -596,37 +604,37 @@
             <a href="{{ route('news.index', ['category' => 'award', 'q' => request('q')]) }}" style="padding: 8px 20px; border-radius: 20px; background-color: {{ request('category') == 'award' ? '#0f6c75' : '#ffffff' }}; color: {{ request('category') == 'award' ? '#ffffff' : '#5b7579' }}; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid {{ request('category') == 'award' ? '#0f6c75' : 'rgba(28, 165, 165, 0.2)' }}; transition: all 0.25s ease; box-shadow: {{ request('category') == 'award' ? '0 4px 12px rgba(15, 108, 117, 0.2)' : 'none' }};">Award</a>
         </div>
         @if(!empty($search))
-            <p class="news-search-result">{{ __('ui.news.search_result_for', ['query' => $search]) }}</p>
+            <p class="news-search-result">Search results for: "{{ $search }}"</p>
         @endif
 
         @if($news->count())
-            <section class="news-page-grid" aria-label="{{ __('ui.news.list_aria') }}">
+            <section class="news-page-grid" aria-label="SMK Metland news list">
                 @foreach($news as $item)
                     <article class="news-page-card">
                         <div class="news-page-media">
                             <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" loading="lazy" decoding="async">
-                            <span class="news-page-tag">{{ __('ui.news.tag') }}</span>
+                            <span class="news-page-tag">News</span>
                         </div>
                         <div class="news-page-content">
                             <h2>{{ $item->localized_title }}</h2>
                             <p class="news-page-meta">
-                                <i class="bi bi-person-circle"></i> {{ $item->author?->name ?? __('ui.news.admin') }}
+                                <i class="bi bi-person-circle"></i> {{ $item->author?->name ?? 'Administrator' }}
                                 <span>&bull;</span>
                                 <i class="bi bi-calendar4-week"></i> {{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y H:i') }}
                             </p>
                             <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->localized_content), 220) }}</p>
-                            <a href="{{ route('news.show', $item->slug) }}" class="news-page-btn">{{ __('ui.news.read_more') }}</a>
+                            <a href="{{ route('news.show', $item->slug) }}" class="news-page-btn">Read More</a>
                         </div>
                     </article>
                 @endforeach
             </section>
 
             @if($news->hasPages())
-                <nav class="news-page-pagination" aria-label="{{ __('ui.news.title') }} pagination">
+                <nav class="news-page-pagination" aria-label="News pagination">
                     @if($news->onFirstPage())
-                        <span class="news-page-page is-disabled">{{ __('ui.news.pagination_prev') }}</span>
+                        <span class="news-page-page is-disabled">Prev</span>
                     @else
-                        <a href="{{ $news->previousPageUrl() }}" class="news-page-page">{{ __('ui.news.pagination_prev') }}</a>
+                        <a href="{{ $news->previousPageUrl() }}" class="news-page-page">Prev</a>
                     @endif
 
                     @foreach($news->getUrlRange(1, $news->lastPage()) as $page => $url)
@@ -638,16 +646,16 @@
                     @endforeach
 
                     @if($news->hasMorePages())
-                        <a href="{{ $news->nextPageUrl() }}" class="news-page-page">{{ __('ui.news.pagination_next') }}</a>
+                        <a href="{{ $news->nextPageUrl() }}" class="news-page-page">Next</a>
                     @else
-                        <span class="news-page-page is-disabled">{{ __('ui.news.pagination_next') }}</span>
+                        <span class="news-page-page is-disabled">Next</span>
                     @endif
                 </nav>
             @endif
         @else
             <section class="news-page-empty">
-                <h2>{{ __('ui.news.empty_title') }}</h2>
-                <p>{{ __('ui.news.empty_desc') }}</p>
+                <h2>No News Yet</h2>
+                <p>News content will appear here after being published from the admin panel.</p>
             </section>
         @endif
     </main>
@@ -717,6 +725,8 @@
         <i class="bi bi-whatsapp" aria-hidden="true"></i>
         <span class="whatsapp-fab-tooltip">Hubungi kami!</span>
     </a>
+    <div id="google_translate_element" style="display:none;"></div>
+    <script src="{{ asset('js/translator.js') }}"></script>
 </body>
 </html>
 

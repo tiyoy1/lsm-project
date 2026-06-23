@@ -15,11 +15,11 @@
     $whatsappNumber = preg_replace('/\D+/', '', (string) (($contactSetting?->whatsapp ?? '') ?: '6281809999180'));
 @endphp
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $news->localized_title }} - {{ __('ui.news.title') }} Metland College</title>
+    <title>{{ $news->localized_title }} - News - Metland College</title>
     <link rel="icon" type="image/webp" href="{{ $faviconUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') . '?v=20260305' }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -369,33 +369,42 @@
 <body class="news-page-body">
     <nav>
         <div class="logo">
-            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
+            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
         </div>
-        <ul id="primary-nav">
-            <li><a href="{{ url('/') }}">Home</a></li>
+        <ul id="primary-nav" class="notranslate">
+            <li><a href="{{ url('/') }}" data-en="Home" data-id="Beranda">Home</a></li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    About <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    <span data-en="About" data-id="Tentang">About</span> <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
-                    <li><a href="{{ route('Profile') }}">Campus Profile</a></li>
-                    <li><a href="{{ route('vision-mission') }}">Vision & Mission</a></li>
-                    <li><a href="{{ route('sejarah') }}">History</a></li>
+                    <li><a href="{{ route('Profile') }}" data-en="Campus Profile" data-id="Profil Kampus">Campus Profile</a></li>
+                    <li><a href="{{ route('vision-mission') }}" data-en="Vision & Mission" data-id="Visi & Misi">Vision & Mission</a></li>
+                    <li><a href="{{ route('sejarah') }}" data-en="History" data-id="Sejarah">History</a></li>
                 </ul>
             </li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    Career <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    <span data-en="Career" data-id="Karier">Career</span> <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
                     <li><a href="{{ route('LPK') }}">LPK</a></li>
                     <li><a href="{{ route('LKP') }}">LKP</a></li>
                 </ul>
             </li>
-            <li><a href="{{ route('news.index') }}">News</a></li>
-            <li><a href="{{ route('testi') }}">Reviews</a></li>
-            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
-            <li><a href="{{ url('/') }}#partnership">Partnership</a></li>
+            <li><a href="{{ route('news.index') }}" data-en="News" data-id="Berita">News</a></li>
+            <li><a href="{{ route('testi') }}" data-en="Reviews" data-id="Ulasan">Reviews</a></li>
+            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}" data-en="Join Us" data-id="Bergabung">Join Us</a></li>
+            <li><a href="{{ url('/') }}#partnership" data-en="Partnership" data-id="Kemitraan">Partnership</a></li>
+        
+            <li class="nav-mobile-only nav-mobile-lang notranslate">
+                <button type="button" onclick="setLanguage('id')" id="mobile-lang-btn-id" class="nav-lang-toggle" data-lang="id">
+                    <i class="bi bi-translate"></i> Ganti ke Indonesia
+                </button>
+                <button type="button" onclick="setLanguage('en')" id="mobile-lang-btn-en" class="nav-lang-toggle" data-lang="en" style="display:none;">
+                    <i class="bi bi-translate"></i> Switch to English
+                </button>
+            </li>
         </ul>
         <div class="sosmed-icon">
             <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
@@ -409,11 +418,11 @@
             </a>
         </div>
         <div class="ppdb-btn">
-            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'">Join Us</button>
+            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
-        <div class="lang-switch" aria-label="Pengalih bahasa">
-            <a href="{{ route('language.switch', 'id') }}" class="{{ app()->getLocale() === 'id' ? 'is-active' : '' }}">ID</a>
-            <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">EN</a>
+        <div class="lang-switch notranslate" aria-label="Language switcher">
+            <button type="button" onclick="setLanguage('id')" id="lang-btn-id">ID</button>
+            <button type="button" onclick="setLanguage('en')" id="lang-btn-en">EN</button>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
@@ -429,10 +438,10 @@
         <header class="news-detail-hero">
             <div class="news-detail-hero-inner">
                 <h1>{{ $news->localized_title }}</h1>
-                <nav class="news-detail-breadcrumb" aria-label="{{ __('ui.news.breadcrumb_aria') }}">
-                    <a href="{{ url('/') }}">{{ __('ui.nav.home') }}</a>
+                <nav class="news-detail-breadcrumb" aria-label="News breadcrumb">
+                    <a href="{{ url('/') }}">Home</a>
                     <span>&rsaquo;</span>
-                    <a href="{{ route('news.index') }}">{{ __('ui.nav.news') }}</a>
+                    <a href="{{ route('news.index') }}">News</a>
                     <span>&rsaquo;</span>
                     <span class="is-current">{{ \Illuminate\Support\Str::limit($news->localized_title, 90) }}</span>
                 </nav>
@@ -449,12 +458,12 @@
                             target="_blank"
                             rel="noopener noreferrer"
                             class="news-share-button"
-                            aria-label="{{ __('ui.news.share_whatsapp') }}">
+                            aria-label="Share to WhatsApp">
                             <i class="bi bi-share-fill"></i>
                         </a>
                     </div>
                     <p class="news-article-meta">
-                        <i class="bi bi-person-circle"></i> {{ $news->author?->name ?? __('ui.news.admin') }}
+                        <i class="bi bi-person-circle"></i> {{ $news->author?->name ?? 'Administrator' }}
                         <span>&bull;</span>
                         <i class="bi bi-calendar4-week"></i> {{ ($news->published_at ?? $news->created_at)->translatedFormat('d M Y H:i') }}
                     </p>
@@ -465,21 +474,21 @@
 
                 <aside class="news-detail-sidebar">
                     <section class="news-sidebar-card">
-                        <h2>{{ __('ui.news.search_title') }}</h2>
+                        <h2>Search</h2>
                         <form action="{{ route('news.index') }}" method="GET" class="news-search-form" role="search">
                             <input
                                 type="text"
                                 name="q"
-                                placeholder="{{ __('ui.news.search_placeholder') }}"
-                                aria-label="{{ __('ui.news.search_placeholder') }}">
-                            <button type="submit" aria-label="{{ __('ui.news.search_title') }}">
+                                placeholder="Search news"
+                                aria-label="Search news">
+                            <button type="submit" aria-label="Search">
                                 <i class="bi bi-search"></i>
                             </button>
                         </form>
                     </section>
 
                     <section class="news-sidebar-card">
-                        <h2>{{ __('ui.news.latest_sidebar_title') }}</h2>
+                        <h2>Latest News</h2>
                         <div class="news-sidebar-list">
                             @forelse($sidebarNews as $item)
                                 <a href="{{ route('news.show', $item->slug) }}" class="news-sidebar-item {{ $item->id === $news->id ? 'is-active' : '' }}">
@@ -490,10 +499,10 @@
                                     </div>
                                 </a>
                             @empty
-                                <p class="news-sidebar-empty">{{ __('ui.news.empty_desc') }}</p>
+                                <p class="news-sidebar-empty">News content will appear here once it is published from the admin panel.</p>
                             @endforelse
                         </div>
-                        <a href="{{ route('news.index') }}" class="news-sidebar-all">{{ __('ui.news.see_all') }}</a>
+                        <a href="{{ route('news.index') }}" class="news-sidebar-all">See All</a>
                     </section>
                 </aside>
             </div>
@@ -517,5 +526,7 @@
         <i class="bi bi-whatsapp" aria-hidden="true"></i>
         <span class="whatsapp-fab-tooltip">Hubungi kami!</span>
     </a>
+    <div id="google_translate_element" style="display:none;"></div>
+    <script src="{{ asset('js/translator.js') }}"></script>
 </body>
 </html>
