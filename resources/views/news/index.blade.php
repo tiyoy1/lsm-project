@@ -104,8 +104,7 @@
         }
         .news-search-inline {
             max-width: 650px !important;
-            /* lift the search box up to overlap the hero slightly */
-            margin: -80px auto 50px !important;
+            margin: 0 auto 50px !important;
             background: #ffffff !important;
             padding: 6px !important;
             border-radius: 999px !important;
@@ -541,8 +540,12 @@
             <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
         <div class="lang-switch notranslate" aria-label="Language switcher">
-            <button type="button" onclick="setLanguage('id')" id="lang-btn-id">ID</button>
-            <button type="button" onclick="setLanguage('en')" id="lang-btn-en">EN</button>
+            <button type="button" onclick="setLanguage('id')" id="lang-btn-id" class="desktop-lang-toggle" data-lang="id">
+                <i class="bi bi-translate"></i> Ganti ke Indonesia
+            </button>
+            <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="desktop-lang-toggle" data-lang="en" style="display:none;">
+                <i class="bi bi-translate"></i> Switch to English
+            </button>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
@@ -582,7 +585,7 @@
 
     <main class="news-page-main" id="news-content">
         <header class="news-page-head">
-            <h2>News</h2>
+            <h1 data-en="News" data-id="Berita" class="notranslate">News</h1>
         </header>
         <form action="{{ route('news.index') }}" method="GET" class="news-search-inline" role="search">
             <input

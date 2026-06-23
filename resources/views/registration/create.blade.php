@@ -475,8 +475,12 @@
             <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
         <div class="lang-switch notranslate" aria-label="Language switcher">
-            <button type="button" onclick="setLanguage('id')" id="lang-btn-id">ID</button>
-            <button type="button" onclick="setLanguage('en')" id="lang-btn-en">EN</button>
+            <button type="button" onclick="setLanguage('id')" id="lang-btn-id" class="desktop-lang-toggle" data-lang="id">
+                <i class="bi bi-translate"></i> Ganti ke Indonesia
+            </button>
+            <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="desktop-lang-toggle" data-lang="en" style="display:none;">
+                <i class="bi bi-translate"></i> Switch to English
+            </button>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">

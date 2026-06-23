@@ -158,8 +158,12 @@
             <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
         <div class="lang-switch notranslate" aria-label="Language switcher">
-            <button type="button" onclick="setLanguage('id')" id="lang-btn-id">ID</button>
-            <button type="button" onclick="setLanguage('en')" id="lang-btn-en">EN</button>
+            <button type="button" onclick="setLanguage('id')" id="lang-btn-id" class="desktop-lang-toggle" data-lang="id">
+                <i class="bi bi-translate"></i> Ganti ke Indonesia
+            </button>
+            <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="desktop-lang-toggle" data-lang="en" style="display:none;">
+                <i class="bi bi-translate"></i> Switch to English
+            </button>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
@@ -355,7 +359,7 @@
             <div class="alumni-head text-center pb-4">
                 <span class="section-badge"><span>Alumni Reviews</span></span>
                 <h2 class="section-title">What <span>They Say</span></h2>
-                <p class="section-desc" style="margin: 0 auto;">Alumni reviews regarding their learning experience at SMK Metland.</p>
+                <p class="section-desc">Alumni reviews regarding their learning experience at SMK Metland.</p>
             </div>
 
 	            <div class="testi-grid">

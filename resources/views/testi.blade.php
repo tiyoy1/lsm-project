@@ -81,8 +81,12 @@
             <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
         <div class="lang-switch notranslate" aria-label="Language switcher">
-            <button type="button" onclick="setLanguage('id')" id="lang-btn-id">ID</button>
-            <button type="button" onclick="setLanguage('en')" id="lang-btn-en">EN</button>
+            <button type="button" onclick="setLanguage('id')" id="lang-btn-id" class="desktop-lang-toggle" data-lang="id">
+                <i class="bi bi-translate"></i> Ganti ke Indonesia
+            </button>
+            <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="desktop-lang-toggle" data-lang="en" style="display:none;">
+                <i class="bi bi-translate"></i> Switch to English
+            </button>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
@@ -279,42 +283,46 @@
             .testi-page .testi-card.is-featured { grid-row: span 1; }
         }
         @media (max-width: 600px) {
-            .testi-page { padding: 120px 0 60px; }
-            .testi-page-head { margin-bottom: 30px; }
-            
-            /* Horizontal Swipe for Filters */
+            .testi-page { padding: 80px 0 60px; }
+            .testi-page-head { margin-bottom: 24px; }
+            .testi-page-title { font-size: clamp(1.5rem, 6vw, 2rem); }
+            .testi-page-desc { font-size: 0.9rem; }
+
+            /* Filters: single-row horizontal scroll */
             .testi-filter-tabs {
                 flex-wrap: nowrap;
                 overflow-x: auto;
                 justify-content: flex-start;
-                padding-bottom: 15px;
+                padding-bottom: 10px;
                 scrollbar-width: none;
+                gap: 8px;
             }
-            .testi-filter-tabs::-webkit-scrollbar {
-                display: none;
-            }
+            .testi-filter-tabs::-webkit-scrollbar { display: none; }
             .testi-filter-btn {
                 white-space: nowrap;
                 flex-shrink: 0;
+                font-size: 0.8rem;
+                padding: 7px 16px;
             }
 
-            /* Horizontal Swipe for Testimonials */
+            /* Cards: single column, no horizontal scroll */
             .testi-page .testi-grid {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                padding-bottom: 25px;
-                scrollbar-width: none;
+                display: grid;
+                grid-template-columns: 1fr;
+                overflow-x: visible;
                 gap: 16px;
-            }
-            .testi-page .testi-grid::-webkit-scrollbar {
-                display: none;
+                padding-bottom: 0;
             }
             .testi-page .testi-card {
-                min-width: 85vw;
-                scroll-snap-align: center;
-                flex-shrink: 0;
+                min-width: unset;
+                width: 100%;
+                scroll-snap-align: unset;
+                flex-shrink: unset;
+                padding: 22px 18px;
             }
+            .testi-page .testi-card.is-featured { grid-row: span 1; }
+            .testi-page .testi-quote { font-size: 0.9rem; }
+            .testi-page .testi-card.is-featured .testi-quote { font-size: 0.93rem; }
         }
 
         /* ============ WHY CHOOSE SECTION (Complement) ============ */

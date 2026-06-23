@@ -148,8 +148,12 @@
             <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
         <div class="lang-switch notranslate" aria-label="Language switcher">
-            <button type="button" onclick="setLanguage('id')" id="lang-btn-id">ID</button>
-            <button type="button" onclick="setLanguage('en')" id="lang-btn-en">EN</button>
+            <button type="button" onclick="setLanguage('id')" id="lang-btn-id" class="desktop-lang-toggle" data-lang="id">
+                <i class="bi bi-translate"></i> Ganti ke Indonesia
+            </button>
+            <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="desktop-lang-toggle" data-lang="en" style="display:none;">
+                <i class="bi bi-translate"></i> Switch to English
+            </button>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
@@ -629,6 +633,8 @@
             .lpk-intro {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 36px;
+                margin-bottom: 60px;
             }
             .lpk-benefits {
                 grid-template-columns: 1fr;
@@ -644,6 +650,52 @@
             }
             .lpk-image-swiper {
                 height: 360px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .lpk-section {
+                padding: 60px 0;
+            }
+            .lpk-intro {
+                gap: 28px;
+                margin-bottom: 40px;
+            }
+            .lpk-intro-text h2 {
+                font-size: 2rem;
+                margin-bottom: 16px;
+            }
+            .lpk-intro-text p {
+                font-size: 1rem;
+                margin-bottom: 24px;
+            }
+            .lpk-image-swiper {
+                height: 280px;
+            }
+            .lpk-image-wrapper {
+                padding: 12px;
+            }
+            .lpk-benefits li {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .lpk-section {
+                padding: 48px 0;
+            }
+            .lpk-intro {
+                gap: 22px;
+                margin-bottom: 30px;
+            }
+            .lpk-intro-text h2 {
+                font-size: 1.6rem;
+            }
+            .lpk-intro-text p {
+                font-size: 0.93rem;
+            }
+            .lpk-image-swiper {
+                height: 220px;
             }
         }
     </style>
@@ -704,9 +756,9 @@
         <!-- Programs -->
         <div class="program-header">
             <div class="section-header" style="margin-bottom: 0;">
-                <div class="section-badge" style="margin: 0 auto 15px;">Featured Programs</div>
+                <div class="section-badge">Featured Programs</div>
                 <h2 class="section-title">Training Program Options</h2>
-                <p class="section-desc" style="margin-left: auto; margin-right: auto;">Choose the right vocational program to realize your dream career in the hospitality world.</p>
+                <p class="section-desc">Choose the right vocational program to realize your dream career in the hospitality world.</p>
             </div>
         </div>
         
