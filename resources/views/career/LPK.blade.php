@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,101 +27,110 @@
                 'step' => 'First Step!',
                 'title' => 'Pre-Screening Interview',
                 'icon' => 'bi-journal-bookmark',
-                'summary' => 'Tahap awal untuk menilai kesiapan, minat, dan potensi peserta sebelum masuk program inti LPK.',
+                'summary' => 'Initial stage to assess the readiness, interests, and potential of participants before entering the main LPK program.',
                 'details' => [
-                    'Pendaftaran peserta dilakukan melalui portal resmi Metland College atau secara langsung di kampus.',
-                    'Peserta mengirimkan CV terbaru dan dokumen pendukung akademis atau profesional untuk evaluasi awal.',
-                    'Pre-screening interview menilai kesesuaian usia, minat kerja, dan profil peserta dengan kebutuhan industri.',
-                    'Fokus penempatan dipersiapkan untuk peluang kerja di luar negeri seperti Jepang, Jerman, Bulgaria, Rumania, dan Kroasia.',
-                    'Peserta juga mendapat edukasi product knowledge tentang program, fasilitas, dan skema pelatihan yang tersedia.',
+                    'Participant registration is done through the official Metland College portal or directly on campus.',
+                    'Participants submit an updated CV and supporting academic or professional documents for initial evaluation.',
+                    'Pre-screening interview assesses the suitability of age, work interests, and participant profile with industry needs.',
+                    'Placement focus is prepared for overseas job opportunities such as Japan, Germany, Bulgaria, Romania, and Croatia.',
+                    'Participants also receive product knowledge education regarding the program, facilities, and available training schemes.',
                 ],
-                'footer' => 'Output tahap ini adalah peserta yang lolos seleksi awal dan siap masuk pembekalan bahasa serta pelatihan industri.',
+                'footer' => 'The output of this stage is participants who pass the initial selection and are ready to enter language briefing and industrial training.',
             ],
             [
                 'step' => 'Second Step!',
                 'title' => 'English for Industry',
                 'icon' => 'bi-people',
-                'summary' => 'Pembekalan bahasa kerja untuk komunikasi profesional sebelum peserta masuk ke pelatihan inti.',
+                'summary' => 'Work language briefing for professional communication before participants enter the core training.',
                 'details' => [
-                    'Manajemen LPK menentukan tanggal pelatihan dan mengirim surat pemanggilan resmi kepada peserta.',
-                    'Venue pelatihan dikoordinasikan dengan industri mitra agar peserta memahami lokasi dan alur praktik.',
-                    'Peserta mengikuti persiapan keberangkatan, termasuk meeting point, jam mobilisasi, dan barang bawaan.',
-                    'Acara welcoming dan makan bersama dilakukan untuk membangun bonding antar peserta.',
-                    'Peserta mendapatkan orientasi venue pelatihan dan check-in asrama sebelum masuk ke pembelajaran intensif.',
+                    'LPK Management sets the training date and sends official summons letters to participants.',
+                    'The training venue is coordinated with partner industries so participants understand the location and practice flow.',
+                    'Participants attend departure preparations, including meeting points, mobilization times, and luggage.',
+                    'A welcoming and dining together event is held to build bonding among participants.',
+                    'Participants receive training venue orientation and dormitory check-in before entering intensive learning.',
                 ],
-                'footer' => 'Tahap ini memastikan peserta siap secara mental, administratif, dan sosial sebelum pelatihan inti dimulai.',
+                'footer' => 'This stage ensures participants are mentally, administratively, and socially ready before the core training begins.',
             ],
             [
                 'step' => 'Third Step!',
                 'title' => 'Skill Training',
                 'icon' => 'bi-briefcase',
-                'summary' => 'Pelatihan berbasis kompetensi yang fokus pada praktik, evaluasi berkala, dan intensifikasi bahasa asing.',
+                'summary' => 'Competency-based training focusing on practical skills, periodic evaluation, and foreign language intensification.',
                 'details' => [
-                    'Day 1 berisi orientasi program PBK, pengenalan kurikulum, disiplin, target kompetensi, dan instruktur.',
-                    'Day 2 menerapkan buddy system agar peserta saling mendukung dalam proses adaptasi.',
-                    'Day 3 menjadi kick-off praktik kejuruan dengan metode teaching factory untuk perhotelan dan kuliner.',
-                    'Skill training berjalan selama 3 bulan dengan intensifikasi bahasa asing selama 2 bulan.',
-                    'Evaluasi dilakukan berkala pada Day 7, 14, 21, dan 28, disertai pengumpulan evidence ke tim assessor.',
+                    'Day 1 includes PBK program orientation, curriculum introduction, discipline, competency targets, and instructors.',
+                    'Day 2 implements a buddy system so participants support each other in the adaptation process.',
+                    'Day 3 serves as a vocational practice kick-off using the teaching factory method for hospitality and culinary arts.',
+                    'Skill training runs for 3 months with foreign language intensification for 2 months.',
+                    'Evaluations are conducted periodically on Day 7, 14, 21, and 28, accompanied by evidence submission to the assessor team.',
                 ],
-                'footer' => 'Peserta dibentuk menjadi tenaga siap kerja yang kuat di aspek teknis, disiplin, dan bahasa.',
+                'footer' => 'Participants are shaped into work-ready individuals strong in technical aspects, discipline, and language.',
             ],
             [
                 'step' => 'Fourth Step!',
                 'title' => 'On Job Training (OJT)',
                 'icon' => 'bi-building',
-                'summary' => 'Penerjunan peserta ke industri mitra untuk mempraktikkan kompetensi di lingkungan kerja nyata.',
+                'summary' => 'Deployment of participants to partner industries to practice competencies in a real work environment.',
                 'details' => [
-                    'Peserta ditempatkan di industri mitra, baik dalam negeri maupun luar negeri, untuk praktik langsung.',
-                    'Durasi pemagangan berlangsung selama 6 bulan sebagai pembiasaan kerja profesional.',
-                    'Peserta mulai mengurus dokumen keberangkatan internasional seperti paspor, visa, dan sertifikat kompetensi.',
-                    'Medical check-up dan legalisasi dokumen kerja dipersiapkan agar proses penempatan berjalan lancar.',
+                    'Participants are placed in partner industries, both domestically and internationally, for hands-on practice.',
+                    'The internship duration lasts for 6 months as a familiarization with professional work.',
+                    'Participants begin processing international departure documents such as passports, visas, and competency certificates.',
+                    'Medical check-ups and legalization of work documents are prepared so the placement process runs smoothly.',
                 ],
-                'footer' => 'Tahap ini menjadi jembatan utama dari pelatihan menuju pengalaman kerja nyata di industri.',
+                'footer' => 'This stage serves as the main bridge from training to real work experience in the industry.',
             ],
             [
                 'step' => 'Final Step',
                 'title' => 'Final Interview',
                 'icon' => 'bi-mortarboard',
-                'summary' => 'Tahap akhir berupa wawancara industri dan pembekalan keberangkatan sebelum penempatan kerja.',
+                'summary' => 'The final stage consists of industry interviews and departure briefing before job placement.',
                 'details' => [
-                    'Peserta mengikuti final interview bersama user atau representatif industri dari negara tujuan.',
-                    'Pre-departure briefing membahas budaya negara tujuan, disiplin, hukum ketenagakerjaan, dan kesiapan mental.',
-                    'Peserta menerima arahan akhir terkait deployment atau keberangkatan menuju lokasi kerja.',
-                    'Tahap ini menjadi penentu kesiapan peserta untuk direkrut atau ditempatkan secara profesional.',
+                    'Participants attend a final interview with a user or industry representative from the destination country.',
+                    'The pre-departure briefing covers the destination country culture, discipline, labor laws, and mental readiness.',
+                    'Participants receive final instructions regarding deployment or departure to the work location.',
+                    'This stage determines the participant readiness to be recruited or placed professionally.',
                 ],
-                'footer' => 'Tahap akhir ini mempersiapkan peserta menuju penempatan kerja dan keberangkatan profesional penuh.',
+                'footer' => 'This final stage prepares participants for job placement and full professional departure.',
             ],
         ];
     @endphp
     <nav>
         <div class="logo">
-            <img src="{{ asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
+            <img src="{{ asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
         </div>
-        <ul id="primary-nav">
-            <li><a href="{{ url('/') }}">Home</a></li>
+        <ul id="primary-nav" class="notranslate">
+            <li><a href="{{ url('/') }}" data-en="Home" data-id="Beranda">Home</a></li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    About <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    <span data-en="About" data-id="Tentang">About</span> <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
-                    <li><a href="{{ route('Profile') }}">Campus Profile</a></li>
-                    <li><a href="{{ route('vision-mission') }}">Vision & Mission</a></li>
-                    <li><a href="{{ route('sejarah') }}">History</a></li>
+                    <li><a href="{{ route('Profile') }}" data-en="Campus Profile" data-id="Profil Kampus">Campus Profile</a></li>
+                    <li><a href="{{ route('vision-mission') }}" data-en="Vision & Mission" data-id="Visi & Misi">Vision & Mission</a></li>
+                    <li><a href="{{ route('sejarah') }}" data-en="History" data-id="Sejarah">History</a></li>
                 </ul>
             </li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    Career <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    <span data-en="Career" data-id="Karier">Career</span> <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
                     <li><a href="{{ route('LPK') }}">LPK</a></li>
                     <li><a href="{{ route('LKP') }}">LKP</a></li>
                 </ul>
             </li>
-            <li><a href="{{ route('news.index') }}">News</a></li>
-            <li><a href="{{ route('testi') }}">Reviews</a></li>
-            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
-            <li><a href="{{ url('/') }}#partnership">Partnership</a></li>
+            <li><a href="{{ route('news.index') }}" data-en="News" data-id="Berita">News</a></li>
+            <li><a href="{{ route('testi') }}" data-en="Reviews" data-id="Ulasan">Reviews</a></li>
+            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}" data-en="Join Us" data-id="Bergabung">Join Us</a></li>
+            <li><a href="{{ url('/') }}#partnership" data-en="Partnership" data-id="Kemitraan">Partnership</a></li>
+        
+            <li class="nav-mobile-only nav-mobile-lang notranslate">
+                <button type="button" onclick="setLanguage('id')" id="mobile-lang-btn-id" class="nav-lang-toggle" data-lang="id">
+                    <i class="bi bi-translate"></i> Ganti ke Indonesia
+                </button>
+                <button type="button" onclick="setLanguage('en')" id="mobile-lang-btn-en" class="nav-lang-toggle" data-lang="en" style="display:none;">
+                    <i class="bi bi-translate"></i> Switch to English
+                </button>
+            </li>
         </ul>
         <div class="sosmed-icon">
   <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
@@ -136,11 +145,11 @@
   </a>
 </div>
         <div class="ppdb-btn">
-            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'">Join Us</button>
+            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
-        <div class="lang-switch" aria-label="Pengalih bahasa">
-            <a href="{{ route('language.switch', 'id') }}" class="{{ app()->getLocale() === 'id' ? 'is-active' : '' }}">ID</a>
-            <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">EN</a>
+        <div class="lang-switch notranslate" aria-label="Language switcher">
+            <button type="button" onclick="setLanguage('id')" id="lang-btn-id">ID</button>
+            <button type="button" onclick="setLanguage('en')" id="lang-btn-en">EN</button>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
@@ -169,9 +178,9 @@
         </div>
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-content">
-            <p class="hero-eyebrow">"Lembaga Pelatihan Kerja"</p>
+            <p class="hero-eyebrow">"Job Training Institution"</p>
             <h1 class="hero-title">Welcome to <br><span>LPK</span></h1>
-            <p>LPK Metland College adalah lembaga pelatihan kerja yang menyediakan pendidikan dan pelatihan untuk siswa yang ingin bekerja di hospitality.</p>
+            <p>Metland College LPK is a job training institution that provides education and training for students who want to work in hospitality.</p>
             <div class="hero-actions">
                 <a href="#about-lpk"     class="hero-btn">See more</a>
             </div>
@@ -645,13 +654,13 @@
         <!-- Intro -->
         <div class="lpk-intro">
             <div class="lpk-intro-text">
-                <h2>Industri Pariwisata Cemerlang di <br><span>LPK Metland College</span></h2>
-                <p>Lembaga Pelatihan Kerja (LPK) Metland College merupakan solusi tepat bagi kamu yang ingin cepat diserap oleh industri hospitality. Dengan kurikulum praktis dan bimbingan eksklusif dari praktisi perhotelan, kami siap mengasah kompetensimu hingga mencapai standar internasional.</p>
+                <h2>Brilliant Tourism Industry at <br><span>Metland College LPK</span></h2>
+                <p>Metland College LPK (Job Training Institution) is the right solution for those who want to be quickly absorbed by the hospitality industry. With a practical curriculum and exclusive guidance from hotel practitioners, we are ready to hone your competence to reach international standards.</p>
                 <ul class="lpk-benefits">
-                    <li><i class="bi bi-award"></i> Bersertifikat BNSP</li>
-                    <li><i class="bi bi-building-check"></i> Penyaluran Kerja ke Luar Negeri</li>
-                    <li><i class="bi bi-person-video3"></i> Instruktur Praktisi Ahli</li>
-                    <li><i class="bi bi-briefcase"></i> Program Magang (OJT) Eksklusif</li>
+                    <li><i class="bi bi-award"></i> BNSP Certified</li>
+                    <li><i class="bi bi-building-check"></i> Overseas Job Placement</li>
+                    <li><i class="bi bi-person-video3"></i> Expert Practitioner Instructors</li>
+                    <li><i class="bi bi-briefcase"></i> Exclusive Internship Program (OJT)</li>
                 </ul>
             </div>
             <div class="lpk-image-wrapper">
@@ -676,28 +685,28 @@
         <div class="lpk-stats">
             <div class="stat-item">
                 <div class="stat-num">95%</div>
-                <div class="stat-label">Lulusan Bekerja</div>
+                <div class="stat-label">Employed Graduates</div>
             </div>
             <div class="stat-item">
                 <div class="stat-num">50+</div>
-                <div class="stat-label">Mitra Hotel</div>
+                <div class="stat-label">Hotel Partners</div>
             </div>
             <div class="stat-item">
                 <div class="stat-num">100%</div>
-                <div class="stat-label">Standar Industri</div>
+                <div class="stat-label">Industry Standard</div>
             </div>
             <div class="stat-item">
-                <div class="stat-num">6 bln</div>
-                <div class="stat-label">Estimasi Pelatihan</div>
+                <div class="stat-num">6 mo</div>
+                <div class="stat-label">Estimated Training</div>
             </div>
         </div>
 
         <!-- Programs -->
         <div class="program-header">
             <div class="section-header" style="margin-bottom: 0;">
-                <div class="section-badge" style="margin: 0 auto 15px;">Program Unggulan</div>
-                <h2 class="section-title">Pilihan Program Pelatihan</h2>
-                <p class="section-desc" style="margin-left: auto; margin-right: auto;">Pilih program vokasi yang tepat untuk mewujudkan karir impianmu di dunia perhotelan.</p>
+                <div class="section-badge" style="margin: 0 auto 15px;">Featured Programs</div>
+                <h2 class="section-title">Training Program Options</h2>
+                <p class="section-desc" style="margin-left: auto; margin-right: auto;">Choose the right vocational program to realize your dream career in the hospitality world.</p>
             </div>
         </div>
         
@@ -705,51 +714,51 @@
             <div class="program-card">
                 <div class="program-icon"><i class="bi bi-cup-hot"></i></div>
                 <h3>Food & Beverage Service</h3>
-                <p>Mempelajari tata cara perjamuan, penyajian makanan dan minuman berstandar fine dining internasional serta mixology.</p>
+                <p>Learning banquet procedures, serving food and beverages to international fine dining standards, and mixology.</p>
             </div>
             <div class="program-card">
                 <div class="program-icon"><i class="bi bi-egg-fried"></i></div>
                 <h3>Culinary</h3>
-                <p>Menguasai teknik memasak profesional, mulai dari pengenalan bahan masakan lokal hingga pengolahan hidangan kontinental dan oriental.</p>
+                <p>Mastering professional cooking techniques, from introducing local ingredients to preparing continental and oriental dishes.</p>
             </div>
             <div class="program-card">
                 <div class="program-icon"><i class="bi bi-person-vcard"></i></div>
                 <h3>Front Office</h3>
-                <p>Seni melayani tamu dengan keramahan tinggi, mengelola reservasi, serta kemampuan operasional kantor depan secara profesional.</p>
+                <p>The art of serving guests with high hospitality, managing reservations, and professional front office operational skills.</p>
             </div>
             <div class="program-card">
                 <div class="program-card-inner"></div>
                 <div class="program-icon"><i class="bi bi-house-door"></i></div>
                 <h3>Housekeeping</h3>
-                <p>Manajemen tata graha yang difokuskan pada pemeliharaan kebersihan, kenyamanan kamar tamu dan standar higienitas hotel.</p>
+                <p>Housekeeping management focused on maintaining cleanliness, guest room comfort, and hotel hygiene standards.</p>
             </div>
         </div>
 
         <!-- Pathway -->
         <div class="lpk-pathway">
             <div class="pathway-bg"></div>
-            <h2>Langkah Menuju Kesuksesan</h2>
-            <p>Sistem pelatihan LPK Metland College didesain khusus agar setiap peserta didik mampu bertransformasi dari pemula menjadi tenaga profesional siap kerja.</p>
+            <h2>Steps to Success</h2>
+            <p>The Metland College LPK training system is specially designed so that every student can transform from a beginner into a work-ready professional.</p>
             <div class="pathway-steps">
                 <div class="pathway-step">
                     <div class="step-icon"><i class="bi bi-book"></i></div>
-                    <div class="step-title">Pelatihan</div>
-                    <div class="step-desc">Pembekalan teori dan praktik dasar di fasilitas hotel.</div>
+                    <div class="step-title">Training</div>
+                    <div class="step-desc">Basic theoretical and practical training in hotel facilities.</div>
                 </div>
                 <div class="pathway-step">
                     <div class="step-icon"><i class="bi bi-briefcase-fill"></i></div>
                     <div class="step-title">On Job Training</div>
-                    <div class="step-desc">Magang langsung di hotel bintang 4 & 5 mitra kami.</div>
+                    <div class="step-desc">Direct internship in our 4 & 5 star partner hotels.</div>
                 </div>
                 <div class="pathway-step">
                     <div class="step-icon"><i class="bi bi-shield-check"></i></div>
-                    <div class="step-title">Uji Kompetensi</div>
-                    <div class="step-desc">Sertifikasi kemahiran berstandar BNSP.</div>
+                    <div class="step-title">Competency Test</div>
+                    <div class="step-desc">BNSP standard proficiency certification.</div>
                 </div>
                 <div class="pathway-step">
                     <div class="step-icon"><i class="bi bi-building"></i></div>
-                    <div class="step-title">Penyaluran Kerja</div>
-                    <div class="step-desc">Bantuan proses rekrutmen ke jaringan industri hospitality.</div>
+                    <div class="step-title">Job Placement</div>
+                    <div class="step-desc">Recruitment process assistance to the hospitality industry network.</div>
                 </div>
             </div>
 
@@ -762,46 +771,46 @@
                         <i class="bi bi-house-heart"></i>
                     </div>
                     <div class="lkp-boarding-title-wrap">
-                        <h3>Tersedia Kelas Boarding</h3>
-                        <p>Fasilitas lengkap untuk mendukung proses belajar intensif Anda</p>
+                        <h3>Boarding Class Available</h3>
+                        <p>Complete facilities to support your intensive learning process</p>
                     </div>
                 </div>
                 <div class="lkp-boarding-grid">
                     <div class="lkp-boarding-item">
                         <span class="lkp-boarding-item-icon"><i class="bi bi-building"></i></span>
                         <div class="lkp-boarding-item-text">
-                            <strong>Asrama</strong>
+                            <strong>Dormitory</strong>
                         </div>
                     </div>
                     <div class="lkp-boarding-item">
                         <span class="lkp-boarding-item-icon"><i class="bi bi-egg-fried"></i></span>
                         <div class="lkp-boarding-item-text">
-                            <strong>Makan Siang</strong>
-                            Tersedia setiap hari belajar
+                            <strong>Lunch</strong>
+                            Available every study day
                         </div>
                     </div>
                     <div class="lkp-boarding-item">
                         <span class="lkp-boarding-item-icon"><i class="bi bi-person-badge"></i></span>
                         <div class="lkp-boarding-item-text">
-                            <strong>Seragam Pelatihan</strong>
+                            <strong>Training Uniform</strong>
                         </div>
                     </div>
                     <div class="lkp-boarding-item">
                         <span class="lkp-boarding-item-icon"><i class="bi bi-book"></i></span>
                         <div class="lkp-boarding-item-text">
-                            <strong>Modul Pelatihan</strong>
+                            <strong>Training Modules</strong>
                         </div>
                     </div>
                     <div class="lkp-boarding-item">
                         <span class="lkp-boarding-item-icon"><i class="ph-fill ph-washing-machine"></i></span>
                         <div class="lkp-boarding-item-text">
-                            <strong> Laundry Seragam </strong>
+                            <strong> Uniform Laundry </strong>
                         </div>
                     </div>
                     <div class="lkp-boarding-item">
                         <span class="lkp-boarding-item-icon"><i class="bi bi-award"></i></span>
                         <div class="lkp-boarding-item-text">
-                            <strong> Pelatihan Table</strong>
+                            <strong> Table Manner </strong>
                         </div>
                     </div>
                 </div>
@@ -843,7 +852,7 @@
                     <div class="career-icon"><i class="bi bi-clock-history"></i></div>
                     <div style="margin-top: 10px;">
                         <h3>Coming Soon</h3>
-                        <p>Konten untuk Training Method (LKP) sedang dalam tahap penyusunan dan akan segera tersedia.</p>
+                        <p>Content for Training Method (LKP) is currently being drafted and will be available soon.</p>
                     </div>
                 </div>
             </div>
@@ -1261,5 +1270,7 @@
             });
         })();
     </script>
+    <div id="google_translate_element" style="display:none;"></div>
+    <script src="{{ asset('js/translator.js') }}"></script>
 </body>
 </html>

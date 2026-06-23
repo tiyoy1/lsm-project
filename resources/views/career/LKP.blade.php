@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,33 +23,42 @@
 <body>
     <nav>
         <div class="logo">
-            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.webp") }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
+            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.webp") }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
         </div>
-        <ul id="primary-nav">
-            <li><a href="{{ url('/') }}">Home</a></li>
+        <ul id="primary-nav" class="notranslate">
+            <li><a href="{{ url('/') }}" data-en="Home" data-id="Beranda">Home</a></li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    About <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    <span data-en="About" data-id="Tentang">About</span> <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
-                    <li><a href="{{ route('Profile') }}">Campus Profile</a></li>
-                    <li><a href="{{ route('vision-mission') }}">Vision & Mission</a></li>
-                    <li><a href="{{ route('sejarah') }}">History</a></li>
+                    <li><a href="{{ route('Profile') }}" data-en="Campus Profile" data-id="Profil Kampus">Campus Profile</a></li>
+                    <li><a href="{{ route('vision-mission') }}" data-en="Vision & Mission" data-id="Visi & Misi">Vision & Mission</a></li>
+                    <li><a href="{{ route('sejarah') }}" data-en="History" data-id="Sejarah">History</a></li>
                 </ul>
             </li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    Career <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    <span data-en="Career" data-id="Karier">Career</span> <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
                     <li><a href="{{ route('LPK') }}">LPK</a></li>
                     <li><a href="{{ route('LKP') }}">LKP</a></li>
                 </ul>
             </li>
-            <li><a href="{{ route('news.index') }}">News</a></li>
-            <li><a href="{{ route('testi') }}">Reviews</a></li>
-            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
-            <li><a href="{{ url('/') }}#partnership">Partnership</a></li>
+            <li><a href="{{ route('news.index') }}" data-en="News" data-id="Berita">News</a></li>
+            <li><a href="{{ route('testi') }}" data-en="Reviews" data-id="Ulasan">Reviews</a></li>
+            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}" data-en="Join Us" data-id="Bergabung">Join Us</a></li>
+            <li><a href="{{ url('/') }}#partnership" data-en="Partnership" data-id="Kemitraan">Partnership</a></li>
+        
+            <li class="nav-mobile-only nav-mobile-lang notranslate">
+                <button type="button" onclick="setLanguage('id')" id="mobile-lang-btn-id" class="nav-lang-toggle" data-lang="id">
+                    <i class="bi bi-translate"></i> Ganti ke Indonesia
+                </button>
+                <button type="button" onclick="setLanguage('en')" id="mobile-lang-btn-en" class="nav-lang-toggle" data-lang="en" style="display:none;">
+                    <i class="bi bi-translate"></i> Switch to English
+                </button>
+            </li>
         </ul>
         <div class="sosmed-icon">
   <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
@@ -64,11 +73,11 @@
   </a>
 </div>
         <div class="ppdb-btn">
-            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'">Join Us</button>
+            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
-        <div class="lang-switch" aria-label="Pengalih bahasa">
-            <a href="{{ route('language.switch', 'id') }}" class="{{ app()->getLocale() === 'id' ? 'is-active' : '' }}">ID</a>
-            <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">EN</a>
+        <div class="lang-switch notranslate" aria-label="Language switcher">
+            <button type="button" onclick="setLanguage('id')" id="lang-btn-id">ID</button>
+            <button type="button" onclick="setLanguage('en')" id="lang-btn-en">EN</button>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
@@ -97,9 +106,9 @@
         </div>
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-content">
-            <p class="hero-eyebrow">"Lembaga Kursus & Pelatihan"</p>
+            <p class="hero-eyebrow">"Training & Course Institution"</p>
             <h1 class="hero-title">Welcome to <br><span>LKP</span></h1>
-            <p>LKP Metland College adalah lembaga kursus yang menyediakan pendidikan dan pelatihan untuk siswa yang ingin bekerja diluar negri.</p>
+            <p>Metland College LKP is a training institution that provides education and training for students who want to work abroad.</p>
             <div class="hero-actions">
                 <a href="#about-lkp" class="hero-btn">See more</a>
             </div>
@@ -444,14 +453,14 @@
 
         {{-- ===== Header ===== --}}
         <div class="lkp-intro-header">
-            <div class="lkp-eyebrow">LKP Metland College</div>
-            <h2 class="lkp-main-title">Lembaga Kursus Pelatihan<br><span> Bahasa Asing</span></h2>
-            <p class="lkp-main-desc">LKP Metland College menyediakan kursus dan pelatihan bahasa asing untuk mempersiapkan Anda bekerja ke luar negeri dengan percaya diri.</p>
+            <div class="lkp-eyebrow">Metland College LKP</div>
+            <h2 class="lkp-main-title">Foreign Language<br><span> Training Course</span></h2>
+            <p class="lkp-main-desc">Metland College LKP provides foreign language courses and training to prepare you to work abroad confidently.</p>
         </div>
 
         {{-- ===== Language Sub-Header ===== --}}
         <div class="lkp-lang-subheader">
-            <span class="lkp-lang-subheader-text">Bahasa Asing Pilihan</span>
+            <span class="lkp-lang-subheader-text">Language Options</span>
         </div>
 
         {{-- ===== Language Cards ===== --}}
@@ -460,15 +469,15 @@
             {{-- 1. English --}}
             <div class="lkp-lang-card english">
                 <div class="lkp-card-banner">
-                    <img src="https://flagcdn.com/w160/gb.png" alt="Bendera Inggris" class="lkp-card-flag" loading="lazy" decoding="async">
+                    <img src="https://flagcdn.com/w160/gb.png" alt="English Flag" class="lkp-card-flag" loading="lazy" decoding="async">
                     <span class="lkp-card-lang-name">English</span>
                     <span class="lkp-card-num">1</span>
                 </div>
                 <div class="lkp-card-body">
                     <ul>
-                        <li>Kursus Bahasa Inggris</li>
-                        <li>Fokus Tes TOEFL</li>
-                        <li>Pendamping Interview</li>
+                        <li>English Course</li>
+                        <li>TOEFL Test Focus</li>
+                        <li>Interview Mentoring</li>
                     </ul>
                 </div>
             </div>
@@ -476,15 +485,15 @@
             {{-- 2. Mandarin --}}
             <div class="lkp-lang-card mandarin">
                 <div class="lkp-card-banner">
-                    <img src="https://flagcdn.com/w160/cn.png" alt="Bendera China" class="lkp-card-flag" loading="lazy" decoding="async">
+                    <img src="https://flagcdn.com/w160/cn.png" alt="China Flag" class="lkp-card-flag" loading="lazy" decoding="async">
                     <span class="lkp-card-lang-name">Mandarin</span>
                     <span class="lkp-card-num">2</span>
                 </div>
                 <div class="lkp-card-body">
                     <ul>
-                        <li>Kursus Bahasa Mandarin</li>
-                        <li>Fokus Tes HSK</li>
-                        <li>Pendamping Interview</li>
+                        <li>Mandarin Course</li>
+                        <li>HSK Test Focus</li>
+                        <li>Interview Mentoring</li>
                     </ul>
                 </div>
             </div>
@@ -492,16 +501,16 @@
             {{-- 3. Jepang --}}
             <div class="lkp-lang-card jepang">
                 <div class="lkp-card-banner">
-                    <img src="https://flagcdn.com/w160/jp.png" alt="Bendera Jepang" class="lkp-card-flag" loading="lazy" decoding="async">
-                    <span class="lkp-card-lang-name">Jepang</span>
+                    <img src="https://flagcdn.com/w160/jp.png" alt="Japan Flag" class="lkp-card-flag" loading="lazy" decoding="async">
+                    <span class="lkp-card-lang-name">Japanese</span>
                     <span class="lkp-card-num">3</span>
                 </div>
                 <div class="lkp-card-body">
                     <ul>
-                        <li>Kursus Bahasa Jepang</li>
-                        <li>Fokus Tes JFT Basic A2 / JLPT N4</li>
-                        <li>Belajar Ujian SSW*</li>
-                        <li>Pendamping Interview</li>
+                        <li>Japanese Course</li>
+                        <li>JFT Basic A2 / JLPT N4 Focus</li>
+                        <li>SSW Exam Preparation*</li>
+                        <li>Interview Mentoring</li>
                     </ul>
                 </div>
             </div>
@@ -509,15 +518,15 @@
             {{-- 4. Jerman --}}
             <div class="lkp-lang-card jerman">
                 <div class="lkp-card-banner">
-                    <img src="https://flagcdn.com/w160/de.png" alt="Bendera Jerman" class="lkp-card-flag" loading="lazy" decoding="async">
-                    <span class="lkp-card-lang-name">Jerman</span>
+                    <img src="https://flagcdn.com/w160/de.png" alt="Germany Flag" class="lkp-card-flag" loading="lazy" decoding="async">
+                    <span class="lkp-card-lang-name">German</span>
                     <span class="lkp-card-num">4</span>
                 </div>
                 <div class="lkp-card-body">
                     <ul>
-                        <li>Kursus Bahasa Jerman</li>
-                        <li>Fokus Tes A1, A2, dan B1</li>
-                        <li>Pendamping Interview</li>
+                        <li>German Course</li>
+                        <li>A1, A2, and B1 Focus</li>
+                        <li>Interview Mentoring</li>
                     </ul>
                 </div>
             </div>
@@ -525,15 +534,15 @@
             {{-- 5. Korea --}}
             <div class="lkp-lang-card korea">
                 <div class="lkp-card-banner">
-                    <img src="https://flagcdn.com/w160/kr.png" alt="Bendera Korea" class="lkp-card-flag" loading="lazy" decoding="async">
-                    <span class="lkp-card-lang-name">Korea</span>
+                    <img src="https://flagcdn.com/w160/kr.png" alt="Korea Flag" class="lkp-card-flag" loading="lazy" decoding="async">
+                    <span class="lkp-card-lang-name">Korean</span>
                     <span class="lkp-card-num">5</span>
                 </div>
                 <div class="lkp-card-body">
                     <ul>
-                        <li>Kursus Bahasa Korea</li>
-                        <li>Fokus Tes TOPIK II</li>
-                        <li>Pendamping Interview</li>
+                        <li>Korean Course</li>
+                        <li>TOPIK II Test Focus</li>
+                        <li>Interview Mentoring</li>
                     </ul>
                 </div>
             </div>
@@ -541,15 +550,15 @@
             {{-- 6. Arab --}}
             <div class="lkp-lang-card arab">
                 <div class="lkp-card-banner">
-                    <img src="https://flagcdn.com/w160/sa.png" alt="Bendera Arab Saudi" class="lkp-card-flag" loading="lazy" decoding="async">
-                    <span class="lkp-card-lang-name">Arab</span>
+                    <img src="https://flagcdn.com/w160/sa.png" alt="Saudi Arabia Flag" class="lkp-card-flag" loading="lazy" decoding="async">
+                    <span class="lkp-card-lang-name">Arabic</span>
                     <span class="lkp-card-num">6</span>
                 </div>
                 <div class="lkp-card-body">
                     <ul>
-                        <li>Kursus Bahasa Arab</li>
-                        <li>Fokus Tes ALPT B2</li>
-                        <li>Pendamping Interview</li>
+                        <li>Arabic Course</li>
+                        <li>ALPT B2 Test Focus</li>
+                        <li>Interview Mentoring</li>
                     </ul>
                 </div>
             </div>
@@ -626,7 +635,7 @@
         <div class="alumni-testi-head">
             <div class="section-badge">Alumni Reviews</div>
             <h2 class="alumni-testi-title">What Our <span>Alumni Say</span></h2>
-            <p class="alumni-testi-desc">Dengarkan kisah nyata dari alumni LKP Metland College yang kini telah berhasil bekerja dan berkarir di luar negeri.</p>
+            <p class="alumni-testi-desc">Listen to real stories from Metland College LKP alumni who have successfully worked and built careers abroad.</p>
         </div>
 
         <div class="testi-grid">
@@ -638,14 +647,14 @@
                 </div>
                 <div class="testi-dest">
                     <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag" loading="lazy" decoding="async">
-                    Bekerja di Jepang
+                    Working in Japan
                 </div>
-                <p class="testi-quote">"Saya ikut kursus Bahasa Jepang di LKP Metland dan dalam 6 bulan berhasil lulus JLPT N4. Pengajarnya sangat sabar dan metode belajarnya efektif banget. Sekarang saya sudah bekerja di Osaka dan bisa berkomunikasi dengan rekan kerja Jepang dengan lancar. Terima kasih LKP Metland!"</p>
+                <p class="testi-quote">"I took the Japanese course at LKP Metland and passed JLPT N4 within 6 months. The instructors are very patient and the learning methods are highly effective. I am now working in Osaka and can communicate fluently with Japanese colleagues. Thank you, LKP Metland!"</p>
                 <div class="testi-author">
                     <div class="testi-avatar" style="background: linear-gradient(135deg, #BC002D, #8a001f);">FA</div>
                     <div class="testi-author-info">
                         <h4>Fauzan Alfarizi</h4>
-                        <p>Teknisi Manufaktur — Osaka, Jepang</p>
+                        <p>Manufacturing Technician — Osaka, Japan</p>
                     </div>
                 </div>
             </div>
@@ -657,14 +666,14 @@
                 </div>
                 <div class="testi-dest">
                     <img src="https://flagcdn.com/w40/de.png" alt="Germany Flag" loading="lazy" decoding="async">
-                    Bekerja di Jerman
+                    Working in Germany
                 </div>
-                <p class="testi-quote">"Kursus Bahasa Jerman di sini sangat terstruktur. Saya berhasil lulus B1 dan langsung dapat kerja di Berlin sebagai tenaga kesehatan."</p>
+                <p class="testi-quote">"The German course here is very structured. I managed to pass B1 and immediately got a job in Berlin as a healthcare worker."</p>
                 <div class="testi-author">
                     <div class="testi-avatar" style="background: linear-gradient(135deg, #DD0000, #8a0000);">NR</div>
                     <div class="testi-author-info">
                         <h4>Nadia Rahmawati</h4>
-                        <p>Perawat — Rumah Sakit Berlin, Jerman</p>
+                        <p>Nurse — Berlin Hospital, Germany</p>
                     </div>
                 </div>
             </div>
@@ -676,14 +685,14 @@
                 </div>
                 <div class="testi-dest">
                     <img src="https://flagcdn.com/w40/kr.png" alt="Korea Flag" loading="lazy" decoding="async">
-                    Bekerja di Korea
+                    Working in Korea
                 </div>
-                <p class="testi-quote">"Pendampingan interview dari LKP sangat membantu. Saya bisa menjawab pertanyaan HRD Korea dengan percaya diri dan akhirnya diterima kerja."</p>
+                <p class="testi-quote">"The interview mentoring from LKP was very helpful. I was able to answer the Korean HR's questions confidently and was finally hired."</p>
                 <div class="testi-author">
                     <div class="testi-avatar" style="background: linear-gradient(135deg, #003478, #001a3d);">RS</div>
                     <div class="testi-author-info">
                         <h4>Rizal Santoso</h4>
-                        <p>Operator Produksi — Seoul, Korea Selatan</p>
+                        <p>Production Operator — Seoul, South Korea</p>
                     </div>
                 </div>
             </div>
@@ -695,14 +704,14 @@
                 </div>
                 <div class="testi-dest">
                     <img src="https://flagcdn.com/w40/sa.png" alt="Saudi Arabia Flag" loading="lazy" decoding="async">
-                    Bekerja di Arab Saudi
+                    Working in Saudi Arabia
                 </div>
-                <p class="testi-quote">"Belajar bahasa Arab di LKP Metland memberi saya kepercayaan diri besar. Saya kini bekerja di Riyadh dan dihargai karena bisa bahasa lokal."</p>
+                <p class="testi-quote">"Learning Arabic at LKP Metland gave me great confidence. I am now working in Riyadh and am appreciated for being able to speak the local language."</p>
                 <div class="testi-author">
                     <div class="testi-avatar" style="background: linear-gradient(135deg, #006C35, #003d1e);">YP</div>
                     <div class="testi-author-info">
                         <h4>Yusuf Priyadi</h4>
-                        <p>Staf Administrasi — Riyadh, Arab Saudi</p>
+                        <p>Administrative Staff — Riyadh, Saudi Arabia</p>
                     </div>
                 </div>
             </div>
@@ -714,14 +723,14 @@
                 </div>
                 <div class="testi-dest">
                     <img src="https://flagcdn.com/w40/cn.png" alt="China Flag" loading="lazy" decoding="async">
-                    Bekerja di China
+                    Working in China
                 </div>
-                <p class="testi-quote">"Dalam 5 bulan saya berhasil lulus HSK 3. Metode belajarnya menyenangkan dan tidak membosankan. Sekarang saya kerja di Shanghai sebagai interpreter."</p>
+                <p class="testi-quote">"In 5 months I successfully passed HSK 3. The learning method is fun and not boring. Now I work in Shanghai as an interpreter."</p>
                 <div class="testi-author">
                     <div class="testi-avatar" style="background: linear-gradient(135deg, #DE2910, #8f1a0a);">DW</div>
                     <div class="testi-author-info">
                         <h4>Dewi Wulandari</h4>
-                        <p>Interpreter — Shanghai, Tiongkok</p>
+                        <p>Interpreter — Shanghai, China</p>
                     </div>
                 </div>
             </div>
@@ -737,6 +746,8 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="{{ asset("js/script.js") }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <div id="google_translate_element" style="display:none;"></div>
+    <script src="{{ asset('js/translator.js') }}"></script>
 </body>
 </html>
 

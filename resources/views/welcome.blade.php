@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,93 +45,102 @@
                 'step' => 'First Step!',
                 'title' => 'Pre-Screening Interview',
                 'icon' => 'bi-journal-bookmark',
-                'summary' => 'Tahap awal untuk menyaring kesiapan, minat, dan potensi peserta sebelum masuk program utama.',
+                'summary' => 'Initial stage to filter the readiness, interests, and potential of participants before entering the main program.',
                 'details' => [
-                    'Pendaftaran Peserta (PBK Mendaftar) - Calon peserta mendaftar melalui portal resmi Metland College atau datang langsung ke kampus Transyogi, Cibitung, atau Kertajati.',
-                    'Pengiriman CV & Berkas Portofolio - Peserta mengirimkan CV terbaru dan dokumen pendukung akademis/profesional untuk evaluasi awal.',
-                    'Pre-Screening Interview (1 Bulan) - Tahap ini menilai kesesuaian usia 18-32 tahun, minat okupasi seperti Housekeeping, F&B Service, Culinary, dan linearitas profil dengan peluang kerja domestik maupun internasional.',
-                    'Fokus Penempatan - Arah penempatan dipersiapkan ke Jepang, Jerman, Bulgaria, Rumania, Kroasia, dan negara tujuan lainnya.',
-                    'Edukasi Product Knowledge Program - Peserta mendapat penjelasan ekosistem LPK-LKP Metland College, pilihan paket (Fast Track Alumni SMK Metland, Fast Track Jejaring, atau Executive), serta fasilitas seperti asrama, makan, dan laundry.',
-                    'Pembayaran Administrasi & Biaya Pelatihan - Peserta melunasi biaya pendaftaran dan program, lalu menerima kuitansi resmi dan bukti bayar.',
-                    'Pengisian & Pengumpulan Formulir (00-06) - Peserta melengkapi formulir administrasi standar dan dokumen fisik/digital sebagai syarat mengikuti PBK.',
+                    'Participant Registration - Prospective participants register through the official Metland College portal or visit the Transyogi, Cibitung, or Kertajati campus directly.',
+                    'CV & Portfolio Submission - Participants submit an updated CV and supporting academic/professional documents for initial evaluation.',
+                    'Pre-Screening Interview (1 Month) - This stage assesses the suitability of the 18-32 age group, occupational interests such as Housekeeping, F&B Service, Culinary, and profile linearity with domestic and international job opportunities.',
+                    'Placement Focus - Placement directions are prepared for Japan, Germany, Bulgaria, Romania, Croatia, and other destination countries.',
+                    'Program Product Knowledge Education - Participants receive an explanation of the Metland College LPK-LKP ecosystem, package options (Fast Track SMK Metland Alumni, Fast Track Network, or Executive), as well as facilities such as dormitories, meals, and laundry.',
+                    'Administrative & Training Fee Payment - Participants settle registration and program fees, then receive official receipts and proof of payment.',
+                    'Form Completion & Submission (00-06) - Participants complete standard administrative forms and physical/digital documents as a requirement to participate in PBK.',
                 ],
-                'footer' => 'Output tahap ini adalah peserta yang lolos seleksi awal dan siap melanjutkan ke pembekalan bahasa serta pelatihan industri.',
+                'footer' => 'The output of this stage is participants who pass the initial selection and are ready to proceed to language briefing and industrial training.',
             ],
             [
                 'step' => 'Second Step!',
                 'title' => 'Language & English for Industry',
                 'icon' => 'bi-people',
-                'summary' => 'Pembekalan bahasa industri dan persiapan mobilisasi ke venue pelatihan serta asrama.',
+                'summary' => 'Industrial language briefing and preparation for mobilization to the training venue and dormitory.',
                 'details' => [
-                    'Penentuan Tanggal Pelatihan & Surat Pemanggilan - Manajemen LPK menetapkan jadwal batch pelatihan dan mengirimkan surat pemanggilan resmi kepada peserta yang lolos.',
-                    'Koordinasi Venue Pelatihan (Surat Informasi) - Surat informasi pelatihan dikirim ke pihak industri lokasi praktik seperti Metland Hotel Smara Kertajati atau mitra lainnya.',
-                    'Persiapan Keberangkatan (Mobilisasi) - Peserta mendapat informasi titik kumpul, jam keberangkatan, barang bawaan, dan SOP perjalanan menuju lokasi karantina.',
-                    'Welcoming & Makan Bersama - Acara penyambutan dan makan bersama dilakukan sebelum peserta masuk asrama dan hotel untuk membangun kebersamaan.',
-                    'Orientasi Venue Pelatihan (Hotel Tour) - Peserta dikenalkan tata letak, standar penampilan, dan budaya kerja melalui observasi industri.',
-                    'Check-in Asrama LPK-LKP Metland College - Peserta dimobilisasi ke asrama, dilakukan pembagian kamar, seragam PBK 1 pcs, serta penyerahan E-Module atau buku modul.',
+                    'Determination of Training Date & Summons Letter - LPK Management sets the training batch schedule and sends official summons letters to successful participants.',
+                    'Training Venue Coordination (Information Letter) - Training information letters are sent to the industry practice locations such as Metland Hotel Smara Kertajati or other partners.',
+                    'Departure Preparation (Mobilization) - Participants receive information on meeting points, departure times, luggage, and travel SOPs to the quarantine location.',
+                    'Welcoming & Dining Together - A welcoming event and dining together are held before participants enter the dormitory and hotel to build togetherness.',
+                    'Training Venue Orientation (Hotel Tour) - Participants are introduced to the layout, grooming standards, and work culture through industrial observation.',
+                    'Metland College LPK-LKP Dormitory Check-in - Participants are mobilized to the dormitory, room assignments are made, 1 set of PBK uniforms is distributed, and E-Modules or physical modules are handed over.',
                 ],
-                'footer' => 'Tahap ini memastikan peserta siap secara mental, administratif, dan lingkungan sebelum memulai pelatihan inti.',
+                'footer' => 'This stage ensures participants are mentally, administratively, and environmentally ready before starting the core training.',
             ],
             [
                 'step' => 'Third Step!',
                 'title' => 'Skill Training',
                 'icon' => 'bi-briefcase',
-                'summary' => 'Pelatihan berbasis kompetensi yang fokus pada praktik, evaluasi berkala, dan intensifikasi bahasa asing.',
+                'summary' => 'Competency-based training focusing on practical skills, periodic evaluation, and foreign language intensification.',
                 'details' => [
-                    'Day 1: Orientasi Program PBK - Pengenalan visi, misi, kurikulum pelatihan, disiplin, target kompetensi, dan instruktur.',
-                    'Day 2: Pembagian Buddy System - Mentoring sebaya diterapkan agar peserta lebih cepat beradaptasi dan saling mendukung.',
-                    'Day 3: Kick-off Praktik Kejuruan - Pelatihan berbasis kompetensi dimulai langsung dengan model Teaching Factory untuk perhotelan dan kuliner.',
-                    'Durasi Skill Training - Pelatihan praktik inti berjalan selama 3 bulan.',
-                    'Intensifikasi Bahasa Asing - Program bahasa industri dan bahasa negara tujuan seperti Inggris, Mandarin, Jepang, dan Jerman difokuskan pada interview dan komunikasi operasional, selama 2 bulan.',
-                    'Assessment Formatif Berkala - Evaluasi dilakukan pada Day 7, 14, 21, dan 28. Uji kompetensi teori dan praktik berlangsung setiap 6 hari, dan seluruh evidence wajib dikumpulkan ke tim assessor.',
+                    'Day 1: PBK Program Orientation - Introduction to the vision, mission, training curriculum, discipline, competency targets, and instructors.',
+                    'Day 2: Buddy System Distribution - Peer mentoring is implemented so participants adapt faster and support each other.',
+                    'Day 3: Vocational Practice Kick-off - Competency-based training begins immediately using the Teaching Factory model for hospitality and culinary arts.',
+                    'Skill Training Duration - Core practical training runs for 3 months.',
+                    'Foreign Language Intensification - Industrial and destination country language programs (English, Mandarin, Japanese, German) focus on interviews and operational communication for 2 months.',
+                    'Periodic Formative Assessment - Evaluations are conducted on Days 7, 14, 21, and 28. Theory and practical competency tests are held every 6 days, and all evidence must be submitted to the assessor team.',
                 ],
-                'footer' => 'Peserta akan dibentuk menjadi tenaga siap kerja dengan kompetensi teknis, disiplin, dan kemampuan bahasa yang lebih kuat.',
+                'footer' => 'Participants will be shaped into work-ready individuals with strong technical competencies, discipline, and language skills.',
             ],
             [
                 'step' => 'Final Step',
                 'title' => 'On Job Training & Final Interview',
                 'icon' => 'bi-globe2',
-                'summary' => 'Penempatan magang, persiapan dokumen internasional, interview user, hingga keberangkatan kerja.',
+                'summary' => 'Internship placement, international document preparation, user interviews, leading up to job departure.',
                 'details' => [
-                    'On The Job Training (OJT / PKL) - Peserta diterjunkan ke industri mitra dalam maupun luar negeri untuk mempraktikkan kompetensi di lingkungan kerja nyata selama 6 bulan.',
-                    'Persiapan Dokumen Keberangkatan Internasional - Pengurusan paspor, visa kerja/magang, sertifikat kompetensi LSP, MCU, dan legalisasi dokumen perjanjian kerja.',
-                    'User - Final Interview - Pendampingan interview langsung dengan representatif industri dari negara tujuan seperti Jepang, Jerman, Kroasia, dan lainnya.',
-                    'Pre-Departure Briefing - Pembekalan akhir terkait budaya negara tujuan, disiplin tingkat lanjut, hukum ketenagakerjaan, dan kesiapan mental.',
-                    'Deployment - Proses pelepasan peserta menuju negara tujuan sebagai langkah menuju zero unemployment sesuai visi besar LPK-LKP Metland College.',
+                    'On The Job Training (OJT / PKL) - Participants are deployed to domestic or international partner industries to practice their competencies in a real work environment for 6 months.',
+                    'International Departure Document Preparation - Processing of passports, work/internship visas, LSP competency certificates, MCU (Medical Check-up), and legalization of employment agreement documents.',
+                    'User - Final Interview - Mentoring for direct interviews with industry representatives from destination countries such as Japan, Germany, Croatia, and others.',
+                    'Pre-Departure Briefing - Final briefing related to destination country culture, advanced discipline, labor laws, and mental readiness.',
+                    'Deployment - The process of dispatching participants to destination countries as a step towards zero unemployment according to the grand vision of LPK-LKP Metland College.',
                 ],
-                'footer' => 'Tahap terakhir ini mempersiapkan peserta untuk penempatan kerja dan transisi profesional secara penuh.',
+                'footer' => 'This final stage prepares participants for full job placement and professional transition.',
             ],
         ];
     @endphp
     <nav>
         <div class="logo">
-            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async">Metland College
+            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
         </div>
-        <ul id="primary-nav">
-            <li><a href="{{ url('/') }}">Home</a></li>
+        <ul id="primary-nav" class="notranslate">
+            <li><a href="{{ url('/') }}" data-en="Home" data-id="Beranda">Home</a></li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    About <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    <span data-en="About" data-id="Tentang">About</span> <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
-                    <li><a href="{{ route('Profile') }}">Campus Profile</a></li>
-                    <li><a href="{{ route('vision-mission') }}">Vision & Mission</a></li>
-                    <li><a href="{{ route('sejarah') }}">History</a></li>
+                    <li><a href="{{ route('Profile') }}" data-en="Campus Profile" data-id="Profil Kampus">Campus Profile</a></li>
+                    <li><a href="{{ route('vision-mission') }}" data-en="Vision & Mission" data-id="Visi & Misi">Vision & Mission</a></li>
+                    <li><a href="{{ route('sejarah') }}" data-en="History" data-id="Sejarah">History</a></li>
                 </ul>
             </li>
             <li class="nav-has-dropdown">
                 <button type="button" class="nav-dropdown-toggle">
-                    Career <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    <span data-en="Career" data-id="Karier">Career</span> <i class="bi bi-chevron-down" aria-hidden="true"></i>
                 </button>
                 <ul class="nav-dropdown">
                     <li><a href="{{ route('LPK') }}">LPK</a></li>
                     <li><a href="{{ route('LKP') }}">LKP</a></li>
                 </ul>
             </li>
-            <li><a href="{{ route('news.index') }}">News</a></li>
-            <li><a href="{{ route('testi') }}">Reviews</a></li>
-            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}">Join Us</a></li>
-            <li><a href="#partnership">Partnership</a></li>
+            <li><a href="{{ route('news.index') }}" data-en="News" data-id="Berita">News</a></li>
+            <li><a href="{{ route('testi') }}" data-en="Reviews" data-id="Ulasan">Reviews</a></li>
+            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}" data-en="Join Us" data-id="Bergabung">Join Us</a></li>
+            <li><a href="#partnership" data-en="Partnership" data-id="Kemitraan">Partnership</a></li>
+        
+            <li class="nav-mobile-only nav-mobile-lang notranslate">
+                <button type="button" onclick="setLanguage('id')" id="mobile-lang-btn-id" class="nav-lang-toggle" data-lang="id">
+                    <i class="bi bi-translate"></i> Ganti ke Indonesia
+                </button>
+                <button type="button" onclick="setLanguage('en')" id="mobile-lang-btn-en" class="nav-lang-toggle" data-lang="en" style="display:none;">
+                    <i class="bi bi-translate"></i> Switch to English
+                </button>
+            </li>
         </ul>
         <div class="sosmed-icon">
   <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
@@ -146,11 +155,11 @@
   </a>
 </div>
         <div class="ppdb-btn">
-            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'">Join us</button>
+            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
-        <div class="lang-switch" aria-label="Pengalih bahasa">
-            <a href="{{ route('language.switch', 'id') }}" class="{{ app()->getLocale() === 'id' ? 'is-active' : '' }}">ID</a>
-            <a href="{{ route('language.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'is-active' : '' }}">EN</a>
+        <div class="lang-switch notranslate" aria-label="Language switcher">
+            <button type="button" onclick="setLanguage('id')" id="lang-btn-id">ID</button>
+            <button type="button" onclick="setLanguage('en')" id="lang-btn-en">EN</button>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
@@ -407,7 +416,7 @@
     <section class="school-partnership" id="partnership" aria-label="PARTNERSHIP industri dan perguruan tinggi">
         <div class="partnership-shell">
             <div class="partnership-header">
-                <h2 class="partnership-title">Industri <span>&amp; Perguruan Tinggi</span></h2>
+                <h2 class="partnership-title">Industry <span>&amp; Higher Education</span></h2>
                 <p class="partnership-desc">Sourced from the partnership list on the official SMK Metland website, this collaboration supports internship, teaching factory, and synchronization of industry needs.</p>
             </div>
 
@@ -671,5 +680,7 @@
         <i class="bi bi-whatsapp" aria-hidden="true"></i>
         <span class="whatsapp-fab-tooltip">Hubungi kami!</span>
     </a>
+    <div id="google_translate_element" style="display:none;"></div>
+    <script src="{{ asset('js/translator.js') }}"></script>
 </body>
 </html>

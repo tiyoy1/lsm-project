@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $studentWork->localized_title }} - {{ __('ui.student_works.title') }} SMK Metland</title>
+    <title>{{ $studentWork->localized_title }} - Student Works - SMK Metland</title>
     <link rel="icon" type="image/webp" href="{{ asset('img/logo.webp') }}?v=20260305">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/scrollbar.css') }}">
@@ -17,10 +17,10 @@
         <header class="news-detail-hero">
             <div class="news-detail-hero-inner">
                 <h1>{{ $studentWork->localized_title }}</h1>
-                <nav class="news-detail-breadcrumb" aria-label="{{ __('ui.student_works.breadcrumb_aria') }}">
-                    <a href="{{ url('/') }}">{{ __('ui.nav.home') }}</a>
+                <nav class="news-detail-breadcrumb" aria-label="Student works breadcrumb">
+                    <a href="{{ url('/') }}">Home</a>
                     <span>&rsaquo;</span>
-                    <a href="{{ route('student-works.index') }}">{{ __('ui.nav.student_works') }}</a>
+                    <a href="{{ route('student-works.index') }}">Student Works</a>
                     <span>&rsaquo;</span>
                     <span class="is-current">{{ \Illuminate\Support\Str::limit($studentWork->localized_title, 90) }}</span>
                 </nav>
@@ -37,12 +37,12 @@
                             target="_blank"
                             rel="noopener noreferrer"
                             class="news-share-button"
-                            aria-label="{{ __('ui.student_works.share_whatsapp') }}">
+                            aria-label="Share to WhatsApp">
                             <i class="bi bi-share-fill"></i>
                         </a>
                     </div>
                     <p class="news-article-meta">
-                        <i class="bi bi-person-circle"></i> {{ $studentWork->author?->name ?? __('ui.student_works.admin') }}
+                        <i class="bi bi-person-circle"></i> {{ $studentWork->author?->name ?? 'Administrator' }}
                         <span>&bull;</span>
                         <i class="bi bi-calendar4-week"></i> {{ ($studentWork->published_at ?? $studentWork->created_at)->translatedFormat('d M Y H:i') }}
                     </p>
@@ -53,21 +53,21 @@
 
                 <aside class="news-detail-sidebar">
                     <section class="news-sidebar-card">
-                        <h2>{{ __('ui.student_works.search_title') }}</h2>
+                        <h2>Search</h2>
                         <form action="{{ route('student-works.index') }}" method="GET" class="news-search-form" role="search">
                             <input
                                 type="text"
                                 name="q"
-                                placeholder="{{ __('ui.student_works.search_placeholder') }}"
-                                aria-label="{{ __('ui.student_works.search_placeholder') }}">
-                            <button type="submit" aria-label="{{ __('ui.student_works.search_title') }}">
+                                placeholder="Search student works"
+                                aria-label="Search student works">
+                            <button type="submit" aria-label="Search">
                                 <i class="bi bi-search"></i>
                             </button>
                         </form>
                     </section>
 
                     <section class="news-sidebar-card">
-                        <h2>{{ __('ui.student_works.latest_sidebar_title') }}</h2>
+                        <h2>Latest Student Works</h2>
                         <div class="news-sidebar-list">
                             @forelse($sidebarStudentWorks as $item)
                                 <a href="{{ route('student-works.show', $item->slug) }}" class="news-sidebar-item {{ $item->id === $studentWork->id ? 'is-active' : '' }}">
@@ -78,14 +78,16 @@
                                     </div>
                                 </a>
                             @empty
-                                <p class="news-sidebar-empty">{{ __('ui.student_works.empty_desc') }}</p>
+                                <p class="news-sidebar-empty">Student works will appear here once they are published from the admin panel.</p>
                             @endforelse
                         </div>
-                        <a href="{{ route('student-works.index') }}" class="news-sidebar-all">{{ __('ui.student_works.see_all') }}</a>
+                        <a href="{{ route('student-works.index') }}" class="news-sidebar-all">See All</a>
                     </section>
                 </aside>
             </div>
         </section>
     </main>
+    <div id="google_translate_element" style="display:none;"></div>
+    <script src="{{ asset('js/translator.js') }}"></script>
 </body>
 </html>
