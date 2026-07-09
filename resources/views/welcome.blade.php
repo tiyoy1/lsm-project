@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
     <head>
     <meta charset="UTF-8">
@@ -179,7 +179,7 @@
             <div class="swiper hero-swiper" style="width: 100%; height: 100%;">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="hero-slide-media">
+                        <div class="hero-slide-media2811q">
                             <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="SMK Metland Cileungsi" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                         </div>
                     </div>
