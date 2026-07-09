@@ -28,7 +28,7 @@
 <body>
     <nav>
         <div class="logo">
-            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.webp") }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
+            <img src="{{ asset("img/LOGO METLAND COLLEGE-02.webp") }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
         </div>
         <ul id="primary-nav" class="notranslate">
             <li><a href="{{ url('/') }}" data-en="Home" data-id="Beranda">Home</a></li>
@@ -58,10 +58,10 @@
         
             <li class="nav-mobile-only nav-mobile-lang notranslate">
                 <button type="button" onclick="setLanguage('id')" id="mobile-lang-btn-id" class="nav-lang-toggle" data-lang="id">
-                    <i class="bi bi-translate"></i> Ganti ke Indonesia
+                    <i class="bi bi-translate"></i> Ganti ke Bahasa
                 </button>
                 <button type="button" onclick="setLanguage('en')" id="mobile-lang-btn-en" class="nav-lang-toggle" data-lang="en" style="display:none;">
-                    <i class="bi bi-translate"></i> Switch to English
+                    <i class="bi bi-translate"></i> Switch to Language
                 </button>
             </li>
         </ul>
@@ -82,10 +82,10 @@
         </div>
         <div class="lang-switch notranslate" aria-label="Language switcher">
             <button type="button" onclick="setLanguage('id')" id="lang-btn-id" class="desktop-lang-toggle" data-lang="id">
-                <i class="bi bi-translate"></i> Ganti ke Indonesia
+                <i class="bi bi-translate"></i> Ganti ke Bahasa
             </button>
             <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="desktop-lang-toggle" data-lang="en" style="display:none;">
-                <i class="bi bi-translate"></i> Switch to English
+                <i class="bi bi-translate"></i> Switch to Language
             </button>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
