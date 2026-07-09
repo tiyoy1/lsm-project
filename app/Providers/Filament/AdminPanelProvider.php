@@ -31,6 +31,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandName('Metland College')
             ->colors([
                 'primary' => Color::Amber,
             ])

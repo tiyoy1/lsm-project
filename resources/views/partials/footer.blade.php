@@ -1,5 +1,5 @@
 @php
-    $footerLogo = $logoUrl ?? asset('img/LOGO METLAND COLLEGE-02.webp');
+    $footerLogo = $logoUrl ?? asset('img/logo-metland-school.png');
     $footerWhatsapp = isset($contactSetting) && filled($contactSetting?->whatsapp)
         ? $contactSetting->whatsapp
         : '+62-8180-9999-180';
@@ -103,5 +103,8 @@
                 src="https://www.google.com/maps?cid=10705794069661621035&hl=id&gl=ID&output=embed">
             </iframe>
         </div>
+    </div>
+    <div class="footer-copyright">
+        <p>&copy; {{ date('Y') }} Metland College. All rights reserved. Developed by <strong>Metscho Tech</strong>.</p>
     </div>
 </footer>

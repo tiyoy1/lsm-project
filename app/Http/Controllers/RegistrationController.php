@@ -48,7 +48,7 @@ class RegistrationController extends Controller
         ]);
 
         return redirect()
-            ->route('ppdb.create')
+            ->route('registration.create')
             ->with('success', 'Pendaftaran berhasil dikirim. Data Anda akan ditinjau admin.');
     }
 
