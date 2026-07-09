@@ -518,10 +518,10 @@
         
             <li class="nav-mobile-only nav-mobile-lang notranslate">
                 <button type="button" onclick="setLanguage('id')" id="mobile-lang-btn-id" class="nav-lang-toggle" data-lang="id">
-                    <i class="bi bi-translate"></i> Ganti ke Indonesia
+                    <i class="bi bi-translate"></i> Ganti ke Bahasa
                 </button>
                 <button type="button" onclick="setLanguage('en')" id="mobile-lang-btn-en" class="nav-lang-toggle" data-lang="en" style="display:none;">
-                    <i class="bi bi-translate"></i> Switch to English
+                    <i class="bi bi-translate"></i> Switch to Language
                 </button>
             </li>
         </ul>
@@ -541,10 +541,10 @@
         </div>
         <div class="lang-switch notranslate" aria-label="Language switcher">
             <button type="button" onclick="setLanguage('id')" id="lang-btn-id" class="desktop-lang-toggle" data-lang="id">
-                <i class="bi bi-translate"></i> Ganti ke Indonesia
+                <i class="bi bi-translate"></i> Ganti ke Bahasa
             </button>
             <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="desktop-lang-toggle" data-lang="en" style="display:none;">
-                <i class="bi bi-translate"></i> Switch to English
+                <i class="bi bi-translate"></i> Switch to Language
             </button>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
@@ -602,9 +602,9 @@
             @endif
         </form>
         <div class="news-categories" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: -20px; margin-bottom: 40px; justify-content: center; align-items: center;">
-            <a href="{{ route('news.index', ['q' => request('q')]) }}" style="padding: 8px 20px; border-radius: 20px; background-color: {{ !request('category') ? '#0f6c75' : '#ffffff' }}; color: {{ !request('category') ? '#ffffff' : '#5b7579' }}; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid {{ !request('category') ? '#0f6c75' : 'rgba(28, 165, 165, 0.2)' }}; transition: all 0.25s ease; box-shadow: {{ !request('category') ? '0 4px 12px rgba(15, 108, 117, 0.2)' : 'none' }};">All</a>
-            <a href="{{ route('news.index', ['category' => 'career', 'q' => request('q')]) }}" style="padding: 8px 20px; border-radius: 20px; background-color: {{ request('category') == 'career' ? '#0f6c75' : '#ffffff' }}; color: {{ request('category') == 'career' ? '#ffffff' : '#5b7579' }}; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid {{ request('category') == 'career' ? '#0f6c75' : 'rgba(28, 165, 165, 0.2)' }}; transition: all 0.25s ease; box-shadow: {{ request('category') == 'career' ? '0 4px 12px rgba(15, 108, 117, 0.2)' : 'none' }};">Career</a>
-            <a href="{{ route('news.index', ['category' => 'award', 'q' => request('q')]) }}" style="padding: 8px 20px; border-radius: 20px; background-color: {{ request('category') == 'award' ? '#0f6c75' : '#ffffff' }}; color: {{ request('category') == 'award' ? '#ffffff' : '#5b7579' }}; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid {{ request('category') == 'award' ? '#0f6c75' : 'rgba(28, 165, 165, 0.2)' }}; transition: all 0.25s ease; box-shadow: {{ request('category') == 'award' ? '0 4px 12px rgba(15, 108, 117, 0.2)' : 'none' }};">Award</a>
+            <a href="{{ route('news.index', ['q' => request('q')]) }}" class="notranslate" data-en="All" data-id="Semua" style="padding: 8px 20px; border-radius: 20px; background-color: {{ !request('category') ? '#0f6c75' : '#ffffff' }}; color: {{ !request('category') ? '#ffffff' : '#5b7579' }}; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid {{ !request('category') ? '#0f6c75' : 'rgba(28, 165, 165, 0.2)' }}; transition: all 0.25s ease; box-shadow: {{ !request('category') ? '0 4px 12px rgba(15, 108, 117, 0.2)' : 'none' }};">All</a>
+            <a href="{{ route('news.index', ['category' => 'career', 'q' => request('q')]) }}" class="notranslate" data-en="Career" data-id="Karier" style="padding: 8px 20px; border-radius: 20px; background-color: {{ request('category') == 'career' ? '#0f6c75' : '#ffffff' }}; color: {{ request('category') == 'career' ? '#ffffff' : '#5b7579' }}; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid {{ request('category') == 'career' ? '#0f6c75' : 'rgba(28, 165, 165, 0.2)' }}; transition: all 0.25s ease; box-shadow: {{ request('category') == 'career' ? '0 4px 12px rgba(15, 108, 117, 0.2)' : 'none' }};">Career</a>
+            <a href="{{ route('news.index', ['category' => 'award', 'q' => request('q')]) }}" class="notranslate" data-en="Award" data-id="Penghargaan" style="padding: 8px 20px; border-radius: 20px; background-color: {{ request('category') == 'award' ? '#0f6c75' : '#ffffff' }}; color: {{ request('category') == 'award' ? '#ffffff' : '#5b7579' }}; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid {{ request('category') == 'award' ? '#0f6c75' : 'rgba(28, 165, 165, 0.2)' }}; transition: all 0.25s ease; box-shadow: {{ request('category') == 'award' ? '0 4px 12px rgba(15, 108, 117, 0.2)' : 'none' }};">Award</a>
         </div>
         @if(!empty($search))
             <p class="news-search-result">Search results for: "{{ $search }}"</p>

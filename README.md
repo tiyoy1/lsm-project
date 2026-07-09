@@ -1,4 +1,4 @@
-# Repository Private Metland College
+# Private Repository Metland College
 
 Aplikasi web Laravel untuk kebutuhan internal Metland College. Repository ini berisi source code aplikasi, sedangkan file `.env` tidak disimpan di repository karena berisi konfigurasi sensitif.
 

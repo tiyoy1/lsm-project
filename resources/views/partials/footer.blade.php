@@ -11,7 +11,7 @@
         <div class="footer-brand">
             <div class="footer-brand-head">
                 <img src="{{ $footerLogo }}" alt="Logo Metland College" class="footer-logo" loading="lazy" decoding="async">
-                <h3>METLAND COLLEGE</h3>
+                <h3 class="notranslate">METLAND COLLEGE</h3>
             </div>
             <p>The first step towards a brilliant career. Learn practically, develop creatively, and get ready to jump into the industry.</p>
         </div>
@@ -100,7 +100,7 @@
                 loading="lazy"
                 allowfullscreen
                 referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?cid=4362342788863844499&hl=id&gl=ID&output=embed">
+                src="https://www.google.com/maps?cid=10705794069661621035&hl=id&gl=ID&output=embed">
             </iframe>
         </div>
     </div>

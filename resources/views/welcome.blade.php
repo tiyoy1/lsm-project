@@ -135,10 +135,10 @@
         
             <li class="nav-mobile-only nav-mobile-lang notranslate">
                 <button type="button" onclick="setLanguage('id')" id="mobile-lang-btn-id" class="nav-lang-toggle" data-lang="id">
-                    <i class="bi bi-translate"></i> Ganti ke Indonesia
+                    <i class="bi bi-translate"></i> Ganti ke Bahasa
                 </button>
                 <button type="button" onclick="setLanguage('en')" id="mobile-lang-btn-en" class="nav-lang-toggle" data-lang="en" style="display:none;">
-                    <i class="bi bi-translate"></i> Switch to English
+                    <i class="bi bi-translate"></i> Switch to Language
                 </button>
             </li>
         </ul>
@@ -159,10 +159,10 @@
         </div>
         <div class="lang-switch notranslate" aria-label="Language switcher">
             <button type="button" onclick="setLanguage('id')" id="lang-btn-id" class="desktop-lang-toggle" data-lang="id">
-                <i class="bi bi-translate"></i> Ganti ke Indonesia
+                <i class="bi bi-translate"></i> Ganti ke Bahasa
             </button>
             <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="desktop-lang-toggle" data-lang="en" style="display:none;">
-                <i class="bi bi-translate"></i> Switch to English
+                <i class="bi bi-translate"></i> Switch to Language
             </button>
         </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
@@ -199,7 +199,7 @@
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-content">
             <p class="hero-eyebrow">"Professional & Lifelong Learning"</p>
-            <h1 class="hero-title">Crafting the <br><span>FUTURE</span></h1>
+            <h1 class="hero-title">Crafting Your <br><span>FUTURE</span></h1>
             <p>Metland College is a vocational school that provides education and training to students who want to work in the hospitality industry.</p>
             <div class="hero-actions">
                 <a href="#about-smk"     class="hero-btn">See more</a>
@@ -209,7 +209,7 @@
     <section id="about-smk" class="about-smk-section">
         <div class="about-smk-wrap">
             <div class="about-card">
-                <a href="{{ url('/program-keahlian') }}" class="about-head-link">
+                <a href="https://smkmetland.net/" class="about-head-link" target="_blank" rel="noopener noreferrer">
                     <div class="about-head">
                         <i class="bi bi-buildings about-icon" aria-hidden="true"></i>
                         <div>
@@ -270,7 +270,7 @@
     <section class="career-section" id="career-section">
         <div class="career-shell">
             <div class="career-head">
-                <span class="section-badge" style="user-select: none; transition: all 0.3s ease;">Training Method</span>
+                <span class="section-badge notranslate" style="user-select: none; transition: all 0.3s ease;" data-en="Training Method" data-id="Alur Pelatihan">Training Method</span>
                 <h2 class="section-title">From <span>Basic</span> to <span>Professional</span></h2> 
                 <p class="section-desc">Structured learning, focus on practice, and supported by industry until ready to enter the workforce.</p>
             </div>
@@ -359,7 +359,7 @@
             <div class="alumni-head text-center pb-4">
                 <span class="section-badge"><span>Alumni Reviews</span></span>
                 <h2 class="section-title">What <span>They Say</span></h2>
-                <p class="section-desc">Alumni reviews regarding their learning experience at SMK Metland.</p>
+                <p class="section-desc text-center" style="text-align: center !important; margin: 0 auto !important; display: block !important;">Alumni reviews regarding their learning experience at Metland College.</p>
             </div>
 
 	            <div class="testi-grid">
@@ -472,9 +472,7 @@
 	                </div>
 	            @endforeach
 
-            <div class="partnership-source">
-                <a href="https://smkmetland.net/ppdb/" target="_blank" rel="noopener noreferrer">Logo source: smkmetland.net</a>
-            </div>
+
         </div>
     </section>
 
@@ -499,7 +497,7 @@
             <div class="footer-brand">
                 <div class="footer-brand-head">
                     <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="footer-logo" loading="lazy" decoding="async">
-                    <h3>METLAND COLLEGE</h3>
+                    <h3 class="notranslate">METLAND COLLEGE</h3>
                 </div>
                 <p>The first step towards a brilliant career. Learn practically, develop creatively, and get ready to jump into the industry.</p>
             </div>
@@ -591,7 +589,7 @@
                     loading="lazy"
                     allowfullscreen
                     referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.6856233061058!2d108.18295181017014!3d-6.685809193281614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6ed711a2e575df%3A0x94929efc10aa1b2b!2sHotel%20Metland%20Smara%20Kertajati%20by%20Horison!5e0!3m2!1sen!2sid!4v1779417620688!5m2!1sen!2sid">
+                    src="https://www.google.com/maps?cid=10705794069661621035&hl=id&gl=ID&output=embed">
                 </iframe>
             </div>
         </div>
