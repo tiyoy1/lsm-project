@@ -69,11 +69,11 @@ function updateLangButtonActiveState(langCode) {
     const mobileLangEn = document.getElementById('mobile-lang-btn-en');
     if (mobileLangId && mobileLangEn) {
         if (langCode === 'id') {
-            // Currently in Indonesian, show "Switch to English"
+            // Currently in Indonesian, show "Switch to Language"
             mobileLangId.style.display = 'none';
             mobileLangEn.style.display = 'flex';
         } else {
-            // Currently in English, show "Ganti ke Indonesia"
+            // Currently in English, show "Ganti ke Bahasa"
             mobileLangId.style.display = 'flex';
             mobileLangEn.style.display = 'none';
         }

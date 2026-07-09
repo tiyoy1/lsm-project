@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News - Metland College</title>
-    <link rel="icon" type="image/webp" href="{{ $faviconUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') . '?v=20260305' }}">
+    <link rel="icon" type="image/webp" href="{{ $faviconUrl ?: asset('img/logo-metland-school.png') . '?v=20260305' }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
@@ -38,22 +38,6 @@
         .news-page-body {
             background: #f2fbfb !important;
             font-family: "Outfit", sans-serif;
-        }
-        nav {
-            /* start transparent on page load; darken once user scrolls */
-            background: transparent !important;
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            box-shadow: none !important;
-            transition: background-color 0.28s ease, backdrop-filter 0.28s ease, box-shadow 0.28s ease !important;
-        }
-
-        /* Applied when the page is scrolled */
-        .nav-scrolled {
-            background-color: rgba(7, 23, 31, 0.58) !important;
-            backdrop-filter: blur(10px) !important;
-            -webkit-backdrop-filter: blur(10px) !important;
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28) !important;
         }
         .news-page-main {
             padding-top: 60px !important;
@@ -354,8 +338,8 @@
         /* ── News Hero Section ── */
         .news-hero {
             position: relative;
-            /* match home hero: full viewport height */
             min-height: 100vh;
+            min-height: 100svh;
             width: 100%;
             overflow: hidden;
             display: flex;
@@ -403,6 +387,7 @@
             animation: newsHeroReveal 650ms ease-out forwards;
             transform: translateY(6px);
             opacity: 0;
+            border-radius: 20px;
         }
         .news-hero-eyebrow {
             margin: 0;
@@ -456,12 +441,28 @@
                 opacity: 1;
             }
         }
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .news-hero {
-                min-height: 55vh;
+                min-height: 82vh;
+                min-height: 82svh;
             }
             .news-hero-content {
-                padding: 1.5rem;
+                width: min(92vw, 560px);
+                padding: 1.4rem 1.5rem;
+                border-radius: 16px;
+                gap: 0.7rem;
+            }
+            .news-hero-eyebrow {
+                letter-spacing: 0.2rem;
+                font-size: 0.72rem;
+            }
+            .news-hero-title {
+                font-size: clamp(1.9rem, 8vw, 3.2rem);
+            }
+            .news-hero-content > p {
+                font-size: 0.85rem;
+                line-height: 1.5;
+                margin: 0;
             }
         }
         /* Reveal animation for news cards when scrolled into view */
@@ -488,7 +489,9 @@
 <body class="news-page-body">
     <nav>
         <div class="logo">
-            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
+            <a href="{{ url('/') }}">
+                <img src="{{ $logoUrl ?: asset('img/logo-metland-school.png') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
+            </a>
         </div>
         <ul id="primary-nav" class="notranslate">
             <li><a href="{{ url('/') }}" data-en="Home" data-id="Beranda">Home</a></li>
@@ -513,18 +516,19 @@
             </li>
             <li><a href="{{ route('news.index') }}" data-en="News" data-id="Berita">News</a></li>
             <li><a href="{{ route('testi') }}" data-en="Reviews" data-id="Ulasan">Reviews</a></li>
-            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}" data-en="Join Us" data-id="Bergabung">Join Us</a></li>
+            <li class="nav-mobile-only"><a href="{{ route('registration.create') }}" data-en="Join Us" data-id="Bergabung">Join Us</a></li>
             <li><a href="{{ url('/') }}#partnership" data-en="Partnership" data-id="Kemitraan">Partnership</a></li>
         
             <li class="nav-mobile-only nav-mobile-lang notranslate">
                 <button type="button" onclick="setLanguage('id')" id="mobile-lang-btn-id" class="nav-lang-toggle" data-lang="id">
-                    <i class="bi bi-translate"></i> Ganti ke Indonesia
+                    <i class="bi bi-translate"></i> Ganti ke Bahasa
                 </button>
                 <button type="button" onclick="setLanguage('en')" id="mobile-lang-btn-en" class="nav-lang-toggle" data-lang="en" style="display:none;">
-                    <i class="bi bi-translate"></i> Switch to English
+                    <i class="bi bi-translate"></i> Switch to Language
                 </button>
             </li>
         </ul>
+        <div class="nav-right">
         <div class="sosmed-icon">
             <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
                 <i class="bi bi-youtube"></i>
@@ -537,16 +541,17 @@
             </a>
         </div>
         <div class="ppdb-btn">
-            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
+            <button type="button" onclick="window.location.href='{{ route('registration.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
         <div class="lang-switch notranslate" aria-label="Language switcher">
             <button type="button" onclick="setLanguage('id')" id="lang-btn-id" class="desktop-lang-toggle" data-lang="id">
-                <i class="bi bi-translate"></i> Ganti ke Indonesia
+                <i class="bi bi-translate"></i> Ganti ke Bahasa
             </button>
             <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="desktop-lang-toggle" data-lang="en" style="display:none;">
-                <i class="bi bi-translate"></i> Switch to English
+                <i class="bi bi-translate"></i> Switch to Language
             </button>
         </div>
+    </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
                 <i class="bi bi-search"></i>
@@ -570,6 +575,12 @@
                     </div>
                     <div class="swiper-slide">
                         <img src="{{ asset('img/Kertajati.webp') }}" alt="Kertajati" loading="lazy" decoding="async">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/horison_ultima_bekasi.webp') }}" alt="Horison Ultima Bekasi" loading="lazy" decoding="async">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/seva_seminyak_badung.webp') }}" alt="Seva Seminyak Badung" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
@@ -602,9 +613,9 @@
             @endif
         </form>
         <div class="news-categories" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: -20px; margin-bottom: 40px; justify-content: center; align-items: center;">
-            <a href="{{ route('news.index', ['q' => request('q')]) }}" style="padding: 8px 20px; border-radius: 20px; background-color: {{ !request('category') ? '#0f6c75' : '#ffffff' }}; color: {{ !request('category') ? '#ffffff' : '#5b7579' }}; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid {{ !request('category') ? '#0f6c75' : 'rgba(28, 165, 165, 0.2)' }}; transition: all 0.25s ease; box-shadow: {{ !request('category') ? '0 4px 12px rgba(15, 108, 117, 0.2)' : 'none' }};">All</a>
-            <a href="{{ route('news.index', ['category' => 'career', 'q' => request('q')]) }}" style="padding: 8px 20px; border-radius: 20px; background-color: {{ request('category') == 'career' ? '#0f6c75' : '#ffffff' }}; color: {{ request('category') == 'career' ? '#ffffff' : '#5b7579' }}; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid {{ request('category') == 'career' ? '#0f6c75' : 'rgba(28, 165, 165, 0.2)' }}; transition: all 0.25s ease; box-shadow: {{ request('category') == 'career' ? '0 4px 12px rgba(15, 108, 117, 0.2)' : 'none' }};">Career</a>
-            <a href="{{ route('news.index', ['category' => 'award', 'q' => request('q')]) }}" style="padding: 8px 20px; border-radius: 20px; background-color: {{ request('category') == 'award' ? '#0f6c75' : '#ffffff' }}; color: {{ request('category') == 'award' ? '#ffffff' : '#5b7579' }}; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid {{ request('category') == 'award' ? '#0f6c75' : 'rgba(28, 165, 165, 0.2)' }}; transition: all 0.25s ease; box-shadow: {{ request('category') == 'award' ? '0 4px 12px rgba(15, 108, 117, 0.2)' : 'none' }};">Award</a>
+            <a href="{{ route('news.index', ['q' => request('q')]) }}" class="notranslate" data-en="All" data-id="Semua" style="padding: 8px 20px; border-radius: 20px; background-color: {{ !request('category') ? '#0f6c75' : '#ffffff' }}; color: {{ !request('category') ? '#ffffff' : '#5b7579' }}; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid {{ !request('category') ? '#0f6c75' : 'rgba(28, 165, 165, 0.2)' }}; transition: all 0.25s ease; box-shadow: {{ !request('category') ? '0 4px 12px rgba(15, 108, 117, 0.2)' : 'none' }};">All</a>
+            <a href="{{ route('news.index', ['category' => 'career', 'q' => request('q')]) }}" class="notranslate" data-en="Career" data-id="Karier" style="padding: 8px 20px; border-radius: 20px; background-color: {{ request('category') == 'career' ? '#0f6c75' : '#ffffff' }}; color: {{ request('category') == 'career' ? '#ffffff' : '#5b7579' }}; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid {{ request('category') == 'career' ? '#0f6c75' : 'rgba(28, 165, 165, 0.2)' }}; transition: all 0.25s ease; box-shadow: {{ request('category') == 'career' ? '0 4px 12px rgba(15, 108, 117, 0.2)' : 'none' }};">Career</a>
+            <a href="{{ route('news.index', ['category' => 'award', 'q' => request('q')]) }}" class="notranslate" data-en="Award" data-id="Penghargaan" style="padding: 8px 20px; border-radius: 20px; background-color: {{ request('category') == 'award' ? '#0f6c75' : '#ffffff' }}; color: {{ request('category') == 'award' ? '#ffffff' : '#5b7579' }}; text-decoration: none; font-weight: 500; font-size: 0.95rem; border: 1px solid {{ request('category') == 'award' ? '#0f6c75' : 'rgba(28, 165, 165, 0.2)' }}; transition: all 0.25s ease; box-shadow: {{ request('category') == 'award' ? '0 4px 12px rgba(15, 108, 117, 0.2)' : 'none' }};">Award</a>
         </div>
         @if(!empty($search))
             <p class="news-search-result">Search results for: "{{ $search }}"</p>
@@ -676,27 +687,15 @@
                 new Swiper(newsHeroEl, {
                     slidesPerView: 1,
                     loop: true,
-                    speed: 3500,
+                    speed: 1000,
                     autoplay: {
-                        delay: 2000,
+                        delay: 5000,
                         disableOnInteraction: false,
                     },
                 });
             }
 
-            // Navbar: start transparent, darken on scroll
-            var navEl = document.querySelector('nav');
-            function updateNavScroll() {
-                if (!navEl) return;
-                if (window.scrollY > 20) {
-                    navEl.classList.add('nav-scrolled');
-                } else {
-                    navEl.classList.remove('nav-scrolled');
-                }
-            }
-            // Initialize state and bind scroll handler
-            updateNavScroll();
-            window.addEventListener('scroll', function() { requestAnimationFrame(updateNavScroll); });
+
 
             // Reveal news cards when they scroll into view
             var newsCards = document.querySelectorAll('.news-page-card');

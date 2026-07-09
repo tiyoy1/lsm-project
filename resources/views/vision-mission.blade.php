@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Vision and Mission of Metland College - Professional & Lifelong Learning">
     <title>LPK-LKP METLAND COLLEGE</title>
-    <link rel="icon" type="image/webp" href="{{ asset('img/LOGO METLAND COLLEGE-02.webp') }}?v=20260305">
+    <link rel="icon" type="image/webp" href="{{ asset('img/logo-metland-school.png') }}?v=20260305">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
@@ -28,7 +28,9 @@
 <body>
     <nav>
         <div class="logo">
-            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.webp") }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
+            <a href="{{ url('/') }}">
+                <img src="{{ asset("img/logo-metland-school.png") }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
+            </a>
         </div>
         <ul id="primary-nav" class="notranslate">
             <li><a href="{{ url('/') }}" data-en="Home" data-id="Beranda">Home</a></li>
@@ -53,18 +55,19 @@
             </li>
             <li><a href="{{ route('news.index') }}" data-en="News" data-id="Berita">News</a></li>
             <li><a href="{{ route('testi') }}" data-en="Reviews" data-id="Ulasan">Reviews</a></li>
-            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}" data-en="Join Us" data-id="Bergabung">Join Us</a></li>
+            <li class="nav-mobile-only"><a href="{{ route('registration.create') }}" data-en="Join Us" data-id="Bergabung">Join Us</a></li>
             <li><a href="{{ url('/') }}#partnership" data-en="Partnership" data-id="Kemitraan">Partnership</a></li>
         
             <li class="nav-mobile-only nav-mobile-lang notranslate">
                 <button type="button" onclick="setLanguage('id')" id="mobile-lang-btn-id" class="nav-lang-toggle" data-lang="id">
-                    <i class="bi bi-translate"></i> Ganti ke Indonesia
+                    <i class="bi bi-translate"></i> Ganti ke Bahasa
                 </button>
                 <button type="button" onclick="setLanguage('en')" id="mobile-lang-btn-en" class="nav-lang-toggle" data-lang="en" style="display:none;">
-                    <i class="bi bi-translate"></i> Switch to English
+                    <i class="bi bi-translate"></i> Switch to Language
                 </button>
             </li>
         </ul>
+        <div class="nav-right">
         <div class="sosmed-icon">
   <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
     <i class="bi bi-youtube"></i>
@@ -78,16 +81,17 @@
   </a>
 </div>
         <div class="ppdb-btn">
-            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
+            <button type="button" onclick="window.location.href='{{ route('registration.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
         <div class="lang-switch notranslate" aria-label="Language switcher">
             <button type="button" onclick="setLanguage('id')" id="lang-btn-id" class="desktop-lang-toggle" data-lang="id">
-                <i class="bi bi-translate"></i> Ganti ke Indonesia
+                <i class="bi bi-translate"></i> Ganti ke Bahasa
             </button>
             <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="desktop-lang-toggle" data-lang="en" style="display:none;">
-                <i class="bi bi-translate"></i> Switch to English
+                <i class="bi bi-translate"></i> Switch to Language
             </button>
         </div>
+    </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
                 <i class="bi bi-search"></i>
@@ -110,6 +114,12 @@
                     <div class="swiper-slide">
                         <img src="{{ asset('img/Kertajati.webp') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/horison_ultima_bekasi.webp') }}" alt="Horison Ultima Bekasi" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/seva_seminyak_badung.webp') }}" alt="Seva Seminyak Badung" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+                    </div>
                 </div>
             </div>
         </div>
@@ -130,39 +140,61 @@
             
             <!-- Vision Card -->
             <div class="vision-card">
-                <h2>Our Vision</h2>
-                <p>Metland College, whose graduates have <span>superior character</span> and <span>international standard</span> competitive abilities.</p>
+                <h2 class="notranslate" data-en="Our Vision" data-id="Visi Kami">Our Vision</h2>
+                <p class="notranslate" 
+                   data-en="Metland College, whose graduates have <span>superior character</span> and <span>international standard</span> competitive abilities."
+                   data-id="Metland College, yang lulusannya memiliki <span>karakter unggul</span> dan kemampuan kompetitif berstandar <span>internasional</span>.">
+                    Metland College, whose graduates have <span>superior character</span> and <span>international standard</span> competitive abilities.
+                </p>
                 <div class="vision-glow"></div>
             </div>
 
             <!-- Mission Area -->
             <div class="mission-area">
                 <div class="section-header">
-                    <span class="section-badge">Missions</span>
-                    <h2 class="section-title">Our Dreams</h2>
-                    <p class="section-desc">To achieve our vision, we are committed to executing these core missions with excellence and dedication.</p>
+                    <span class="section-badge notranslate" data-en="Missions" data-id="Misi">Missions</span>
+                    <h2 class="section-title notranslate" data-en="Our Dreams" data-id="Mimpi Kita">Our Dreams</h2>
+                    <p class="section-desc notranslate" 
+                       data-en="To achieve our vision, we are committed to executing these core missions with excellence and dedication." 
+                       data-id="Untuk mencapai visi kami, kami berkomitmen untuk melaksanakan misi utama ini dengan keunggulan dan dedikasi.">To achieve our vision, we are committed to executing these core missions with excellence and dedication.</p>
                 </div>
                 
                 <div class="mission-grid">
                     
                     <div class="mission-card">
                         <span class="mission-number">A</span>
-                        <p>Providing educational services for students oriented towards developing knowledge, skills, and attitudes based on Industry 4.0, as well as strengthening character that aligns with the demands of the industrial world.</p>
+                        <p class="notranslate" 
+                           data-en="Providing educational services for students oriented towards developing knowledge, skills, and attitudes based on Industry 4.0, as well as strengthening character that aligns with the demands of the industrial world." 
+                           data-id="Menyelenggarakan layanan pendidikan bagi peserta didik yang berorientasi pada pengembangan pengetahuan, keterampilan, dan sikap berbasis Industri 4.0, serta penguatan karakter yang selaras dengan tuntutan dunia industri.">
+                            Providing educational services for students oriented towards developing knowledge, skills, and attitudes based on Industry 4.0, as well as strengthening character that aligns with the demands of the industrial world.
+                        </p>
                     </div>
 
                     <div class="mission-card">
                         <span class="mission-number">B</span>
-                        <p>Developing the professionalism of teachers based on Metland College's values and adapting to the demands of Industry 4.0.</p>
+                        <p class="notranslate" 
+                           data-en="Developing the professionalism of teachers based on Metland College's values and adapting to the demands of Industry 4.0." 
+                           data-id="Mengembangkan profesionalisme pendidik berbasis nilai-nilai Metland College dan beradaptasi dengan tuntutan Industri 4.0.">
+                            Developing the professionalism of teachers based on Metland College's values and adapting to the demands of Industry 4.0.
+                        </p>
                     </div>
 
                     <div class="mission-card">
                         <span class="mission-number">C</span>
-                        <p>Developing a collaborative partnership network with the industrial and vocational higher education institutions (DUDI) and vocational colleges both domestically and internationally to develop academic programs.</p>
+                        <p class="notranslate" 
+                           data-en="Developing a collaborative partnership network with the industrial and vocational higher education institutions (DUDI) and vocational colleges both domestically and internationally to develop academic programs." 
+                           data-id="Mengembangkan jaringan kemitraan kolaboratif dengan dunia usaha dan industri (DUDI) serta perguruan tinggi vokasi baik di dalam maupun di luar negeri untuk mengembangkan program akademik.">
+                            Developing a collaborative partnership network with the industrial and vocational higher education institutions (DUDI) and vocational colleges both domestically and internationally to develop academic programs.
+                        </p>
                     </div>
 
                     <div class="mission-card">
                         <span class="mission-number">D</span>
-                        <p>Developing a collaborative network with DUDI (Dudi) domestically and internationally to achieve zero graduate unemployment.</p>
+                        <p class="notranslate" 
+                           data-en="Developing a collaborative network with DUDI (Dudi) domestically and internationally to achieve zero graduate unemployment." 
+                           data-id="Mengembangkan jaringan kolaboratif dengan DUDI di dalam dan luar negeri untuk mencapai target nol pengangguran lulusan.">
+                            Developing a collaborative network with DUDI (Dudi) domestically and internationally to achieve zero graduate unemployment.
+                        </p>
                     </div>
 
                 </div>

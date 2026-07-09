@@ -15,13 +15,13 @@ body {
 nav {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 9000;
     width: 100%;
     padding: 1rem 1.25rem;
-    gap: 1rem;
     transition:
         background-color 0.28s ease,
         backdrop-filter 0.28s ease,
@@ -36,7 +36,7 @@ nav.is-scrolled {
 }
 
 nav .logo {
-    flex-shrink: 0;
+    flex: 1 0 0%;
     color: #fff;
     gap: 10px;
     display: flex;
@@ -48,15 +48,34 @@ nav .logo-img {
     width: 50px;
 }
 
+nav .logo span {
+    font-family: 'Eras Bold ITC', sans-serif;
+}
+
+nav .logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: inherit;
+    text-decoration: none;
+}
+
 nav ul {
     display: flex;
     list-style: none;
     gap: 1rem;
     justify-content: center;
     margin: 0;
-    margin-left: 100px;
     padding: 0;
-    flex: 1;
+    flex: 0 1 auto;
+}
+
+nav .nav-right {
+    flex: 1 0 0%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
 }
 
 nav ul li {
@@ -127,9 +146,9 @@ nav .nav-dropdown-toggle .bi {
     transition: transform 0.2s ease;
 }
 
-nav .nav-has-dropdown.is-open > .nav-dropdown-toggle .bi,
-nav .nav-has-dropdown:hover > .nav-dropdown-toggle .bi,
-nav .nav-has-dropdown:focus-within > .nav-dropdown-toggle .bi {
+nav .nav-has-dropdown.is-open>.nav-dropdown-toggle .bi,
+nav .nav-has-dropdown:hover>.nav-dropdown-toggle .bi,
+nav .nav-has-dropdown:focus-within>.nav-dropdown-toggle .bi {
     transform: rotate(180deg);
 }
 
@@ -146,11 +165,9 @@ nav .nav-dropdown {
     list-style: none;
     border-radius: 12px;
     border: 1px solid rgba(151, 236, 240, 0.25);
-    background: linear-gradient(
-        170deg,
-        rgba(6, 34, 44, 0.96),
-        rgba(8, 62, 76, 0.94)
-    );
+    background: linear-gradient(170deg,
+            rgba(6, 34, 44, 0.96),
+            rgba(8, 62, 76, 0.94));
     box-shadow: 0 16px 28px rgba(0, 0, 0, 0.28);
     opacity: 0;
     visibility: hidden;
@@ -189,9 +206,9 @@ nav .nav-dropdown a:hover {
     background: rgba(98, 213, 217, 0.18);
 }
 
-nav .nav-has-dropdown:hover > .nav-dropdown,
-nav .nav-has-dropdown:focus-within > .nav-dropdown,
-nav .nav-has-dropdown.is-open > .nav-dropdown {
+nav .nav-has-dropdown:hover>.nav-dropdown,
+nav .nav-has-dropdown:focus-within>.nav-dropdown,
+nav .nav-has-dropdown.is-open>.nav-dropdown {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -218,19 +235,29 @@ nav .sosmed-icon a:hover {
 
 nav .sosmed-icon .icon-youtube {
     color: #ff0000;
-} /* merah */
+}
+
+/* merah */
 nav .sosmed-icon .icon-tiktok {
-    color: #111111;
-} /* hitam */
+    color: #ffffff;
+}
+
+/* putih */
 nav .sosmed-icon .icon-instagram {
     color: #e4405f;
-} /* opsional */
+}
+
+/* opsional */
 nav .sosmed-icon .icon-facebook {
     color: #4840e4;
-} /* opsional */
+}
+
+/* opsional */
 nav .sosmed-icon .icon-whatsapp {
     color: #25d366;
-} /* opsional */
+}
+
+/* opsional */
 
 .whatsapp-fab {
     position: fixed;
@@ -318,9 +345,11 @@ nav .sosmed-icon .icon-whatsapp {
     0% {
         box-shadow: 0 18px 32px rgba(18, 140, 126, 0.35);
     }
+
     50% {
         box-shadow: 0 22px 42px rgba(18, 140, 126, 0.5);
     }
+
     100% {
         box-shadow: 0 18px 32px rgba(18, 140, 126, 0.35);
     }
@@ -340,11 +369,9 @@ nav .ppdb-btn button {
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    background: linear-gradient(
-        120deg,
-        rgba(88, 210, 210, 0.3),
-        rgba(88, 210, 210, 0.14)
-    );
+    background: linear-gradient(120deg,
+            rgba(88, 210, 210, 0.3),
+            rgba(88, 210, 210, 0.14));
     box-shadow: 0 8px 18px rgba(11, 92, 92, 0.32);
     transition:
         transform 0.28s ease,
@@ -413,7 +440,7 @@ nav .nav-mobile-actions {
     display: none;
 }
 
-body > nav ul li.nav-mobile-only {
+body>nav ul li.nav-mobile-only {
     display: none;
 }
 
@@ -486,11 +513,9 @@ body > nav ul li.nav-mobile-only {
     inset: 0;
     background:
         linear-gradient(180deg, rgba(4, 18, 24, 0.15), rgba(5, 16, 22, 0.65)),
-        radial-gradient(
-            circle at 45% 35%,
+        radial-gradient(circle at 45% 35%,
             rgba(0, 0, 0, 0.1),
-            rgba(5, 18, 24, 0.72)
-        );
+            rgba(5, 18, 24, 0.72));
 }
 
 .hero-content {
@@ -592,7 +617,7 @@ body > nav ul li.nav-mobile-only {
 }
 
 .about-smk-section {
-    padding: 180px 0 68px;
+    padding: 0 0 68px;
     position: relative;
     z-index: 1;
     background: #f2fbfb;
@@ -600,15 +625,21 @@ body > nav ul li.nav-mobile-only {
 
 .about-smk-wrap {
     width: min(1280px, 92vw);
-    margin: 0 auto;
+    margin: -3px auto 0;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     background: #f2fbfb;
+    border-radius: 20px;
+    overflow: hidden;
+    isolation: isolate;
+    transform: translateZ(0);
+    box-shadow: 0 10px 30px rgba(10, 40, 50, 0.05);
 }
 
 .about-card {
     border-right: 1px solid #e3e3e3;
-    margin-top: -225px;
+    background: #ffffff;
+    margin-top: 0;
     min-height: 560px;
     display: flex;
     flex-direction: column;
@@ -620,11 +651,9 @@ body > nav ul li.nav-mobile-only {
 
 .about-head {
     background:
-        radial-gradient(
-            circle at 25% 15%,
+        radial-gradient(circle at 25% 15%,
             rgba(88, 210, 210, 0.18),
-            transparent 48%
-        ),
+            transparent 48%),
         linear-gradient(160deg, rgba(2, 10, 16, 0.72), rgb(5, 139, 133));
     box-shadow:
         0 14px 30px rgba(0, 0, 0, 0.45),
@@ -696,6 +725,7 @@ body > nav ul li.nav-mobile-only {
         transform 0.55s ease,
         filter 0.55s ease;
 }
+
 .about-image:hover {
     transform: scale(1.2);
     filter: opacity(0.8);
@@ -705,6 +735,7 @@ body > nav ul li.nav-mobile-only {
     padding: 40px 28px 34px;
     flex: 1;
 }
+
 .about-body p {
     margin: 0;
     color: #595959;
@@ -780,7 +811,7 @@ body > nav ul li.nav-mobile-only {
     color: #58bdb9;
 }
 
-.feature-carousel-section > p {
+.feature-carousel-section>p {
     margin: 0 auto 24px;
     width: fit-content;
     text-align: center;
@@ -802,17 +833,15 @@ body > nav ul li.nav-mobile-only {
     width: min(960px, 90vw);
     min-height: 430px;
     display: grid;
-    grid-template-columns: minmax(360px, 550px) minmax(0, 1fr);
+    grid-template-columns: minmax(280px, 550px) minmax(0, 1fr);
     align-items: center;
     gap: 34px;
     padding: 24px 30px;
     border-radius: 30px;
     background:
-        radial-gradient(
-            circle at 25% 15%,
+        radial-gradient(circle at 25% 15%,
             rgba(88, 210, 210, 0.18),
-            transparent 48%
-        ),
+            transparent 48%),
         linear-gradient(160deg, rgba(2, 10, 16, 0.72), rgb(5, 139, 133));
     box-shadow:
         0 14px 30px rgba(0, 0, 0, 0.45),
@@ -826,7 +855,6 @@ body > nav ul li.nav-mobile-only {
         opacity 0.5s ease,
         filter 0.5s ease;
     pointer-events: none;
-    box-shadow: 0 20px 44px rgba(85, 63, 98, 0.2);
 }
 
 .feature-card.is-active {
@@ -886,32 +914,21 @@ body > nav ul li.nav-mobile-only {
 }
 
 .feature-card[data-feature-group="organization"] .feature-media {
-    background: linear-gradient(
-        160deg,
-        rgba(8, 58, 72, 0.9),
-        rgba(10, 109, 123, 0.82)
-    );
+    background: linear-gradient(160deg,
+            rgba(8, 58, 72, 0.9),
+            rgba(10, 109, 123, 0.82));
 }
 
 .feature-card[data-feature-group="organization"] .feature-media::after {
-    background: linear-gradient(
-        180deg,
-        rgba(4, 24, 32, 0.08) 0%,
-        rgba(5, 139, 133, 0.38) 100%
-    );
+    background: linear-gradient(180deg,
+            rgba(4, 24, 32, 0.08) 0%,
+            rgba(5, 139, 133, 0.38) 100%);
 }
 
 .feature-card[data-feature-group="organization"] .feature-media img {
     object-fit: contain;
     object-position: center;
     padding: 18px;
-}
-
-.feature-media img {
-    width: 100%;
-    height: 460px;
-    object-fit: cover;
-    display: block;
 }
 
 .feature-content {
@@ -1051,11 +1068,9 @@ body > nav ul li.nav-mobile-only {
     font-size: 0.74rem;
     letter-spacing: 0.11em;
     font-weight: 700;
-    background: linear-gradient(
-        120deg,
-        rgba(53, 189, 196, 0.34),
-        rgba(140, 230, 233, 0.22)
-    );
+    background: linear-gradient(120deg,
+            rgba(53, 189, 196, 0.34),
+            rgba(140, 230, 233, 0.22));
     border: 1px solid rgba(105, 206, 210, 0.42);
 }
 
@@ -1304,11 +1319,9 @@ body > nav ul li.nav-mobile-only {
     font-size: 0.78rem;
     color: #0f3f43;
     border: 1px solid rgba(14, 131, 137, 0.35);
-    background: linear-gradient(
-        120deg,
-        rgba(126, 229, 229, 0.5),
-        rgba(68, 184, 191, 0.25)
-    );
+    background: linear-gradient(120deg,
+            rgba(126, 229, 229, 0.5),
+            rgba(68, 184, 191, 0.25));
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease;
@@ -1554,7 +1567,7 @@ body > nav ul li.nav-mobile-only {
     line-height: 1.75;
 }
 
-.career-modal-list li + li {
+.career-modal-list li+li {
     margin-top: 12px;
 }
 
@@ -1652,11 +1665,9 @@ body > nav ul li.nav-mobile-only {
     min-height: 360px;
     border-radius: 30px;
     border: 1px solid rgba(132, 220, 222, 0.24);
-    background: linear-gradient(
-        145deg,
-        rgba(255, 255, 255, 0.88),
-        rgba(238, 250, 250, 0.8)
-    );
+    background: linear-gradient(145deg,
+            rgba(255, 255, 255, 0.88),
+            rgba(238, 250, 250, 0.8));
     box-shadow:
         0 24px 50px rgba(10, 64, 69, 0.12),
         0 0 0 1px rgba(255, 255, 255, 0.45) inset;
@@ -1668,11 +1679,9 @@ body > nav ul li.nav-mobile-only {
     inset: 18px;
     border-radius: 24px;
     background:
-        linear-gradient(
-            180deg,
+        linear-gradient(180deg,
             rgba(14, 131, 137, 0.08),
-            rgba(14, 131, 137, 0)
-        ),
+            rgba(14, 131, 137, 0)),
         rgba(255, 255, 255, 0.24);
     pointer-events: none;
 }
@@ -1768,11 +1777,9 @@ body > nav ul li.nav-mobile-only {
     border-radius: 24px;
     color: #ffffff;
     background:
-        radial-gradient(
-            circle at top right,
+        radial-gradient(circle at top right,
             rgba(255, 255, 255, 0.12),
-            transparent 30%
-        ),
+            transparent 30%),
         linear-gradient(160deg, #0b7278 0%, #0d8f95 48%, #13a9ac 100%);
     box-shadow: 0 24px 36px rgba(10, 88, 92, 0.16);
     overflow: hidden;
@@ -1833,16 +1840,12 @@ body > nav ul li.nav-mobile-only {
     position: relative;
     padding: 108px 0 118px;
     background:
-        radial-gradient(
-            circle at 16% 10%,
+        radial-gradient(circle at 16% 10%,
             rgba(17, 174, 178, 0.1),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 86% 16%,
+            transparent 28%),
+        radial-gradient(circle at 86% 16%,
             rgba(214, 168, 38, 0.12),
-            transparent 24%
-        ),
+            transparent 24%),
         linear-gradient(180deg, #f9fcfb 0%, #f2fbfb 100%);
     overflow: hidden;
 }
@@ -1898,7 +1901,7 @@ body > nav ul li.nav-mobile-only {
     padding: 2.618rem 2.618rem 2.05rem;
     max-width: 1040px;
     border-radius: 32px;
-    background:rgba(8, 57, 61, 0.98);
+    background: rgba(8, 57, 61, 0.98);
     box-shadow: 0 8px 26px rgba(9, 72, 78, 0.18);
     overflow: hidden;
 }
@@ -1976,11 +1979,9 @@ body > nav ul li.nav-mobile-only {
     top: 110px;
     padding: 2rem 1.8rem;
     border-radius: 24px;
-    background: linear-gradient(
-        145deg,
-        rgba(255, 255, 255, 0.92),
-        rgba(243, 251, 250, 0.88)
-    );
+    background: linear-gradient(145deg,
+            rgba(255, 255, 255, 0.92),
+            rgba(243, 251, 250, 0.88));
     border: 1px solid rgba(13, 128, 134, 0.12);
     box-shadow: 0 18px 34px rgba(11, 73, 78, 0.08);
 }
@@ -2169,10 +2170,10 @@ body > nav ul li.nav-mobile-only {
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
+    box-shadow: 0 6px 18px rgba(13, 128, 134, 0.22);
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
-    box-shadow: 0 6px 18px rgba(13, 128, 134, 0.22);
 }
 
 .news-search-btn:hover {
@@ -2308,10 +2309,10 @@ body > nav ul li.nav-mobile-only {
     font-weight: 700;
     font-size: 0.92rem;
     text-decoration: none;
+    box-shadow: 0 8px 22px rgba(13, 128, 134, 0.25);
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
-    box-shadow: 0 8px 22px rgba(13, 128, 134, 0.25);
     width: fit-content;
 }
 
@@ -2323,7 +2324,7 @@ body > nav ul li.nav-mobile-only {
 /* News Grid */
 .news-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
     gap: 24px;
     margin-bottom: 36px;
 }
@@ -2484,11 +2485,9 @@ body > nav ul li.nav-mobile-only {
     height: 80px;
     margin: 0 auto 20px;
     border-radius: 50%;
-    background: linear-gradient(
-        135deg,
-        rgba(13, 128, 134, 0.12),
-        rgba(17, 174, 178, 0.08)
-    );
+    background: linear-gradient(135deg,
+            rgba(13, 128, 134, 0.12),
+            rgba(17, 174, 178, 0.08));
     display: grid;
     place-items: center;
     font-size: 2rem;
@@ -2521,10 +2520,10 @@ body > nav ul li.nav-mobile-only {
     color: #fff;
     font-weight: 700;
     text-decoration: none;
+    box-shadow: 0 8px 22px rgba(13, 128, 134, 0.25);
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
-    box-shadow: 0 8px 22px rgba(13, 128, 134, 0.25);
 }
 
 .news-empty-btn:hover {
@@ -2788,16 +2787,12 @@ body > nav ul li.nav-mobile-only {
 .school-partnership {
     padding: 84px 0 92px;
     background:
-        radial-gradient(
-            circle at 14% 16%,
+        radial-gradient(circle at 14% 16%,
             rgba(88, 210, 210, 0.16),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 86% 78%,
+            transparent 35%),
+        radial-gradient(circle at 86% 78%,
             rgba(31, 128, 134, 0.14),
-            transparent 36%
-        ),
+            transparent 36%),
         linear-gradient(170deg, #0a242f, #11404f 62%, #145565);
 }
 
@@ -2862,16 +2857,12 @@ body > nav ul li.nav-mobile-only {
     border-radius: 18px;
     border: 1px solid rgba(202, 244, 247, 0.2);
     background:
-        radial-gradient(
-            circle at 14% 10%,
+        radial-gradient(circle at 14% 10%,
             rgba(95, 219, 219, 0.18),
-            transparent 42%
-        ),
-        linear-gradient(
-            165deg,
+            transparent 42%),
+        linear-gradient(165deg,
             rgba(255, 255, 255, 0.12),
-            rgba(255, 255, 255, 0.04)
-        );
+            rgba(255, 255, 255, 0.04));
     box-shadow: 0 14px 28px rgba(1, 9, 14, 0.32);
     backdrop-filter: blur(4px);
 }
@@ -2944,13 +2935,27 @@ body > nav ul li.nav-mobile-only {
 
 .school-footer {
     background:
-        radial-gradient(
-            circle at 20% 10%,
+        radial-gradient(circle at 20% 10%,
             rgba(86, 210, 210, 0.15),
-            transparent 34%
-        ),
+            transparent 34%),
         linear-gradient(180deg, #07151b, #0b2028);
     color: #d8edf1;
+}
+
+.footer-copyright {
+    text-align: center;
+    padding: 18px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.85rem;
+    color: #7fa8b0;
+}
+
+.footer-copyright p {
+    margin: 0;
+}
+
+.footer-copyright strong {
+    color: #1ca5a5;
 }
 
 .footer-shell {
@@ -3813,11 +3818,9 @@ body > nav ul li.nav-mobile-only {
     padding: 2rem 1.5rem 2.2rem;
     text-align: left;
     background:
-        radial-gradient(
-            circle at 86% 16%,
+        radial-gradient(circle at 86% 16%,
             rgba(69, 196, 203, 0.18),
-            transparent 36%
-        ),
+            transparent 36%),
         linear-gradient(170deg, #f4fbfc, #eaf6f8);
 }
 
@@ -3999,7 +4002,7 @@ body > nav ul li.nav-mobile-only {
     }
 
     .profile-feature-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .career-head {
@@ -4028,7 +4031,9 @@ body > nav ul li.nav-mobile-only {
         padding-left: 36px;
     }
 
-    .career-step::before {
+    .career-step::before,
+    .career-step.is-left::before,
+    .career-step.is-right::before {
         left: 9px;
         right: auto;
     }
@@ -4084,6 +4089,10 @@ body > nav ul li.nav-mobile-only {
         min-height: 280px;
     }
 
+    .profile-feature-grid {
+        grid-template-columns: 1fr;
+    }
+
     .profile-feature-card {
         min-height: 0;
     }
@@ -4119,6 +4128,7 @@ body > nav ul li.nav-mobile-only {
         opacity: 0;
         transform: translateY(26px) scale(0.98);
     }
+
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -4207,7 +4217,7 @@ body > nav ul li.nav-mobile-only {
 
     .about-card {
         border-right: 0;
-        border-bottom: 1px solid #e3e3e3;
+        border-bottom: 0;
         height: auto;
         width: 100%;
         margin-top: 0 !important;
@@ -4535,59 +4545,59 @@ body > nav ul li.nav-mobile-only {
 
 /* Responsive hardening for phones and tablets */
 @media (max-width: 1280px) {
-    body > nav {
+    body>nav {
         padding: 0.85rem 1rem;
         gap: 0.65rem;
     }
 
-    body > nav .logo {
+    body>nav .logo {
         font-size: 1rem;
         margin-right: auto;
     }
 
-    body > nav ul {
+    body>nav ul {
         margin-left: 22px;
         gap: 0.65rem;
     }
 
-    body > nav ul li a {
+    body>nav ul li a {
         font-size: 0.79rem;
     }
 
-    body > nav .sosmed-icon {
+    body>nav .sosmed-icon {
         gap: 0.65rem;
     }
 
-    body > nav .ppdb-btn button {
+    body>nav .ppdb-btn button {
         padding: 10px 16px;
         font-size: 0.7rem;
     }
 }
 
 @media (max-width: 1024px) {
-    body > nav {
+    body>nav {
         padding: 0.78rem 0.9rem;
         gap: 0.55rem;
     }
 
-    body > nav .logo {
+    body>nav .logo {
         font-size: 0.96rem;
     }
 
-    body > nav ul {
+    body>nav ul {
         margin-left: 12px;
         gap: 0.55rem;
     }
 
-    body > nav ul li a {
+    body>nav ul li a {
         font-size: 0.72rem;
     }
 
-    body > nav .sosmed-icon {
+    body>nav .sosmed-icon {
         gap: 0.5rem;
     }
 
-    body > nav .ppdb-btn button {
+    body>nav .ppdb-btn button {
         padding: 9px 14px;
         font-size: 0.64rem;
     }
@@ -4608,6 +4618,11 @@ body > nav ul li.nav-mobile-only {
         gap: 0;
     }
 
+    .about-card {
+        margin-top: 0;
+        min-height: 0;
+    }
+
     .about-card:last-child {
         grid-column: 1 / -1;
     }
@@ -4623,7 +4638,8 @@ body > nav ul li.nav-mobile-only {
 }
 
 @media (min-width: 2560px) {
-    body > nav,
+
+    body>nav,
     .hero,
     .registration-info,
     .about-smk-section,
@@ -4663,49 +4679,49 @@ body > nav ul li.nav-mobile-only {
         padding: 2rem 2.2rem;
     }
 
-    body > nav {
+    body>nav {
         padding: 0.72rem 0.8rem;
         flex-wrap: wrap;
         row-gap: 0.5rem;
         column-gap: 0.55rem;
     }
 
-    body > nav .logo {
+    body>nav .logo {
         order: 1;
         font-size: 0.95rem;
         margin-right: auto;
     }
 
-    body > nav .logo-img {
+    body>nav .logo-img {
         width: 28px;
     }
 
-    body > nav .lang-switch {
+    body>nav .lang-switch {
         order: 2;
         margin-left: auto;
     }
 
-    body > nav .ppdb-btn {
+    body>nav .ppdb-btn {
         order: 3;
     }
 
-    body > nav .ppdb-btn button {
+    body>nav .ppdb-btn button {
         padding: 8px 12px;
         font-size: 0.64rem;
         letter-spacing: 0.06em;
     }
 
-    body > nav .sosmed-icon {
+    body>nav .sosmed-icon {
         order: 4;
         margin-left: auto;
         gap: 0.55rem;
     }
 
-    body > nav .sosmed-icon a {
+    body>nav .sosmed-icon a {
         font-size: 1rem;
     }
 
-    body > nav ul {
+    body>nav ul {
         order: 5;
         flex: 0 0 100%;
         margin-left: 0;
@@ -4719,15 +4735,15 @@ body > nav ul li.nav-mobile-only {
         scrollbar-width: none;
     }
 
-    body > nav ul::-webkit-scrollbar {
+    body>nav ul::-webkit-scrollbar {
         display: none;
     }
 
-    body > nav ul li {
+    body>nav ul li {
         flex: 0 0 auto;
     }
 
-    body > nav ul li a {
+    body>nav ul li a {
         font-size: 0.74rem;
     }
 
@@ -4759,7 +4775,7 @@ body > nav ul li.nav-mobile-only {
 
     .about-card:last-child {
         grid-column: 1 / -1;
-        border-top: 1px solid #e3e3e3;
+        border-top: 0;
         border-right: 0;
     }
 
@@ -4770,6 +4786,51 @@ body > nav ul li.nav-mobile-only {
     .feature-card {
         width: min(94vw, 760px);
         min-height: 500px;
+    }
+}
+
+@media (max-width: 960px) {
+    .feature-carousel {
+        width: min(94vw, 760px);
+        min-height: 720px;
+    }
+
+    .feature-card {
+        width: min(94vw, 680px);
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 22px;
+        min-height: 620px;
+        padding: 22px;
+    }
+
+    .feature-card.is-prev {
+        transform: translateX(-68%) scale(0.88) rotate(-2deg);
+    }
+
+    .feature-card.is-next {
+        transform: translateX(-32%) scale(0.88) rotate(2deg);
+    }
+
+    .feature-media img {
+        height: 300px;
+    }
+
+    .feature-content p {
+        max-width: 100%;
+    }
+
+    .profile-feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .news-layout,
+    .news-hero-card {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-shell {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
@@ -4799,39 +4860,40 @@ body > nav ul li.nav-mobile-only {
         gap: 0.6rem;
     }
 
-    .hero-content > p {
+    .hero-content>p {
         font-size: 0.85rem;
         line-height: 1.5;
         margin: 0;
     }
 
-    body > nav {
+    body>nav {
         padding: 0.58rem 0.68rem;
         row-gap: 0.42rem;
     }
 
-    body > nav .logo {
+    body>nav .logo {
         font-size: 0.88rem;
     }
 
-    body > nav .logo-img {
+    body>nav .logo-img {
         width: 26px;
     }
 
-    body > nav .sosmed-icon {
+    body>nav .sosmed-icon {
         display: none;
     }
 
-    body > nav .ppdb-btn button {
+    body>nav .ppdb-btn button {
         padding: 7px 10px;
         font-size: 0.6rem;
     }
-    body > nav ul {
+
+    body>nav ul {
         gap: 0.58rem;
         padding-bottom: 2px;
     }
 
-    body > nav ul li a {
+    body>nav ul li a {
         font-size: 0.71rem;
     }
 
@@ -4909,7 +4971,7 @@ body > nav ul li.nav-mobile-only {
         min-height: 0 !important;
         margin-top: 0 !important;
         border-right: 0;
-        border-bottom: 1px solid #e3e3e3;
+        border-bottom: 0;
     }
 
     .about-card:last-child {
@@ -4949,11 +5011,16 @@ body > nav ul li.nav-mobile-only {
     }
 
     .feature-carousel {
-        min-height: 620px;
+        width: min(94vw, 620px);
+        min-height: 690px;
     }
 
     .feature-card {
-        min-height: 520px;
+        width: min(94vw, 560px);
+        min-height: 600px;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        border-radius: 22px;
     }
 
     .feature-media img {
@@ -5018,7 +5085,7 @@ body > nav ul li.nav-mobile-only {
         font-size: clamp(1.5rem, 9vw, 2.2rem);
     }
 
-    .hero-content > p {
+    .hero-content>p {
         font-size: 0.78rem;
         line-height: 1.45;
     }
@@ -5073,11 +5140,11 @@ body > nav ul li.nav-mobile-only {
         line-height: 1.55;
     }
 
-    body > nav .ppdb-btn {
+    body>nav .ppdb-btn {
         display: none;
     }
 
-    body > nav ul li a {
+    body>nav ul li a {
         font-size: 0.68rem;
     }
 
@@ -5106,7 +5173,7 @@ body > nav ul li.nav-mobile-only {
 
     .feature-card {
         padding: 14px 12px 18px;
-        min-height: 500px;
+        min-height: 570px;
     }
 
     .news-featured-body h3 {
@@ -5119,53 +5186,47 @@ body > nav ul li.nav-mobile-only {
 }
 
 @media (max-width: 768px) {
-    body > nav {
+    body>nav {
         padding: 0.72rem 0.82rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-wrap: nowrap;
         gap: 0.4rem;
-        background: linear-gradient(
-            145deg,
-            rgba(5, 26, 34, 0.96),
-            rgba(8, 43, 54, 0.96)
-        );
+        background: linear-gradient(145deg,
+                rgba(5, 26, 34, 0.96),
+                rgba(8, 43, 54, 0.96));
         box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
         z-index: 20;
     }
 
-    body > nav.is-scrolled {
-        background: linear-gradient(
-            145deg,
-            rgba(5, 26, 34, 0.96),
-            rgba(8, 43, 54, 0.96)
-        );
+    body>nav.is-scrolled {
+        background: linear-gradient(145deg,
+                rgba(5, 26, 34, 0.96),
+                rgba(8, 43, 54, 0.96));
         box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
     }
 
-    body > nav .logo {
+    body>nav .logo {
         font-size: 0.9rem;
         gap: 8px;
         color: #eafcff;
         margin-right: auto;
     }
 
-    body > nav .logo-img {
+    body>nav .logo-img {
         width: 32px;
     }
 
-    body > nav .sosmed-icon,
-    body > nav .ppdb-btn,
-    body > nav .lang-switch {
+    body>nav .nav-right {
         display: none;
     }
 
-    body > nav .nav-mobile-actions {
+    body>nav .nav-mobile-actions {
         margin-left: 0;
         display: inline-flex;
         align-items: center;
@@ -5173,12 +5234,12 @@ body > nav ul li.nav-mobile-only {
         flex-shrink: 0;
     }
 
-    body > nav .nav-mobile-search {
+    body>nav .nav-mobile-search {
         display: none !important;
     }
 
-    body > nav .nav-mobile-search,
-    body > nav .nav-mobile-menu {
+    body>nav .nav-mobile-search,
+    body>nav .nav-mobile-menu {
         width: 40px;
         height: 40px;
         border-radius: 10px;
@@ -5196,18 +5257,18 @@ body > nav ul li.nav-mobile-only {
             background-color 0.2s ease;
     }
 
-    body > nav .nav-mobile-menu {
+    body>nav .nav-mobile-menu {
         cursor: pointer;
     }
 
-    body > nav .nav-mobile-search:hover,
-    body > nav .nav-mobile-menu:hover {
+    body>nav .nav-mobile-search:hover,
+    body>nav .nav-mobile-menu:hover {
         transform: translateY(-1px);
         border-color: rgba(184, 247, 249, 0.8);
         background: rgba(16, 71, 88, 0.9);
     }
 
-    body > nav ul {
+    body>nav ul {
         position: absolute;
         top: calc(100% + 10px);
         left: 12px;
@@ -5216,11 +5277,9 @@ body > nav ul li.nav-mobile-only {
         padding: 10px;
         border-radius: 12px;
         border: 1px solid rgba(130, 224, 228, 0.35);
-        background: linear-gradient(
-            165deg,
-            rgba(7, 30, 39, 0.98),
-            rgba(6, 52, 64, 0.96)
-        );
+        background: linear-gradient(165deg,
+                rgba(7, 30, 39, 0.98),
+                rgba(6, 52, 64, 0.96));
         box-shadow: 0 16px 28px rgba(0, 0, 0, 0.36);
         display: grid;
         gap: 4px;
@@ -5235,11 +5294,11 @@ body > nav ul li.nav-mobile-only {
             transform 0.22s ease;
     }
 
-    body > nav ul li {
+    body>nav ul li {
         width: 100%;
     }
 
-    body > nav ul li a {
+    body>nav ul li a {
         display: block;
         width: 100%;
         padding: 10px 12px;
@@ -5248,11 +5307,11 @@ body > nav ul li.nav-mobile-only {
         text-transform: none;
     }
 
-    body > nav ul li.nav-mobile-only {
+    body>nav ul li.nav-mobile-only {
         display: block;
     }
 
-    body > nav ul li .nav-dropdown-toggle {
+    body>nav ul li .nav-dropdown-toggle {
         display: flex;
         width: 100%;
         justify-content: space-between;
@@ -5263,31 +5322,31 @@ body > nav ul li.nav-mobile-only {
         text-transform: none;
     }
 
-    body > nav ul li a::after {
+    body>nav ul li a::after {
         display: none;
     }
 
-    body > nav ul li .nav-dropdown-toggle::after {
+    body>nav ul li .nav-dropdown-toggle::after {
         display: none;
     }
 
     /* Hide chevron arrows on mobile */
-    body > nav .nav-dropdown-toggle .bi-chevron-down,
-    body > nav .nav-dropdown-toggle .bi-chevron-up {
+    body>nav .nav-dropdown-toggle .bi-chevron-down,
+    body>nav .nav-dropdown-toggle .bi-chevron-up {
         display: none;
     }
 
-    body > nav ul li a:hover {
+    body>nav ul li a:hover {
         background: rgba(102, 214, 218, 0.18);
         color: #dffbff;
     }
 
-    body > nav ul li .nav-dropdown-toggle:hover {
+    body>nav ul li .nav-dropdown-toggle:hover {
         background: rgba(102, 214, 218, 0.18);
         color: #dffbff;
     }
 
-    body > nav .nav-dropdown {
+    body>nav .nav-dropdown {
         position: static;
         top: auto;
         left: auto;
@@ -5311,13 +5370,13 @@ body > nav ul li.nav-mobile-only {
             margin-top 0.24s ease;
     }
 
-    body > nav .nav-has-dropdown.is-open > .nav-dropdown {
+    body>nav .nav-has-dropdown.is-open>.nav-dropdown {
         max-height: 260px;
         margin-top: 4px;
         padding: 4px 6px 2px;
     }
 
-    body > nav .nav-dropdown a {
+    body>nav .nav-dropdown a {
         font-size: 0.85rem;
         padding: 8px 8px 8px 16px;
         border-radius: 0;
@@ -5325,13 +5384,13 @@ body > nav ul li.nav-mobile-only {
         border-left: 2px solid rgba(80, 205, 212, 0.3);
         margin-left: 8px;
     }
-    
-    body > nav .nav-dropdown a:hover {
+
+    body>nav .nav-dropdown a:hover {
         border-left-color: #66d6da;
         background: rgba(102, 214, 218, 0.1);
     }
 
-    body > nav.nav-mobile-open ul {
+    body>nav.nav-mobile-open ul {
         max-height: 70vh;
         opacity: 1;
         pointer-events: auto;
@@ -5342,50 +5401,44 @@ body > nav ul li.nav-mobile-only {
 
 /* Unified mobile navbar look */
 @media (max-width: 768px) {
-    body > nav {
+    body>nav {
         min-height: 60px;
         padding: 0.52rem 0.58rem;
         display: flex;
         align-items: center;
         justify-content: flex-start;
         gap: 0.5rem;
-        background: linear-gradient(
-            145deg,
-            rgba(5, 26, 34, 0.97),
-            rgba(6, 66, 82, 0.95)
-        );
+        background: linear-gradient(145deg,
+                rgba(5, 26, 34, 0.97),
+                rgba(6, 66, 82, 0.95));
         box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
-        z-index: 20;
+        z-index: 9000;
     }
 
-    body > nav.is-scrolled {
-        background: linear-gradient(
-            145deg,
-            rgba(5, 26, 34, 0.97),
-            rgba(6, 66, 82, 0.95)
-        );
+    body>nav.is-scrolled {
+        background: linear-gradient(145deg,
+                rgba(5, 26, 34, 0.97),
+                rgba(6, 66, 82, 0.95));
     }
 
-    body > nav .logo {
+    body>nav .logo {
         font-size: 0.9rem;
         gap: 8px;
         color: #eafcff;
         margin-right: auto;
     }
 
-    body > nav .logo-img {
+    body>nav .logo-img {
         width: 33px;
     }
 
-    body > nav .sosmed-icon,
-    body > nav .ppdb-btn,
-    body > nav .lang-switch {
+    body>nav .nav-right {
         display: none;
     }
 
-    body > nav .nav-mobile-actions {
+    body>nav .nav-mobile-actions {
         order: 1;
         margin-left: 0;
         margin-right: 2px;
@@ -5395,12 +5448,12 @@ body > nav ul li.nav-mobile-only {
         flex-shrink: 0;
     }
 
-    body > nav .nav-mobile-search {
+    body>nav .nav-mobile-search {
         display: none !important;
     }
 
-    body > nav .nav-mobile-search,
-    body > nav .nav-mobile-menu {
+    body>nav .nav-mobile-search,
+    body>nav .nav-mobile-menu {
         width: 40px;
         height: 40px;
         border-radius: 11px;
@@ -5418,18 +5471,18 @@ body > nav ul li.nav-mobile-only {
             background-color 0.2s ease;
     }
 
-    body > nav .nav-mobile-menu {
+    body>nav .nav-mobile-menu {
         cursor: pointer;
     }
 
-    body > nav .nav-mobile-search:hover,
-    body > nav .nav-mobile-menu:hover {
+    body>nav .nav-mobile-search:hover,
+    body>nav .nav-mobile-menu:hover {
         transform: translateY(-1px);
         border-color: rgba(184, 247, 249, 0.8);
         background: rgba(16, 71, 88, 0.9);
     }
 
-    body > nav ul {
+    body>nav ul {
         position: fixed;
         top: 60px;
         left: 0;
@@ -5442,11 +5495,9 @@ body > nav ul li.nav-mobile-only {
         border-left: 1px solid rgba(130, 224, 228, 0.18);
         border-right: 1px solid rgba(130, 224, 228, 0.18);
         border-bottom: 1px solid rgba(130, 224, 228, 0.2);
-        background: linear-gradient(
-            165deg,
-            rgba(7, 30, 39, 0.98),
-            rgba(6, 60, 72, 0.97)
-        );
+        background: linear-gradient(165deg,
+                rgba(7, 30, 39, 0.98),
+                rgba(6, 60, 72, 0.97));
         box-shadow: 0 16px 28px rgba(0, 0, 0, 0.36);
         display: grid;
         gap: 7px;
@@ -5459,14 +5510,14 @@ body > nav ul li.nav-mobile-only {
             opacity 0.22s ease,
             transform 0.22s ease,
             visibility 0.22s ease;
-        z-index: 19;
+        z-index: 8999;
     }
 
-    body > nav ul li {
+    body>nav ul li {
         width: 100%;
     }
 
-    body > nav ul li a {
+    body>nav ul li a {
         display: block;
         width: 100%;
         padding: 12px 14px;
@@ -5475,11 +5526,11 @@ body > nav ul li.nav-mobile-only {
         text-transform: none;
     }
 
-    body > nav ul li.nav-mobile-only {
+    body>nav ul li.nav-mobile-only {
         display: block;
     }
 
-    body > nav ul li .nav-dropdown-toggle {
+    body>nav ul li .nav-dropdown-toggle {
         display: flex;
         width: 100%;
         justify-content: space-between;
@@ -5490,18 +5541,18 @@ body > nav ul li.nav-mobile-only {
         text-transform: none;
     }
 
-    body > nav ul li a::after,
-    body > nav ul li .nav-dropdown-toggle::after {
+    body>nav ul li a::after,
+    body>nav ul li .nav-dropdown-toggle::after {
         display: none;
     }
 
-    body > nav ul li a:hover,
-    body > nav ul li .nav-dropdown-toggle:hover {
+    body>nav ul li a:hover,
+    body>nav ul li .nav-dropdown-toggle:hover {
         background: rgba(102, 214, 218, 0.18);
         color: #dffbff;
     }
 
-    body > nav .nav-dropdown {
+    body>nav .nav-dropdown {
         position: static;
         top: auto;
         left: auto;
@@ -5525,13 +5576,13 @@ body > nav ul li.nav-mobile-only {
             margin-top 0.24s ease;
     }
 
-    body > nav .nav-has-dropdown.is-open > .nav-dropdown {
+    body>nav .nav-has-dropdown.is-open>.nav-dropdown {
         max-height: 340px;
         margin-top: 3px;
         padding: 4px 0 2px 8px;
     }
 
-    body > nav .nav-dropdown a {
+    body>nav .nav-dropdown a {
         font-size: 0.88rem;
         padding: 10px 10px 10px 18px;
         border-radius: 0;
@@ -5542,12 +5593,12 @@ body > nav ul li.nav-mobile-only {
         transition: all 0.2s ease;
     }
 
-    body > nav .nav-dropdown a:hover {
+    body>nav .nav-dropdown a:hover {
         border-left-color: #66d6da;
         background: rgba(102, 214, 218, 0.1);
     }
 
-    body > nav.nav-mobile-open ul {
+    body>nav.nav-mobile-open ul {
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
@@ -5556,19 +5607,19 @@ body > nav ul li.nav-mobile-only {
     }
 
     /* Hide chevron arrows on mobile */
-    body > nav .nav-dropdown-toggle .bi-chevron-down,
-    body > nav .nav-dropdown-toggle .bi-chevron-up {
+    body>nav .nav-dropdown-toggle .bi-chevron-down,
+    body>nav .nav-dropdown-toggle .bi-chevron-up {
         display: none;
     }
 
     /* Mobile Language Switcher Button */
-    body > nav .nav-mobile-lang {
+    body>nav .nav-mobile-lang {
         margin-top: 12px;
         padding-top: 12px;
         border-top: 1px solid rgba(130, 224, 228, 0.15);
     }
 
-    body > nav .nav-lang-toggle {
+    body>nav .nav-lang-toggle {
         display: flex;
         align-items: center;
         gap: 10px;
@@ -5586,13 +5637,13 @@ body > nav ul li.nav-mobile-only {
         text-transform: none;
     }
 
-    body > nav .nav-lang-toggle:hover {
+    body>nav .nav-lang-toggle:hover {
         background: rgba(28, 165, 165, 0.22);
         border-color: rgba(130, 224, 228, 0.5);
         color: #fff;
     }
 
-    body > nav .nav-lang-toggle .bi-translate {
+    body>nav .nav-lang-toggle .bi-translate {
         font-size: 1.1rem;
     }
 }
@@ -5621,11 +5672,9 @@ body > nav ul li.nav-mobile-only {
 .campus-profile-badge {
     display: inline-block;
     padding: 8px 24px;
-    background: linear-gradient(
-        120deg,
-        rgba(88, 210, 210, 0.15),
-        rgba(88, 210, 210, 0.05)
-    );
+    background: linear-gradient(120deg,
+            rgba(88, 210, 210, 0.15),
+            rgba(88, 210, 210, 0.05));
     border: 1px solid rgba(88, 210, 210, 0.3);
     border-radius: 999px;
     color: #2d8f8f;
@@ -5738,11 +5787,9 @@ body > nav ul li.nav-mobile-only {
 .campus-profile-image-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to top,
-        rgba(10, 26, 34, 0.8) 0%,
-        transparent 50%
-    );
+    background: linear-gradient(to top,
+            rgba(10, 26, 34, 0.8) 0%,
+            transparent 50%);
     pointer-events: none;
 }
 
@@ -5773,11 +5820,9 @@ body > nav ul li.nav-mobile-only {
     right: -5%;
     width: 600px;
     height: 600px;
-    background: radial-gradient(
-        circle,
-        rgba(88, 210, 210, 0.08) 0%,
-        transparent 60%
-    );
+    background: radial-gradient(circle,
+            rgba(88, 210, 210, 0.08) 0%,
+            transparent 60%);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -5821,7 +5866,8 @@ body > nav ul li.nav-mobile-only {
     left: 40px;
     font-size: 18rem;
     font-family: "Sora", sans-serif;
-    color: rgba(88, 210, 210, 0.08); /* super faint quote mark */
+    color: rgba(88, 210, 210, 0.08);
+    /* super faint quote mark */
     line-height: 1;
     z-index: 0;
     pointer-events: none;
@@ -5947,11 +5993,9 @@ body > nav ul li.nav-mobile-only {
 .campus-fasilities-badge {
     display: inline-block;
     padding: 8px 24px;
-    background: linear-gradient(
-        120deg,
-        rgba(88, 210, 210, 0.15),
-        rgba(88, 210, 210, 0.05)
-    );
+    background: linear-gradient(120deg,
+            rgba(88, 210, 210, 0.15),
+            rgba(88, 210, 210, 0.05));
     border: 1px solid rgba(88, 210, 210, 0.3);
     border-radius: 999px;
     color: #2d8f8f;
@@ -6038,7 +6082,8 @@ body > nav ul li.nav-mobile-only {
 }
 
 .facilities-card:hover .facilities-card-img {
-    transform: scale(1.08); /* Aesthetic zoom */
+    transform: scale(1.08);
+    /* Aesthetic zoom */
 }
 
 .facilities-card-content {
@@ -6359,9 +6404,11 @@ body > nav ul li.nav-mobile-only {
     .timeline-container::after {
         left: 30px;
     }
+
     .timeline-item {
         flex-direction: column;
     }
+
     .timeline-year {
         width: auto;
         text-align: left;
@@ -6370,13 +6417,16 @@ body > nav ul li.nav-mobile-only {
         margin-bottom: 15px;
         font-size: 1.8rem;
     }
+
     .timeline-dot {
         left: 30px;
         top: 6px;
     }
+
     .timeline-content {
         padding-left: 60px;
     }
+
     .section-badge {
         align-items: center;
         justify-content: center;
@@ -6389,6 +6439,7 @@ body > nav ul li.nav-mobile-only {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
+
 .testi-card {
     background: #ffffff;
     border: 1px solid rgba(28, 165, 165, 0.15);
@@ -6405,16 +6456,19 @@ body > nav ul li.nav-mobile-only {
     box-shadow: 0 6px 24px rgba(10, 40, 50, 0.06);
     text-decoration: none;
 }
+
 .testi-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 50px rgba(10, 40, 50, 0.12);
     border-color: rgba(28, 165, 165, 0.4);
 }
+
 .testi-card.is-featured {
     grid-row: span 2;
     background: linear-gradient(160deg, #e8f9f9, #d0f0f0);
     border-color: rgba(28, 165, 165, 0.3);
 }
+
 .testi-card::before {
     content: "\201C";
     font-family: Georgia, serif;
@@ -6426,12 +6480,14 @@ body > nav ul li.nav-mobile-only {
     right: 22px;
     pointer-events: none;
 }
+
 .testi-stars {
     display: flex;
     gap: 3px;
     color: #f5a623;
     font-size: 0.9rem;
 }
+
 .testi-quote {
     font-size: 0.97rem;
     color: #2d4a50;
@@ -6439,9 +6495,11 @@ body > nav ul li.nav-mobile-only {
     flex: 1;
     margin: 0;
 }
+
 .testi-card.is-featured .testi-quote {
     font-size: 1.05rem;
 }
+
 .testi-dest {
     display: inline-flex;
     align-items: center;
@@ -6456,12 +6514,14 @@ body > nav ul li.nav-mobile-only {
     width: fit-content;
     margin: 0;
 }
+
 .testi-dest img {
     width: 18px;
     height: 13px;
     object-fit: cover;
     border-radius: 2px;
 }
+
 .testi-author {
     display: flex;
     align-items: center;
@@ -6470,6 +6530,7 @@ body > nav ul li.nav-mobile-only {
     padding-top: 18px;
     margin-top: auto;
 }
+
 .testi-avatar {
     width: 46px;
     height: 46px;
@@ -6483,12 +6544,14 @@ body > nav ul li.nav-mobile-only {
     color: #fff;
     flex-shrink: 0;
 }
+
 .testi-author-info h4 {
     font-size: 0.97rem;
     font-weight: 700;
     color: #021a22;
     margin: 0 0 3px;
 }
+
 .testi-author-info p {
     font-size: 0.8rem;
     color: #557278;
@@ -6499,10 +6562,12 @@ body > nav ul li.nav-mobile-only {
     .testi-grid {
         grid-template-columns: 1fr 1fr;
     }
+
     .testi-card.is-featured {
         grid-row: span 1;
     }
 }
+
 @media (max-width: 600px) {
     .testi-grid {
         grid-template-columns: 1fr;
@@ -6651,4 +6716,309 @@ button.btn:active {
 .form-control[type="file"] {
     padding: 8px 12px !important;
     color: #0a1a22 !important;
+}
+
+/* ============================================================
+   RESPONSIVENESS FIXES — Consolidated missing breakpoints
+   ============================================================ */
+
+/* ── Fix #7 & #8: Footer & News layout tablet breakpoint ── */
+@media (max-width: 1024px) {
+    .footer-shell {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .news-layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* ── Fix #11: Campus profile, vm-section, facilities, history — mobile ── */
+@media (max-width: 768px) {
+    .campus-profile-section {
+        padding: 64px 0;
+    }
+
+    .campus-profile-container {
+        gap: 40px;
+    }
+
+    .campus-profile-split {
+        gap: 32px;
+    }
+
+    .campus-profile-title {
+        font-size: clamp(1.6rem, 6vw, 2.4rem);
+    }
+
+    .campus-profile-desc {
+        font-size: 1rem;
+    }
+
+    .campus-profile-feature {
+        gap: 16px;
+    }
+
+    .campus-profile-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 14px;
+        font-size: 1.5rem;
+    }
+
+    .campus-profile-feature-title {
+        font-size: 1.15rem;
+    }
+
+    .campus-profile-feature-desc {
+        font-size: 0.95rem;
+    }
+
+    .campus-profile-image-frame {
+        border-radius: 22px;
+    }
+
+    .campus-profile-image-quote {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        font-size: 1.05rem;
+    }
+
+    .vm-section {
+        padding: 64px 0;
+    }
+
+    .vm-container {
+        gap: 50px;
+    }
+
+    .vision-card {
+        padding: 50px 24px;
+        border-radius: 24px;
+    }
+
+    .vision-card::before {
+        font-size: 10rem;
+        left: 18px;
+    }
+
+    .vision-card h2 {
+        font-size: 0.95rem;
+        letter-spacing: 0.18em;
+        margin-bottom: 18px;
+    }
+
+    .mission-header {
+        margin-bottom: 32px;
+    }
+
+    .mission-header h2 {
+        font-size: clamp(1.6rem, 6vw, 2.4rem);
+    }
+
+    .mission-header p {
+        font-size: 1rem;
+    }
+
+    .mission-grid {
+        gap: 18px;
+    }
+
+    .mission-card {
+        padding: 28px 22px;
+        border-radius: 18px;
+    }
+
+    .mission-number {
+        font-size: 2.8rem;
+        margin-bottom: 14px;
+    }
+
+    .mission-card p {
+        font-size: 0.95rem;
+    }
+
+    .facilities {
+        padding: 64px 0;
+    }
+
+    .facilities-head {
+        margin-bottom: 36px;
+    }
+
+    .facilities-head h2 {
+        font-size: clamp(1.6rem, 6vw, 2.4rem);
+    }
+
+    .facilities-head p {
+        font-size: 1rem;
+    }
+
+    .facilities-body {
+        gap: 18px;
+    }
+
+    .facilities-card-content {
+        padding: 22px 18px;
+    }
+
+    .facilities-card-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .facility-modal-content {
+        width: 96%;
+        max-height: 94vh;
+        border-radius: 18px;
+    }
+
+    .facility-modal-body img {
+        height: 220px;
+    }
+
+    .facility-modal-text {
+        padding: 22px 20px;
+    }
+
+    .facility-modal-text h3 {
+        font-size: 1.4rem;
+    }
+
+    .history-content {
+        padding: 64px 0;
+    }
+
+    .section-header {
+        margin-bottom: 32px;
+    }
+
+    .campus-fasilities-badge,
+    .campus-profile-badge {
+        font-size: 0.76rem;
+        padding: 6px 18px;
+        margin-bottom: 16px;
+    }
+
+    .campus-fasilities-title,
+    .campus-profile-title {
+        margin-bottom: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .campus-profile-section {
+        padding: 42px 0;
+    }
+
+    .campus-profile-container {
+        gap: 28px;
+    }
+
+    .campus-profile-title {
+        font-size: clamp(1.4rem, 8vw, 1.9rem);
+    }
+
+    .campus-profile-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        font-size: 1.3rem;
+    }
+
+    .vm-section {
+        padding: 42px 0;
+    }
+
+    .vm-container {
+        gap: 32px;
+    }
+
+    .vision-card {
+        padding: 36px 18px;
+        border-radius: 18px;
+    }
+
+    .vision-card::before {
+        font-size: 7rem;
+        left: 12px;
+    }
+
+    .mission-card {
+        padding: 22px 18px;
+        border-radius: 16px;
+    }
+
+    .mission-number {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+    }
+
+    .facilities {
+        padding: 42px 0;
+    }
+
+    .facilities-card-content {
+        padding: 18px 14px;
+    }
+
+    .facilities-card-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .facilities-card-img-wrap {
+        height: 180px;
+    }
+
+    .facility-modal-body img {
+        height: 180px;
+    }
+
+    .facility-modal-text {
+        padding: 18px 16px;
+    }
+
+    .facility-modal-text h3 {
+        font-size: 1.2rem;
+    }
+
+    .history-content {
+        padding: 42px 0;
+    }
+
+    .timeline-year {
+        font-size: 1.5rem;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.25rem;
+    }
+
+    .timeline-content p {
+        font-size: 0.92rem;
+        padding: 18px 20px;
+        border-radius: 14px;
+    }
+}
+
+/* ── Fix #14: Prevent testi-grid layout holes with is-featured ── */
+@media (max-width: 900px) and (min-width: 601px) {
+    .testi-card.is-featured {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ── Fix #15: WhatsApp FAB tooltip overflow on narrow phones ── */
+@media (max-width: 380px) {
+    .whatsapp-fab-tooltip {
+        display: none;
+    }
+}
+
 }

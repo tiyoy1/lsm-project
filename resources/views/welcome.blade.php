@@ -11,7 +11,7 @@
             $faviconUrl = \Illuminate\Support\Facades\Storage::disk('public')->url($contactSetting->favicon);
         }
     @endphp
-    <link rel="icon" type="image/webp" href="{{ $faviconUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') . '?v=20260305' }}">
+    <link rel="icon" type="image/webp" href="{{ $faviconUrl ?: asset('img/logo-metland-school.png') . '?v=20260305' }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
@@ -105,7 +105,9 @@
     @endphp
     <nav>
         <div class="logo">
-            <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
+            <a href="{{ url('/') }}">
+                <img src="{{ $logoUrl ?: asset('img/logo-metland-school.png') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
+            </a>
         </div>
         <ul id="primary-nav" class="notranslate">
             <li><a href="{{ url('/') }}" data-en="Home" data-id="Beranda">Home</a></li>
@@ -130,18 +132,19 @@
             </li>
             <li><a href="{{ route('news.index') }}" data-en="News" data-id="Berita">News</a></li>
             <li><a href="{{ route('testi') }}" data-en="Reviews" data-id="Ulasan">Reviews</a></li>
-            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}" data-en="Join Us" data-id="Bergabung">Join Us</a></li>
+            <li class="nav-mobile-only"><a href="{{ route('registration.create') }}" data-en="Join Us" data-id="Bergabung">Join Us</a></li>
             <li><a href="#partnership" data-en="Partnership" data-id="Kemitraan">Partnership</a></li>
         
             <li class="nav-mobile-only nav-mobile-lang notranslate">
                 <button type="button" onclick="setLanguage('id')" id="mobile-lang-btn-id" class="nav-lang-toggle" data-lang="id">
-                    <i class="bi bi-translate"></i> Ganti ke Indonesia
+                    <i class="bi bi-translate"></i> Ganti ke Bahasa
                 </button>
                 <button type="button" onclick="setLanguage('en')" id="mobile-lang-btn-en" class="nav-lang-toggle" data-lang="en" style="display:none;">
-                    <i class="bi bi-translate"></i> Switch to English
+                    <i class="bi bi-translate"></i> Switch to Language
                 </button>
             </li>
         </ul>
+        <div class="nav-right">
         <div class="sosmed-icon">
   <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
     <i class="bi bi-youtube"></i>
@@ -155,16 +158,17 @@
   </a>
 </div>
         <div class="ppdb-btn">
-            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
+            <button type="button" onclick="window.location.href='{{ route('registration.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
         <div class="lang-switch notranslate" aria-label="Language switcher">
             <button type="button" onclick="setLanguage('id')" id="lang-btn-id" class="desktop-lang-toggle" data-lang="id">
-                <i class="bi bi-translate"></i> Ganti ke Indonesia
+                <i class="bi bi-translate"></i> Ganti ke Bahasa
             </button>
             <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="desktop-lang-toggle" data-lang="en" style="display:none;">
-                <i class="bi bi-translate"></i> Switch to English
+                <i class="bi bi-translate"></i> Switch to Language
             </button>
         </div>
+    </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
                 <i class="bi bi-search"></i>
@@ -193,13 +197,23 @@
                             <img src="{{ asset('img/Kertajati.webp') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                         </div>
                     </div>
+                    <div class="swiper-slide">
+                        <div class="hero-slide-media">
+                            <img src="{{ asset('img/horison_ultima_bekasi.webp') }}" alt="Horison Ultima Bekasi" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="hero-slide-media">
+                            <img src="{{ asset('img/seva_seminyak_badung.webp') }}" alt="Seva Seminyak Badung" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-content">
             <p class="hero-eyebrow">"Professional & Lifelong Learning"</p>
-            <h1 class="hero-title">Crafting the <br><span>FUTURE</span></h1>
+            <h1 class="hero-title">Crafting Your <br><span>FUTURE</span></h1>
             <p>Metland College is a vocational school that provides education and training to students who want to work in the hospitality industry.</p>
             <div class="hero-actions">
                 <a href="#about-smk"     class="hero-btn">See more</a>
@@ -209,7 +223,7 @@
     <section id="about-smk" class="about-smk-section">
         <div class="about-smk-wrap">
             <div class="about-card">
-                <a href="{{ url('/program-keahlian') }}" class="about-head-link">
+                <a href="https://smkmetland.net/" class="about-head-link" target="_blank" rel="noopener noreferrer">
                     <div class="about-head">
                         <i class="bi bi-buildings about-icon" aria-hidden="true"></i>
                         <div>
@@ -270,7 +284,7 @@
     <section class="career-section" id="career-section">
         <div class="career-shell">
             <div class="career-head">
-                <span class="section-badge" style="user-select: none; transition: all 0.3s ease;">Training Method</span>
+                <span class="section-badge notranslate" style="user-select: none; transition: all 0.3s ease;" data-en="Training Method" data-id="Alur Pelatihan">Training Method</span>
                 <h2 class="section-title">From <span>Basic</span> to <span>Professional</span></h2> 
                 <p class="section-desc">Structured learning, focus on practice, and supported by industry until ready to enter the workforce.</p>
             </div>
@@ -359,7 +373,7 @@
             <div class="alumni-head text-center pb-4">
                 <span class="section-badge"><span>Alumni Reviews</span></span>
                 <h2 class="section-title">What <span>They Say</span></h2>
-                <p class="section-desc">Alumni reviews regarding their learning experience at SMK Metland.</p>
+                <p class="section-desc text-center" style="text-align: center !important; margin: 0 auto !important; display: block !important;">Alumni reviews regarding their learning experience at Metland College.</p>
             </div>
 
 	            <div class="testi-grid">
@@ -449,7 +463,7 @@
                                 @php
                                     $partnerLogoUrl = filled($partner->logo)
                                         ? \Illuminate\Support\Facades\Storage::disk('public')->url($partner->logo)
-                                        : asset('img/LOGO METLAND COLLEGE-02.webp');
+                                        : asset('img/logo-metland-school.png');
                                 @endphp
 	                            <article class="partner-logo-card">
 	                                @if(filled($partner->url))
@@ -464,7 +478,7 @@
 	                            </article>
 	                        @empty
 	                            <article class="partner-logo-card">
-	                                <img src="{{ asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="No partners yet" loading="lazy" decoding="async">
+	                                <img src="{{ asset('img/logo-metland-school.png') }}" alt="No partners yet" loading="lazy" decoding="async">
 	                                <p>No partners yet</p>
 	                            </article>
 	                        @endforelse
@@ -472,9 +486,7 @@
 	                </div>
 	            @endforeach
 
-            <div class="partnership-source">
-                <a href="https://smkmetland.net/ppdb/" target="_blank" rel="noopener noreferrer">Logo source: smkmetland.net</a>
-            </div>
+
         </div>
     </section>
 
@@ -494,108 +506,7 @@
         </div>
     </div>
 
-    <footer class="school-footer" id="school-footer">
-        <div class="footer-shell">
-            <div class="footer-brand">
-                <div class="footer-brand-head">
-                    <img src="{{ $logoUrl ?: asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="footer-logo" loading="lazy" decoding="async">
-                    <h3>METLAND COLLEGE</h3>
-                </div>
-                <p>The first step towards a brilliant career. Learn practically, develop creatively, and get ready to jump into the industry.</p>
-            </div>
-
-            <div class="footer-posts">
-                <h4>Recent Posts</h4>
-                <div class="footer-post-list">
-                    @php
-                        $footerNews = ($latestNews ?? collect())->take(2);
-                    @endphp
-                    @forelse($footerNews as $item)
-                        <article class="footer-post-item">
-                            <img src="{{ $item->image_url }}" alt="{{ $item->localized_title }}" class="footer-post-thumb" loading="lazy" decoding="async">
-                            <div class="footer-post-content">
-                                <a href="{{ route('news.show', $item->slug) }}">{{ \Illuminate\Support\Str::limit($item->localized_title, 76) }}</a>
-                                <p class="footer-post-date">{{ ($item->published_at ?? $item->created_at)->translatedFormat('d M Y') }}</p>
-                            </div>
-                        </article>
-                    @empty
-                        <article class="footer-post-item">
-                            <img src="{{ asset('img/hero2.webp') }}" alt="No News yet" class="footer-post-thumb" loading="lazy" decoding="async">
-                            <div class="footer-post-content">
-                                <a href="{{ route('news.index') }}">No news has been published yet</a>
-                                <p class="footer-post-date">Please check back later</p>
-                            </div>
-                        </article>
-                    @endforelse
-                </div>
-            </div>
-
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <a href="{{ route('Profile') }}">About</a>
-                <a href="{{ route('LPK') }}">Career</a>
-                <a href="{{ route('news.index') }}">News</a>
-                <a href="#partnership">Partnership</a>
-                <a href="#alumni-section">More</a>
-            </div>
-
-            <div class="footer-contact-map">
-                <p>
-                    <i class="bi bi-envelope-fill" style="color: #1ca5a5; margin-right: 6px;"></i>
-                    <a href="mailto:admin@metlandcollege.net">admin@metlandcollege.net</a>
-                </p>
-                <p>
-                    <i class="bi bi-whatsapp" style="color: #1ca5a5; margin-right: 6px;"></i>
-                    {{ filled($contactSetting?->whatsapp) ? $contactSetting->whatsapp : '+62-8180-9999-180' }}
-                </p>
-                <p style="margin: 14px 0 12px;"><strong>Locations:</strong></p>
-                <p style="margin-bottom: 8px;">
-                    <a href="https://maps.app.goo.gl/WkG3ifbvA4o52RkAA" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CILEUNGSI</strong><br>
-                    </a>
-                </p>
-                <p style="margin-bottom: 8px;">
-                    <a href="https://maps.app.goo.gl/aJr5nJd8Fe2ArL8s8" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SMK METLAND CIBITUNG</strong><br>
-                    </a>
-                </p>
-                <p style="margin-bottom: 8px;">
-                    <a href="https://maps.app.goo.gl/eKSkxnsdNuP2UJbQ7" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>HOTEL METLAND SMARA KERTAJATI</strong><br>
-                    </a>
-                </p>
-                <p style="margin-bottom: 8px;">
-                    <a href="https://maps.app.goo.gl/v7NmD5Zn2b3m2zGM7" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>HORISON ULTIMA BEKASI</strong><br>
-                    </a>
-                </p>
-                <p style="margin-bottom: 16px;">
-                    <a href="https://maps.app.goo.gl/xAJFLvyfYEwFE5sQ7" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-geo-alt-fill" style="color: #1ca5a5; margin-right: 4px;"></i> <strong>SEVA SEMINYAK BADUNG BALI</strong><br>
-                    </a>
-                </p>
-                <div class="footer-socials">
-                    <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" aria-label="YouTube Metland Academy">
-                        <i class="bi bi-youtube"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@metlandcollege" target="_blank" rel="noopener noreferrer" aria-label="TikTok Metland College">
-                        <i class="bi bi-tiktok"></i>
-                    </a>
-                    <a href="https://www.instagram.com/metland.college/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Metland College">
-                        <i class="bi bi-instagram"></i>
-                    </a>
-                </div>
-                <iframe
-                    class="footer-map-frame"
-                    title="Lokasi SMK Metland"
-                    loading="lazy"
-                    allowfullscreen
-                    referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.6856233061058!2d108.18295181017014!3d-6.685809193281614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6ed711a2e575df%3A0x94929efc10aa1b2b!2sHotel%20Metland%20Smara%20Kertajati%20by%20Horison!5e0!3m2!1sen!2sid!4v1779417620688!5m2!1sen!2sid">
-                </iframe>
-            </div>
-        </div>
-    </footer>
+    @include('partials.footer')
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 

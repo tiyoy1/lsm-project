@@ -68,8 +68,8 @@ Route::view('/jurusan/pplg', 'majors.PPLG')->name('majors.pplg');
 Route::view('/jurusan/dkv', 'majors.DKV')->name('majors.dkv');
 Route::view('/jurusan/kuliner', 'majors.Kuliner')->name('majors.kuliner');
 Route::view('/jurusan/hotel', 'majors.Hotel')->name('majors.hotel');
-Route::view('/LPK', 'career.LPK')->name('LPK');
-Route::view('/LKP', 'career.LKP')->name('LKP');
+Route::view('/lpk', 'career.LPK')->name('LPK');
+Route::view('/lkp', 'career.LKP')->name('LKP');
 Route::get('/testi', [TestimonialPageController::class, 'index'])->name('testi');
 Route::post('/testi', [TestimonialPageController::class, 'store'])->name('testi.store');
 Route::get('/testimonials/submit', fn () => redirect()->route('testi', [], 302)->withFragment('submit'))->name('testimonials.submit');
@@ -85,8 +85,8 @@ Route::get('/dashboard', function () {
     return redirect()->to('/admin');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/ppdb', [RegistrationController::class, 'create'])->name('ppdb.create');
-Route::post('/ppdb', [RegistrationController::class, 'store'])->name('ppdb.store');
+Route::get('/registration', [RegistrationController::class, 'create'])->name('registration.create');
+Route::post('/registration', [RegistrationController::class, 'store'])->name('registration.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

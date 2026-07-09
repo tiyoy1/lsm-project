@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LPK - Metland College</title>
-    <link rel="icon" type="image/webp" href="{{ asset('img/LOGO METLAND COLLEGE-02.webp') }}?v=20260305">
+    <link rel="icon" type="image/webp" href="{{ asset('img/logo-metland-school.png') }}?v=20260305">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -95,7 +95,9 @@
     @endphp
     <nav>
         <div class="logo">
-            <img src="{{ asset('img/LOGO METLAND COLLEGE-02.webp') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
+            <a href="{{ url('/') }}">
+                <img src="{{ asset('img/logo-metland-school.png') }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
+            </a>
         </div>
         <ul id="primary-nav" class="notranslate">
             <li><a href="{{ url('/') }}" data-en="Home" data-id="Beranda">Home</a></li>
@@ -120,18 +122,19 @@
             </li>
             <li><a href="{{ route('news.index') }}" data-en="News" data-id="Berita">News</a></li>
             <li><a href="{{ route('testi') }}" data-en="Reviews" data-id="Ulasan">Reviews</a></li>
-            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}" data-en="Join Us" data-id="Bergabung">Join Us</a></li>
+            <li class="nav-mobile-only"><a href="{{ route('registration.create') }}" data-en="Join Us" data-id="Bergabung">Join Us</a></li>
             <li><a href="{{ url('/') }}#partnership" data-en="Partnership" data-id="Kemitraan">Partnership</a></li>
         
             <li class="nav-mobile-only nav-mobile-lang notranslate">
                 <button type="button" onclick="setLanguage('id')" id="mobile-lang-btn-id" class="nav-lang-toggle" data-lang="id">
-                    <i class="bi bi-translate"></i> Ganti ke Indonesia
+                    <i class="bi bi-translate"></i> Ganti ke Bahasa
                 </button>
                 <button type="button" onclick="setLanguage('en')" id="mobile-lang-btn-en" class="nav-lang-toggle" data-lang="en" style="display:none;">
-                    <i class="bi bi-translate"></i> Switch to English
+                    <i class="bi bi-translate"></i> Switch to Language
                 </button>
             </li>
         </ul>
+        <div class="nav-right">
         <div class="sosmed-icon">
   <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
     <i class="bi bi-youtube"></i>
@@ -145,16 +148,17 @@
   </a>
 </div>
         <div class="ppdb-btn">
-            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
+            <button type="button" onclick="window.location.href='{{ route('registration.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
         <div class="lang-switch notranslate" aria-label="Language switcher">
             <button type="button" onclick="setLanguage('id')" id="lang-btn-id" class="desktop-lang-toggle" data-lang="id">
-                <i class="bi bi-translate"></i> Ganti ke Indonesia
+                <i class="bi bi-translate"></i> Ganti ke Bahasa
             </button>
             <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="desktop-lang-toggle" data-lang="en" style="display:none;">
-                <i class="bi bi-translate"></i> Switch to English
+                <i class="bi bi-translate"></i> Switch to Language
             </button>
         </div>
+    </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
                 <i class="bi bi-search"></i>
@@ -176,6 +180,12 @@
                     </div>
                     <div class="swiper-slide">
                         <img src="{{ asset('img/Kertajati.webp') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/horison_ultima_bekasi.webp') }}" alt="Horison Ultima Bekasi" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/seva_seminyak_badung.webp') }}" alt="Seva Seminyak Badung" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
@@ -874,7 +884,7 @@
     <section class="career-section" id="career-section">
         <div class="career-shell">
             <div class="career-head">
-                <span class="section-badge">Training Method</span>
+                <span class="section-badge notranslate" data-en="Training Method" data-id="Alur Pelatihan">Training Method</span>
                 <h2 class="section-title">From <span>Basic</span> to <span>Professional</span></h2> 
                 <p class="section-desc">Structured learning, focus on practice, and supported by industry mentors until ready to enter the workforce.</p>
             </div>

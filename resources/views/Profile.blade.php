@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LPK-LKP METLAND COLLEGE</title>
-    <link rel="icon" type="image/webp" href="{{ asset('img/LOGO METLAND COLLEGE-02.webp') }}?v=20260305">
+    <link rel="icon" type="image/webp" href="{{ asset('img/logo-metland-school.png') }}?v=20260305">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -23,7 +23,9 @@
 <body>
     <nav>
         <div class="logo">
-            <img src="{{ asset("img\LOGO METLAND COLLEGE-02.webp") }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
+            <a href="{{ url('/') }}">
+                <img src="{{ asset("img/logo-metland-school.png") }}" alt="Logo Metland College" class="logo-img" loading="lazy" decoding="async"><span class="notranslate">Metland College</span>
+            </a>
         </div>
         <ul id="primary-nav" class="notranslate">
             <li><a href="{{ url('/') }}" data-en="Home" data-id="Beranda">Home</a></li>
@@ -48,18 +50,19 @@
             </li>
             <li><a href="{{ route('news.index') }}" data-en="News" data-id="Berita">News</a></li>
             <li><a href="{{ route('testi') }}" data-en="Reviews" data-id="Ulasan">Reviews</a></li>
-            <li class="nav-mobile-only"><a href="{{ route('ppdb.create') }}" data-en="Join Us" data-id="Bergabung">Join Us</a></li>
+            <li class="nav-mobile-only"><a href="{{ route('registration.create') }}" data-en="Join Us" data-id="Bergabung">Join Us</a></li>
             <li><a href="{{ url('/') }}#partnership" data-en="Partnership" data-id="Kemitraan">Partnership</a></li>
         
             <li class="nav-mobile-only nav-mobile-lang notranslate">
                 <button type="button" onclick="setLanguage('id')" id="mobile-lang-btn-id" class="nav-lang-toggle" data-lang="id">
-                    <i class="bi bi-translate"></i> Ganti ke Indonesia
+                    <i class="bi bi-translate"></i> Ganti ke Bahasa
                 </button>
                 <button type="button" onclick="setLanguage('en')" id="mobile-lang-btn-en" class="nav-lang-toggle" data-lang="en" style="display:none;">
-                    <i class="bi bi-translate"></i> Switch to English
+                    <i class="bi bi-translate"></i> Switch to Language
                 </button>
             </li>
         </ul>
+        <div class="nav-right">
         <div class="sosmed-icon">
   <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
     <i class="bi bi-youtube"></i>
@@ -73,16 +76,17 @@
   </a>
 </div>
         <div class="ppdb-btn">
-            <button type="button" onclick="window.location.href='{{ route('ppdb.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
+            <button type="button" onclick="window.location.href='{{ route('registration.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
         <div class="lang-switch notranslate" aria-label="Language switcher">
             <button type="button" onclick="setLanguage('id')" id="lang-btn-id" class="desktop-lang-toggle" data-lang="id">
-                <i class="bi bi-translate"></i> Ganti ke Indonesia
+                <i class="bi bi-translate"></i> Ganti ke Bahasa
             </button>
             <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="desktop-lang-toggle" data-lang="en" style="display:none;">
-                <i class="bi bi-translate"></i> Switch to English
+                <i class="bi bi-translate"></i> Switch to Language
             </button>
         </div>
+    </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
                 <i class="bi bi-search"></i>
@@ -104,6 +108,12 @@
                     </div>
                     <div class="swiper-slide">
                         <img src="{{ asset('img/Kertajati.webp') }}" alt="Kertajati" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/horison_ultima_bekasi.webp') }}" alt="Horison Ultima Bekasi" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ asset('img/seva_seminyak_badung.webp') }}" alt="Seva Seminyak Badung" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
@@ -184,7 +194,7 @@
         <div class="facilities-head">
             <span class="section-badge">Our Facilities</span>
             <h2 class="campus-fasilities-title">What we have to support your <span>Process</span></h2>
-            <p>Metland College memiliki fasilitas yang lengkap dan modern untuk mendukung kegiatan belajar mengajar.</p>
+            <p class="notranslate" data-id="Metland College memiliki fasilitas yang lengkap dan modern untuk mendukung kegiatan belajar mengajar." data-en="Metland College has complete and modern facilities to support teaching and learning activities.">Metland College memiliki fasilitas yang lengkap dan modern untuk mendukung kegiatan belajar mengajar.</p>
         </div>
         <div class="facilities-body">
             <div class="facilities-card">
@@ -193,7 +203,7 @@
                 </div>
                 <div class="facilities-card-content">
                     <h3>Artisan Beverage Studio (ABS)</h3>
-                    <p>ABS adalah fasilitas modern yang dirancang khusus untuk melatih mahasiswa dalam seni meracik minuman. Dilengkapi dengan peralatan barista terkini, ABS menjadi tempat ideal bagi calon profesional untuk mengasah keterampilan mereka dalam membuat kopi, teh, dan minuman inovatif lainnya.</p>
+                    <p class="notranslate" data-id="ABS adalah fasilitas modern yang dirancang khusus untuk melatih mahasiswa dalam seni meracik minuman. Dilengkapi dengan peralatan barista terkini, ABS menjadi tempat ideal bagi calon profesional untuk mengasah keterampilan mereka dalam membuat kopi, teh, dan minuman inovatif lainnya." data-en="ABS is a modern facility specifically designed to train students in the art of beverage mixing. Equipped with the latest barista tools, ABS is the ideal place for aspiring professionals to hone their skills in making coffee, tea, and other innovative drinks.">ABS adalah fasilitas modern yang dirancang khusus untuk melatih mahasiswa dalam seni meracik minuman. Dilengkapi dengan peralatan barista terkini, ABS menjadi tempat ideal bagi calon profesional untuk mengasah keterampilan mereka dalam membuat kopi, teh, dan minuman inovatif lainnya.</p>
                 </div>
             </div>
             <div class="facilities-card">
@@ -202,7 +212,7 @@
                 </div>
                 <div class="facilities-card-content">
                     <h3>Culinary Kitchen</h3>
-                    <p>Metland College memiliki dapur profesional standar industri yang lengkap dan modern untuk mendukung kegiatan praktik mahasiswa kuliner.</p>
+                    <p class="notranslate" data-id="Metland College memiliki dapur profesional standar industri yang lengkap dan modern untuk mendukung kegiatan praktik mahasiswa kuliner." data-en="Metland College features a complete and modern industry-standard professional kitchen to support the practical activities of culinary students.">Metland College memiliki dapur profesional standar industri yang lengkap dan modern untuk mendukung kegiatan praktik mahasiswa kuliner.</p>
                 </div>
             </div>
             <div class="facilities-card">
@@ -210,8 +220,8 @@
                     <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="" class="facilities-card-img" loading="lazy" decoding="async">
                 </div>
                 <div class="facilities-card-content">
-                    <h3>Housekeeping Mock-up Room</h3>
-                    <p>Kamar simulasi standar hotel bintang lima yang dirancang untuk melatih mahasiswa standar tertinggi dalam kebersihan dan penataan ruang hotel.</p>
+                    <h3 class="notranslate" data-en="Housekeeping Room" data-id="Ruangan Housekeeping">Housekeeping Mock-up Room</h3>
+                    <p class="notranslate" data-id="Kamar simulasi standar hotel bintang lima yang dirancang untuk melatih mahasiswa standar tertinggi dalam kebersihan dan penataan ruang hotel." data-en="A five-star hotel standard simulation room designed to train students to the highest standards of cleanliness and hotel room arrangement.">Kamar simulasi standar hotel bintang lima yang dirancang untuk melatih mahasiswa standar tertinggi dalam kebersihan dan penataan ruang hotel.</p>
                 </div>
             </div>
             <div class="facilities-card">
@@ -219,8 +229,8 @@
                     <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="" class="facilities-card-img" loading="lazy" decoding="async">
                 </div>
                 <div class="facilities-card-content">
-                    <h3>Front Office Lab</h3>
-                    <p>Fasilitas simulasi meja resepsionis modern untuk membekali mahasiswa dengan keahlian pelayanan prima bagi setiap tamu yang datang.</p>
+                    <h3 class="notranslate" data-en="Front Office Lab" data-id="Laboratorium Front Office">Front Office Lab</h3>
+                    <p class="notranslate" data-id="Fasilitas simulasi meja resepsionis modern untuk membekali mahasiswa dengan keahlian pelayanan prima bagi setiap tamu yang datang." data-en="A modern reception desk simulation facility to equip students with excellent service skills for every arriving guest.">Fasilitas simulasi meja resepsionis modern untuk membekali mahasiswa dengan keahlian pelayanan prima bagi setiap tamu yang datang.</p>
                 </div>
             </div>
         </div>
