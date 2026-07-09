@@ -138,39 +138,61 @@
             
             <!-- Vision Card -->
             <div class="vision-card">
-                <h2>Our Vision</h2>
-                <p>Metland College, whose graduates have <span>superior character</span> and <span>international standard</span> competitive abilities.</p>
+                <h2 class="notranslate" data-en="Our Vision" data-id="Visi Kami">Our Vision</h2>
+                <p class="notranslate" 
+                   data-en="Metland College, whose graduates have <span>superior character</span> and <span>international standard</span> competitive abilities."
+                   data-id="Metland College, yang lulusannya memiliki <span>karakter unggul</span> dan kemampuan kompetitif berstandar <span>internasional</span>.">
+                    Metland College, whose graduates have <span>superior character</span> and <span>international standard</span> competitive abilities.
+                </p>
                 <div class="vision-glow"></div>
             </div>
 
             <!-- Mission Area -->
             <div class="mission-area">
                 <div class="section-header">
-                    <span class="section-badge">Missions</span>
-                    <h2 class="section-title">Our Dreams</h2>
-                    <p class="section-desc">To achieve our vision, we are committed to executing these core missions with excellence and dedication.</p>
+                    <span class="section-badge notranslate" data-en="Missions" data-id="Misi">Missions</span>
+                    <h2 class="section-title notranslate" data-en="Our Dreams" data-id="Mimpi Kita">Our Dreams</h2>
+                    <p class="section-desc notranslate" 
+                       data-en="To achieve our vision, we are committed to executing these core missions with excellence and dedication." 
+                       data-id="Untuk mencapai visi kami, kami berkomitmen untuk melaksanakan misi utama ini dengan keunggulan dan dedikasi.">To achieve our vision, we are committed to executing these core missions with excellence and dedication.</p>
                 </div>
                 
                 <div class="mission-grid">
                     
                     <div class="mission-card">
                         <span class="mission-number">A</span>
-                        <p>Providing educational services for students oriented towards developing knowledge, skills, and attitudes based on Industry 4.0, as well as strengthening character that aligns with the demands of the industrial world.</p>
+                        <p class="notranslate" 
+                           data-en="Providing educational services for students oriented towards developing knowledge, skills, and attitudes based on Industry 4.0, as well as strengthening character that aligns with the demands of the industrial world." 
+                           data-id="Menyelenggarakan layanan pendidikan bagi peserta didik yang berorientasi pada pengembangan pengetahuan, keterampilan, dan sikap berbasis Industri 4.0, serta penguatan karakter yang selaras dengan tuntutan dunia industri.">
+                            Providing educational services for students oriented towards developing knowledge, skills, and attitudes based on Industry 4.0, as well as strengthening character that aligns with the demands of the industrial world.
+                        </p>
                     </div>
 
                     <div class="mission-card">
                         <span class="mission-number">B</span>
-                        <p>Developing the professionalism of teachers based on Metland College's values and adapting to the demands of Industry 4.0.</p>
+                        <p class="notranslate" 
+                           data-en="Developing the professionalism of teachers based on Metland College's values and adapting to the demands of Industry 4.0." 
+                           data-id="Mengembangkan profesionalisme pendidik berbasis nilai-nilai Metland College dan beradaptasi dengan tuntutan Industri 4.0.">
+                            Developing the professionalism of teachers based on Metland College's values and adapting to the demands of Industry 4.0.
+                        </p>
                     </div>
 
                     <div class="mission-card">
                         <span class="mission-number">C</span>
-                        <p>Developing a collaborative partnership network with the industrial and vocational higher education institutions (DUDI) and vocational colleges both domestically and internationally to develop academic programs.</p>
+                        <p class="notranslate" 
+                           data-en="Developing a collaborative partnership network with the industrial and vocational higher education institutions (DUDI) and vocational colleges both domestically and internationally to develop academic programs." 
+                           data-id="Mengembangkan jaringan kemitraan kolaboratif dengan dunia usaha dan industri (DUDI) serta perguruan tinggi vokasi baik di dalam maupun di luar negeri untuk mengembangkan program akademik.">
+                            Developing a collaborative partnership network with the industrial and vocational higher education institutions (DUDI) and vocational colleges both domestically and internationally to develop academic programs.
+                        </p>
                     </div>
 
                     <div class="mission-card">
                         <span class="mission-number">D</span>
-                        <p>Developing a collaborative network with DUDI (Dudi) domestically and internationally to achieve zero graduate unemployment.</p>
+                        <p class="notranslate" 
+                           data-en="Developing a collaborative network with DUDI (Dudi) domestically and internationally to achieve zero graduate unemployment." 
+                           data-id="Mengembangkan jaringan kolaboratif dengan DUDI di dalam dan luar negeri untuk mencapai target nol pengangguran lulusan.">
+                            Developing a collaborative network with DUDI (Dudi) domestically and internationally to achieve zero graduate unemployment.
+                        </p>
                     </div>
 
                 </div>
