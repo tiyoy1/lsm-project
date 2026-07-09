@@ -39,22 +39,6 @@
             background: #f2fbfb !important;
             font-family: "Outfit", sans-serif;
         }
-        nav {
-            /* start transparent on page load; darken once user scrolls */
-            background: transparent !important;
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            box-shadow: none !important;
-            transition: background-color 0.28s ease, backdrop-filter 0.28s ease, box-shadow 0.28s ease !important;
-        }
-
-        /* Applied when the page is scrolled */
-        .nav-scrolled {
-            background-color: rgba(7, 23, 31, 0.58) !important;
-            backdrop-filter: blur(10px) !important;
-            -webkit-backdrop-filter: blur(10px) !important;
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28) !important;
-        }
         .news-page-main {
             padding-top: 60px !important;
             padding-bottom: 80px !important;
@@ -354,8 +338,8 @@
         /* ── News Hero Section ── */
         .news-hero {
             position: relative;
-            /* match home hero: full viewport height */
             min-height: 100vh;
+            min-height: 100svh;
             width: 100%;
             overflow: hidden;
             display: flex;
@@ -403,6 +387,7 @@
             animation: newsHeroReveal 650ms ease-out forwards;
             transform: translateY(6px);
             opacity: 0;
+            border-radius: 20px;
         }
         .news-hero-eyebrow {
             margin: 0;
@@ -456,12 +441,28 @@
                 opacity: 1;
             }
         }
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .news-hero {
-                min-height: 55vh;
+                min-height: 82vh;
+                min-height: 82svh;
             }
             .news-hero-content {
-                padding: 1.5rem;
+                width: min(92vw, 560px);
+                padding: 1.4rem 1.5rem;
+                border-radius: 16px;
+                gap: 0.7rem;
+            }
+            .news-hero-eyebrow {
+                letter-spacing: 0.2rem;
+                font-size: 0.72rem;
+            }
+            .news-hero-title {
+                font-size: clamp(1.9rem, 8vw, 3.2rem);
+            }
+            .news-hero-content > p {
+                font-size: 0.85rem;
+                line-height: 1.5;
+                margin: 0;
             }
         }
         /* Reveal animation for news cards when scrolled into view */
@@ -527,6 +528,7 @@
                 </button>
             </li>
         </ul>
+        <div class="nav-right">
         <div class="sosmed-icon">
             <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
                 <i class="bi bi-youtube"></i>
@@ -549,6 +551,7 @@
                 <i class="bi bi-translate"></i> Switch to Language
             </button>
         </div>
+    </div>
         <div class="nav-mobile-actions" aria-label="Mobile navigation controls">
             <a href="{{ route('news.index') }}" class="nav-mobile-search" aria-label="Search news">
                 <i class="bi bi-search"></i>
@@ -684,27 +687,15 @@
                 new Swiper(newsHeroEl, {
                     slidesPerView: 1,
                     loop: true,
-                    speed: 3500,
+                    speed: 1000,
                     autoplay: {
-                        delay: 2000,
+                        delay: 5000,
                         disableOnInteraction: false,
                     },
                 });
             }
 
-            // Navbar: start transparent, darken on scroll
-            var navEl = document.querySelector('nav');
-            function updateNavScroll() {
-                if (!navEl) return;
-                if (window.scrollY > 20) {
-                    navEl.classList.add('nav-scrolled');
-                } else {
-                    navEl.classList.remove('nav-scrolled');
-                }
-            }
-            // Initialize state and bind scroll handler
-            updateNavScroll();
-            window.addEventListener('scroll', function() { requestAnimationFrame(updateNavScroll); });
+
 
             // Reveal news cards when they scroll into view
             var newsCards = document.querySelectorAll('.news-page-card');

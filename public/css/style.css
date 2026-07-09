@@ -15,13 +15,13 @@ body {
 nav {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 9000;
     width: 100%;
     padding: 1rem 1.25rem;
-    gap: 1rem;
     transition:
         background-color 0.28s ease,
         backdrop-filter 0.28s ease,
@@ -36,7 +36,7 @@ nav.is-scrolled {
 }
 
 nav .logo {
-    flex-shrink: 0;
+    flex: 1 0 0%;
     color: #fff;
     gap: 10px;
     display: flex;
@@ -66,9 +66,16 @@ nav ul {
     gap: 1rem;
     justify-content: center;
     margin: 0;
-    margin-left: clamp(0px, 3vw, 48px);
     padding: 0;
-    flex: 1;
+    flex: 0 1 auto;
+}
+
+nav .nav-right {
+    flex: 1 0 0%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
 }
 
 nav ul li {
@@ -5215,9 +5222,7 @@ body>nav ul li.nav-mobile-only {
         width: 32px;
     }
 
-    body>nav .sosmed-icon,
-    body>nav .ppdb-btn,
-    body>nav .lang-switch {
+    body>nav .nav-right {
         display: none;
     }
 
@@ -5429,9 +5434,7 @@ body>nav ul li.nav-mobile-only {
         width: 33px;
     }
 
-    body>nav .sosmed-icon,
-    body>nav .ppdb-btn,
-    body>nav .lang-switch {
+    body>nav .nav-right {
         display: none;
     }
 
