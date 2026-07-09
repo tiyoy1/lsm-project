@@ -584,6 +584,8 @@
         })();
     </script>
 
+    @include('partials.whatsapp-fab')
+
     @stack('scripts') <!-- For page-specific scripts -->
 </body>
 </html>

@@ -146,17 +146,19 @@
         </ul>
         <div class="nav-right">
         <div class="sosmed-icon">
-  <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
-    <i class="bi bi-youtube"></i>
-  </a>
-
-  <a href="https://www.tiktok.com/@metlandcollege?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="icon-tiktok" aria-label="TikTok SMK Metland">
-    <i class="bi bi-tiktok"></i>
-  </a>
-  <a href="https://www.instagram.com/metland.college?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="icon-instagram" aria-label="Instagram SMK Metland">
-    <i class="bi bi-instagram"></i>
-  </a>
-</div>
+            <div class="wrapper-icon">
+                <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
+                    <i class="bi bi-youtube"></i>
+                </a>
+                
+                <a href="https://www.tiktok.com/@metlandcollege?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="icon-tiktok" aria-label="TikTok SMK Metland">
+                    <i class="bi bi-tiktok"></i>
+                </a>
+                <a href="https://www.instagram.com/metland.college?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="icon-instagram" aria-label="Instagram SMK Metland">
+                    <i class="bi bi-instagram"></i>
+                </a>
+            </div>
+        </div>
         <div class="ppdb-btn">
             <button type="button" onclick="window.location.href='{{ route('registration.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
         </div>
@@ -183,7 +185,7 @@
             <div class="swiper hero-swiper" style="width: 100%; height: 100%;">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="hero-slide-media2811q">
+                        <div class="hero-slide-media">
                             <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="SMK Metland Cileungsi" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
                         </div>
                     </div>
@@ -584,17 +586,7 @@
             });
         })();
     </script>
-    <a
-        class="whatsapp-fab"
-        href="https://wa.me/{{ $whatsappNumber }}"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat via WhatsApp"
-        title="Chat via WhatsApp"
-    >
-        <i class="bi bi-whatsapp" aria-hidden="true"></i>
-        <span class="whatsapp-fab-tooltip">Hubungi kami!</span>
-    </a>
+    @include('partials.whatsapp-fab')
     <div id="google_translate_element" style="display:none;"></div>
     <script src="{{ asset('js/translator.js') }}"></script>
 </body>

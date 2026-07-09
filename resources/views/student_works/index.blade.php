@@ -88,5 +88,6 @@
     </main>
     <div id="google_translate_element" style="display:none;"></div>
     <script src="{{ asset('js/translator.js') }}"></script>
+    @include('partials.whatsapp-fab')
 </body>
 </html>

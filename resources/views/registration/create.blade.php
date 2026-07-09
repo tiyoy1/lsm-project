@@ -633,17 +633,7 @@
 
         @include('partials.footer')
 
-    <a
-        class="whatsapp-fab"
-        href="https://wa.me/{{ $whatsappNumber }}"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat via WhatsApp"
-        title="Chat via WhatsApp"
-    >
-        <i class="bi bi-whatsapp" aria-hidden="true"></i>
-        <span class="whatsapp-fab-tooltip">Hubungi kami!</span>
-    </a>
+    @include('partials.whatsapp-fab')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

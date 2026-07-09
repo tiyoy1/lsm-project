@@ -222,39 +222,53 @@ nav .sosmed-icon {
 }
 
 nav .sosmed-icon a {
-    color: #e9fdff;
-    font-size: 1.1rem;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 90px;
+    color: #ffffff;
+    font-size: 0.8rem;
+    text-decoration: none;
     transition:
         transform 0.2s ease,
-        color 0.2s ease;
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
 }
 
 nav .sosmed-icon a:hover {
     transform: translateY(-2px);
+    filter: brightness(1.05);
 }
 
 nav .sosmed-icon .icon-youtube {
-    color: #ff0000;
+    background: red;
+    box-shadow: 0 10px 20px rgba(200, 29, 17, 0.28);
 }
 
 /* merah */
 nav .sosmed-icon .icon-tiktok {
-    color: #ffffff;
+    background: linear-gradient(135deg, #111827, #000000);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.28);
 }
 
 /* putih */
 nav .sosmed-icon .icon-instagram {
-    color: #e4405f;
+    background: linear-gradient(135deg, #f58529, #dd2a7b 55%, #8134af);
+    box-shadow: 0 10px 20px rgba(221, 42, 123, 0.25);
 }
 
 /* opsional */
 nav .sosmed-icon .icon-facebook {
-    color: #4840e4;
+    background: linear-gradient(135deg, #1877f2, #0f5dc7);
+    box-shadow: 0 10px 20px rgba(24, 119, 242, 0.25);
 }
 
 /* opsional */
 nav .sosmed-icon .icon-whatsapp {
-    color: #25d366;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    box-shadow: 0 10px 20px rgba(18, 140, 126, 0.25);
 }
 
 /* opsional */
@@ -278,6 +292,13 @@ nav .sosmed-icon .icon-whatsapp {
     transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease, background-position 0.35s ease;
     overflow: visible;
     isolation: isolate;
+}
+
+.whatsapp-fab svg {
+    width: 1em;
+    height: 1em;
+    display: block;
+    fill: currentColor;
 }
 
 .whatsapp-fab:hover {
@@ -312,9 +333,8 @@ nav .sosmed-icon .icon-whatsapp {
     top: 50%;
     transform: translateY(-50%) translateX(8px);
     padding: 8px 12px;
-    border-radius: 999px;
+    border-radius: 90px;
     background: rgba(8, 28, 25, 0.92);
-    color: #ffffff;
     font-size: 0.8rem;
     font-weight: 700;
     line-height: 1;
@@ -629,7 +649,6 @@ body>nav ul li.nav-mobile-only {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     background: #f2fbfb;
-    border-radius: 20px;
     overflow: hidden;
     isolation: isolate;
     transform: translateZ(0);
@@ -4568,6 +4587,16 @@ body>nav ul li.nav-mobile-only {
         gap: 0.65rem;
     }
 
+    body>nav .sosmed-icon .wrapper-icon {
+        gap: 0.35rem;
+    }
+
+    body>nav .sosmed-icon a {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
     body>nav .ppdb-btn button {
         padding: 10px 16px;
         font-size: 0.7rem;
@@ -4595,6 +4624,16 @@ body>nav ul li.nav-mobile-only {
 
     body>nav .sosmed-icon {
         gap: 0.5rem;
+    }
+
+    body>nav .sosmed-icon .wrapper-icon {
+        gap: 0.3rem;
+    }
+
+    body>nav .sosmed-icon a {
+        width: 34px;
+        height: 34px;
+        font-size: 0.95rem;
     }
 
     body>nav .ppdb-btn button {
@@ -4719,6 +4758,8 @@ body>nav ul li.nav-mobile-only {
 
     body>nav .sosmed-icon a {
         font-size: 1rem;
+        width: 34px;
+        height: 34px;
     }
 
     body>nav ul {
@@ -4880,7 +4921,7 @@ body>nav ul li.nav-mobile-only {
     }
 
     body>nav .sosmed-icon {
-        display: none;
+        display: flex;
     }
 
     body>nav .ppdb-btn button {
@@ -5435,13 +5476,39 @@ body>nav ul li.nav-mobile-only {
     }
 
     body>nav .nav-right {
+        order: 2;
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.4rem;
+        margin-left: auto;
+        flex: 0 0 auto;
+    }
+
+    body>nav .ppdb-btn,
+    body>nav .lang-switch {
         display: none;
     }
 
+    body>nav .sosmed-icon {
+        display: flex;
+        gap: 0.45rem;
+    }
+
+    body>nav .sosmed-icon .wrapper-icon {
+        gap: 0.28rem;
+        padding: 0.24rem;
+    }
+
+    body>nav .sosmed-icon a {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+
     body>nav .nav-mobile-actions {
-        order: 1;
-        margin-left: 0;
-        margin-right: 2px;
+        order: 3;
+        margin-left: 0.25rem;
         display: inline-flex;
         align-items: center;
         gap: 8px;
@@ -7021,4 +7088,8 @@ button.btn:active {
     }
 }
 
+.footer-text {
+    color: #11aeb2;
+    font-weight: 800;
+    text-decoration: none;
 }

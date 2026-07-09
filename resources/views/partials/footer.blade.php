@@ -105,6 +105,9 @@
         </div>
     </div>
     <div class="footer-copyright">
-        <p>&copy; {{ date('Y') }} Metland College. All rights reserved. Developed by <strong>Metscho Tech</strong>.</p>
+        <>&copy; {{ date('Y') }} Metland College. All rights reserved. Developed by <strong>Metschoo Tech</strong>.
+        Created by : <a href="https://github.com/biyyuu" target="_blank" class="footer-text">Abiyyu,</a>
+        <a href="https://github.com/tiyoy1" target="_blank" class="footer-text">Theo,</a>
+        <a href="https://github.com/Juremenn" target="_blank" class="footer-text">Nirvana,</a></p>
     </div>
 </footer>

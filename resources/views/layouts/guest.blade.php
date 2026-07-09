@@ -29,5 +29,6 @@
                 {{ $slot }}
             </div>
         </div>
+        @include('partials.whatsapp-fab')
     </body>
 </html>

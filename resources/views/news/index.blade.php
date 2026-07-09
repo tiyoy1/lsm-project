@@ -716,19 +716,8 @@
             }
         });
     </script>
-    <a
-        class="whatsapp-fab"
-        href="https://wa.me/{{ $whatsappNumber }}"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat via WhatsApp"
-        title="Chat via WhatsApp"
-    >
-        <i class="bi bi-whatsapp" aria-hidden="true"></i>
-        <span class="whatsapp-fab-tooltip">Hubungi kami!</span>
-    </a>
+    @include('partials.whatsapp-fab')
     <div id="google_translate_element" style="display:none;"></div>
     <script src="{{ asset('js/translator.js') }}"></script>
 </body>
 </html>
-

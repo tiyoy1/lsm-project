@@ -523,17 +523,7 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="{{ asset("js/script.js") }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <a
-        class="whatsapp-fab"
-        href="https://wa.me/{{ $whatsappNumber }}"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat via WhatsApp"
-        title="Chat via WhatsApp"
-    >
-        <i class="bi bi-whatsapp" aria-hidden="true"></i>
-        <span class="whatsapp-fab-tooltip">Hubungi kami!</span>
-    </a>
+    @include('partials.whatsapp-fab')
     <div id="google_translate_element" style="display:none;"></div>
     <script src="{{ asset('js/translator.js') }}"></script>
 </body>
