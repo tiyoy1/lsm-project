@@ -184,7 +184,7 @@
         <div class="facilities-head">
             <span class="section-badge">Our Facilities</span>
             <h2 class="campus-fasilities-title">What we have to support your <span>Process</span></h2>
-            <p>Metland College memiliki fasilitas yang lengkap dan modern untuk mendukung kegiatan belajar mengajar.</p>
+            <p class="notranslate" data-id="Metland College memiliki fasilitas yang lengkap dan modern untuk mendukung kegiatan belajar mengajar." data-en="Metland College has complete and modern facilities to support teaching and learning activities.">Metland College memiliki fasilitas yang lengkap dan modern untuk mendukung kegiatan belajar mengajar.</p>
         </div>
         <div class="facilities-body">
             <div class="facilities-card">
@@ -193,7 +193,7 @@
                 </div>
                 <div class="facilities-card-content">
                     <h3>Artisan Beverage Studio (ABS)</h3>
-                    <p>ABS adalah fasilitas modern yang dirancang khusus untuk melatih mahasiswa dalam seni meracik minuman. Dilengkapi dengan peralatan barista terkini, ABS menjadi tempat ideal bagi calon profesional untuk mengasah keterampilan mereka dalam membuat kopi, teh, dan minuman inovatif lainnya.</p>
+                    <p class="notranslate" data-id="ABS adalah fasilitas modern yang dirancang khusus untuk melatih mahasiswa dalam seni meracik minuman. Dilengkapi dengan peralatan barista terkini, ABS menjadi tempat ideal bagi calon profesional untuk mengasah keterampilan mereka dalam membuat kopi, teh, dan minuman inovatif lainnya." data-en="ABS is a modern facility specifically designed to train students in the art of beverage mixing. Equipped with the latest barista tools, ABS is the ideal place for aspiring professionals to hone their skills in making coffee, tea, and other innovative drinks.">ABS adalah fasilitas modern yang dirancang khusus untuk melatih mahasiswa dalam seni meracik minuman. Dilengkapi dengan peralatan barista terkini, ABS menjadi tempat ideal bagi calon profesional untuk mengasah keterampilan mereka dalam membuat kopi, teh, dan minuman inovatif lainnya.</p>
                 </div>
             </div>
             <div class="facilities-card">
@@ -202,7 +202,7 @@
                 </div>
                 <div class="facilities-card-content">
                     <h3>Culinary Kitchen</h3>
-                    <p>Metland College memiliki dapur profesional standar industri yang lengkap dan modern untuk mendukung kegiatan praktik mahasiswa kuliner.</p>
+                    <p class="notranslate" data-id="Metland College memiliki dapur profesional standar industri yang lengkap dan modern untuk mendukung kegiatan praktik mahasiswa kuliner." data-en="Metland College features a complete and modern industry-standard professional kitchen to support the practical activities of culinary students.">Metland College memiliki dapur profesional standar industri yang lengkap dan modern untuk mendukung kegiatan praktik mahasiswa kuliner.</p>
                 </div>
             </div>
             <div class="facilities-card">
@@ -210,8 +210,8 @@
                     <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="" class="facilities-card-img" loading="lazy" decoding="async">
                 </div>
                 <div class="facilities-card-content">
-                    <h3>Housekeeping Mock-up Room</h3>
-                    <p>Kamar simulasi standar hotel bintang lima yang dirancang untuk melatih mahasiswa standar tertinggi dalam kebersihan dan penataan ruang hotel.</p>
+                    <h3 class="notranslate" data-en="Housekeeping Room" data-id="Ruangan Housekeeping">Housekeeping Mock-up Room</h3>
+                    <p class="notranslate" data-id="Kamar simulasi standar hotel bintang lima yang dirancang untuk melatih mahasiswa standar tertinggi dalam kebersihan dan penataan ruang hotel." data-en="A five-star hotel standard simulation room designed to train students to the highest standards of cleanliness and hotel room arrangement.">Kamar simulasi standar hotel bintang lima yang dirancang untuk melatih mahasiswa standar tertinggi dalam kebersihan dan penataan ruang hotel.</p>
                 </div>
             </div>
             <div class="facilities-card">
@@ -219,8 +219,8 @@
                     <img src="{{ asset('img/SMK Metland Cileungsi.webp') }}" alt="" class="facilities-card-img" loading="lazy" decoding="async">
                 </div>
                 <div class="facilities-card-content">
-                    <h3>Front Office Lab</h3>
-                    <p>Fasilitas simulasi meja resepsionis modern untuk membekali mahasiswa dengan keahlian pelayanan prima bagi setiap tamu yang datang.</p>
+                    <h3 class="notranslate" data-en="Front Office Lab" data-id="Laboratorium Front Office">Front Office Lab</h3>
+                    <p class="notranslate" data-id="Fasilitas simulasi meja resepsionis modern untuk membekali mahasiswa dengan keahlian pelayanan prima bagi setiap tamu yang datang." data-en="A modern reception desk simulation facility to equip students with excellent service skills for every arriving guest.">Fasilitas simulasi meja resepsionis modern untuk membekali mahasiswa dengan keahlian pelayanan prima bagi setiap tamu yang datang.</p>
                 </div>
             </div>
         </div>

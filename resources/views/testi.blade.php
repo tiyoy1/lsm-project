@@ -761,7 +761,7 @@
             <div class="testi-page-head" style="margin-bottom: 28px;">
                 <div class="testi-page-badge">Submit</div>
                 <h2 class="testi-page-title">Submit Your <span>Testimonial</span></h2>
-                <p class="testi-page-desc">Testimoni kamu akan tampil setelah ditinjau dan disetujui admin.</p>
+                <p class="testi-page-desc notranslate" data-id="Testimoni kamu akan tampil setelah ditinjau dan disetujui admin." data-en="Your testimonial will appear after being reviewed and approved by the admin.">Testimoni kamu akan tampil setelah ditinjau dan disetujui admin.</p>
             </div>
 
             @if(session('testimonial_success'))
