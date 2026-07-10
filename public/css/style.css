@@ -22,6 +22,7 @@ nav {
     z-index: 9000;
     width: 100%;
     padding: 1rem 1.25rem;
+    gap: 1.5rem;
     transition:
         background-color 0.28s ease,
         backdrop-filter 0.28s ease,
@@ -219,6 +220,13 @@ nav .sosmed-icon {
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+nav .sosmed-icon .wrapper-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: nowrap;
 }
 
 nav .sosmed-icon a {
@@ -4566,7 +4574,7 @@ body>nav ul li.nav-mobile-only {
 @media (max-width: 1280px) {
     body>nav {
         padding: 0.85rem 1rem;
-        gap: 0.65rem;
+        gap: 1.25rem;
     }
 
     body>nav .logo {
@@ -4606,7 +4614,7 @@ body>nav ul li.nav-mobile-only {
 @media (max-width: 1024px) {
     body>nav {
         padding: 0.78rem 0.9rem;
-        gap: 0.55rem;
+        gap: 1rem;
     }
 
     body>nav .logo {

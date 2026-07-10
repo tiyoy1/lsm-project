@@ -58,7 +58,7 @@
                     <i class="bi bi-translate"></i> Ganti ke Bahasa
                 </button>
                 <button type="button" onclick="setLanguage('en')" id="mobile-lang-btn-en" class="nav-lang-toggle" data-lang="en" style="display:none;">
-                    <i class="bi bi-translate"></i> Switch to Language
+                    <i class="bi bi-translate"></i> Switch to English
                 </button>
             </li>
         </ul>
@@ -83,7 +83,7 @@
                 <i class="bi bi-translate"></i> Ganti ke Bahasa
             </button>
             <button type="button" onclick="setLanguage('en')" id="lang-btn-en" class="desktop-lang-toggle" data-lang="en" style="display:none;">
-                <i class="bi bi-translate"></i> Switch to Language
+                <i class="bi bi-translate"></i> Switch to English
             </button>
         </div>
     </div>

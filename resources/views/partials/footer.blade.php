@@ -104,9 +104,9 @@
             </iframe>
         </div>
     </div>
-    <div class="footer-copyright">
-        <>&copy; {{ date('Y') }} Metland College. All rights reserved. Developed by <strong>Metschoo Tech</strong>.
-        Created by : <a href="https://github.com/biyyuu" target="_blank" class="footer-text">Abiyyu,</a>
+    <div class="footer-copyright notranslate">
+        <p>&copy; {{ date('Y') }} Metland College. <span data-en="All rights reserved." data-id="Hak cipta dilindungi.">All rights reserved.</span> <span data-en="Developed by" data-id="Dikembangkan oleh">Developed by</span> <strong>Metschoo Tech</strong>.
+        <span data-en="Created by :" data-id="Dibuat oleh :">Created by :</span> <a href="https://github.com/biyyuu" target="_blank" class="footer-text">Abiyyu,</a>
         <a href="https://github.com/tiyoy1" target="_blank" class="footer-text">Theo,</a>
         <a href="https://github.com/Juremenn" target="_blank" class="footer-text">Nirvana,</a></p>
     </div>
