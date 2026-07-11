@@ -146,18 +146,16 @@
         </ul>
         <div class="nav-right">
         <div class="sosmed-icon">
-            <div class="wrapper-icon">
-                <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
-                    <i class="bi bi-youtube"></i>
-                </a>
-                
-                <a href="https://www.tiktok.com/@metlandcollege?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="icon-tiktok" aria-label="TikTok SMK Metland">
-                    <i class="bi bi-tiktok"></i>
-                </a>
-                <a href="https://www.instagram.com/metland.college?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="icon-instagram" aria-label="Instagram SMK Metland">
-                    <i class="bi bi-instagram"></i>
-                </a>
-            </div>
+            <a href="https://www.youtube.com/@MetlandAcademy" target="_blank" rel="noopener noreferrer" class="icon-youtube" aria-label="YouTube SMK Metland">
+                <i class="bi bi-youtube"></i>
+            </a>
+            
+            <a href="https://www.tiktok.com/@metlandcollege?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="icon-tiktok" aria-label="TikTok SMK Metland">
+                <i class="bi bi-tiktok"></i>
+            </a>
+            <a href="https://www.instagram.com/metland.college?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="icon-instagram" aria-label="Instagram SMK Metland">
+                <i class="bi bi-instagram"></i>
+            </a>
         </div>
         <div class="ppdb-btn">
             <button type="button" onclick="window.location.href='{{ route('registration.create') }}'" data-en="Join Us" data-id="Bergabung" class="notranslate">Join Us</button>
